@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.ResumoFazendasArrendadas>
+
+@{
+    double total = 0; 
+    double totalArrendado = 0;
+}
+
+@if (Model.Count() > 0)
+{
+    
+
+<ul class="listaFormatada especial">
+    <li>
+
+        <h4> Resumo Arrendadas </h4>
+        <br />
+        <ul>
+
+            @foreach (var item in Model)
+            {
+
+                <li> 
+                    <div class="left" >
+                        @item.QuantidadeFazendas: 
+                        
+                        @if (item.TotalArrendadoValor>0)
+                        {
+                             <span style="font-size:0.8em"> *@string.Format("{0:c}", item.TotalArrendadoValor)</span>
+                        }
+                       
+                    </div> 
+                    <div class="right">
+                        @string.Format("{0:C}", item.TotalTerraSolo + item.TotalBenfeitorias + item.TotalSemoventes)
+                    </div>
+                    <div class="clear"></div>
+                </li>
+
+            total = total+Convert.ToDouble(item.TotalTerraSolo + item.TotalBenfeitorias + item.TotalSemoventes);
+
+
+
+            }
+
+        </ul>
+        
+</li>
+    <li style="padding: 5px !important">
+
+        <b>Total<div class="right">@string.Format("{0:C}", total)</div></b>
+
+    </li>
+</ul>
+    <span style="font-size:0.8em">* Valor Arrendado</span>
+}

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAT3VQNiKrMEq2dxN5noTUmQAAAAACAAAAAAAQZgAAAAEAACAAAACIMIcZWicSA0yXdS+qams2mZCPKEWO3g4Br/24KtSllwAAAAAOgAAAAAIAACAAAAAw6oH8Rta/SLCrvE/fMTAYuan0kEnyYGW4DYYUaRUE9IAAAAAUD+oV+Hr4LNdXjcSUy3bcawEEFU4JHuoxS0YASryhJ7xhJNgLYUF8y64xGvqA9xF7ak8XQt9iKm3Kg0Gx5UVSCc+qEf8ZIix/KeogPfeN2Cbsw+xe0MsG7wASTyWKu9ktae8c4w4H28x7gkiwBF9MMNeZk3ZdwIzPPpjLveA7SEAAAACrdE7JHX1e7tqxiMIUb61nIL5OwDaC5YSkLDvWavOZVQM1h8hzL6moyOPbTsuvoohhojV++ejM3sjXr7pfgmh3</EncryptedPassword>
+    <_PublishTargetUrl>ftp://waws-prod-cq1-001.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
+    <History>False|2025-03-11T15:03:37.2547085Z||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Views/TerraSolo/Create.cshtml">
+      <publishTime>05/01/2014 22:15:39</publishTime>
+    </File>
+    <File Include="Views/TerraSolo/Edit.cshtml">
+      <publishTime>05/01/2014 22:15:55</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

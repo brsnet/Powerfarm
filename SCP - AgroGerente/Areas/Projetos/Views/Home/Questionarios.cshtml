@@ -1,0 +1,17 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.CadastroBQTipo>
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="cadastrosSistemaUsuario">
+
+        <div class="icon farm questionariosProjeto left"></div>
+
+        Quesionário de  <br />@Html.ActionLink(@item.BQTipo, "Index", new { area = "Projetos", controller = "CadastroBQRespostas", ID=@item.ID })
+
+    </div>
+    <br />
+}
+

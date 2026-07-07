@@ -1,0 +1,43 @@
+﻿@model SCP___AgroGerente.Models.SafraDistribuicao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SafraDistribuicao</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DistribuicaoSafraTipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DistribuicaoSafraTipo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroFazenda.FazendaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroFazenda.FazendaNome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DistribuicaoSafraSistemaPlantio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DistribuicaoSafraSistemaPlantio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DistribuicaoSafraArea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DistribuicaoSafraArea)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

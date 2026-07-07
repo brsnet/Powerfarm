@@ -1,0 +1,1380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AUTHORITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USERNAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="USERPASS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="USERAUTH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CadastroBenfeitoria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BenfeitoriaFazenda" Type="Int32" Nullable="false" />
+    <Property Name="BenfeitoriaEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BenfeitoriaQuantidade" Type="Int32" Nullable="false" />
+    <Property Name="BenfeitoriaCaracteristicas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaEstadoConservacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaArrendado" Type="Boolean" />
+    <Property Name="BenfeitoriaData" Type="DateTime" Precision="3" />
+    <Property Name="BenfeitoriaAtiva" Type="Boolean" />
+    <Property Name="BenfeitoriaValor" Type="Double" Nullable="false" />
+    <Property Name="BenfeitoriaUsuario" Type="Int32" />
+    <Property Name="BenfeitoriaParticipacao" Type="Double" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="Self.FK_CadastroBenfeitoria_CadastroFazenda" FromRole="CadastroBenfeitoria" ToRole="CadastroFazenda" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroBenfeitoria_CadastroUsuarios" FromRole="CadastroBenfeitoria" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroBensDireitos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BensDireitosCategoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BensDireitosCaracteristicas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BensDireitosValor" Type="Double" Nullable="false" />
+    <Property Name="BensDireitosUsuarioID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroBensDireitos_CadastroUsuarios" FromRole="CadastroBensDireitos" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroClientes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteExperiencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteClassificacaoPorte" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteAtividadeDesenvolvida" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteTempoAtividade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstruturaArmazenamento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstruturaTransporte" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteResidenciaProdutor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstadoCivil" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteAuthority" Type="Int32" />
+    <Property Name="ClienteDadosUsuario" Type="Int32" Nullable="false" />
+    <Property Name="ClienteRelacaoFazenda" Type="Int32" />
+    <Property Name="ClienteFazenda" Type="Int32" />
+    <Property Name="ClienteConjujeUsuario" Type="Int32" />
+    <Property Name="ClienteParticipacaoGeral" Type="Double" />
+    <Property Name="ClienteListaSociosID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteListaSociosNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroClientes_CadastroUsuarios" FromRole="CadastroClientes" ToRole="CadastroUsuarios" />
+    <Property Name="ClienteGrau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteFormacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CadastroDivida">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DividaCredor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DividaFinalidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaDataContratada" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaDataVencimento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaCarencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaEncargos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaPeriodicidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaSaldo" Type="Double" Nullable="false" />
+    <Property Name="DividaUsuario" Type="Int32" Nullable="false" />
+    <Property Name="DividaData" Type="DateTime" Precision="3" />
+    <Property Name="DividaSafra" Type="Int32" />
+    <Property Name="DividaAtiva" Type="Boolean" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroDivida_CadastroUsuarios" FromRole="CadastroDivida" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaMatriculaCRI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaCodigoINCRA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaRoteiroAcesso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesNorte" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesSul" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesLeste" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesOeste" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaTitulosDominio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaTipoPropriedade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaOnusGravames" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaMatricula" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaCodReceitaFederal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloSaca" Type="Double" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="FazendaMicrorregiao" Type="Int32" Nullable="false" />
+    <Property Name="FazendaCultura" Type="Int32" Nullable="false" />
+    <Property Name="FazendaArrendada" Type="Boolean" />
+    <Property Name="FazendaArrendadaAreaArrendada" Type="Double" />
+    <Property Name="FazendaArrendadaValorArrendado" Type="Double" />
+    <Property Name="FazendaArrendadaDataInicio" Type="DateTime" Precision="3" />
+    <Property Name="FazendaArrendadaDataFim" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CadastroBenfeitoria" Relationship="Self.FK_CadastroBenfeitoria_CadastroFazenda" FromRole="CadastroFazenda" ToRole="CadastroBenfeitoria" />
+    <NavigationProperty Name="CadastroMicrorregiao" Relationship="Self.FK_CadastroFazenda_CadastroMicrorregiao" FromRole="CadastroFazenda" ToRole="CadastroMicrorregiao" />
+    <NavigationProperty Name="Cultura" Relationship="Self.FK_CadastroFazenda_Cultura" FromRole="CadastroFazenda" ToRole="Cultura" />
+    <NavigationProperty Name="CadastroRelacao" Relationship="Self.FK_CadastroRelacao_CadastroFazenda" FromRole="CadastroFazenda" ToRole="CadastroRelacao" />
+    <NavigationProperty Name="CadastroSemovente" Relationship="Self.FK_CadastroSemovente_CadastroFazenda" FromRole="CadastroFazenda" ToRole="CadastroSemovente" />
+    <NavigationProperty Name="CadastroTerraSolo" Relationship="Self.FK_CadastroTerraSolo_CadastroFazenda" FromRole="CadastroFazenda" ToRole="CadastroTerraSolo" />
+    <NavigationProperty Name="SafraDistribuicao" Relationship="SCPModel.FK_SafraDistribuicao_CadastroFazenda" FromRole="CadastroFazenda" ToRole="SafraDistribuicao" />
+  </EntityType>
+  <EntityType Name="CadastroImplemento">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImplementoEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoMarca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoModelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoChassiSerie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoValor" Type="Double" Nullable="false" />
+    <Property Name="ImplementoP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoFazendaOrigem" Type="Int32" />
+    <Property Name="ImplementoCidadeLocal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ImplementoSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ImplementoData" Type="DateTime" Precision="3" />
+    <Property Name="ImplementoAtiva" Type="Boolean" />
+    <Property Name="ImplementoUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroImplemento_CadastroUsuarios" FromRole="CadastroImplemento" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroMaquina">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaquinaEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaMarca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaModelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaPotencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaChassiSerie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaValor" Type="Double" Nullable="false" />
+    <Property Name="MaquinaP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaFazendaOrigem" Type="Int32" />
+    <Property Name="MaquinaCidadeLocal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MaquinaData" Type="DateTime" Precision="3" />
+    <Property Name="MaquinaAtiva" Type="Boolean" />
+    <Property Name="MaquinaUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroMaquina_CadastroUsuarios" FromRole="CadastroMaquina" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroMicrorregiao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MicrorregiaoNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MicrorregiaoBrutaNuaInferiorSaca" Type="Int32" Nullable="false" />
+    <Property Name="MicrorregiaoBrutaNuaSuperiorSaca" Type="Int32" Nullable="false" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaInferiorSaca" Type="Int32" Nullable="false" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaSuperiorSaca" Type="Int32" Nullable="false" />
+    <Property Name="Ativa" Type="Boolean" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="Self.FK_CadastroFazenda_CadastroMicrorregiao" FromRole="CadastroMicrorregiao" ToRole="CadastroFazenda" />
+  </EntityType>
+  <EntityType Name="CadastroQuestionario">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionarioQuestao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioResposta1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioResposta2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioResposta3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioResposta4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioResposta5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioSafra" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CadastroRelacao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RelacaoUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="RelacaoFazendaID" Type="Int32" />
+    <Property Name="RelacaoTitulo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="Self.FK_CadastroRelacao_CadastroFazenda" FromRole="CadastroRelacao" ToRole="CadastroFazenda" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroRelacao_CadastroUsuarios" FromRole="CadastroRelacao" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroRespostaQuestionario">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionarioRespostaQuestao" Type="Int32" />
+    <Property Name="QuestionarioRespostaUsuario" Type="Int32" />
+    <Property Name="QuestionarioRespostaResposta1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioRespostaResposta2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioRespostaResposta3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioRespostaResposta4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioRespostaResposta5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CadastroSafra">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SafraData" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NomeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SafraPrevista" Type="Boolean" />
+    <NavigationProperty Name="SafraNormalPrevista" Relationship="Self.FK_SafraNormalPrevista_CadastroSafra" FromRole="CadastroSafra" ToRole="SafraNormalPrevista" />
+    <NavigationProperty Name="SafraDistribuicao" Relationship="SCPModel.FK_SafraDistribuicao_CadastroSafra" FromRole="CadastroSafra" ToRole="SafraDistribuicao" />
+  </EntityType>
+  <EntityType Name="CadastroSemovente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SemoventeEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SemoventeUA" Type="Int16" Nullable="false" />
+    <Property Name="SemoventeNumeroUA" Type="Int16" Nullable="false" />
+    <Property Name="SemoventeNumeroCabecas" Type="Int16" Nullable="false" />
+    <Property Name="SemoventeCaracteristicas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SemoventeValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="SemoventeCredor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SemoventeUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="SemoventeFazendaID" Type="Int32" Nullable="false" />
+    <Property Name="SemoventeP" Type="Boolean" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="Self.FK_CadastroSemovente_CadastroFazenda" FromRole="CadastroSemovente" ToRole="CadastroFazenda" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroSemovente_CadastroUsuarios" FromRole="CadastroSemovente" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="CadastroTerraSolo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TerraSoloEspecificacao" Type="Int32" Nullable="false" />
+    <Property Name="TerraSoloArea" Type="Double" Nullable="false" />
+    <Property Name="TerraSoloCaracteristicas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloClasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloAtiva" Type="Boolean" />
+    <Property Name="TerraSoloFazenda" Type="Int32" Nullable="false" />
+    <Property Name="TerraSoloMicrorregiao" Type="Int32" Nullable="false" />
+    <Property Name="Ativo" Type="Boolean" />
+    <Property Name="TerraSoloTipoCultura" Type="Int32" Nullable="false" />
+    <Property Name="TerraSoloMicrorregiaoTerra" Type="Int32" Nullable="false" />
+    <Property Name="TerraSoloUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="Self.FK_CadastroTerraSolo_CadastroFazenda" FromRole="CadastroTerraSolo" ToRole="CadastroFazenda" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroTerraSolo_CadastroUsuarios" FromRole="CadastroTerraSolo" ToRole="CadastroUsuarios" />
+    <NavigationProperty Name="TerraSolo" Relationship="Self.FK_CadastroTerraSolo_TerraSolo" FromRole="CadastroTerraSolo" ToRole="TerraSolo" />
+  </EntityType>
+  <EntityType Name="CadastroUsuarios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataExpedicao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CPF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Naturalidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RendaMensal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Ocupacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Grau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Formacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CadastroBenfeitoria" Relationship="Self.FK_CadastroBenfeitoria_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroBenfeitoria" />
+    <NavigationProperty Name="CadastroBensDireitos" Relationship="Self.FK_CadastroBensDireitos_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroBensDireitos" />
+    <NavigationProperty Name="CadastroClientes" Relationship="Self.FK_CadastroClientes_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroClientes" />
+    <NavigationProperty Name="CadastroDivida" Relationship="Self.FK_CadastroDivida_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroDivida" />
+    <NavigationProperty Name="CadastroImplemento" Relationship="Self.FK_CadastroImplemento_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroImplemento" />
+    <NavigationProperty Name="CadastroMaquina" Relationship="Self.FK_CadastroMaquina_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroMaquina" />
+    <NavigationProperty Name="CadastroRelacao" Relationship="Self.FK_CadastroRelacao_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroRelacao" />
+    <NavigationProperty Name="CadastroSemovente" Relationship="Self.FK_CadastroSemovente_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroSemovente" />
+    <NavigationProperty Name="CadastroTerraSolo" Relationship="Self.FK_CadastroTerraSolo_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroTerraSolo" />
+    <NavigationProperty Name="CadastroVeiculo" Relationship="Self.FK_CadastroVeiculo_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroVeiculo" />
+    <NavigationProperty Name="SafraNormalPrevista" Relationship="Self.FK_SafraNormalPrevista_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="SafraNormalPrevista" />
+  </EntityType>
+  <EntityType Name="CadastroVeiculo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VeiculoEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoMarca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoModelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoPotencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoChassiSerie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoValor" Type="Double" Nullable="false" />
+    <Property Name="VeiculoP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoFazendaOrigem" Type="Int32" />
+    <Property Name="VeiculoCidadeLocal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="VeiculoSafra" Type="Int32" />
+    <Property Name="VeiculoData" Type="DateTime" Precision="3" />
+    <Property Name="VeiculoAtiva" Type="Boolean" />
+    <Property Name="VeiculoUsuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_CadastroVeiculo_CadastroUsuarios" FromRole="CadastroVeiculo" ToRole="CadastroUsuarios" />
+  </EntityType>
+  <EntityType Name="Cultura">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeCultura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValorSaca" Type="Double" Nullable="false" />
+    <Property Name="DataAtualizacao" Type="DateTime" Precision="3" />
+    <Property Name="UsarCultura" Type="Boolean" />
+    <Property Name="CulturaCalculo" Type="Boolean" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="Self.FK_CadastroFazenda_Cultura" FromRole="Cultura" ToRole="CadastroFazenda" />
+    <NavigationProperty Name="SafraNormalPrevista" Relationship="Self.FK_SafraNormalPrevista_Cultura" FromRole="Cultura" ToRole="SafraNormalPrevista" />
+    <NavigationProperty Name="SafraDistribuicao" Relationship="SCPModel.FK_SafraDistribuicao_Cultura" FromRole="Cultura" ToRole="SafraDistribuicao" />
+  </EntityType>
+  <EntityType Name="LimiteCreditos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntidadeTipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntidadeID" Type="Int32" Nullable="false" />
+    <Property Name="EntidadeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntidadeHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntidadeReferencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EntidadeReferenciaValor" Type="Int32" />
+    <Property Name="Campo1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo11" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo12" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo13" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo14" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo15" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo16" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo17" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo18" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo19" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo20" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Text1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Text2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Text3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Text4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Text5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EntidadeDataCadastro" Type="DateTime" Precision="3" />
+    <Property Name="Campo21" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo22" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo23" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo24" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Campo25" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TerraSolo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ativo" Type="Boolean" />
+    <NavigationProperty Name="CadastroTerraSolo" Relationship="Self.FK_CadastroTerraSolo_TerraSolo" FromRole="TerraSolo" ToRole="CadastroTerraSolo" />
+  </EntityType>
+  <EntityType Name="SafraNormalPrevista">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SafrasSafra" Type="Int32" Nullable="false" />
+    <Property Name="SafrasSistemaPlantio" Type="Int32" Nullable="false" />
+    <Property Name="SafrasArea" Type="Double" Nullable="false" />
+    <Property Name="SafrasProdutividade" Type="Double" Nullable="false" />
+    <Property Name="SafrasValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="SafrasCustoUnitario" Type="Double" Nullable="false" />
+    <Property Name="SafrasUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="SafrasObservacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SafrasCultura" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroSafra" Relationship="Self.FK_SafraNormalPrevista_CadastroSafra" FromRole="SafraNormalPrevista" ToRole="CadastroSafra" />
+    <NavigationProperty Name="CadastroUsuarios" Relationship="Self.FK_SafraNormalPrevista_CadastroUsuarios" FromRole="SafraNormalPrevista" ToRole="CadastroUsuarios" />
+    <NavigationProperty Name="Cultura" Relationship="Self.FK_SafraNormalPrevista_Cultura" FromRole="SafraNormalPrevista" ToRole="Cultura" />
+  </EntityType>
+  <EntityType Name="BenfeitoriaFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BenfeitoriaEspecificacao" />
+      <PropertyRef Name="BenfeitoriaValor" />
+      <PropertyRef Name="BenfeitoriaQuantidade" />
+      <PropertyRef Name="BenfeitoriaFazenda1" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="BenfeitoriaEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BenfeitoriaCaracteristicas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaValor" Type="Double" Nullable="false" />
+    <Property Name="BenfeitoriaAtiva" Type="Boolean" />
+    <Property Name="BenfeitoriaArrendado" Type="Boolean" />
+    <Property Name="BenfeitoriaEstadoConservacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaData" Type="DateTime" Precision="3" />
+    <Property Name="BenfeitoriaParticipacao" Type="Double" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BenfeitoriaQuantidade" Type="Int32" Nullable="false" />
+    <Property Name="BenfeitoriaFazenda1" Type="Int32" Nullable="false" />
+    <Property Name="BenfeitoriaUsuario" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ClienteConjuge">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClienteConjujeUsuario" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClienteFazenda">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="ClienteTempoAtividade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstadoCivil" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteAuthority" Type="Int32" />
+    <Property Name="UsuarioNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ConjugeUsuarioNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteConjujeUsuario" Type="Int32" />
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="ConjugeID" Type="Int32" />
+    <Property Name="IDCliente" Type="Int32" Nullable="false" />
+    <Property Name="ClienteListaSociosID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteListaSociosNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteParticipacaoGeral" Type="Double" />
+    <Property Name="ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DividaUsuario">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DividaCredor" />
+      <PropertyRef Name="DividaUsuario1" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="DividaSaldo" />
+    </Key>
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DividaCredor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DividaFinalidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaDataContratada" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaDataVencimento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaCarencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaEncargos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaPeriodicidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DividaUsuario1" Type="Int32" Nullable="false" />
+    <Property Name="Expr1" Type="Int32" Nullable="false" />
+    <Property Name="DividaAtiva" Type="Boolean" />
+    <Property Name="DividaSaldo" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FazendaRelacao">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FazendaNome" />
+      <PropertyRef Name="FazendaMatriculaCRI" />
+      <PropertyRef Name="FazendaCodigoINCRA" />
+      <PropertyRef Name="FazendaMunicipio" />
+      <PropertyRef Name="FazendaMatricula" />
+      <PropertyRef Name="FazendaCodReceitaFederal" />
+      <PropertyRef Name="FazendaBeneficioSoloSaca" />
+      <PropertyRef Name="FazendaBeneficioSoloValorUnitario" />
+      <PropertyRef Name="FazendaMicrorregiao" />
+      <PropertyRef Name="FazendaCultura" />
+      <PropertyRef Name="RelacaoUsuarioID" />
+      <PropertyRef Name="RelacaoTitulo" />
+      <PropertyRef Name="IDCliente" />
+      <PropertyRef Name="IDRelacao" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaMatriculaCRI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaCodigoINCRA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaRoteiroAcesso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesNorte" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesSul" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesLeste" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesOeste" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaTitulosDominio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaTipoPropriedade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaOnusGravames" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaMatricula" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaCodReceitaFederal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloSaca" Type="Double" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="FazendaMicrorregiao" Type="Int32" Nullable="false" />
+    <Property Name="FazendaCultura" Type="Int32" Nullable="false" />
+    <Property Name="FazendaArrendada" Type="Boolean" />
+    <Property Name="FazendaArrendadaAreaArrendada" Type="Double" />
+    <Property Name="FazendaArrendadaValorArrendado" Type="Double" />
+    <Property Name="FazendaArrendadaDataInicio" Type="DateTime" Precision="3" />
+    <Property Name="FazendaArrendadaDataFim" Type="DateTime" Precision="3" />
+    <Property Name="RelacaoUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="RelacaoTitulo" Type="Int32" Nullable="false" />
+    <Property Name="IDCliente" Type="Int32" Nullable="false" />
+    <Property Name="IDRelacao" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FazendaTotals">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FazendaNome" />
+      <PropertyRef Name="FazendaBeneficioSoloSaca" />
+      <PropertyRef Name="FazendaBeneficioSoloValorUnitario" />
+      <PropertyRef Name="FazendaMunicipio" />
+      <PropertyRef Name="ValorSaca" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloSaca" Type="Double" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="ValorTotal" Type="Double" />
+    <Property Name="AreaTotal" Type="Double" />
+    <Property Name="ValorParticipacao" Type="Double" />
+    <Property Name="BeneficioSolo" Type="Double" />
+    <Property Name="RelacaoUsuarioID" Type="Int32" />
+    <Property Name="AreaCultivada" Type="Double" />
+    <Property Name="ValorTerraNua" Type="Double" />
+    <Property Name="IDMicrorregiao" Type="Int32" />
+    <Property Name="MicrorregiaoNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IDCultura" Type="Int32" />
+    <Property Name="NomeCultura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaMunicipio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MicrorregiaoBrutaNuaInferiorSaca" Type="Int32" />
+    <Property Name="MicrorregiaoBrutaNuaSuperiorSaca" Type="Int32" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaInferiorSaca" Type="Int32" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaSuperiorSaca" Type="Int32" />
+    <Property Name="FazendaParticipacao" Type="Double" />
+    <Property Name="TotalBenfeitoriaChecked" Type="Int32" />
+    <Property Name="TotalValorBenfeitoriaChecked" Type="Double" />
+    <Property Name="ValorParticipacaoBenfeitoria" Type="Double" />
+    <Property Name="RelacaoTitulo" Type="Int32" />
+    <Property Name="NomeProprietario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaArrendada" Type="Boolean" />
+    <Property Name="TotaisSemovente" Type="Double" />
+    <Property Name="TotalArrendado" Type="Double" />
+    <Property Name="ValorSaca" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="funcaodistribuicaoAreaSafra">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nome" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RestanteArea" Type="Double" />
+  </EntityType>
+  <EntityType Name="ImplementoFazendaUsuario">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ImplementoEspecificacao" />
+      <PropertyRef Name="ImplementoMarca" />
+      <PropertyRef Name="ImplementoP" />
+      <PropertyRef Name="ImplementoValor" />
+      <PropertyRef Name="ImplementoChassiSerie" />
+      <PropertyRef Name="ImplementoEstado" />
+      <PropertyRef Name="ImplementoAno" />
+      <PropertyRef Name="ImplementoModelo" />
+      <PropertyRef Name="ImplementoUsuario" />
+    </Key>
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ImplementoEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoMarca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoFazendaOrigem" Type="Int32" />
+    <Property Name="ImplementoP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoValor" Type="Double" Nullable="false" />
+    <Property Name="ImplementoChassiSerie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoModelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImplementoCidadeLocal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ImplementoData" Type="DateTime" Precision="3" />
+    <Property Name="ImplementoAtiva" Type="Boolean" />
+    <Property Name="ImplementoUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IDFazenda" Type="Int32" />
+    <Property Name="RelacaoParticipacao" Type="Double" />
+  </EntityType>
+  <EntityType Name="LimiteCredito">
+    <Key>
+      <PropertyRef Name="EntidadeTipo" />
+      <PropertyRef Name="EntidadeID" />
+      <PropertyRef Name="EntidadeSafra" />
+      <PropertyRef Name="EntidadeHash" />
+    </Key>
+    <Property Name="EntidadeTipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntidadeID" Type="Int32" Nullable="false" />
+    <Property Name="EntidadeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntidadeHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EntidadeReferencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EntidadeReferenciaValor" Type="Int32" />
+    <Property Name="EntidadeDataCadastro" Type="DateTime" Precision="3" />
+    <Property Name="Campo1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NomeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MaquinaFazendaUsuario">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="MaquinaEspecificacao" />
+      <PropertyRef Name="MaquinaMarca" />
+      <PropertyRef Name="MaquinaModelo" />
+      <PropertyRef Name="MaquinaPotencia" />
+      <PropertyRef Name="MaquinaAno" />
+      <PropertyRef Name="MaquinaEstado" />
+      <PropertyRef Name="MaquinaChassiSerie" />
+      <PropertyRef Name="MaquinaValor" />
+      <PropertyRef Name="MaquinaP" />
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="MaquinaUsuario" />
+    </Key>
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="MaquinaEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaMarca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaModelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaPotencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaChassiSerie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaValor" Type="Double" Nullable="false" />
+    <Property Name="MaquinaP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaquinaFazendaOrigem" Type="Int32" />
+    <Property Name="MaquinaCidadeLocal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MaquinaAtiva" Type="Boolean" />
+    <Property Name="MaquinaData" Type="DateTime" Precision="3" />
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="MaquinaUsuario" Type="Int32" Nullable="false" />
+    <Property Name="RelacaoParticipacao" Type="Double" />
+  </EntityType>
+  <EntityType Name="Proprietarios">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IDCliente" Type="Int32" Nullable="false" />
+    <Property Name="Telefone1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RelacaoTitulo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuestionarioResposta">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="QuestionarioQuestao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="QuestionarioRespostaQuestao" Type="Int32" />
+    <Property Name="QuestionarioRespostaUsuario" Type="Int32" />
+    <Property Name="QuestionarioRespostaResposta1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ResumoFazendas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="QTDMaquinas" Type="Int32" />
+    <Property Name="QTDImplementos" Type="Int32" />
+    <Property Name="QTDVeiculos" Type="Int32" />
+    <Property Name="QTDTerrasSolos" Type="Int32" />
+    <Property Name="QTDBenfeitorias" Type="Int32" />
+    <Property Name="QTDSemoventes" Type="Int32" />
+    <Property Name="ClienteParticipacaoGeral" Type="Double" />
+    <Property Name="TotalTerraSolo" Type="Double" />
+    <Property Name="TotalBenfeitorias" Type="Double" />
+    <Property Name="TotalSemoventes" Type="Double" />
+    <Property Name="ResumoMaquina" Type="Double" />
+    <Property Name="ResumoVeiculo" Type="Double" />
+    <Property Name="ResumoImplemento" Type="Double" />
+    <Property Name="ResumoBensDireitos" Type="Double" />
+  </EntityType>
+  <EntityType Name="TerraSoloFazenda">
+    <Key>
+      <PropertyRef Name="IDSOLO" />
+      <PropertyRef Name="TerraSoloEspecificacao" />
+      <PropertyRef Name="TerraSoloFazenda1" />
+      <PropertyRef Name="TerraSoloArea" />
+      <PropertyRef Name="TerraSoloMicrorregiaoTerra" />
+      <PropertyRef Name="TerraSoloTipoCultura" />
+      <PropertyRef Name="TerraSoloMicrorregiao" />
+    </Key>
+    <Property Name="IDSOLO" Type="Int32" Nullable="false" />
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaID" Type="Int32" />
+    <Property Name="FazendaMatriculaCRI" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaCodigoINCRA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloClasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloCaracteristicas" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloEspecificacao" Type="Int32" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaRoteiroAcesso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesNorte" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaOnusGravames" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaTipoPropriedade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesLeste" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesOeste" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaTitulosDominio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaConfrontacoesSul" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloAtiva" Type="Boolean" />
+    <Property Name="TerraSoloFazenda1" Type="Int32" Nullable="false" />
+    <Property Name="MicrorregiaoNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Ativo" Type="Boolean" />
+    <Property Name="NomeCultura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TerraSoloSacas" Type="Int32" />
+    <Property Name="tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ValorTotal" Type="Double" />
+    <Property Name="TerraSoloArea" Type="Double" Nullable="false" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="TerraSoloMicrorregiaoTerra" Type="Int32" Nullable="false" />
+    <Property Name="TerraSoloTipoCultura" Type="Int32" Nullable="false" />
+    <Property Name="TerraSoloMicrorregiao" Type="Int32" Nullable="false" />
+    <Property Name="ValorUnitario" Type="Double" />
+    <Property Name="TerraSoloUsuario" Type="Int32" />
+    <Property Name="RelacaoTitulo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UsuarioSafrasNormalPrevista">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SafrasSafra" />
+      <PropertyRef Name="SafrasSistemaPlantio" />
+      <PropertyRef Name="SafrasArea" />
+      <PropertyRef Name="SafrasProdutividade" />
+      <PropertyRef Name="SafrasValorUnitario" />
+      <PropertyRef Name="SafrasUsuarioID" />
+      <PropertyRef Name="SafrasCustoUnitario" />
+      <PropertyRef Name="CustoTotal" />
+      <PropertyRef Name="ValorReceita" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="SafrasCultura" />
+      <PropertyRef Name="NomeCultura" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SafrasSafra" Type="Int32" Nullable="false" />
+    <Property Name="SafrasSistemaPlantio" Type="Int32" Nullable="false" />
+    <Property Name="SafrasArea" Type="Double" Nullable="false" />
+    <Property Name="SafrasProdutividade" Type="Double" Nullable="false" />
+    <Property Name="SafrasValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="SafrasUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="SafrasObservacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SafrasCustoUnitario" Type="Double" Nullable="false" />
+    <Property Name="CustoTotal" Type="Double" Nullable="false" />
+    <Property Name="ValorReceita" Type="Double" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NomeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SafrasCultura" Type="Int32" Nullable="false" />
+    <Property Name="NomeCultura" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SafraPrevista" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UsuariosFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="RelacaoTitulo" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RelacaoTitulo" Type="Int32" Nullable="false" />
+    <Property Name="RG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataExpedicao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CPF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Naturalidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RendaMensal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RelacaoFazendaID" Type="Int32" />
+    <Property Name="Ocupacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VeiculoFazendaUsuario">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VeiculoEspecificacao" />
+      <PropertyRef Name="VeiculoMarca" />
+      <PropertyRef Name="VeiculoModelo" />
+      <PropertyRef Name="VeiculoPotencia" />
+      <PropertyRef Name="VeiculoAno" />
+      <PropertyRef Name="VeiculoEstado" />
+      <PropertyRef Name="VeiculoChassiSerie" />
+      <PropertyRef Name="VeiculoValor" />
+      <PropertyRef Name="VeiculoP" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="VeiculoEspecificacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoMarca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoModelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoPotencia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoAno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoChassiSerie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoValor" Type="Double" Nullable="false" />
+    <Property Name="VeiculoP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VeiculoFazendaOrigem" Type="Int32" />
+    <Property Name="VeiculoCidadeLocal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FazendaNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="VeiculoAtiva" Type="Boolean" />
+    <Property Name="VeiculoData" Type="DateTime" Precision="3" />
+    <Property Name="IDUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IDFazenda" Type="Int32" />
+    <Property Name="RelacaoParticipacao" Type="Double" />
+  </EntityType>
+  <EntityType Name="VerificacaoDadosGerais">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClienteGrau" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteFormacao" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteExperiencia" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteClassificacaoPorte" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteAtividadeDesenvolvida" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteTempoAtividade" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstruturaArmazenamento" Type="String" MaxLength="26" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstruturaTransporte" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteResidenciaProdutor" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteEstadoCivil" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteDadosUsuario" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteFazenda" Type="String" MaxLength="44" FixedLength="false" Unicode="false" />
+    <Property Name="ClienteRelacaoFazenda" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IDCliente" Type="Int32" />
+    <Property Name="UsuarioRG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioDataExpedicao" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCPF" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioDataNascimento" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioNaturalidade" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioTelefone1" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCelular1" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioEndereco" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCEP" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioRendaMensal" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioCidade" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioEstado" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RelacaoTitulo" Type="Int32" />
+    <Property Name="QuantidadeFazendas" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_CadastroBenfeitoria_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="CadastroBenfeitoria" Type="Self.CadastroBenfeitoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBenfeitoria">
+        <PropertyRef Name="BenfeitoriaFazenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroBenfeitoria_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="0..1" />
+    <End Role="CadastroBenfeitoria" Type="Self.CadastroBenfeitoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBenfeitoria">
+        <PropertyRef Name="BenfeitoriaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroBensDireitos_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroBensDireitos" Type="Self.CadastroBensDireitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBensDireitos">
+        <PropertyRef Name="BensDireitosUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroClientes_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroClientes" Type="Self.CadastroClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroClientes">
+        <PropertyRef Name="ClienteDadosUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroDivida_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroDivida" Type="Self.CadastroDivida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroDivida">
+        <PropertyRef Name="DividaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroFazenda_CadastroMicrorregiao">
+    <End Role="CadastroMicrorregiao" Type="Self.CadastroMicrorregiao" Multiplicity="1" />
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroMicrorregiao">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroFazenda">
+        <PropertyRef Name="FazendaMicrorregiao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroFazenda_Cultura">
+    <End Role="Cultura" Type="Self.Cultura" Multiplicity="1" />
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroFazenda">
+        <PropertyRef Name="FazendaCultura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroRelacao_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="0..1" />
+    <End Role="CadastroRelacao" Type="Self.CadastroRelacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroRelacao">
+        <PropertyRef Name="RelacaoFazendaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroSemovente_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="CadastroSemovente" Type="Self.CadastroSemovente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroSemovente">
+        <PropertyRef Name="SemoventeFazendaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroTerraSolo_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="CadastroTerraSolo" Type="Self.CadastroTerraSolo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroTerraSolo">
+        <PropertyRef Name="TerraSoloFazenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroImplemento_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroImplemento" Type="Self.CadastroImplemento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroImplemento">
+        <PropertyRef Name="ImplementoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroMaquina_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroMaquina" Type="Self.CadastroMaquina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroMaquina">
+        <PropertyRef Name="MaquinaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroRelacao_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroRelacao" Type="Self.CadastroRelacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroRelacao">
+        <PropertyRef Name="RelacaoUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraNormalPrevista_CadastroSafra">
+    <End Role="CadastroSafra" Type="Self.CadastroSafra" Multiplicity="1" />
+    <End Role="SafraNormalPrevista" Type="Self.SafraNormalPrevista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraNormalPrevista">
+        <PropertyRef Name="SafrasSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroSemovente_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroSemovente" Type="Self.CadastroSemovente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroSemovente">
+        <PropertyRef Name="SemoventeUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroTerraSolo_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroTerraSolo" Type="Self.CadastroTerraSolo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroTerraSolo">
+        <PropertyRef Name="TerraSoloUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroTerraSolo_TerraSolo">
+    <End Role="TerraSolo" Type="Self.TerraSolo" Multiplicity="1" />
+    <End Role="CadastroTerraSolo" Type="Self.CadastroTerraSolo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerraSolo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroTerraSolo">
+        <PropertyRef Name="TerraSoloEspecificacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroVeiculo_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroVeiculo" Type="Self.CadastroVeiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroVeiculo">
+        <PropertyRef Name="VeiculoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraNormalPrevista_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="SafraNormalPrevista" Type="Self.SafraNormalPrevista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraNormalPrevista">
+        <PropertyRef Name="SafrasUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraNormalPrevista_Cultura">
+    <End Role="Cultura" Type="Self.Cultura" Multiplicity="1" />
+    <End Role="SafraNormalPrevista" Type="Self.SafraNormalPrevista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraNormalPrevista">
+        <PropertyRef Name="SafrasCultura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SCPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AUTHORITY" EntityType="Self.AUTHORITY" />
+    <EntitySet Name="CadastroBenfeitoria" EntityType="Self.CadastroBenfeitoria" />
+    <EntitySet Name="CadastroBensDireitos" EntityType="Self.CadastroBensDireitos" />
+    <EntitySet Name="CadastroClientes" EntityType="Self.CadastroClientes" />
+    <EntitySet Name="CadastroDivida" EntityType="Self.CadastroDivida" />
+    <EntitySet Name="CadastroFazenda" EntityType="Self.CadastroFazenda" />
+    <EntitySet Name="CadastroImplemento" EntityType="Self.CadastroImplemento" />
+    <EntitySet Name="CadastroMaquina" EntityType="Self.CadastroMaquina" />
+    <EntitySet Name="CadastroMicrorregiao" EntityType="Self.CadastroMicrorregiao" />
+    <EntitySet Name="CadastroQuestionario" EntityType="Self.CadastroQuestionario" />
+    <EntitySet Name="CadastroRelacao" EntityType="Self.CadastroRelacao" />
+    <EntitySet Name="CadastroRespostaQuestionario" EntityType="Self.CadastroRespostaQuestionario" />
+    <EntitySet Name="CadastroSafra" EntityType="Self.CadastroSafra" />
+    <EntitySet Name="CadastroSemovente" EntityType="Self.CadastroSemovente" />
+    <EntitySet Name="CadastroTerraSolo" EntityType="Self.CadastroTerraSolo" />
+    <EntitySet Name="CadastroUsuarios" EntityType="Self.CadastroUsuarios" />
+    <EntitySet Name="CadastroVeiculo" EntityType="Self.CadastroVeiculo" />
+    <EntitySet Name="Cultura" EntityType="Self.Cultura" />
+    <EntitySet Name="LimiteCreditos" EntityType="Self.LimiteCreditos" />
+    <EntitySet Name="TerraSolo" EntityType="Self.TerraSolo" />
+    <EntitySet Name="SafraNormalPrevista" EntityType="Self.SafraNormalPrevista" />
+    <EntitySet Name="BenfeitoriaFazenda" EntityType="Self.BenfeitoriaFazenda" />
+    <EntitySet Name="ClienteConjuge" EntityType="Self.ClienteConjuge" />
+    <EntitySet Name="ClienteFazenda" EntityType="Self.ClienteFazenda" />
+    <EntitySet Name="DividaUsuario" EntityType="Self.DividaUsuario" />
+    <EntitySet Name="FazendaRelacao" EntityType="Self.FazendaRelacao" />
+    <EntitySet Name="FazendaTotals" EntityType="Self.FazendaTotals" />
+    <EntitySet Name="funcaodistribuicaoAreaSafra" EntityType="Self.funcaodistribuicaoAreaSafra" />
+    <EntitySet Name="ImplementoFazendaUsuario" EntityType="Self.ImplementoFazendaUsuario" />
+    <EntitySet Name="LimiteCredito" EntityType="Self.LimiteCredito" />
+    <EntitySet Name="MaquinaFazendaUsuario" EntityType="Self.MaquinaFazendaUsuario" />
+    <EntitySet Name="Proprietarios" EntityType="Self.Proprietarios" />
+    <EntitySet Name="QuestionarioResposta" EntityType="Self.QuestionarioResposta" />
+    <EntitySet Name="ResumoFazendas" EntityType="Self.ResumoFazendas" />
+    <EntitySet Name="TerraSoloFazenda" EntityType="Self.TerraSoloFazenda" />
+    <EntitySet Name="UsuarioSafrasNormalPrevista" EntityType="Self.UsuarioSafrasNormalPrevista" />
+    <EntitySet Name="UsuariosFazenda" EntityType="Self.UsuariosFazenda" />
+    <EntitySet Name="VeiculoFazendaUsuario" EntityType="Self.VeiculoFazendaUsuario" />
+    <EntitySet Name="VerificacaoDadosGerais" EntityType="Self.VerificacaoDadosGerais" />
+    <AssociationSet Name="FK_CadastroBenfeitoria_CadastroFazenda" Association="Self.FK_CadastroBenfeitoria_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroBenfeitoria" EntitySet="CadastroBenfeitoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroBenfeitoria_CadastroUsuarios" Association="Self.FK_CadastroBenfeitoria_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroBenfeitoria" EntitySet="CadastroBenfeitoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroBensDireitos_CadastroUsuarios" Association="Self.FK_CadastroBensDireitos_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroBensDireitos" EntitySet="CadastroBensDireitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroClientes_CadastroUsuarios" Association="Self.FK_CadastroClientes_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroClientes" EntitySet="CadastroClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroDivida_CadastroUsuarios" Association="Self.FK_CadastroDivida_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroDivida" EntitySet="CadastroDivida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroFazenda_CadastroMicrorregiao" Association="Self.FK_CadastroFazenda_CadastroMicrorregiao">
+      <End Role="CadastroMicrorregiao" EntitySet="CadastroMicrorregiao" />
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroFazenda_Cultura" Association="Self.FK_CadastroFazenda_Cultura">
+      <End Role="Cultura" EntitySet="Cultura" />
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroRelacao_CadastroFazenda" Association="Self.FK_CadastroRelacao_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroRelacao" EntitySet="CadastroRelacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroSemovente_CadastroFazenda" Association="Self.FK_CadastroSemovente_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroSemovente" EntitySet="CadastroSemovente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroTerraSolo_CadastroFazenda" Association="Self.FK_CadastroTerraSolo_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroTerraSolo" EntitySet="CadastroTerraSolo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroImplemento_CadastroUsuarios" Association="Self.FK_CadastroImplemento_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroImplemento" EntitySet="CadastroImplemento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroMaquina_CadastroUsuarios" Association="Self.FK_CadastroMaquina_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroMaquina" EntitySet="CadastroMaquina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroRelacao_CadastroUsuarios" Association="Self.FK_CadastroRelacao_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroRelacao" EntitySet="CadastroRelacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraNormalPrevista_CadastroSafra" Association="Self.FK_SafraNormalPrevista_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="SafraNormalPrevista" EntitySet="SafraNormalPrevista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroSemovente_CadastroUsuarios" Association="Self.FK_CadastroSemovente_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroSemovente" EntitySet="CadastroSemovente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroTerraSolo_CadastroUsuarios" Association="Self.FK_CadastroTerraSolo_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroTerraSolo" EntitySet="CadastroTerraSolo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroTerraSolo_TerraSolo" Association="Self.FK_CadastroTerraSolo_TerraSolo">
+      <End Role="TerraSolo" EntitySet="TerraSolo" />
+      <End Role="CadastroTerraSolo" EntitySet="CadastroTerraSolo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroVeiculo_CadastroUsuarios" Association="Self.FK_CadastroVeiculo_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroVeiculo" EntitySet="CadastroVeiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraNormalPrevista_CadastroUsuarios" Association="Self.FK_SafraNormalPrevista_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="SafraNormalPrevista" EntitySet="SafraNormalPrevista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraNormalPrevista_Cultura" Association="Self.FK_SafraNormalPrevista_Cultura">
+      <End Role="Cultura" EntitySet="Cultura" />
+      <End Role="SafraNormalPrevista" EntitySet="SafraNormalPrevista" />
+    </AssociationSet>
+    <FunctionImport Name="CloneCadastroPatrimonio">
+      <Parameter Name="UserClone" Mode="In" Type="Int32" />
+      <Parameter Name="CloneUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DestroiCadastro">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertLimiteCredito">
+      <Parameter Name="Safra" Mode="In" Type="Int32" />
+      <Parameter Name="Cliente" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LimiteCredito">
+      <Parameter Name="CampoIdentityID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_Questoes" ReturnType="Collection(SCPModel.Proc_Questoes_Result)">
+      <Parameter Name="IdUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="RF" ReturnType="Collection(SCPModel.RF_Result)">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="SafraDistribuicao" EntityType="SCPModel.SafraDistribuicao" />
+    <AssociationSet Name="FK_SafraDistribuicao_CadastroFazenda" Association="SCPModel.FK_SafraDistribuicao_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="SafraDistribuicao" EntitySet="SafraDistribuicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraDistribuicao_CadastroSafra" Association="SCPModel.FK_SafraDistribuicao_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="SafraDistribuicao" EntitySet="SafraDistribuicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraDistribuicao_Cultura" Association="SCPModel.FK_SafraDistribuicao_Cultura">
+      <End Role="Cultura" EntitySet="Cultura" />
+      <End Role="SafraDistribuicao" EntitySet="SafraDistribuicao" />
+    </AssociationSet>
+    <EntitySet Name="DistribuicaoSafraFazenda" EntityType="SCPModel.DistribuicaoSafraFazenda" />
+  </EntityContainer>
+  <ComplexType Name="Proc_Questoes_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="QuestionarioQuestao" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuestionarioResposta1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuestionarioResposta2" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuestionarioResposta3" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuestionarioResposta4" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="QuestionarioResposta5" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="QuestionarioSafra" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RF_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="QTDMaquinas" Nullable="true" />
+    <Property Type="Int32" Name="QTDImplementos" Nullable="true" />
+    <Property Type="Int32" Name="QTDVeiculos" Nullable="true" />
+    <Property Type="Int32" Name="QTDTerrasSolos" Nullable="true" />
+    <Property Type="Int32" Name="QTDBenfeitorias" Nullable="true" />
+    <Property Type="Int32" Name="QTDSemoventes" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="SafraDistribuicao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DistribuicaoSafraTipo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DistribuicaoSafraFazenda" Type="Int32" Nullable="false" />
+    <Property Name="DistribuicaoSafraSistemaPlantio" Type="Int32" />
+    <Property Name="DistribuicaoSafraArea" Type="Double" />
+    <Property Name="DistribuicaoSafraUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="DistribuicaoSafraSafra" Type="Int32" Nullable="false" />
+    <Property Name="DistribuicaoSafraCultura" Type="Int32" />
+    <Property Name="DistribuicaoSafraObservacaoGravame" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CadastroFazenda" Relationship="SCPModel.FK_SafraDistribuicao_CadastroFazenda" FromRole="SafraDistribuicao" ToRole="CadastroFazenda" />
+    <NavigationProperty Name="CadastroSafra" Relationship="SCPModel.FK_SafraDistribuicao_CadastroSafra" FromRole="SafraDistribuicao" ToRole="CadastroSafra" />
+    <NavigationProperty Name="Cultura" Relationship="SCPModel.FK_SafraDistribuicao_Cultura" FromRole="SafraDistribuicao" ToRole="Cultura" />
+  </EntityType>
+  <Association Name="FK_SafraDistribuicao_CadastroFazenda">
+    <End Type="SCPModel.CadastroFazenda" Role="CadastroFazenda" Multiplicity="1" />
+    <End Type="SCPModel.SafraDistribuicao" Role="SafraDistribuicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraDistribuicao">
+        <PropertyRef Name="DistribuicaoSafraFazenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraDistribuicao_CadastroSafra">
+    <End Type="SCPModel.CadastroSafra" Role="CadastroSafra" Multiplicity="1" />
+    <End Type="SCPModel.SafraDistribuicao" Role="SafraDistribuicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraDistribuicao">
+        <PropertyRef Name="DistribuicaoSafraSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraDistribuicao_Cultura">
+    <End Type="SCPModel.Cultura" Role="Cultura" Multiplicity="0..1" />
+    <End Type="SCPModel.SafraDistribuicao" Role="SafraDistribuicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraDistribuicao">
+        <PropertyRef Name="DistribuicaoSafraCultura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DistribuicaoSafraFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DistribuicaoSafraTipo" />
+      <PropertyRef Name="DistribuicaoSafraFazenda1" />
+      <PropertyRef Name="DistribuicaoSafraUsuarioID" />
+      <PropertyRef Name="FazendaNome" />
+      <PropertyRef Name="IDFazenda" />
+      <PropertyRef Name="FazendaMunicipio" />
+      <PropertyRef Name="DistribuicaoSafraSafra" />
+      <PropertyRef Name="NomeCultura" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DistribuicaoSafraTipo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DistribuicaoSafraFazenda1" Type="Int32" Nullable="false" />
+    <Property Name="DistribuicaoSafraSistemaPlantio" Type="Int32" />
+    <Property Name="DistribuicaoSafraArea" Type="Double" />
+    <Property Name="DistribuicaoSafraUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="FazendaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RelacaoTitulo" Type="Int32" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IDProprietário" Type="Int32" />
+    <Property Name="IDFazenda" Type="Int32" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FazendaArrendada" Type="Boolean" />
+    <Property Name="FazendaOnusGravames" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DistribuicaoSafraSafra" Type="Int32" Nullable="false" />
+    <Property Name="NomeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NomeCultura" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SafraPrevista" Type="Boolean" />
+  </EntityType>
+</Schema>

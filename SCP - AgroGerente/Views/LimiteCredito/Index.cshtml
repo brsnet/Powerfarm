@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.LimiteCredito>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Gerador de Limites de crédito</h2>
+        <h4></h4>
+    </div>
+    <div class="right" style="padding-top:28px">
+
+        <script type="text/javascript">
+
+
+
+        </script>
+
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+
+
+
+        <h4>Para Imprimir Limites de Crédito use o Internet Explorer ou Firefox</h4>
+        <br />
+        @using (Html.BeginForm())
+        {
+
+            <div class="left" style="padding-right: 20px">
+
+
+                <div class="editor-label">
+                    <label>Safra</label>
+                </div>
+                <div class="editor-field">
+
+                    @Html.DropDownList("IDSafra", (IEnumerable<SelectListItem>)ViewData["Safra"], "Selecione uma Safra")
+
+                </div>
+            </div>
+            <div class="left" style="padding-right: 20px">
+
+                <div class="editor-label">
+                    <label>Cliente</label>
+                </div>
+                <div class="editor-field">
+
+                    @Html.DropDownList("IDUsuario", (IEnumerable<SelectListItem>)ViewData["Proprietarios"], "Selecione o Cliente")
+
+
+                </div>
+
+            </div>
+            <div class="left" style="padding-right: 20px" data-bind="with: Fazendas">
+
+
+
+
+
+
+                <input id="IDUsuario" name="IDUsuario" type="hidden" data-bind="value: IDUsuario" />
+
+            </div>
+
+
+            <div class="right">
+                <div class="editor-label">
+                    &nbsp;
+                </div>
+                <div class="editor-field">
+                    <input type="submit" value="Gerar Limite de Crédito" />
+                </div>
+            </div>
+            <div class="clear"></div>
+        }
+
+
+
+    </div>
+</div>
+
+
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("NomeSafra",style:"alignCenter",header:"Safra"),
+    grid.Column("Campo1",header:"Nome do Cliente"),
+   
+    grid.Column("EntidadeDataCadastro",style:"alignCenter",header:"Data da Criação"),
+   grid.Column("",header:"Ações", format:@<text>
+
+       @Ajax.ActionLink(" ", "Delete", new { hash = item.EntidadeHash }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+    @Html.ActionLink(" ", "Print", new { id = item.EntidadeHash }, new { @class = "icone Print", target = "_blank" })
+
+
+</text>)
+
+    })
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

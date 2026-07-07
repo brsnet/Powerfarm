@@ -1,0 +1,229 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.DistribuicaoSafraFazenda>
+
+@{
+    ViewBag.Title = "Index";
+    var SafraUsadaDistribuida = "";
+    double AreatotalDistribuida = 0;
+    var elementoDistribuida = 0;
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Distribuição da Safra Prevista</h2>
+
+
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    
+</div>
+
+<br />
+
+
+<table class="tabelaFormatada">
+
+
+
+
+
+    @foreach (var item in Model)
+    {
+
+        elementoDistribuida = elementoDistribuida + 1;
+
+        if (SafraUsadaDistribuida != item.DistribuicaoSafraTipo)
+        {
+            if (elementoDistribuida > 1)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="alignRight">
+                        <b>
+
+                            @String.Format("{0:0.0,0}", AreatotalDistribuida)
+                        </b>
+
+                    </td>
+                    <td></td>
+                    <td></td>
+                   
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="9" style="height: 15px; background: none !important; box-shadow: none !important "></td></tr>
+
+                AreatotalDistribuida = 0;
+
+            }
+
+
+            SafraUsadaDistribuida = item.DistribuicaoSafraTipo;
+            <tr><td colspan="7"><h3>@if (item.DistribuicaoSafraTipo == "1")
+{
+    <text>Proposto BB</text>
+}
+else
+{
+    <text>Demais Áreas</text>
+}</h3>
+</td></tr>
+            <tr class="fakeHeader">
+                <td>
+                    Cultura
+
+                </td>
+                <td>
+                    Sistema de Plantio
+                </td>
+                <td>
+                    Área (ha)
+                </td>
+                <td>
+                    Fazenda / Município / Proprietário
+                </td>
+                <td>
+                    Arrend.
+                </td>
+                <td class="width2">
+                   Obs. Gravame
+                </td>
+              
+                <td>Ações</td>
+            </tr>
+
+        }
+
+
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.NomeCultura)</td>
+            <td>
+                @if (item.DistribuicaoSafraSistemaPlantio == 1)
+                {
+                    <text>CONVENCIONAL/SEQUEIRO</text>
+                }
+                else
+                {
+                    <text>DIRETO/SEQUEIRO</text>
+                }
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:0,0.0}", item.DistribuicaoSafraArea)
+                @{
+        AreatotalDistribuida = AreatotalDistribuida + Convert.ToDouble(item.DistribuicaoSafraArea);
+                }
+            </td>
+            <td class="alignCenter">
+                @item.FazendaNome / @item.FazendaMunicipio / @item.Nome
+            </td>
+            <td class="alignCenter">
+                @if (item.FazendaArrendada == true)
+                {
+                    <text>SIM</text>
+                }
+                else
+                {
+                    <text>NÃO</text>
+                }
+
+
+            </td>
+            <td class="alignCenter">
+                @if (item.FazendaOnusGravames == "1")
+                {
+                    <text>-</text>
+                }
+                else if (item.FazendaOnusGravames == "2")
+                {
+                    <text>RECURSOS CONTROLADOS</text>
+                }
+                else
+                {
+                    <text>RECURSOS PRÓPRIOS</text>
+                }
+
+            </td>
+         
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+                @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+            </td>
+        </tr>
+
+        if (elementoDistribuida == Model.Count())
+        {
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="alignRight">
+                    <b>
+
+                        @String.Format("{0:0.0,0}", AreatotalDistribuida)
+                    </b>
+
+                </td>
+                <td></td>
+                <td></td>
+                
+                <td></td>
+                <td></td>
+            </tr>
+
+
+
+        }
+
+    }
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+﻿@*@model SCP___AgroGerente.Areas.Projetos.Model.CadastroItemOrcamento
+
+@{
+    ViewBag.Title = "Create";
+      Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Informações padrão para um produto</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CadastroItemOrcamento</legend>
+        <div class="box">
+            <div class="editor-label">
+                Marca e Produto
+            </div>
+            <div class="editor-field">
+
+                @Html.ValidationMessageFor(model => model.ItemOrcamentoProduto)
+
+                <div class="left">
+                    <select data-bind="options: products, optionsText:'Nome',value: category, optionsCaption:'Selecione uma Marca' "></select>
+                </div>
+                <div class="left" style="padding-left:10px">
+                    <div data-bind="with: category">
+                        <select id="ItemOrcamentoProduto" name="ItemOrcamentoProduto" data-bind="options: products, optionsText:'MarcaEspecificacao', optionsCaption: 'Select...', value: 'product', optionsValue:'ID'"> </select>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <br />
+     
+    <div class="left" style="padding-left:10px">
+        <div class="editor-label">
+            Quantidade
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoQuantidade)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoQuantidade)
+        </div>
+    </div>
+    <div class="left" style="padding-left:10px">
+        <div class="editor-label">
+            Unidade de Medida
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ItemOrcamentoUnidade, (IEnumerable<SelectListItem>)ViewData["EnumTipoUnidadeTempo"], "Selecione")
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoUnidade)
+        </div>
+    </div>
+    <div class="left" style="padding-left:10px">
+        <div class="editor-label">
+            Quantidade por Hectar
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoQuantidadePorHectar)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoQuantidadePorHectar)
+        </div>
+    </div>
+    <div class="left" style="padding-left:10px">
+        <div class="editor-label">
+            Valor Unitário
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoValorUnitario)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoValorUnitario)
+        </div>
+    </div>
+    
+    
+    <div class="clear"></div>
+        <p>
+            <input type="submit" value="Adicionar produto padrão" />
+        </p>
+    </fieldset>
+}
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script>
+
+    var products;
+    var ViewModel = function () {
+        var self = this;
+        var dados;
+        
+        self.category = ko.observable();
+        self.product = ko.observable();
+        self.ID = ko.observable();
+
+    };
+
+    $.ajax({
+        type: "GET",
+        url: "/api/APIProduto",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            products = JSON.parse(data);
+            console.log(products);
+            ko.applyBindings(ViewModel());
+
+        },
+        error: function (error) {
+            alert(error.status + "<--and--> " + error.statusText);
+        }
+    });
+
+
+</script>*@

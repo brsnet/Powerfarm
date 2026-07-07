@@ -1,0 +1,154 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.ViewOrcamentoAnalitico>
+
+@{
+    ViewBag.Title = "Index";
+
+
+    string etapaNome = "";
+    int? tipoEtapaNome = 0;
+    double? CustoHectarServico = 0;
+    double? CustoHectarServicoFinal = 0;
+    double? CustoTotal = 0;
+    double? CustoTotalFinal = 0;
+    int MostraEsconde = 0;
+    double? HectaresDistribuidos = 0;
+
+    int DataInicio = 0;
+  
+    
+    int DataHoje = DateTime.Now.Month;
+    
+    
+
+}
+@section featured {
+
+    @RenderPage("~/Areas/Projetos/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<br />
+
+
+<table class="tabelaFormatada">
+    @foreach (var item in Model)
+    {
+
+         DataInicio = Convert.ToInt32(String.Format("{0:MM}", item.OrcamentoAnaliticoMesInicio));
+
+        if (etapaNome != item.EtapaNome)
+        {
+            if (MostraEsconde == 1)
+            {
+                
+
+                CustoHectarServicoFinal = CustoHectarServicoFinal+CustoHectarServico;
+                CustoTotalFinal = CustoTotalFinal+CustoTotal;
+                CustoHectarServico = 0;
+                CustoTotal = 0;
+                MostraEsconde = 0;
+                tipoEtapaNome = 0;
+                
+
+            }
+
+            HectaresDistribuidos = @item.AreaPrevista;
+
+            <tr>
+                <td colspan="10" style="border-top:2px solid #000;background:none !important; text-align:center; text-transform:uppercase"><b>@item.EtapaNome</b></td>
+            </tr>
+
+            etapaNome = item.EtapaNome;
+        }
+
+
+
+
+        if (tipoEtapaNome != item.OrcamentoAnaliticoItemTipo)
+        {
+
+            if (MostraEsconde == 1)
+            {
+               
+
+                CustoHectarServicoFinal = CustoHectarServicoFinal + CustoHectarServico;
+                CustoTotalFinal = CustoTotalFinal + CustoTotal;
+                CustoHectarServico = 0;
+                CustoTotal = 0;
+
+
+            }
+
+            MostraEsconde = 1;
+
+            <tr>
+                <td colspan="10"><b><i>
+                           @if (item.OrcamentoAnaliticoItemTipo == 1)
+                           {
+                               <text>Serviços</text>
+                           }
+                           else
+                           {
+                               <text>Insumos</text>
+                           }
+                </i></b></td>
+            </tr>
+
+
+                           tipoEtapaNome = item.OrcamentoAnaliticoItemTipo;
+
+        }
+
+
+
+
+        <tr class="@if (DataInicio < DataHoje)
+                   {<text>redAgenda</text>} else{
+
+                                              if (DataInicio < DataHoje + 1)
+                                    {
+                                        <text>yellowAgenda</text>
+                                    }
+                                    else { <text>greenAgenda</text> }
+
+                                   }">
+            <td>@item.OrcamentoItem</td>
+
+
+            <td class="alignCenter" style="width:100px">
+
+                @String.Format("{0:dd MMM}", item.OrcamentoAnaliticoMesInicio)
+
+                /
+                @String.Format("{0:MMM dd}", item.OrcamentoAnaliticoMesFim)
+            </td>
+        </tr>
+
+    }
+
+    @{
+        CustoHectarServicoFinal = CustoHectarServicoFinal + CustoHectarServico;
+         CustoTotalFinal = CustoTotalFinal+CustoTotal;
+    }
+
+
+    @*Total*@
+
+
+   
+
+   
+
+
+  
+
+</table>
+
+
+    
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

@@ -1,0 +1,203 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.UsuarioSafrasNormalPrevista>
+
+@{
+    ViewBag.Title = "Index";
+    var SafraUsada = 0;
+    var SafraUsadaTotais = 0;
+    double Areatotal = 0;
+    var elemento = 0;
+    double ValorReceitatotal = 0;
+    double CustoTotaltotal = 0;
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Safras Previstas e Normais</h2>
+
+
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+<br />
+
+
+
+<table class="tabelaFormatada">
+
+
+
+
+   
+@foreach (var item in Model)
+{
+
+    elemento = elemento+1;
+    
+   
+    
+
+    if (SafraUsada != item.SafrasSafra)
+    {
+        
+       if (elemento>1)
+       {
+            <tr>
+        <td></td>
+        <td></td>
+        <td class="alignRight">
+            <b>
+
+                @String.Format("{0:0.0,0}", Areatotal)
+            </b>
+
+        </td>
+        <td></td>
+        <td></td>
+                <td class="alignRight"><b>@String.Format("{0:C}", ValorReceitatotal)</b></td>
+                <td class="alignRight"><b>@String.Format("{0:C}", CustoTotaltotal)</b></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr><td colspan="9" style="height: 15px; background: none !important; box-shadow: none !important "></td></tr>
+    
+           Areatotal = 0;
+           ValorReceitatotal = 0;
+           CustoTotaltotal = 0;
+    
+       }
+     
+        
+
+        SafraUsadaTotais = 1;
+        SafraUsada = item.SafrasSafra;
+        <tr class="fakeHeader">
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeSafra)
+                
+            </td>
+            <td>
+                Sistema de Plantio
+            </td>
+            <td>
+                Área (ha)
+            </td>
+            <td>
+                Produtividade (kg)
+            </td>
+            <td>
+                Vl. Unitário (R$)
+            </td>
+            <td class="width2">
+                Vl. Receita (R$)
+            </td>
+            <td class="width2">
+                Custo (R$)
+            </td>
+            <td>
+                P
+            </td>
+            <td>Ações</td>
+        </tr>
+
+    }
+
+   
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.NomeCultura)</td>
+            <td>
+                @if (item.SafrasSistemaPlantio == 1)
+                {
+                    <text>CONVENCIONAL/SEQUEIRO</text>
+                }
+                else
+                {
+                    <text>DIRETO/SEQUEIRO</text>
+                }
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:0,0.0}" ,item.SafrasArea)
+                @{
+                Areatotal = Areatotal + item.SafrasArea;
+                    }
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:0,0.0}", item.SafrasProdutividade)
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:C}", item.SafrasValorUnitario)
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:C}", item.ValorReceita)
+                @{
+    ValorReceitatotal = ValorReceitatotal + item.ValorReceita;
+                }
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:C}", item.CustoTotal)
+                @{
+    CustoTotaltotal = CustoTotaltotal + item.CustoTotal;
+                }
+            </td>
+            <td>
+                @if (item.SafraPrevista == true)
+                {
+                    <text>S</text>
+                }
+                else
+                {
+                    <text>N</text>
+                }
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+                @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+            </td>
+        </tr>
+
+    if (elemento == Model.Count())
+    {
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="alignRight">
+            <b>
+
+                @String.Format("{0:0.0,0}", Areatotal)
+            </b>
+
+        </td>
+        <td></td>
+        <td></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", ValorReceitatotal)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoTotaltotal)</b></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    
+
+    }
+    
+    }
+    
+   
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

@@ -1,0 +1,503 @@
+﻿@model SCP___AgroGerente.Models.Cliente_UsuarioFazenda_Result
+
+@{
+    ViewBag.Title = "Dados de identificação";
+}
+
+<h2>Dados de identificação: </h2>
+<p>
+    
+  @Html.ActionLink(" ", "Edit", new { id=Model.ID }, new {@class = "icone edit" })
+  <a href="javascript:window.history.back();" class="icone Goback" title="Voltar"></a>
+</p>
+
+
+<fieldset  class="presentation">
+    <legend>CadastroClientes</legend>
+
+    
+   <h3>Dados do Cliente</h3>
+
+
+    
+    
+    
+    <div class="box">
+
+        
+
+        <div class="left">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UsuarioNome, "Nome")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.UsuarioNome)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                <label>Data de nascimento</label>
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.DataNascimento)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Naturalidade, "Naturalidade")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.Naturalidade)
+            </div>
+        </div>
+     <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RendaMensal,"Renda mensal")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.RendaMensal)
+            </div>
+       </div>
+        <div class="clear"></div>
+    </div>
+    
+       <h3>Documentos</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RG, "RG")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.RG)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DataExpedicao, "Data de expedição")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.DataExpedicao)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CPF, "CPF")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.CPF)
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        <hr />
+        <h3>Dados de contato</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telefone1, "Telefone fixo principal")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.Telefone1)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telefone2, "Outro telefone")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.Telefone2)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Celular1,"Celular do cliente")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.Celular1)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Celular2, "Outro celular")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.Celular2)
+            </div>
+        </div>
+        <div class="clear"></div>
+         <hr />
+        <h3>Endereço</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Endereco, "Logradouro")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.Endereco)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CEP, "CEP")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.CEP)
+            </div>
+        </div>
+       
+        <div class="clear"></div>
+      <hr />
+
+
+    <h3>Dados Complementares</h3>
+    <br />
+    <div class="formside">
+    <div class="left">
+
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteGrau, "Grau de Instrução")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteGrau)
+    </div>
+    </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteFormacao, "Formação Acadêmica")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteFormacao)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteExperiencia, "Experiência")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteExperiencia)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteClassificacaoPorte, "Classificação Porte")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteClassificacaoPorte)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteAtividadeDesenvolvida, "Atividade Desenvolvida")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteAtividadeDesenvolvida)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteTempoAtividade, "Tempo de Atividade")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteTempoAtividade)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteEstruturaArmazenamento, "Estrutura de Armazenamento")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteEstruturaArmazenamento)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteEstruturaTransporte, "Estrutura de Transporte")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteEstruturaTransporte)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteResidenciaProdutor, "Residência do Produtor")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteResidenciaProdutor)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.ClienteEstadoCivil, "Estado Civil")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClienteEstadoCivil)
+    </div>
+        </div>
+    
+    <div class="clear"></div>
+        </div>
+    <hr />
+
+     <h3>Dados do Conjuge</h3>
+    <br />
+    <div class="formside">
+   
+        
+
+        
+
+        <div class="left">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeUsuarioNome, "Nome")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeUsuarioNome)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                <label>Data de nascimento</label>
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeDataNascimento)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeNaturalidade, "Naturalidade")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeNaturalidade)
+            </div>
+        </div>
+     <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeRendaMensal,"Renda mensal")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeRendaMensal)
+            </div>
+       </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeRG , "RG")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeRG)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeDataExpedicao, "Data de expedição")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeDataExpedicao)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeCPF, "CPF")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeCPF)
+            </div>
+        </div>
+        
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeTelefone1, "Telefone fixo principal")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeTelefone1)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeTelefone2, "Outro telefone")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeTelefone2)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeCelular1,"Celular do cliente")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeCelular1)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeCelular2, "Outro celular")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeCelular2)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeEndereco, "Logradouro")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeEndereco)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConjugeCEP ,"CEP")
+            </div>
+            <div class="editor-field">
+                @Html.DisplayFor(model => model.ConjugeCEP)
+            </div>
+        </div>
+       
+        <div class="clear"></div>
+
+
+
+    </div>
+    <hr />
+
+
+
+
+     <h3>Fazenda</h3>
+    <br />
+    <div class="formside">
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaNome)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaMatriculaCRI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaMatriculaCRI)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaCodigoINCRA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaCodigoINCRA)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaMunicipio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaMunicipio)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaRoteiroAcesso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaRoteiroAcesso)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaConfrontacoesNorte)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaConfrontacoesNorte)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaConfrontacoesSul)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaConfrontacoesSul)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaConfrontacoesLeste)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaConfrontacoesLeste)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaConfrontacoesOeste)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaConfrontacoesOeste)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaTitulosDominio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaTitulosDominio)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaTipoPropriedade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaTipoPropriedade)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaAreaTitulada)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaAreaTitulada)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaAreaReal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaAreaReal)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaAreaExplorada)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaAreaExplorada)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaOnusGravames)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaOnusGravames)
+    </div>
+        </div>
+    <div class="left">
+    <div class="display-label">
+         @Html.LabelFor(model => model.FazendaParticipacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FazendaParticipacao)
+    </div>
+        </div>
+    <div class="clear">
+        </div>
+
+    
+</fieldset>
+

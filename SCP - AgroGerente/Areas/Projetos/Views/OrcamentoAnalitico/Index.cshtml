@@ -1,0 +1,268 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.ViewOrcamentoAnalitico>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+
+    string etapaNome = "";
+    int? tipoEtapaNome = 0;
+    double? CustoHectarServico = 0;
+    double? CustoHectarServicoFinal = 0;
+    double? CustoTotal = 0;
+    double? CustoTotalFinal = 0;
+    int MostraEsconde = 0;
+    double? HectaresDistribuidos = 0;
+    double? ASTECPorcentagemValor = 0;
+    double? SaldoHectar = 0;
+    double? Saldo = 0;
+
+}
+@section featured {
+
+    @RenderPage("~/Areas/Projetos/Views/Shared/ClientPartial.cshtml")
+
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Itens do Orçamento Analítico</h2>
+
+
+    </div>
+    <div class="right">
+       
+
+        @if (ViewBag.PossuiSafraPrevista > 0)
+        {
+             @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+        }
+        else
+        {
+                <text><b>Não existem Safras Distribuídas para a safra vigente</b></text>
+        }
+
+       
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+<br />
+
+
+
+<table class="tabelaFormatada">
+    @foreach (var item in Model)
+    {
+
+
+        if (etapaNome != item.EtapaNome)
+        {
+            if (MostraEsconde == 1)
+            {
+                <tr>
+                    <td colspan="6"></td>
+                    <td class="alignRight"><b>@String.Format("{0:C}",CustoHectarServico)</b></td>
+                    <td class="alignRight"><b>@String.Format("{0:C}",CustoTotal)</b></td>
+                    <td colspan="2"></td>
+                </tr>
+
+                CustoHectarServicoFinal = CustoHectarServicoFinal+CustoHectarServico;
+                CustoTotalFinal = CustoTotalFinal+CustoTotal;
+                CustoHectarServico = 0;
+                CustoTotal = 0;
+                MostraEsconde = 0;
+                tipoEtapaNome = 0;
+                
+
+            }
+
+            HectaresDistribuidos = @item.AreaPrevista;
+
+            <tr>
+                <td colspan="10" style="border-top:2px solid #000;background:none !important; text-align:center; text-transform:uppercase"><b>@item.EtapaNome</b></td>
+            </tr>
+
+            etapaNome = item.EtapaNome;
+        }
+
+
+
+
+        if (tipoEtapaNome != item.OrcamentoAnaliticoItemTipo)
+        {
+
+            if (MostraEsconde == 1)
+            {
+                <tr>
+                    <td colspan="6"></td>
+                    <td class="alignRight"><b>@String.Format("{0:C}", CustoHectarServico)</b></td>
+                    <td class="alignRight"><b>@String.Format("{0:C}", CustoTotal)</b></td>
+                    <td colspan="2"></td>
+                </tr>
+
+                CustoHectarServicoFinal = CustoHectarServicoFinal + CustoHectarServico;
+                CustoTotalFinal = CustoTotalFinal + CustoTotal;
+                CustoHectarServico = 0;
+                CustoTotal = 0;
+
+
+            }
+
+            MostraEsconde = 1;
+
+            <tr>
+                <td colspan="10"><b><i>
+                           @if (item.OrcamentoAnaliticoItemTipo == 1)
+                           {
+                               <text>Serviços</text>
+                           }
+                           else
+                           {
+                               <text>Insumos</text>
+                           }
+                </i></b></td>
+            </tr>
+            <tr style="font-size:0.9em; font-weight:bold">
+                <td>Especificação</td>
+                <td class="alignCenter"></td>
+                <td class="alignCenter">Un</td>
+                <td class="alignCenter">Qtd/ha</td>
+                <td class="alignCenter">ha</td>
+                <td class="alignCenter">Vl. Unit.</td>
+                <td class="alignCenter">Custo/ha</td>
+                <td class="alignCenter">Custo Total</td>
+                <td class="alignCenter">Época de Utilização</td>
+                <td class="alignCenter">Ações</td>
+            </tr>
+
+                           tipoEtapaNome = item.OrcamentoAnaliticoItemTipo;
+
+        }
+
+
+
+
+        <tr>
+            <td>@item.OrcamentoItem</td>
+            <td class="alignCenter">@item.OrcamentoAnaliticoQuantidadeItemOrcamento x</td>
+            <td>@item.OrcamentoUnidadeMedida</td>
+            <td class="alignRight">@String.Format("{0:0.00}",item.OrcamentoAnaliticoQuantidadePorHectarItemOrcamento)</td>
+            <td class="alignRight">
+                @String.Format("{0:0.00}",item.AreaPrevista)</td>
+            <td class="alignRight">
+                @String.Format("{0:0.00}",item.OrcamentoAnaliticoValorUnitarioItemOrcamento)</td>
+            <td class="alignRight">
+                @String.Format("{0:C}",item.CustoHectar)
+                @{
+        CustoHectarServico = CustoHectarServico + item.CustoHectar;
+                        }
+            </td>
+            <td class="alignRight">
+                @String.Format("{0:C}",item.CustoTotal)
+                @{
+                    CustoTotal=CustoTotal+item.CustoTotal;
+                    }
+            </td>
+            <td class="alignCenter" style="text-transform:uppercase">
+
+                @String.Format("{0:dd MMM}",item.OrcamentoAnaliticoMesInicio)
+      
+                 /
+                @String.Format("{0:MMM dd}", item.OrcamentoAnaliticoMesFim)
+
+            </td>
+            <td class="alignCenter">
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+                @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+            </td>
+        </tr>
+
+    }
+    <tr>
+        <td colspan="6"></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoHectarServico)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoTotal)</b></td>
+        <td colspan="2"></td>
+    </tr>
+    @{
+        CustoHectarServicoFinal = CustoHectarServicoFinal + CustoHectarServico;
+         CustoTotalFinal = CustoTotalFinal+CustoTotal;
+    }
+
+
+    @*Total*@
+
+    <tr>
+        <td colspan="10" style="background:none !important; height:30px"></td>
+
+    </tr>
+<tr>
+        <td colspan="6"><b>Custo Total</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoHectarServicoFinal)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoTotalFinal)</b></td>
+        <td colspan="2"></td>
+    </tr>
+    @foreach (var item in ViewBag.ASTEC)
+    {
+
+        ASTECPorcentagemValor = (double?)((decimal)CustoHectarServicoFinal * (decimal)item.AstecValor / 100);
+
+        SaldoHectar = CustoHectarServicoFinal+ASTECPorcentagemValor;
+        Saldo = CustoTotalFinal+(HectaresDistribuidos * ASTECPorcentagemValor);
+
+
+
+    <tr>
+        <td colspan="6"><b>ASTEC (@item.AstecValor %)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", ASTECPorcentagemValor)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", HectaresDistribuidos * ASTECPorcentagemValor)</b></td>
+        <td colspan="2"></td>
+    </tr>
+    }
+
+    @foreach (var item in ViewBag.SafraDadosPrevista)
+    {
+        SaldoHectar = (item.SafrasProdutividade * item.SafrasValorUnitario)-SaldoHectar;
+        Saldo = (item.SafrasProdutividade * item.SafrasValorUnitario * HectaresDistribuidos)-Saldo;
+    <tr>
+        <td colspan="2"><b>Produção</b></td>
+        <td>Kg</td>
+        <td class="alignLeft" colspan="2">@String.Format("{0:0.00}", item.SafrasProdutividade)</td>
+        <td class="alignRight">@String.Format("{0:0.00}", item.SafrasValorUnitario)</td>
+        <td class="alignRight"><b>@String.Format("{0:C}", item.SafrasProdutividade * item.SafrasValorUnitario)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", item.SafrasProdutividade * item.SafrasValorUnitario * HectaresDistribuidos)</b></td>
+        <td colspan="2"></td>
+    </tr>
+    }
+
+
+    <tr>
+        <td colspan="6"><b>Saldo</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", SaldoHectar)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", Saldo)</b></td>
+        <td colspan="2"></td>
+    </tr>
+
+    <tr>
+        <td colspan="10" style="background:none !important; height:30px"></td>
+
+    </tr>
+    <tr>
+        <td colspan="6"><b>Custo Final</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoHectarServicoFinal + ASTECPorcentagemValor)</b></td>
+        <td class="alignRight"><b>@String.Format("{0:C}", CustoTotalFinal + (HectaresDistribuidos * ASTECPorcentagemValor))</b></td>
+        <td colspan="2">Custo total+ASTEC</td>
+    </tr>
+
+</table>
+
+
+    
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

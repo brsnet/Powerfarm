@@ -1,0 +1,83 @@
+﻿@model SCP___AgroGerente.Areas.Projetos.Model.CadastroBancoQuestoes
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Questão do Tipo</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+     @Html.HiddenFor(model => model.ID)
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="box">
+            <div class="left">
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BancoQuestoesAtivo, "Ativo?", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.BancoQuestoesAtivo)
+                            Sim
+                            @Html.ValidationMessageFor(model => model.BancoQuestoesAtivo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BancoQuestoesTipo, "Tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("BancoQuestoesTipo", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BancoQuestoesTipo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            @Html.LabelFor(model => model.BancoQuestoesPergunta, "Questão", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.BancoQuestoesPergunta, new { htmlAttributes = new { @class = "form-control", @style = "width:100% !important" } })
+                @Html.ValidationMessageFor(model => model.BancoQuestoesPergunta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Criar Questão" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+

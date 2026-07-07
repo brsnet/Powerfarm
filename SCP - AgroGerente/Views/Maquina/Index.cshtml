@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.MaquinaFazendaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Máquinas</h2>
+    </div>
+    <div class="right">
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+   
+    </div>
+<br />
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("MaquinaAtiva", style:"alignCenter",header:"Status", format:@<text>
+
+
+        @if (item.MaquinaAtiva == true)
+        {
+            <span class="green"> @Html.Raw("Ativa")</span>
+        }
+        else
+        {
+            <span class="red"> @Html.Raw("Desativada") </span>
+        }
+
+
+    </text>),
+    grid.Column("MaquinaEspecificacao", style:"",header:"Especificação"),
+    grid.Column("RelacaoParticipacao", style:"",header:"%"),
+    grid.Column("MaquinaMarca", style:"",header:"Marca"),
+    grid.Column("MaquinaModelo", style:"",header:"Modelo Chassi/Potência", format:@<text>
+
+        @item.MaquinaModelo<br />
+        @item.MaquinaChassiSerie | @item.MaquinaPotencia
+
+    </text>),
+    grid.Column("MaquinaAno", style:"",header:"Ano"),
+    grid.Column("MaquinaEstado", style:"",header:"Estado"),
+    grid.Column("MaquinaValor", style:"",header:"Valor", format:@<text>
+@string.Format("{0:C}", item.MaquinaValor)
+</text>),
+grid.Column("",header:"Ações", format:@<text>
+
+        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+        @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+    })
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

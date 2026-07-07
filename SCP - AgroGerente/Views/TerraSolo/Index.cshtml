@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.TerraSoloFazenda>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Terras e solos</h2>
+       
+       
+    </div>
+    <div class="right" >
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+        <div class="left">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Fazendas: @Html.DropDownList("SearchString", (IEnumerable<SelectListItem>)ViewData["Fazendas"], "Todas")
+                    <input type="submit" value="Filtrar" />
+                </p>
+            }
+        </div>
+       
+        <div class="right" style="padding:22px ">
+            Valor Total: 
+            <b><span class="green ValorTotal"></span></b>
+</div>
+        <div class="right" style="padding:22px ">
+            Área total: 
+            <b><span class="green AreaTotal"></span></b>
+        </div>
+        <div class="clear"></div>
+        </div>
+    <hr />
+</div>
+
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+
+     grid.Column("ativo", header:" Status", format:@<text>
+
+@if (item.TerraSoloAtiva == true)
+{
+    <span class="green"> @Html.Raw("Ativa")</span>
+}
+else
+{
+    <span class="red"> @Html.Raw("Desativada") </span>
+}
+
+
+
+</text>, style:"width1 alignCenter"),
+grid.Column("FazendaNome", header:"Fazenda", format:@<text>@if (@item.FazendaNome != null){@Html.ActionLink(linkText: (string)@item.FazendaNome, actionName: "Details", routeValues: new { id = item.FazendaID, controller = "Fazendas" })}</text>),
+grid.Column("tipo", header:" Especificação", format:@<text>
+
+<b>
+@item.tipo
+</b>
+
+</text>),
+grid.Column("TerraSoloArea", header:"Área (ha)", style:"alignRight AT", format:@<text>
+@string.Format("{0:n}", item.TerraSoloArea)
+</text>),
+grid.Column("NomeCultura", header:"Tipo de Cultura", style:"alignCenter"),
+grid.Column("TerraSoloSacas", header:"Sacas", style:"alignRight"),
+grid.Column("ValorUnitario", header:"Valor Unitário", style:"alignRight",format:@<text><i>
+@string.Format("{0:C}", item.ValorUnitario)</i>
+</text>),
+grid.Column("ValorTotal", header:" Valor Total", style:"alignRight VT",format:@<text>
+@string.Format("{0:C}",item.ValorTotal)
+</text>),
+ grid.Column("",header:"Ações", format:@<text>
+
+@Html.ActionLink(" ", "Edit", new { id=item.IDSOLO }, new {@class = "icone edit" })
+@Ajax.ActionLink(" ", "Delete", new { id = item.IDSOLO }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>) 
+
+})
+
+<script>
+
+   
+
+
+    var AreaTotal = 0;
+    var ValorTotal = 0;
+
+    $(".AT").each(function () {
+
+
+        var totalVT = $(this)[0].innerHTML.toLocaleString();
+        AreaTotal = AreaTotal + conversor(totalVT, "number");
+        
+    });
+
+    $(".VT").each(function () {
+
+        var currencyVT = $(this).html().split("R$ ", 2);
+        console.log(currencyVT);
+        ValorTotal = ValorTotal + conversor(currencyVT[1], "number");
+       
+    });
+
+    $(".AreaTotal").html(AreaTotal.toLocaleString());
+    $(".ValorTotal").html("R$ "+ValorTotal.toLocaleString());
+
+
+
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

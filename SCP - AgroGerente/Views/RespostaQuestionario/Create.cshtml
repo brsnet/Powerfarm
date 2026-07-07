@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.CadastroRespostaQuestionario>
+
+@{
+    ViewBag.Title = "Create";
+    var counter = 0;
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Questões</h2>
+         <a href="javascript:window.history.back();" class="icone Goback" title="Voltar"></a>
+    </div>
+   
+    <div class="clear"></div>
+    
+</div>
+
+@using (Html.BeginForm())
+    {
+   @Html.Partial("UsePartial",ViewData["DataVer"])
+    <p>
+        <input type="submit" value="Adicionar Resposta" />
+    </p>
+}
+    
+
+
+
+
+
+

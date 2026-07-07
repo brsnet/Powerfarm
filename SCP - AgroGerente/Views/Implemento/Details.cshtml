@@ -1,0 +1,99 @@
+﻿@model SCP___AgroGerente.Models.CadastroImplemento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroImplemento</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoEspecificacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoEspecificacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoPorcentagem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoPorcentagem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoMarca)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoMarca)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoModelo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoModelo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoAno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoAno)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoEstado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoEstado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoChassiSerie)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoChassiSerie)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoValor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoValor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoFazendaOrigem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoFazendaOrigem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoCidadeLocal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoCidadeLocal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImplementoProprietario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImplementoProprietario)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

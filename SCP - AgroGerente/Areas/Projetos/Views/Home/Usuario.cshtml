@@ -1,0 +1,265 @@
+﻿@model SCP___AgroGerente.Models.VerificacaoDadosGerais
+
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.Nome);
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+ 
+   @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+
+
+<div class="box">
+
+Bem vindo! Vide as informações de aplicação do Projeto
+    </div>
+<ol class="round left" style="width:50%">
+    
+    <li class=" ">
+
+        @*@Html.Partial("ResumoFazendas", ViewData["ResumoFazendas"]) 
+        @Html.Partial("ResumoFazendasArrendadas", ViewData["ResumoFazendasArrendadas"])*@
+    </li>
+    <li class="one ">
+
+        <h1>Agenda de Aplicações</h1>
+        @Html.Partial("ViewOrcamento", ViewData["AgendaAplicações"])
+       
+    </li>
+    <li class="two ">
+       
+        @*@Html.Partial("PartialFazendas", ViewData["FazendasArrendadas"])*@
+
+
+    </li>
+  
+
+   
+</ol>
+
+    <ol class="round right" style="width:40%">
+        <li class="three ">
+            <h4>Cadastros principais</h4>
+            <br />
+            <div class="cadastrosSistemaUsuario">
+
+                <div class="icon farm orcamentoanalitico left"></div>
+
+                Orçamento Analítico:<br />@Html.ActionLink("Administrar Orçamentos", "Index", new { area = "Projetos", controller = "OrcamentoAnalitico" })
+
+
+            </div>
+            @*<hr />
+            <div class="cadastrosSistemaUsuario">
+
+                <div class="icon farm benfeitorias left"></div>
+
+                Benfeitorias:<br />@Html.ActionLink("Administrar Benfeitorias", "Index", "Benfeitoria")
+
+
+            </div>
+
+            <hr />
+            <div class="cadastrosSistemaUsuario">
+                <div class="icon farm semoventes left"></div>Semoventes: <br />@Html.ActionLink("Administrar Semoventes", "Index", "Semovente")
+
+            </div>*@
+
+
+        </li>
+        <li class="four ">
+            <h4>Questionários</h4>
+            <br />
+           @Html.Partial("Questionarios", ViewData["TiposQuestoes"])
+
+
+    </li>
+    <li class="five ">
+        <h4>Croqui</h4>
+        <br />
+        <div class="cadastrosSistemaUsuario">
+
+            <div class="icon farm croqui left"></div>
+
+            Mapa:<br />@Html.ActionLink("Administrar Croqui", "Teste", "Croqui")
+
+        </div>
+        </li>
+
+@*
+        <hr />
+
+        <div class="cadastrosSistemaUsuario">
+
+            <div class="icon farm implementos left"></div>
+
+            Implementos:<br />@Html.ActionLink("Administrar Implementos", "Index", "Implemento")
+
+        </div>
+        <hr />
+        <div class="cadastrosSistemaUsuario">
+            <div class="icon farm veiculos left"></div>Veículos: <br />@Html.ActionLink("Administrar Veículos", "Index", "Veiculo")
+
+        </div>
+
+    </li>
+    <li class="six ">
+        <h4>Financeiro</h4>
+        <br />
+
+        <div class="cadastrosSistemaUsuario">
+
+            <div class="icon farm money left"></div>
+
+            Dívidas:<br />@Html.ActionLink("Administrar Dívidas", "Index", "Divida")
+
+        </div>
+        <hr />
+        <div class="cadastrosSistemaUsuario">
+
+            <div class="icon farm bensdireitos left"></div>
+
+            Bens e Direitos:<br />@Html.ActionLink("Administrar Bens e Direitos", "Index", "BensDireitos")
+
+        </div>
+
+
+
+    </li>
+
+    <li class=" ">
+        <h5 class="red">Lista com dados faltantes do Cliente:</h5>
+
+        <ul>
+
+
+
+
+                    @if (Model.UsuarioRG != null)
+                    {
+                        <li>@Model.UsuarioRG    </li>
+
+                    }
+
+                    @if (Model.UsuarioDataExpedicao != null)
+                    {
+                        <li>@Model.UsuarioDataExpedicao    </li>
+
+                    }
+
+                    @if (Model.UsuarioCPF != null)
+                    {
+                        <li>@Model.UsuarioCPF    </li>
+
+                    }
+
+
+                    @if (Model.UsuarioCidade != null)
+                    {
+                        <li>@Model.UsuarioCidade    </li>
+
+                    }
+                    @if (Model.UsuarioEstado != null)
+                    {
+                        <li>@Model.UsuarioEstado    </li>
+
+                    }
+                    @if (Model.UsuarioDataNascimento != null)
+                    {
+                        <li>@Model.UsuarioDataNascimento    </li>
+
+                    }
+                    @if (Model.UsuarioNaturalidade != null)
+                    {
+                        <li>@Model.UsuarioNaturalidade    </li>
+
+                    }
+                    @if (Model.UsuarioTelefone1 != null)
+                    {
+                        <li>@Model.UsuarioTelefone1    </li>
+
+                    }
+                    @if (Model.UsuarioCelular1 != null)
+                    {
+                        <li>@Model.UsuarioCelular1    </li>
+
+                    }
+                    @if (Model.UsuarioCEP != null)
+                    {
+                        <li>@Model.UsuarioCEP    </li>
+
+                    }
+
+
+                    @if (Model.UsuarioRendaMensal != null)
+                    {
+                        <li>@Model.UsuarioRendaMensal    </li>
+
+                    }
+
+
+
+
+                    @if (Model.ClienteAtividadeDesenvolvida != null)
+                    {
+                        <li>@Model.ClienteAtividadeDesenvolvida    </li>
+
+                    }
+                    @if (Model.ClienteClassificacaoPorte != null)
+                    {
+                        <li>@Model.ClienteClassificacaoPorte    </li>
+                    }
+                    @if (Model.ClienteEstadoCivil != null)
+                    {
+                        <li>@Model.ClienteEstadoCivil    </li>
+                    }
+                    @if (Model.ClienteEstruturaArmazenamento != null)
+                    {
+                        <li>@Model.ClienteEstruturaArmazenamento    </li>
+                    }
+                    @if (Model.ClienteEstruturaTransporte != null)
+                    {
+                        <li>@Model.ClienteEstruturaTransporte    </li>
+                    }
+                    @if (Model.ClienteExperiencia != null)
+                    {
+                        <li>@Model.ClienteExperiencia    </li>
+                    }
+
+                    @if (Model.ClienteFormacao != null)
+                    {
+                        <li>@Model.ClienteFormacao    </li>
+                    }
+                    @if (Model.ClienteGrau != null)
+                    {
+                        <li>@Model.ClienteGrau    </li>
+                    }
+
+                    @if (Model.ClienteResidenciaProdutor != null)
+                    {
+                        <li>@Model.ClienteResidenciaProdutor    </li>
+                    }
+                    @if (Model.ClienteTempoAtividade != null)
+                    {
+                        <li>@Model.ClienteTempoAtividade    </li>
+                    }
+
+
+
+
+
+
+
+
+        </ul>
+
+    </li>
+    <li><span class="green">Não há mais Pendências</span></li>*@
+    </ol>
+
+<div class="clear"></div>
+

@@ -1,0 +1,147 @@
+﻿@model SCP___AgroGerente.Models.CadastroFazenda
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes da fazenda:</h2>
+<p>
+    
+  @Html.ActionLink(" ", "Edit", new { id=Model.ID }, new {@class = "icone edit" })
+  <a href="javascript:window.history.back();" class="icone Goback" title="Voltar"></a>
+</p>
+<fieldset  class="presentation">
+  <fieldset   >
+        <legend>CadastroFazenda</legend>
+
+         
+    
+    <div class="box">
+
+        <div class="left">
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaNome, "Nome da Fazenda")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaNome)
+        </div>
+            </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaMatriculaCRI, "Matrícula no CRI")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaMatriculaCRI)
+        </div>
+  </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaCodigoINCRA, "Código INCRA")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaCodigoINCRA)
+        </div>
+  </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaTitulosDominio, "Títulos de Domínio")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaTitulosDominio)
+        </div>
+              </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaTipoPropriedade, "Tipo de propriedade")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaTipoPropriedade)
+        </div>
+              </div>
+             <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaOnusGravames, "Ônus / Gravames")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaOnusGravames)
+        </div>
+  </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaParticipacao, "Participação %")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaParticipacao)
+        </div>
+              </div>
+        <div class="clear"></div>
+        </div>
+
+        <h3>Localização</h3>
+        <br />
+                  <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaMunicipio, "Minicípio da fazenda")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaMunicipio)
+        </div>
+  </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaRoteiroAcesso, "Roteiro de acesso")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaRoteiroAcesso)
+        </div>
+  </div>
+        <div class="clear"></div>
+
+        <h3>Confrotaçãoes</h3>
+        <br />
+
+         
+        <div class="left">
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaConfrontacoesNorte, "Norte")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaConfrontacoesNorte)
+        </div>
+              </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaConfrontacoesSul, "Sul")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaConfrontacoesSul)
+        </div>
+              </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaConfrontacoesLeste, "Leste")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaConfrontacoesLeste)
+        </div>
+              </div>
+        <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FazendaConfrontacoesOeste, "Oeste")
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.FazendaConfrontacoesOeste)
+        </div>
+              </div>
+        <div class="clear"></div>
+
+        
+   
+        <div class="clear"></div>
+        
+    </fieldset>
+

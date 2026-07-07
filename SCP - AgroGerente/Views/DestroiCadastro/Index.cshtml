@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="red">ATENÇÂO! Para excluir todo o cadastro de um cliente selecione</h2>
+<hr />
+<span>Serão excluídos: Veículos, Máquinas, Implementos, Dados as Safras(Normal/Prevista e Distribuição), Semoventes, Benfeitorias, Terra/Solo, Dados do Cliente, Relacionamento com as Fazendas cadastradas e Fazendas <b> cliente selecionado</b></span>
+
+<div class="box">
+
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="left" style="padding-left: 20px">
+            <div class="editor-label">
+                Cliente que se quer exluir cadastros:
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("UserClonedId", (IEnumerable<SelectListItem>)ViewData["Proprietarios"], "Selecione") 
+            </div>
+        </div>
+      
+        <div class="right" style="padding-left: 20px">
+            <br />
+            <input type="submit" value="Excluir Permanentemente" onclick="javascript: return confirm('Tem Certeza que deseja excluir PERMANENTEMENTE?')" />
+        </div>
+        <div class="clear"></div>
+
+    }
+
+
+</div>

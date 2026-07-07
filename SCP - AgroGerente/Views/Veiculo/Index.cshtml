@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.VeiculoFazendaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Veículos</h2>
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+   
+</div>
+<br />
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("VeiculoAtiva", style:"alignCenter",header:"Status", format:@<text>
+
+
+@if (item.VeiculoAtiva == true)
+{
+    <span class="green"> @Html.Raw("Ativa")</span>
+}
+else
+{
+    <span class="red"> @Html.Raw("Desativada") </span>
+}
+
+
+</text>),
+    grid.Column("VeiculoEspecificacao", style:"",header:"Especificação"),
+    grid.Column("RelacaoParticipacao", style:"",header:"%"),
+    grid.Column("VeiculoMarca", style:"",header:"Marca"),
+    grid.Column("VeiculoModelo", style:"",header:"Modelo/Chassi", format:@<text>
+
+ @item.VeiculoModelo<br />
+@item.VeiculoChassiSerie
+
+</text>),
+    grid.Column("VeiculoAno", style:"",header:"Ano"),
+    grid.Column("VeiculoEstado", style:"",header:"Estado"),
+    grid.Column("VeiculoValor", style:"",header:"Valor", format:@<text>
+        @string.Format("{0:C}", item.VeiculoValor)
+    </text>),
+grid.Column("",header:"Ações", format:@<text>
+
+        @Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+        @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+    })
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+

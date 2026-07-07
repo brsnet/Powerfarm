@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="brs15ModelStoreContainer" CdmEntityContainer="brs15Entities2">
+    <EntitySetMapping Name="CadastroBenfeitorias">
+      <EntityTypeMapping TypeName="brs15Model.CadastroBenfeitoria">
+        <MappingFragment StoreEntitySet="CadastroBenfeitoria">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BenfeitoriaFazenda" ColumnName="BenfeitoriaFazenda" />
+          <ScalarProperty Name="BenfeitoriaEspecificacao" ColumnName="BenfeitoriaEspecificacao" />
+          <ScalarProperty Name="BenfeitoriaQuantidade" ColumnName="BenfeitoriaQuantidade" />
+          <ScalarProperty Name="BenfeitoriaCaracteristicas" ColumnName="BenfeitoriaCaracteristicas" />
+          <ScalarProperty Name="BenfeitoriaAno" ColumnName="BenfeitoriaAno" />
+          <ScalarProperty Name="BenfeitoriaEstadoConservacao" ColumnName="BenfeitoriaEstadoConservacao" />
+          <ScalarProperty Name="BenfeitoriaArrendado" ColumnName="BenfeitoriaArrendado" />
+          <ScalarProperty Name="BenfeitoriaData" ColumnName="BenfeitoriaData" />
+          <ScalarProperty Name="BenfeitoriaAtiva" ColumnName="BenfeitoriaAtiva" />
+          <ScalarProperty Name="BenfeitoriaValor" ColumnName="BenfeitoriaValor" />
+          <ScalarProperty Name="BenfeitoriaUsuario" ColumnName="BenfeitoriaUsuario" />
+          <ScalarProperty Name="BenfeitoriaParticipacao" ColumnName="BenfeitoriaParticipacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

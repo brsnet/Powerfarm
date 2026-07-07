@@ -1,0 +1,128 @@
+﻿@model SCP___AgroGerente.Models.CadastroBenfeitoria
+
+@{
+    ViewBag.Title = "Criar Benfeitoria";
+}
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Benfeitoria</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+     @Html.HiddenFor(model => model.BenfeitoriaUsuario)
+      <fieldset>
+        <legend>CadastroBenfeitoria</legend>
+        <div class="box">
+            
+           
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                @Html.LabelFor(model => model.BenfeitoriaAtiva, "Ativo?")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.BenfeitoriaAtiva, (IEnumerable<SelectListItem>)ViewData["EnumBit"], "Selecione")
+                @Html.ValidationMessageFor(model => model.BenfeitoriaAtiva)
+            </div>
+        </div>
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.BenfeitoriaFazenda, "Será usada na Fazenda:")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.BenfeitoriaFazenda, (IEnumerable<SelectListItem>)ViewData["Fazendas"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.BenfeitoriaFazenda)
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <h3>Informações da Benfeitoria</h3>
+        <br />
+        <div class="left" style="padding-right: 20px">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BenfeitoriaQuantidade, "Quantidade")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BenfeitoriaQuantidade)
+                @Html.ValidationMessageFor(model => model.BenfeitoriaQuantidade)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BenfeitoriaEspecificacao, "Especificação")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BenfeitoriaEspecificacao)
+                @Html.ValidationMessageFor(model => model.BenfeitoriaEspecificacao)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BenfeitoriaCaracteristicas, "Características")
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.BenfeitoriaCaracteristicas, new { rows = "5" })
+                @Html.ValidationMessageFor(model => model.BenfeitoriaCaracteristicas)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BenfeitoriaAno, "Ano")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BenfeitoriaAno)
+                @Html.ValidationMessageFor(model => model.BenfeitoriaAno)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BenfeitoriaEstadoConservacao, "Estado de conservação")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BenfeitoriaEstadoConservacao)
+                @Html.ValidationMessageFor(model => model.BenfeitoriaEstadoConservacao)
+            </div>
+        </div>
+          <div class="left" style="padding-right: 20px">
+
+              <div class="editor-label">
+                  @Html.LabelFor(model => model.BenfeitoriaValor, "Valor")
+              </div>
+              <div class="editor-field">
+                  @Html.EditorFor(model => model.BenfeitoriaValor)
+                  @Html.ValidationMessageFor(model => model.BenfeitoriaValor)
+              </div>
+          </div>
+       
+
+        <div class="clear"></div>
+
+        <p>
+            <input type="submit" value="Salvar alterações" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

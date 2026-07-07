@@ -1,0 +1,99 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|c:\\users\\brsne\\source\\workspaces\\scp - agrogerente\\scp - agrogerente\\scp - agrogerente\\areas\\projetos\\controllers\\orcamentoanaliticocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|solutionrelative:scp - agrogerente\\areas\\projetos\\controllers\\orcamentoanaliticocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|c:\\users\\brsne\\source\\workspaces\\scp - agrogerente\\scp - agrogerente\\scp - agrogerente\\areas\\projetos\\views\\produto\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|solutionrelative:scp - agrogerente\\areas\\projetos\\views\\produto\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|c:\\users\\brsne\\source\\workspaces\\scp - agrogerente\\scp - agrogerente\\scp - agrogerente\\areas\\projetos\\model\\projetos.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|solutionrelative:scp - agrogerente\\areas\\projetos\\model\\projetos.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|c:\\users\\brsne\\source\\workspaces\\scp - agrogerente\\scp - agrogerente\\scp - agrogerente\\areas\\projetos\\views\\orcamentoanalitico\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{425344B9-8502-420A-A59A-EDFC9E7921CB}|SCP - AgroGerente\\SCP - AgroGerente.csproj|solutionrelative:scp - agrogerente\\areas\\projetos\\views\\orcamentoanalitico\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 272,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{131369f2-062d-44a2-8671-91ff31efb4f4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Views\\Produto\\Create.cshtml",
+              "RelativeDocumentMoniker": "SCP - AgroGerente\\Areas\\Projetos\\Views\\Produto\\Create.cshtml",
+              "ToolTip": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Views\\Produto\\Create.cshtml",
+              "RelativeToolTip": "SCP - AgroGerente\\Areas\\Projetos\\Views\\Produto\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T22:52:24.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Projetos.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Model\\Projetos.edmx",
+              "RelativeDocumentMoniker": "SCP - AgroGerente\\Areas\\Projetos\\Model\\Projetos.edmx",
+              "ToolTip": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Model\\Projetos.edmx [Diagram1]",
+              "RelativeToolTip": "SCP - AgroGerente\\Areas\\Projetos\\Model\\Projetos.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-12-17T22:39:04.3Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Views\\OrcamentoAnalitico\\Create.cshtml",
+              "RelativeDocumentMoniker": "SCP - AgroGerente\\Areas\\Projetos\\Views\\OrcamentoAnalitico\\Create.cshtml",
+              "ToolTip": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Views\\OrcamentoAnalitico\\Create.cshtml",
+              "RelativeToolTip": "SCP - AgroGerente\\Areas\\Projetos\\Views\\OrcamentoAnalitico\\Create.cshtml",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAI0AAAC6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T22:38:38.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrcamentoAnaliticoController.cs",
+              "DocumentMoniker": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Controllers\\OrcamentoAnaliticoController.cs",
+              "RelativeDocumentMoniker": "SCP - AgroGerente\\Areas\\Projetos\\Controllers\\OrcamentoAnaliticoController.cs",
+              "ToolTip": "C:\\Users\\brsne\\source\\Workspaces\\SCP - AgroGerente\\SCP - AgroGerente\\SCP - AgroGerente\\Areas\\Projetos\\Controllers\\OrcamentoAnaliticoController.cs",
+              "RelativeToolTip": "SCP - AgroGerente\\Areas\\Projetos\\Controllers\\OrcamentoAnaliticoController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAApwIsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T22:35:11.914Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

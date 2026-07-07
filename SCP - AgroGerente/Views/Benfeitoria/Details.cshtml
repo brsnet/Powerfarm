@@ -1,0 +1,96 @@
+﻿@model SCP___AgroGerente.Models.BenfeitoriaFazenda
+
+@{
+    ViewBag.Title = "Dados da Benfeitoria";
+}
+
+<h2>Dados de identificação: </h2>
+<p>
+
+    @Html.ActionLink(" ", "Edit", new { id = Model.ID }, new { @class = "icone edit" })
+    <a href="javascript:window.history.back();" class="icone Goback" title="Voltar"></a>
+</p>
+
+
+<fieldset class="presentation">
+    <legend>CadastroBenfeitoria</legend>
+    <div class="box">
+
+
+
+        <div class="left">
+            <div class="display-label">
+                @Html.LabelFor(model => model.FazendaNome, "Nome da Fazenda")
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.FazendaNome)
+            </div>
+        </div>
+        <div class="left">
+            <div class="display-label">
+                @Html.LabelFor(model => model.BenfeitoriaArrendado, "Tipo")
+            </div>
+            <div class="display-field">
+                @if (Model.BenfeitoriaArrendado == true)
+                {
+                    @Html.Raw("É arrendada")
+                }
+                else
+                {
+                    @Html.Raw("Própria") 
+                }
+
+
+            </div>
+        </div>
+         <div class="left">
+        <div class="display-label">
+            @Html.LabelFor(model => model.BenfeitoriaQuantidade, "Quantidade")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.BenfeitoriaQuantidade)
+        </div>
+    </div>
+    <div class="left">
+        <div class="display-label">
+            @Html.LabelFor(model => model.BenfeitoriaEspecificacao, "Especificação")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.BenfeitoriaEspecificacao)
+        </div>
+    </div>
+
+        <div class="clear"></div>
+    </div>
+
+   
+   
+    <div class="left">
+        <div class="display-label">
+            @Html.LabelFor(model => model.BenfeitoriaCaracteristicas, "Características")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.BenfeitoriaCaracteristicas)
+        </div>
+    </div>
+   
+
+    <div class="left">
+        <div class="display-label">
+            @Html.LabelFor(model => model.BenfeitoriaAno, "Ano")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.BenfeitoriaAno)
+        </div>
+    </div>
+    <div class="left">
+        <div class="display-label">
+            @Html.LabelFor(model => model.BenfeitoriaEstadoConservacao, "Estado de Conservação")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.BenfeitoriaEstadoConservacao)
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</fieldset>

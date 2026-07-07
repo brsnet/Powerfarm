@@ -1,0 +1,1730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AUTHORITY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="10" />
+    <Property Name="USERPASS" Type="varchar" MaxLength="10" />
+    <Property Name="USERAUTH" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CadastroBenfeitoria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BenfeitoriaFazenda" Type="int" Nullable="false" />
+    <Property Name="BenfeitoriaEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BenfeitoriaQuantidade" Type="int" Nullable="false" />
+    <Property Name="BenfeitoriaCaracteristicas" Type="varchar(max)" />
+    <Property Name="BenfeitoriaAno" Type="varchar" MaxLength="255" />
+    <Property Name="BenfeitoriaEstadoConservacao" Type="varchar" MaxLength="255" />
+    <Property Name="BenfeitoriaArrendado" Type="bit" />
+    <Property Name="BenfeitoriaData" Type="datetime" />
+    <Property Name="BenfeitoriaAtiva" Type="bit" />
+    <Property Name="BenfeitoriaValor" Type="float" Nullable="false" />
+    <Property Name="BenfeitoriaUsuario" Type="int" />
+    <Property Name="BenfeitoriaParticipacao" Type="float" />
+  </EntityType>
+  <EntityType Name="CadastroBensDireitos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BensDireitosCategoria" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BensDireitosCaracteristicas" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BensDireitosValor" Type="float" Nullable="false" />
+    <Property Name="BensDireitosUsuarioID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CadastroClientes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClienteGrau" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteFormacao" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteExperiencia" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteClassificacaoPorte" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteAtividadeDesenvolvida" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteTempoAtividade" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteEstruturaArmazenamento" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteEstruturaTransporte" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteResidenciaProdutor" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteEstadoCivil" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteAuthority" Type="int" />
+    <Property Name="ClienteDadosUsuario" Type="int" Nullable="false" />
+    <Property Name="ClienteRelacaoFazenda" Type="int" />
+    <Property Name="ClienteFazenda" Type="int" />
+    <Property Name="ClienteConjujeUsuario" Type="int" />
+    <Property Name="ClienteParticipacaoGeral" Type="float" />
+    <Property Name="ClienteListaSociosID" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteListaSociosNome" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CadastroDivida">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DividaCredor" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DividaFinalidade" Type="varchar" MaxLength="255" />
+    <Property Name="DividaDataContratada" Type="varchar" MaxLength="255" />
+    <Property Name="DividaDataVencimento" Type="varchar" MaxLength="255" />
+    <Property Name="DividaCarencia" Type="varchar" MaxLength="255" />
+    <Property Name="DividaEncargos" Type="varchar" MaxLength="255" />
+    <Property Name="DividaPeriodicidade" Type="varchar" MaxLength="255" />
+    <Property Name="DividaSaldo" Type="float" Nullable="false" />
+    <Property Name="DividaUsuario" Type="int" Nullable="false" />
+    <Property Name="DividaData" Type="datetime" />
+    <Property Name="DividaSafra" Type="int" />
+    <Property Name="DividaAtiva" Type="bit" />
+  </EntityType>
+  <EntityType Name="CadastroFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaMatriculaCRI" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaCodigoINCRA" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaRoteiroAcesso" Type="varchar(max)" />
+    <Property Name="FazendaConfrontacoesNorte" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesSul" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesLeste" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesOeste" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaTitulosDominio" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaTipoPropriedade" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaOnusGravames" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaMatricula" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaCodReceitaFederal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloSaca" Type="float" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloValorUnitario" Type="float" Nullable="false" />
+    <Property Name="FazendaMicrorregiao" Type="int" Nullable="false" />
+    <Property Name="FazendaCultura" Type="int" Nullable="false" />
+    <Property Name="FazendaArrendada" Type="bit" />
+    <Property Name="FazendaArrendadaAreaArrendada" Type="float" />
+    <Property Name="FazendaArrendadaValorArrendado" Type="float" />
+    <Property Name="FazendaArrendadaDataInicio" Type="datetime" />
+    <Property Name="FazendaArrendadaDataFim" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CadastroImplemento">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImplementoEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoMarca" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoModelo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoAno" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoEstado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoChassiSerie" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoValor" Type="float" Nullable="false" />
+    <Property Name="ImplementoP" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoFazendaOrigem" Type="int" />
+    <Property Name="ImplementoCidadeLocal" Type="varchar" MaxLength="255" />
+    <Property Name="ImplementoSafra" Type="varchar" MaxLength="255" />
+    <Property Name="ImplementoData" Type="datetime" />
+    <Property Name="ImplementoAtiva" Type="bit" />
+    <Property Name="ImplementoUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CadastroMaquina">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaquinaEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaMarca" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaModelo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaPotencia" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaAno" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaEstado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaChassiSerie" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaValor" Type="float" Nullable="false" />
+    <Property Name="MaquinaP" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaFazendaOrigem" Type="int" />
+    <Property Name="MaquinaCidadeLocal" Type="varchar" MaxLength="255" />
+    <Property Name="MaquinaData" Type="datetime" />
+    <Property Name="MaquinaAtiva" Type="bit" />
+    <Property Name="MaquinaUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CadastroMicrorregiao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MicrorregiaoNome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MicrorregiaoBrutaNuaInferiorSaca" Type="int" Nullable="false" />
+    <Property Name="MicrorregiaoBrutaNuaSuperiorSaca" Type="int" Nullable="false" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaInferiorSaca" Type="int" Nullable="false" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaSuperiorSaca" Type="int" Nullable="false" />
+    <Property Name="Ativa" Type="bit" />
+  </EntityType>
+  <EntityType Name="CadastroQuestionario">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionarioQuestao" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioResposta1" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioResposta2" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioResposta3" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioResposta4" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioResposta5" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioSafra" Type="int" />
+  </EntityType>
+  <EntityType Name="CadastroRelacao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RelacaoUsuarioID" Type="int" Nullable="false" />
+    <Property Name="RelacaoFazendaID" Type="int" />
+    <Property Name="RelacaoTitulo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CadastroRespostaQuestionario">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionarioRespostaQuestao" Type="int" />
+    <Property Name="QuestionarioRespostaUsuario" Type="int" />
+    <Property Name="QuestionarioRespostaResposta1" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioRespostaResposta2" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioRespostaResposta3" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioRespostaResposta4" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioRespostaResposta5" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CadastroSafra">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafraData" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NomeSafra" Type="varchar" MaxLength="255" />
+    <Property Name="SafraPrevista" Type="bit" />
+  </EntityType>
+  <EntityType Name="CadastroSemovente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SemoventeEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SemoventeUA" Type="smallint" Nullable="false" />
+    <Property Name="SemoventeNumeroUA" Type="smallint" Nullable="false" />
+    <Property Name="SemoventeNumeroCabecas" Type="smallint" Nullable="false" />
+    <Property Name="SemoventeCaracteristicas" Type="varchar" MaxLength="255" />
+    <Property Name="SemoventeValorUnitario" Type="float" Nullable="false" />
+    <Property Name="SemoventeCredor" Type="varchar" MaxLength="255" />
+    <Property Name="SemoventeUsuarioID" Type="int" Nullable="false" />
+    <Property Name="SemoventeFazendaID" Type="int" Nullable="false" />
+    <Property Name="SemoventeP" Type="bit" />
+  </EntityType>
+  <EntityType Name="CadastroTerraSolo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TerraSoloEspecificacao" Type="int" Nullable="false" />
+    <Property Name="TerraSoloArea" Type="float" Nullable="false" />
+    <Property Name="TerraSoloCaracteristicas" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloClasse" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloAtiva" Type="bit" />
+    <Property Name="TerraSoloFazenda" Type="int" Nullable="false" />
+    <Property Name="TerraSoloMicrorregiao" Type="int" Nullable="false" />
+    <Property Name="Ativo" Type="bit" />
+    <Property Name="TerraSoloTipoCultura" Type="int" Nullable="false" />
+    <Property Name="TerraSoloMicrorregiaoTerra" Type="int" Nullable="false" />
+    <Property Name="TerraSoloUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CadastroUsuarios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RG" Type="varchar" MaxLength="255" />
+    <Property Name="DataExpedicao" Type="varchar" MaxLength="255" />
+    <Property Name="CPF" Type="varchar" MaxLength="255" />
+    <Property Name="DataNascimento" Type="varchar" MaxLength="255" />
+    <Property Name="Naturalidade" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone1" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone2" Type="varchar" MaxLength="255" />
+    <Property Name="Celular1" Type="varchar" MaxLength="255" />
+    <Property Name="Celular2" Type="varchar" MaxLength="255" />
+    <Property Name="Endereco" Type="varchar" MaxLength="255" />
+    <Property Name="CEP" Type="varchar" MaxLength="255" />
+    <Property Name="RendaMensal" Type="varchar" MaxLength="255" />
+    <Property Name="Cidade" Type="varchar" MaxLength="255" />
+    <Property Name="Estado" Type="varchar" MaxLength="255" />
+    <Property Name="Ocupacao" Type="varchar" MaxLength="255" />
+    <Property Name="Grau" Type="varchar" MaxLength="255" />
+    <Property Name="Formacao" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CadastroVeiculo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VeiculoEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoMarca" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoModelo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoPotencia" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoAno" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoEstado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoChassiSerie" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoValor" Type="float" Nullable="false" />
+    <Property Name="VeiculoP" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoFazendaOrigem" Type="int" />
+    <Property Name="VeiculoCidadeLocal" Type="varchar" MaxLength="255" />
+    <Property Name="VeiculoSafra" Type="int" />
+    <Property Name="VeiculoData" Type="datetime" />
+    <Property Name="VeiculoAtiva" Type="bit" />
+    <Property Name="VeiculoUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cultura">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NomeCultura" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ValorSaca" Type="float" Nullable="false" />
+    <Property Name="DataAtualizacao" Type="datetime" />
+    <Property Name="UsarCultura" Type="bit" />
+    <Property Name="CulturaCalculo" Type="bit" />
+  </EntityType>
+  <EntityType Name="LimiteCreditos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntidadeTipo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="EntidadeID" Type="int" Nullable="false" />
+    <Property Name="EntidadeSafra" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="EntidadeHash" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntidadeReferencia" Type="varchar" MaxLength="255" />
+    <Property Name="EntidadeReferenciaValor" Type="int" />
+    <Property Name="Campo1" Type="varchar" MaxLength="255" />
+    <Property Name="Campo2" Type="varchar" MaxLength="255" />
+    <Property Name="Campo3" Type="varchar" MaxLength="255" />
+    <Property Name="Campo4" Type="varchar" MaxLength="255" />
+    <Property Name="Campo5" Type="varchar" MaxLength="255" />
+    <Property Name="Campo6" Type="varchar" MaxLength="255" />
+    <Property Name="Campo7" Type="varchar" MaxLength="255" />
+    <Property Name="Campo8" Type="varchar" MaxLength="255" />
+    <Property Name="Campo9" Type="varchar" MaxLength="255" />
+    <Property Name="Campo10" Type="varchar" MaxLength="255" />
+    <Property Name="Campo11" Type="varchar" MaxLength="255" />
+    <Property Name="Campo12" Type="varchar" MaxLength="255" />
+    <Property Name="Campo13" Type="varchar" MaxLength="255" />
+    <Property Name="Campo14" Type="varchar" MaxLength="255" />
+    <Property Name="Campo15" Type="varchar" MaxLength="255" />
+    <Property Name="Campo16" Type="varchar" MaxLength="255" />
+    <Property Name="Campo17" Type="varchar" MaxLength="255" />
+    <Property Name="Campo18" Type="varchar" MaxLength="255" />
+    <Property Name="Campo19" Type="varchar" MaxLength="255" />
+    <Property Name="Campo20" Type="varchar" MaxLength="255" />
+    <Property Name="Text1" Type="varchar(max)" />
+    <Property Name="Text2" Type="varchar(max)" />
+    <Property Name="Text3" Type="varchar(max)" />
+    <Property Name="Text4" Type="varchar(max)" />
+    <Property Name="Text5" Type="varchar(max)" />
+    <Property Name="EntidadeDataCadastro" Type="datetime" />
+    <Property Name="Campo21" Type="varchar" MaxLength="255" />
+    <Property Name="Campo22" Type="varchar" MaxLength="255" />
+    <Property Name="Campo23" Type="varchar" MaxLength="255" />
+    <Property Name="Campo24" Type="varchar" MaxLength="255" />
+    <Property Name="Campo25" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TerraSolo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="255" />
+    <Property Name="ativo" Type="bit" />
+  </EntityType>
+  <EntityType Name="SafraDistribuicao">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistribuicaoSafraTipo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DistribuicaoSafraFazenda" Type="int" Nullable="false" />
+    <Property Name="DistribuicaoSafraSistemaPlantio" Type="int" />
+    <Property Name="DistribuicaoSafraArea" Type="float" />
+    <Property Name="DistribuicaoSafraUsuarioID" Type="int" Nullable="false" />
+    <Property Name="DistribuicaoSafraSafra" Type="int" Nullable="false" />
+    <Property Name="DistribuicaoSafraCultura" Type="int" />
+    <Property Name="DistribuicaoSafraObservacaoGravame" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SafraNormalPrevista">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafrasSafra" Type="int" Nullable="false" />
+    <Property Name="SafrasSistemaPlantio" Type="int" Nullable="false" />
+    <Property Name="SafrasArea" Type="float" Nullable="false" />
+    <Property Name="SafrasProdutividade" Type="float" Nullable="false" />
+    <Property Name="SafrasValorUnitario" Type="float" Nullable="false" />
+    <Property Name="SafrasCustoUnitario" Type="float" Nullable="false" />
+    <Property Name="SafrasUsuarioID" Type="int" Nullable="false" />
+    <Property Name="SafrasObservacao" Type="varchar(max)" />
+    <Property Name="SafrasCultura" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.BenfeitoriaFazenda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BenfeitoriaFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BenfeitoriaEspecificacao" />
+      <PropertyRef Name="BenfeitoriaValor" />
+      <PropertyRef Name="BenfeitoriaQuantidade" />
+      <PropertyRef Name="BenfeitoriaFazenda" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="BenfeitoriaEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BenfeitoriaCaracteristicas" Type="varchar(max)" />
+    <Property Name="BenfeitoriaAno" Type="varchar" MaxLength="255" />
+    <Property Name="BenfeitoriaValor" Type="float" Nullable="false" />
+    <Property Name="BenfeitoriaAtiva" Type="bit" />
+    <Property Name="BenfeitoriaArrendado" Type="bit" />
+    <Property Name="BenfeitoriaEstadoConservacao" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" />
+    <Property Name="BenfeitoriaData" Type="datetime" />
+    <Property Name="BenfeitoriaParticipacao" Type="float" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" />
+    <Property Name="BenfeitoriaQuantidade" Type="int" Nullable="false" />
+    <Property Name="BenfeitoriaFazenda" Type="int" Nullable="false" />
+    <Property Name="BenfeitoriaUsuario" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.ClienteConjuge' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ClienteConjuge">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClienteConjujeUsuario" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.ClienteFazenda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ClienteFazenda">
+    <Key>
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="ClienteTempoAtividade" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteEstadoCivil" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteAuthority" Type="int" />
+    <Property Name="UsuarioNome" Type="varchar" MaxLength="255" />
+    <Property Name="ConjugeUsuarioNome" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteConjujeUsuario" Type="int" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="ConjugeID" Type="int" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="ClienteListaSociosID" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteListaSociosNome" Type="varchar" MaxLength="255" />
+    <Property Name="ClienteParticipacaoGeral" Type="float" />
+    <Property Name="ID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.DistribuicaoSafraFazenda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DistribuicaoSafraFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DistribuicaoSafraTipo" />
+      <PropertyRef Name="DistribuicaoSafraFazenda" />
+      <PropertyRef Name="DistribuicaoSafraUsuarioID" />
+      <PropertyRef Name="FazendaNome" />
+      <PropertyRef Name="IDFazenda" />
+      <PropertyRef Name="FazendaMunicipio" />
+      <PropertyRef Name="DistribuicaoSafraSafra" />
+      <PropertyRef Name="NomeCultura" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DistribuicaoSafraTipo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DistribuicaoSafraFazenda" Type="int" Nullable="false" />
+    <Property Name="DistribuicaoSafraSistemaPlantio" Type="int" />
+    <Property Name="DistribuicaoSafraArea" Type="float" />
+    <Property Name="DistribuicaoSafraUsuarioID" Type="int" Nullable="false" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RelacaoTitulo" Type="int" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" />
+    <Property Name="IDProprietário" Type="int" />
+    <Property Name="IDFazenda" Type="int" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaArrendada" Type="bit" />
+    <Property Name="FazendaOnusGravames" Type="varchar" MaxLength="255" />
+    <Property Name="DistribuicaoSafraSafra" Type="int" Nullable="false" />
+    <Property Name="NomeSafra" Type="varchar" MaxLength="255" />
+    <Property Name="NomeCultura" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SafraPrevista" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.DividaUsuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DividaUsuario">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DividaCredor" />
+      <PropertyRef Name="DividaUsuario" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="DividaSaldo" />
+    </Key>
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DividaCredor" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DividaFinalidade" Type="varchar" MaxLength="255" />
+    <Property Name="DividaDataContratada" Type="varchar" MaxLength="255" />
+    <Property Name="DividaDataVencimento" Type="varchar" MaxLength="255" />
+    <Property Name="DividaCarencia" Type="varchar" MaxLength="255" />
+    <Property Name="DividaEncargos" Type="varchar" MaxLength="255" />
+    <Property Name="DividaPeriodicidade" Type="varchar" MaxLength="255" />
+    <Property Name="DividaUsuario" Type="int" Nullable="false" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="DividaAtiva" Type="bit" />
+    <Property Name="DividaSaldo" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.FazendaRelacao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FazendaRelacao">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FazendaNome" />
+      <PropertyRef Name="FazendaMatriculaCRI" />
+      <PropertyRef Name="FazendaCodigoINCRA" />
+      <PropertyRef Name="FazendaMunicipio" />
+      <PropertyRef Name="FazendaMatricula" />
+      <PropertyRef Name="FazendaCodReceitaFederal" />
+      <PropertyRef Name="FazendaBeneficioSoloSaca" />
+      <PropertyRef Name="FazendaBeneficioSoloValorUnitario" />
+      <PropertyRef Name="FazendaMicrorregiao" />
+      <PropertyRef Name="FazendaCultura" />
+      <PropertyRef Name="RelacaoUsuarioID" />
+      <PropertyRef Name="RelacaoTitulo" />
+      <PropertyRef Name="IDCliente" />
+      <PropertyRef Name="IDRelacao" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaMatriculaCRI" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaCodigoINCRA" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaRoteiroAcesso" Type="varchar(max)" />
+    <Property Name="FazendaConfrontacoesNorte" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesSul" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesLeste" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesOeste" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaTitulosDominio" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaTipoPropriedade" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaOnusGravames" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaMatricula" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaCodReceitaFederal" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloSaca" Type="float" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloValorUnitario" Type="float" Nullable="false" />
+    <Property Name="FazendaMicrorregiao" Type="int" Nullable="false" />
+    <Property Name="FazendaCultura" Type="int" Nullable="false" />
+    <Property Name="FazendaArrendada" Type="bit" />
+    <Property Name="FazendaArrendadaAreaArrendada" Type="float" />
+    <Property Name="FazendaArrendadaValorArrendado" Type="float" />
+    <Property Name="FazendaArrendadaDataInicio" Type="datetime" />
+    <Property Name="FazendaArrendadaDataFim" Type="datetime" />
+    <Property Name="RelacaoUsuarioID" Type="int" Nullable="false" />
+    <Property Name="RelacaoTitulo" Type="int" Nullable="false" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="IDRelacao" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.FazendaTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FazendaTotals">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FazendaNome" />
+      <PropertyRef Name="FazendaBeneficioSoloSaca" />
+      <PropertyRef Name="FazendaBeneficioSoloValorUnitario" />
+      <PropertyRef Name="FazendaMunicipio" />
+      <PropertyRef Name="ValorSaca" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloSaca" Type="float" Nullable="false" />
+    <Property Name="FazendaBeneficioSoloValorUnitario" Type="float" Nullable="false" />
+    <Property Name="ValorTotal" Type="float" />
+    <Property Name="AreaTotal" Type="float" />
+    <Property Name="ValorParticipacao" Type="float" />
+    <Property Name="BeneficioSolo" Type="float" />
+    <Property Name="RelacaoUsuarioID" Type="int" />
+    <Property Name="AreaCultivada" Type="float" />
+    <Property Name="ValorTerraNua" Type="float" />
+    <Property Name="IDMicrorregiao" Type="int" />
+    <Property Name="MicrorregiaoNome" Type="varchar" MaxLength="255" />
+    <Property Name="IDCultura" Type="int" />
+    <Property Name="NomeCultura" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaMunicipio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MicrorregiaoBrutaNuaInferiorSaca" Type="int" />
+    <Property Name="MicrorregiaoBrutaNuaSuperiorSaca" Type="int" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaInferiorSaca" Type="int" />
+    <Property Name="MicrorregiaoCurrigidaCultivadaSuperiorSaca" Type="int" />
+    <Property Name="FazendaParticipacao" Type="float" />
+    <Property Name="TotalBenfeitoriaChecked" Type="int" />
+    <Property Name="TotalValorBenfeitoriaChecked" Type="float" />
+    <Property Name="ValorParticipacaoBenfeitoria" Type="float" />
+    <Property Name="RelacaoTitulo" Type="int" />
+    <Property Name="NomeProprietario" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaArrendada" Type="bit" />
+    <Property Name="TotaisSemovente" Type="float" />
+    <Property Name="TotalArrendado" Type="float" />
+    <Property Name="ValorSaca" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.funcaodistribuicaoAreaSafra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="funcaodistribuicaoAreaSafra">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nome" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RestanteArea" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.ImplementoFazendaUsuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ImplementoFazendaUsuario">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ImplementoEspecificacao" />
+      <PropertyRef Name="ImplementoMarca" />
+      <PropertyRef Name="ImplementoP" />
+      <PropertyRef Name="ImplementoValor" />
+      <PropertyRef Name="ImplementoChassiSerie" />
+      <PropertyRef Name="ImplementoEstado" />
+      <PropertyRef Name="ImplementoAno" />
+      <PropertyRef Name="ImplementoModelo" />
+      <PropertyRef Name="ImplementoUsuario" />
+    </Key>
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ImplementoEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoMarca" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoFazendaOrigem" Type="int" />
+    <Property Name="ImplementoP" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoValor" Type="float" Nullable="false" />
+    <Property Name="ImplementoChassiSerie" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoEstado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoAno" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoModelo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementoCidadeLocal" Type="varchar" MaxLength="255" />
+    <Property Name="ImplementoData" Type="datetime" />
+    <Property Name="ImplementoAtiva" Type="bit" />
+    <Property Name="ImplementoUsuario" Type="int" Nullable="false" />
+    <Property Name="IDFazenda" Type="int" />
+    <Property Name="RelacaoParticipacao" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.LimiteCredito' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LimiteCredito">
+    <Key>
+      <PropertyRef Name="EntidadeTipo" />
+      <PropertyRef Name="EntidadeID" />
+      <PropertyRef Name="EntidadeSafra" />
+      <PropertyRef Name="EntidadeHash" />
+    </Key>
+    <Property Name="EntidadeTipo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="EntidadeID" Type="int" Nullable="false" />
+    <Property Name="EntidadeSafra" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="EntidadeHash" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EntidadeReferencia" Type="varchar" MaxLength="255" />
+    <Property Name="EntidadeReferenciaValor" Type="int" />
+    <Property Name="EntidadeDataCadastro" Type="datetime" />
+    <Property Name="Campo1" Type="varchar" MaxLength="255" />
+    <Property Name="NomeSafra" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.MaquinaFazendaUsuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MaquinaFazendaUsuario">
+    <Key>
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="MaquinaEspecificacao" />
+      <PropertyRef Name="MaquinaMarca" />
+      <PropertyRef Name="MaquinaModelo" />
+      <PropertyRef Name="MaquinaPotencia" />
+      <PropertyRef Name="MaquinaAno" />
+      <PropertyRef Name="MaquinaEstado" />
+      <PropertyRef Name="MaquinaChassiSerie" />
+      <PropertyRef Name="MaquinaValor" />
+      <PropertyRef Name="MaquinaP" />
+      <PropertyRef Name="IDUsuario" />
+      <PropertyRef Name="MaquinaUsuario" />
+    </Key>
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MaquinaEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaMarca" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaModelo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaPotencia" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaAno" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaEstado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaChassiSerie" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaValor" Type="float" Nullable="false" />
+    <Property Name="MaquinaP" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MaquinaFazendaOrigem" Type="int" />
+    <Property Name="MaquinaCidadeLocal" Type="varchar" MaxLength="255" />
+    <Property Name="MaquinaAtiva" Type="bit" />
+    <Property Name="MaquinaData" Type="datetime" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="MaquinaUsuario" Type="int" Nullable="false" />
+    <Property Name="RelacaoParticipacao" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.Proprietarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Proprietarios">
+    <Key>
+      <PropertyRef Name="IDCliente" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" />
+    <Property Name="RelacaoTitulo" Type="int" />
+    <Property Name="IDCliente" Type="int" Nullable="false" />
+    <Property Name="Celular1" Type="varchar" MaxLength="255" />
+    <Property Name="Celular2" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone1" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone2" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.QuestionarioResposta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="QuestionarioResposta">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="QuestionarioQuestao" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionarioRespostaQuestao" Type="int" />
+    <Property Name="QuestionarioRespostaUsuario" Type="int" />
+    <Property Name="QuestionarioRespostaResposta1" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.ResumoFazendas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ResumoFazendas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="QTDMaquinas" Type="int" />
+    <Property Name="QTDImplementos" Type="int" />
+    <Property Name="QTDVeiculos" Type="int" />
+    <Property Name="QTDTerrasSolos" Type="int" />
+    <Property Name="QTDBenfeitorias" Type="int" />
+    <Property Name="QTDSemoventes" Type="int" />
+    <Property Name="ClienteParticipacaoGeral" Type="float" />
+    <Property Name="TotalTerraSolo" Type="float" />
+    <Property Name="TotalBenfeitorias" Type="float" />
+    <Property Name="TotalSemoventes" Type="float" />
+    <Property Name="ResumoMaquina" Type="float" />
+    <Property Name="ResumoVeiculo" Type="float" />
+    <Property Name="ResumoImplemento" Type="float" />
+    <Property Name="ResumoBensDireitos" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.TerraSoloFazenda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TerraSoloFazenda">
+    <Key>
+      <PropertyRef Name="IDSOLO" />
+      <PropertyRef Name="TerraSoloEspecificacao" />
+      <PropertyRef Name="TerraSoloFazenda" />
+      <PropertyRef Name="TerraSoloArea" />
+      <PropertyRef Name="TerraSoloMicrorregiaoTerra" />
+      <PropertyRef Name="TerraSoloTipoCultura" />
+      <PropertyRef Name="TerraSoloMicrorregiao" />
+    </Key>
+    <Property Name="IDSOLO" Type="int" Nullable="false" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaID" Type="int" />
+    <Property Name="FazendaMatriculaCRI" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaCodigoINCRA" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloClasse" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloCaracteristicas" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloEspecificacao" Type="int" Nullable="false" />
+    <Property Name="FazendaMunicipio" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaRoteiroAcesso" Type="varchar(max)" />
+    <Property Name="FazendaConfrontacoesNorte" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaOnusGravames" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaTipoPropriedade" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesLeste" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesOeste" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaTitulosDominio" Type="varchar" MaxLength="255" />
+    <Property Name="FazendaConfrontacoesSul" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloAtiva" Type="bit" />
+    <Property Name="TerraSoloFazenda" Type="int" Nullable="false" />
+    <Property Name="MicrorregiaoNome" Type="varchar" MaxLength="255" />
+    <Property Name="Ativo" Type="bit" />
+    <Property Name="NomeCultura" Type="varchar" MaxLength="255" />
+    <Property Name="TerraSoloSacas" Type="int" />
+    <Property Name="tipo" Type="varchar" MaxLength="255" />
+    <Property Name="ValorTotal" Type="float" />
+    <Property Name="TerraSoloArea" Type="float" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="TerraSoloMicrorregiaoTerra" Type="int" Nullable="false" />
+    <Property Name="TerraSoloTipoCultura" Type="int" Nullable="false" />
+    <Property Name="TerraSoloMicrorregiao" Type="int" Nullable="false" />
+    <Property Name="ValorUnitario" Type="float" />
+    <Property Name="TerraSoloUsuario" Type="int" />
+    <Property Name="RelacaoTitulo" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.UsuarioSafrasNormalPrevista' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UsuarioSafrasNormalPrevista">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SafrasSafra" />
+      <PropertyRef Name="SafrasSistemaPlantio" />
+      <PropertyRef Name="SafrasArea" />
+      <PropertyRef Name="SafrasProdutividade" />
+      <PropertyRef Name="SafrasValorUnitario" />
+      <PropertyRef Name="SafrasUsuarioID" />
+      <PropertyRef Name="SafrasCustoUnitario" />
+      <PropertyRef Name="CustoTotal" />
+      <PropertyRef Name="ValorReceita" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="SafrasCultura" />
+      <PropertyRef Name="NomeCultura" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SafrasSafra" Type="int" Nullable="false" />
+    <Property Name="SafrasSistemaPlantio" Type="int" Nullable="false" />
+    <Property Name="SafrasArea" Type="float" Nullable="false" />
+    <Property Name="SafrasProdutividade" Type="float" Nullable="false" />
+    <Property Name="SafrasValorUnitario" Type="float" Nullable="false" />
+    <Property Name="SafrasUsuarioID" Type="int" Nullable="false" />
+    <Property Name="SafrasObservacao" Type="varchar(max)" />
+    <Property Name="SafrasCustoUnitario" Type="float" Nullable="false" />
+    <Property Name="CustoTotal" Type="float" Nullable="false" />
+    <Property Name="ValorReceita" Type="float" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NomeSafra" Type="varchar" MaxLength="255" />
+    <Property Name="SafrasCultura" Type="int" Nullable="false" />
+    <Property Name="NomeCultura" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SafraPrevista" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.UsuariosFazenda' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UsuariosFazenda">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="RelacaoTitulo" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RelacaoTitulo" Type="int" Nullable="false" />
+    <Property Name="RG" Type="varchar" MaxLength="255" />
+    <Property Name="DataExpedicao" Type="varchar" MaxLength="255" />
+    <Property Name="CPF" Type="varchar" MaxLength="255" />
+    <Property Name="DataNascimento" Type="varchar" MaxLength="255" />
+    <Property Name="Naturalidade" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone1" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone2" Type="varchar" MaxLength="255" />
+    <Property Name="Celular1" Type="varchar" MaxLength="255" />
+    <Property Name="Celular2" Type="varchar" MaxLength="255" />
+    <Property Name="Endereco" Type="varchar" MaxLength="255" />
+    <Property Name="CEP" Type="varchar" MaxLength="255" />
+    <Property Name="RendaMensal" Type="varchar" MaxLength="255" />
+    <Property Name="Cidade" Type="varchar" MaxLength="255" />
+    <Property Name="Estado" Type="varchar" MaxLength="255" />
+    <Property Name="RelacaoFazendaID" Type="int" />
+    <Property Name="Ocupacao" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.VeiculoFazendaUsuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VeiculoFazendaUsuario">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="VeiculoEspecificacao" />
+      <PropertyRef Name="VeiculoMarca" />
+      <PropertyRef Name="VeiculoModelo" />
+      <PropertyRef Name="VeiculoPotencia" />
+      <PropertyRef Name="VeiculoAno" />
+      <PropertyRef Name="VeiculoEstado" />
+      <PropertyRef Name="VeiculoChassiSerie" />
+      <PropertyRef Name="VeiculoValor" />
+      <PropertyRef Name="VeiculoP" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="IDUsuario" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="VeiculoEspecificacao" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoMarca" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoModelo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoPotencia" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoAno" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoEstado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoChassiSerie" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoValor" Type="float" Nullable="false" />
+    <Property Name="VeiculoP" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="VeiculoFazendaOrigem" Type="int" />
+    <Property Name="VeiculoCidadeLocal" Type="varchar" MaxLength="255" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FazendaNome" Type="varchar" MaxLength="255" />
+    <Property Name="VeiculoAtiva" Type="bit" />
+    <Property Name="VeiculoData" Type="datetime" />
+    <Property Name="IDUsuario" Type="int" Nullable="false" />
+    <Property Name="IDFazenda" Type="int" />
+    <Property Name="RelacaoParticipacao" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'brs15.dbo.VerificacaoDadosGerais' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VerificacaoDadosGerais">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClienteGrau" Type="varchar" MaxLength="4" />
+    <Property Name="ClienteFormacao" Type="varchar" MaxLength="8" />
+    <Property Name="ClienteExperiencia" Type="varchar" MaxLength="11" />
+    <Property Name="ClienteClassificacaoPorte" Type="varchar" MaxLength="19" />
+    <Property Name="ClienteAtividadeDesenvolvida" Type="varchar" MaxLength="22" />
+    <Property Name="ClienteTempoAtividade" Type="varchar" MaxLength="18" />
+    <Property Name="ClienteEstruturaArmazenamento" Type="varchar" MaxLength="26" />
+    <Property Name="ClienteEstruturaTransporte" Type="varchar" MaxLength="23" />
+    <Property Name="ClienteResidenciaProdutor" Type="varchar" MaxLength="22" />
+    <Property Name="ClienteEstadoCivil" Type="varchar" MaxLength="22" />
+    <Property Name="ClienteDadosUsuario" Type="varchar" MaxLength="40" />
+    <Property Name="ClienteFazenda" Type="varchar" MaxLength="44" />
+    <Property Name="ClienteRelacaoFazenda" Type="varchar" MaxLength="15" />
+    <Property Name="IDCliente" Type="int" />
+    <Property Name="UsuarioRG" Type="varchar" MaxLength="2" />
+    <Property Name="UsuarioDataExpedicao" Type="varchar" MaxLength="17" />
+    <Property Name="UsuarioCPF" Type="varchar" MaxLength="3" />
+    <Property Name="UsuarioDataNascimento" Type="varchar" MaxLength="18" />
+    <Property Name="UsuarioNaturalidade" Type="varchar" MaxLength="12" />
+    <Property Name="UsuarioTelefone1" Type="varchar" MaxLength="8" />
+    <Property Name="UsuarioCelular1" Type="varchar" MaxLength="7" />
+    <Property Name="UsuarioEndereco" Type="varchar" MaxLength="8" />
+    <Property Name="UsuarioCEP" Type="varchar" MaxLength="3" />
+    <Property Name="UsuarioRendaMensal" Type="varchar" MaxLength="11" />
+    <Property Name="UsuarioCidade" Type="varchar" MaxLength="6" />
+    <Property Name="UsuarioEstado" Type="varchar" MaxLength="6" />
+    <Property Name="Telefone1" Type="varchar" MaxLength="255" />
+    <Property Name="Telefone2" Type="varchar" MaxLength="255" />
+    <Property Name="Celular1" Type="varchar" MaxLength="255" />
+    <Property Name="Celular2" Type="varchar" MaxLength="255" />
+    <Property Name="RelacaoTitulo" Type="int" />
+    <Property Name="QuantidadeFazendas" Type="int" />
+  </EntityType>
+  <Association Name="FK_CadastroBenfeitoria_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="CadastroBenfeitoria" Type="Self.CadastroBenfeitoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBenfeitoria">
+        <PropertyRef Name="BenfeitoriaFazenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroBenfeitoria_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="0..1" />
+    <End Role="CadastroBenfeitoria" Type="Self.CadastroBenfeitoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBenfeitoria">
+        <PropertyRef Name="BenfeitoriaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroBensDireitos_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroBensDireitos" Type="Self.CadastroBensDireitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBensDireitos">
+        <PropertyRef Name="BensDireitosUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroClientes_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroClientes" Type="Self.CadastroClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroClientes">
+        <PropertyRef Name="ClienteDadosUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroDivida_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroDivida" Type="Self.CadastroDivida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroDivida">
+        <PropertyRef Name="DividaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroFazenda_CadastroMicrorregiao">
+    <End Role="CadastroMicrorregiao" Type="Self.CadastroMicrorregiao" Multiplicity="1" />
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroMicrorregiao">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroFazenda">
+        <PropertyRef Name="FazendaMicrorregiao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroFazenda_Cultura">
+    <End Role="Cultura" Type="Self.Cultura" Multiplicity="1" />
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroFazenda">
+        <PropertyRef Name="FazendaCultura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroImplemento_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroImplemento" Type="Self.CadastroImplemento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroImplemento">
+        <PropertyRef Name="ImplementoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroMaquina_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroMaquina" Type="Self.CadastroMaquina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroMaquina">
+        <PropertyRef Name="MaquinaUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroRelacao_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="0..1" />
+    <End Role="CadastroRelacao" Type="Self.CadastroRelacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroRelacao">
+        <PropertyRef Name="RelacaoFazendaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroRelacao_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroRelacao" Type="Self.CadastroRelacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroRelacao">
+        <PropertyRef Name="RelacaoUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroSemovente_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="CadastroSemovente" Type="Self.CadastroSemovente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroSemovente">
+        <PropertyRef Name="SemoventeFazendaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroSemovente_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroSemovente" Type="Self.CadastroSemovente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroSemovente">
+        <PropertyRef Name="SemoventeUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroTerraSolo_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="CadastroTerraSolo" Type="Self.CadastroTerraSolo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroTerraSolo">
+        <PropertyRef Name="TerraSoloFazenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroTerraSolo_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroTerraSolo" Type="Self.CadastroTerraSolo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroTerraSolo">
+        <PropertyRef Name="TerraSoloUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroTerraSolo_TerraSolo">
+    <End Role="TerraSolo" Type="Self.TerraSolo" Multiplicity="1" />
+    <End Role="CadastroTerraSolo" Type="Self.CadastroTerraSolo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TerraSolo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroTerraSolo">
+        <PropertyRef Name="TerraSoloEspecificacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroVeiculo_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="CadastroVeiculo" Type="Self.CadastroVeiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroVeiculo">
+        <PropertyRef Name="VeiculoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraDistribuicao_CadastroFazenda">
+    <End Role="CadastroFazenda" Type="Self.CadastroFazenda" Multiplicity="1" />
+    <End Role="SafraDistribuicao" Type="Self.SafraDistribuicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroFazenda">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraDistribuicao">
+        <PropertyRef Name="DistribuicaoSafraFazenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraDistribuicao_CadastroSafra">
+    <End Role="CadastroSafra" Type="Self.CadastroSafra" Multiplicity="1" />
+    <End Role="SafraDistribuicao" Type="Self.SafraDistribuicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraDistribuicao">
+        <PropertyRef Name="DistribuicaoSafraSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraDistribuicao_Cultura">
+    <End Role="Cultura" Type="Self.Cultura" Multiplicity="0..1" />
+    <End Role="SafraDistribuicao" Type="Self.SafraDistribuicao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraDistribuicao">
+        <PropertyRef Name="DistribuicaoSafraCultura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraNormalPrevista_CadastroSafra">
+    <End Role="CadastroSafra" Type="Self.CadastroSafra" Multiplicity="1" />
+    <End Role="SafraNormalPrevista" Type="Self.SafraNormalPrevista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraNormalPrevista">
+        <PropertyRef Name="SafrasSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraNormalPrevista_CadastroUsuarios">
+    <End Role="CadastroUsuarios" Type="Self.CadastroUsuarios" Multiplicity="1" />
+    <End Role="SafraNormalPrevista" Type="Self.SafraNormalPrevista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraNormalPrevista">
+        <PropertyRef Name="SafrasUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SafraNormalPrevista_Cultura">
+    <End Role="Cultura" Type="Self.Cultura" Multiplicity="1" />
+    <End Role="SafraNormalPrevista" Type="Self.SafraNormalPrevista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cultura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SafraNormalPrevista">
+        <PropertyRef Name="SafrasCultura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AreaADistribuir" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="usuarioID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CalculoSacaMicrorregiao" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="TerraSolo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DestroiCadastro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertLimiteCredito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Safra" Type="int" Mode="In" />
+    <Parameter Name="Cliente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_LimiteCredito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CampoIdentityID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_Questoes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="SCPModelStoreContainer">
+    <EntitySet Name="AUTHORITY" EntityType="Self.AUTHORITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroBenfeitoria" EntityType="Self.CadastroBenfeitoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroBensDireitos" EntityType="Self.CadastroBensDireitos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroClientes" EntityType="Self.CadastroClientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroDivida" EntityType="Self.CadastroDivida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroFazenda" EntityType="Self.CadastroFazenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroImplemento" EntityType="Self.CadastroImplemento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroMaquina" EntityType="Self.CadastroMaquina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroMicrorregiao" EntityType="Self.CadastroMicrorregiao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroQuestionario" EntityType="Self.CadastroQuestionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroRelacao" EntityType="Self.CadastroRelacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroRespostaQuestionario" EntityType="Self.CadastroRespostaQuestionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroSafra" EntityType="Self.CadastroSafra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroSemovente" EntityType="Self.CadastroSemovente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroTerraSolo" EntityType="Self.CadastroTerraSolo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroUsuarios" EntityType="Self.CadastroUsuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CadastroVeiculo" EntityType="Self.CadastroVeiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cultura" EntityType="Self.Cultura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LimiteCreditos" EntityType="Self.LimiteCreditos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TerraSolo" EntityType="Self.TerraSolo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SafraDistribuicao" EntityType="Self.SafraDistribuicao" Schema="Safra" store:Type="Tables" />
+    <EntitySet Name="SafraNormalPrevista" EntityType="Self.SafraNormalPrevista" Schema="Safra" store:Type="Tables" />
+    <EntitySet Name="BenfeitoriaFazenda" EntityType="Self.BenfeitoriaFazenda" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BenfeitoriaFazenda].[ID] AS [ID], 
+    [BenfeitoriaFazenda].[BenfeitoriaEspecificacao] AS [BenfeitoriaEspecificacao], 
+    [BenfeitoriaFazenda].[BenfeitoriaCaracteristicas] AS [BenfeitoriaCaracteristicas], 
+    [BenfeitoriaFazenda].[BenfeitoriaAno] AS [BenfeitoriaAno], 
+    [BenfeitoriaFazenda].[BenfeitoriaValor] AS [BenfeitoriaValor], 
+    [BenfeitoriaFazenda].[BenfeitoriaAtiva] AS [BenfeitoriaAtiva], 
+    [BenfeitoriaFazenda].[BenfeitoriaArrendado] AS [BenfeitoriaArrendado], 
+    [BenfeitoriaFazenda].[BenfeitoriaEstadoConservacao] AS [BenfeitoriaEstadoConservacao], 
+    [BenfeitoriaFazenda].[FazendaNome] AS [FazendaNome], 
+    [BenfeitoriaFazenda].[BenfeitoriaData] AS [BenfeitoriaData], 
+    [BenfeitoriaFazenda].[BenfeitoriaParticipacao] AS [BenfeitoriaParticipacao], 
+    [BenfeitoriaFazenda].[Nome] AS [Nome], 
+    [BenfeitoriaFazenda].[BenfeitoriaQuantidade] AS [BenfeitoriaQuantidade], 
+    [BenfeitoriaFazenda].[BenfeitoriaFazenda] AS [BenfeitoriaFazenda], 
+    [BenfeitoriaFazenda].[BenfeitoriaUsuario] AS [BenfeitoriaUsuario]
+    FROM [dbo].[BenfeitoriaFazenda] AS [BenfeitoriaFazenda]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ClienteConjuge" EntityType="Self.ClienteConjuge" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ClienteConjuge].[Nome] AS [Nome], 
+    [ClienteConjuge].[ClienteConjujeUsuario] AS [ClienteConjujeUsuario], 
+    [ClienteConjuge].[ID] AS [ID]
+    FROM [dbo].[ClienteConjuge] AS [ClienteConjuge]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ClienteFazenda" EntityType="Self.ClienteFazenda" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ClienteFazenda].[ClienteTempoAtividade] AS [ClienteTempoAtividade], 
+    [ClienteFazenda].[ClienteEstadoCivil] AS [ClienteEstadoCivil], 
+    [ClienteFazenda].[ClienteAuthority] AS [ClienteAuthority], 
+    [ClienteFazenda].[UsuarioNome] AS [UsuarioNome], 
+    [ClienteFazenda].[ConjugeUsuarioNome] AS [ConjugeUsuarioNome], 
+    [ClienteFazenda].[ClienteConjujeUsuario] AS [ClienteConjujeUsuario], 
+    [ClienteFazenda].[IDUsuario] AS [IDUsuario], 
+    [ClienteFazenda].[ConjugeID] AS [ConjugeID], 
+    [ClienteFazenda].[IDCliente] AS [IDCliente], 
+    [ClienteFazenda].[ClienteListaSociosID] AS [ClienteListaSociosID], 
+    [ClienteFazenda].[ClienteListaSociosNome] AS [ClienteListaSociosNome], 
+    [ClienteFazenda].[ClienteParticipacaoGeral] AS [ClienteParticipacaoGeral], 
+    [ClienteFazenda].[ID] AS [ID]
+    FROM [dbo].[ClienteFazenda] AS [ClienteFazenda]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DistribuicaoSafraFazenda" EntityType="Self.DistribuicaoSafraFazenda" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DistribuicaoSafraFazenda].[ID] AS [ID], 
+    [DistribuicaoSafraFazenda].[DistribuicaoSafraTipo] AS [DistribuicaoSafraTipo], 
+    [DistribuicaoSafraFazenda].[DistribuicaoSafraFazenda] AS [DistribuicaoSafraFazenda], 
+    [DistribuicaoSafraFazenda].[DistribuicaoSafraSistemaPlantio] AS [DistribuicaoSafraSistemaPlantio], 
+    [DistribuicaoSafraFazenda].[DistribuicaoSafraArea] AS [DistribuicaoSafraArea], 
+    [DistribuicaoSafraFazenda].[DistribuicaoSafraUsuarioID] AS [DistribuicaoSafraUsuarioID], 
+    [DistribuicaoSafraFazenda].[FazendaNome] AS [FazendaNome], 
+    [DistribuicaoSafraFazenda].[RelacaoTitulo] AS [RelacaoTitulo], 
+    [DistribuicaoSafraFazenda].[Nome] AS [Nome], 
+    [DistribuicaoSafraFazenda].[IDProprietário] AS [IDProprietário], 
+    [DistribuicaoSafraFazenda].[IDFazenda] AS [IDFazenda], 
+    [DistribuicaoSafraFazenda].[FazendaMunicipio] AS [FazendaMunicipio], 
+    [DistribuicaoSafraFazenda].[FazendaArrendada] AS [FazendaArrendada], 
+    [DistribuicaoSafraFazenda].[FazendaOnusGravames] AS [FazendaOnusGravames], 
+    [DistribuicaoSafraFazenda].[DistribuicaoSafraSafra] AS [DistribuicaoSafraSafra], 
+    [DistribuicaoSafraFazenda].[NomeSafra] AS [NomeSafra], 
+    [DistribuicaoSafraFazenda].[NomeCultura] AS [NomeCultura], 
+    [DistribuicaoSafraFazenda].[SafraPrevista] AS [SafraPrevista]
+    FROM [dbo].[DistribuicaoSafraFazenda] AS [DistribuicaoSafraFazenda]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DividaUsuario" EntityType="Self.DividaUsuario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DividaUsuario].[Nome] AS [Nome], 
+    [DividaUsuario].[ID] AS [ID], 
+    [DividaUsuario].[DividaCredor] AS [DividaCredor], 
+    [DividaUsuario].[DividaFinalidade] AS [DividaFinalidade], 
+    [DividaUsuario].[DividaDataContratada] AS [DividaDataContratada], 
+    [DividaUsuario].[DividaDataVencimento] AS [DividaDataVencimento], 
+    [DividaUsuario].[DividaCarencia] AS [DividaCarencia], 
+    [DividaUsuario].[DividaEncargos] AS [DividaEncargos], 
+    [DividaUsuario].[DividaPeriodicidade] AS [DividaPeriodicidade], 
+    [DividaUsuario].[DividaUsuario] AS [DividaUsuario], 
+    [DividaUsuario].[Expr1] AS [Expr1], 
+    [DividaUsuario].[DividaAtiva] AS [DividaAtiva], 
+    [DividaUsuario].[DividaSaldo] AS [DividaSaldo]
+    FROM [dbo].[DividaUsuario] AS [DividaUsuario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FazendaRelacao" EntityType="Self.FazendaRelacao" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FazendaRelacao].[ID] AS [ID], 
+    [FazendaRelacao].[FazendaNome] AS [FazendaNome], 
+    [FazendaRelacao].[FazendaMatriculaCRI] AS [FazendaMatriculaCRI], 
+    [FazendaRelacao].[FazendaCodigoINCRA] AS [FazendaCodigoINCRA], 
+    [FazendaRelacao].[FazendaMunicipio] AS [FazendaMunicipio], 
+    [FazendaRelacao].[FazendaRoteiroAcesso] AS [FazendaRoteiroAcesso], 
+    [FazendaRelacao].[FazendaConfrontacoesNorte] AS [FazendaConfrontacoesNorte], 
+    [FazendaRelacao].[FazendaConfrontacoesSul] AS [FazendaConfrontacoesSul], 
+    [FazendaRelacao].[FazendaConfrontacoesLeste] AS [FazendaConfrontacoesLeste], 
+    [FazendaRelacao].[FazendaConfrontacoesOeste] AS [FazendaConfrontacoesOeste], 
+    [FazendaRelacao].[FazendaTitulosDominio] AS [FazendaTitulosDominio], 
+    [FazendaRelacao].[FazendaTipoPropriedade] AS [FazendaTipoPropriedade], 
+    [FazendaRelacao].[FazendaOnusGravames] AS [FazendaOnusGravames], 
+    [FazendaRelacao].[FazendaMatricula] AS [FazendaMatricula], 
+    [FazendaRelacao].[FazendaCodReceitaFederal] AS [FazendaCodReceitaFederal], 
+    [FazendaRelacao].[FazendaBeneficioSoloSaca] AS [FazendaBeneficioSoloSaca], 
+    [FazendaRelacao].[FazendaBeneficioSoloValorUnitario] AS [FazendaBeneficioSoloValorUnitario], 
+    [FazendaRelacao].[FazendaMicrorregiao] AS [FazendaMicrorregiao], 
+    [FazendaRelacao].[FazendaCultura] AS [FazendaCultura], 
+    [FazendaRelacao].[FazendaArrendada] AS [FazendaArrendada], 
+    [FazendaRelacao].[FazendaArrendadaAreaArrendada] AS [FazendaArrendadaAreaArrendada], 
+    [FazendaRelacao].[FazendaArrendadaValorArrendado] AS [FazendaArrendadaValorArrendado], 
+    [FazendaRelacao].[FazendaArrendadaDataInicio] AS [FazendaArrendadaDataInicio], 
+    [FazendaRelacao].[FazendaArrendadaDataFim] AS [FazendaArrendadaDataFim], 
+    [FazendaRelacao].[RelacaoUsuarioID] AS [RelacaoUsuarioID], 
+    [FazendaRelacao].[RelacaoTitulo] AS [RelacaoTitulo], 
+    [FazendaRelacao].[IDCliente] AS [IDCliente], 
+    [FazendaRelacao].[IDRelacao] AS [IDRelacao]
+    FROM [dbo].[FazendaRelacao] AS [FazendaRelacao]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="FazendaTotals" EntityType="Self.FazendaTotals" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FazendaTotals].[ID] AS [ID], 
+    [FazendaTotals].[FazendaNome] AS [FazendaNome], 
+    [FazendaTotals].[FazendaBeneficioSoloSaca] AS [FazendaBeneficioSoloSaca], 
+    [FazendaTotals].[FazendaBeneficioSoloValorUnitario] AS [FazendaBeneficioSoloValorUnitario], 
+    [FazendaTotals].[ValorTotal] AS [ValorTotal], 
+    [FazendaTotals].[AreaTotal] AS [AreaTotal], 
+    [FazendaTotals].[ValorParticipacao] AS [ValorParticipacao], 
+    [FazendaTotals].[BeneficioSolo] AS [BeneficioSolo], 
+    [FazendaTotals].[RelacaoUsuarioID] AS [RelacaoUsuarioID], 
+    [FazendaTotals].[AreaCultivada] AS [AreaCultivada], 
+    [FazendaTotals].[ValorTerraNua] AS [ValorTerraNua], 
+    [FazendaTotals].[IDMicrorregiao] AS [IDMicrorregiao], 
+    [FazendaTotals].[MicrorregiaoNome] AS [MicrorregiaoNome], 
+    [FazendaTotals].[IDCultura] AS [IDCultura], 
+    [FazendaTotals].[NomeCultura] AS [NomeCultura], 
+    [FazendaTotals].[FazendaMunicipio] AS [FazendaMunicipio], 
+    [FazendaTotals].[MicrorregiaoBrutaNuaInferiorSaca] AS [MicrorregiaoBrutaNuaInferiorSaca], 
+    [FazendaTotals].[MicrorregiaoBrutaNuaSuperiorSaca] AS [MicrorregiaoBrutaNuaSuperiorSaca], 
+    [FazendaTotals].[MicrorregiaoCurrigidaCultivadaInferiorSaca] AS [MicrorregiaoCurrigidaCultivadaInferiorSaca], 
+    [FazendaTotals].[MicrorregiaoCurrigidaCultivadaSuperiorSaca] AS [MicrorregiaoCurrigidaCultivadaSuperiorSaca], 
+    [FazendaTotals].[FazendaParticipacao] AS [FazendaParticipacao], 
+    [FazendaTotals].[TotalBenfeitoriaChecked] AS [TotalBenfeitoriaChecked], 
+    [FazendaTotals].[TotalValorBenfeitoriaChecked] AS [TotalValorBenfeitoriaChecked], 
+    [FazendaTotals].[ValorParticipacaoBenfeitoria] AS [ValorParticipacaoBenfeitoria], 
+    [FazendaTotals].[RelacaoTitulo] AS [RelacaoTitulo], 
+    [FazendaTotals].[NomeProprietario] AS [NomeProprietario], 
+    [FazendaTotals].[FazendaArrendada] AS [FazendaArrendada], 
+    [FazendaTotals].[TotaisSemovente] AS [TotaisSemovente], 
+    [FazendaTotals].[TotalArrendado] AS [TotalArrendado], 
+    [FazendaTotals].[ValorSaca] AS [ValorSaca]
+    FROM [dbo].[FazendaTotals] AS [FazendaTotals]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="funcaodistribuicaoAreaSafra" EntityType="Self.funcaodistribuicaoAreaSafra" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [funcaodistribuicaoAreaSafra].[ID] AS [ID], 
+    [funcaodistribuicaoAreaSafra].[Nome] AS [Nome], 
+    [funcaodistribuicaoAreaSafra].[RestanteArea] AS [RestanteArea]
+    FROM [dbo].[funcaodistribuicaoAreaSafra] AS [funcaodistribuicaoAreaSafra]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ImplementoFazendaUsuario" EntityType="Self.ImplementoFazendaUsuario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ImplementoFazendaUsuario].[FazendaNome] AS [FazendaNome], 
+    [ImplementoFazendaUsuario].[Nome] AS [Nome], 
+    [ImplementoFazendaUsuario].[ID] AS [ID], 
+    [ImplementoFazendaUsuario].[ImplementoEspecificacao] AS [ImplementoEspecificacao], 
+    [ImplementoFazendaUsuario].[ImplementoMarca] AS [ImplementoMarca], 
+    [ImplementoFazendaUsuario].[ImplementoFazendaOrigem] AS [ImplementoFazendaOrigem], 
+    [ImplementoFazendaUsuario].[ImplementoP] AS [ImplementoP], 
+    [ImplementoFazendaUsuario].[ImplementoValor] AS [ImplementoValor], 
+    [ImplementoFazendaUsuario].[ImplementoChassiSerie] AS [ImplementoChassiSerie], 
+    [ImplementoFazendaUsuario].[ImplementoEstado] AS [ImplementoEstado], 
+    [ImplementoFazendaUsuario].[ImplementoAno] AS [ImplementoAno], 
+    [ImplementoFazendaUsuario].[ImplementoModelo] AS [ImplementoModelo], 
+    [ImplementoFazendaUsuario].[ImplementoCidadeLocal] AS [ImplementoCidadeLocal], 
+    [ImplementoFazendaUsuario].[ImplementoData] AS [ImplementoData], 
+    [ImplementoFazendaUsuario].[ImplementoAtiva] AS [ImplementoAtiva], 
+    [ImplementoFazendaUsuario].[ImplementoUsuario] AS [ImplementoUsuario], 
+    [ImplementoFazendaUsuario].[IDFazenda] AS [IDFazenda], 
+    [ImplementoFazendaUsuario].[RelacaoParticipacao] AS [RelacaoParticipacao]
+    FROM [dbo].[ImplementoFazendaUsuario] AS [ImplementoFazendaUsuario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LimiteCredito" EntityType="Self.LimiteCredito" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LimiteCredito].[EntidadeTipo] AS [EntidadeTipo], 
+    [LimiteCredito].[EntidadeID] AS [EntidadeID], 
+    [LimiteCredito].[EntidadeSafra] AS [EntidadeSafra], 
+    [LimiteCredito].[EntidadeHash] AS [EntidadeHash], 
+    [LimiteCredito].[EntidadeReferencia] AS [EntidadeReferencia], 
+    [LimiteCredito].[EntidadeReferenciaValor] AS [EntidadeReferenciaValor], 
+    [LimiteCredito].[EntidadeDataCadastro] AS [EntidadeDataCadastro], 
+    [LimiteCredito].[Campo1] AS [Campo1], 
+    [LimiteCredito].[NomeSafra] AS [NomeSafra]
+    FROM [dbo].[LimiteCredito] AS [LimiteCredito]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MaquinaFazendaUsuario" EntityType="Self.MaquinaFazendaUsuario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MaquinaFazendaUsuario].[FazendaNome] AS [FazendaNome], 
+    [MaquinaFazendaUsuario].[Nome] AS [Nome], 
+    [MaquinaFazendaUsuario].[ID] AS [ID], 
+    [MaquinaFazendaUsuario].[MaquinaEspecificacao] AS [MaquinaEspecificacao], 
+    [MaquinaFazendaUsuario].[MaquinaMarca] AS [MaquinaMarca], 
+    [MaquinaFazendaUsuario].[MaquinaModelo] AS [MaquinaModelo], 
+    [MaquinaFazendaUsuario].[MaquinaPotencia] AS [MaquinaPotencia], 
+    [MaquinaFazendaUsuario].[MaquinaAno] AS [MaquinaAno], 
+    [MaquinaFazendaUsuario].[MaquinaEstado] AS [MaquinaEstado], 
+    [MaquinaFazendaUsuario].[MaquinaChassiSerie] AS [MaquinaChassiSerie], 
+    [MaquinaFazendaUsuario].[MaquinaValor] AS [MaquinaValor], 
+    [MaquinaFazendaUsuario].[MaquinaP] AS [MaquinaP], 
+    [MaquinaFazendaUsuario].[MaquinaFazendaOrigem] AS [MaquinaFazendaOrigem], 
+    [MaquinaFazendaUsuario].[MaquinaCidadeLocal] AS [MaquinaCidadeLocal], 
+    [MaquinaFazendaUsuario].[MaquinaAtiva] AS [MaquinaAtiva], 
+    [MaquinaFazendaUsuario].[MaquinaData] AS [MaquinaData], 
+    [MaquinaFazendaUsuario].[IDUsuario] AS [IDUsuario], 
+    [MaquinaFazendaUsuario].[MaquinaUsuario] AS [MaquinaUsuario], 
+    [MaquinaFazendaUsuario].[RelacaoParticipacao] AS [RelacaoParticipacao]
+    FROM [dbo].[MaquinaFazendaUsuario] AS [MaquinaFazendaUsuario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Proprietarios" EntityType="Self.Proprietarios" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Proprietarios].[ID] AS [ID], 
+    [Proprietarios].[Nome] AS [Nome], 
+    [Proprietarios].[RelacaoTitulo] AS [RelacaoTitulo], 
+    [Proprietarios].[IDCliente] AS [IDCliente], 
+    [Proprietarios].[Celular1] AS [Celular1], 
+    [Proprietarios].[Celular2] AS [Celular2], 
+    [Proprietarios].[Telefone1] AS [Telefone1], 
+    [Proprietarios].[Telefone2] AS [Telefone2]
+    FROM [dbo].[Proprietarios] AS [Proprietarios]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="QuestionarioResposta" EntityType="Self.QuestionarioResposta" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [QuestionarioResposta].[ID] AS [ID], 
+    [QuestionarioResposta].[QuestionarioQuestao] AS [QuestionarioQuestao], 
+    [QuestionarioResposta].[QuestionarioRespostaQuestao] AS [QuestionarioRespostaQuestao], 
+    [QuestionarioResposta].[QuestionarioRespostaUsuario] AS [QuestionarioRespostaUsuario], 
+    [QuestionarioResposta].[QuestionarioRespostaResposta1] AS [QuestionarioRespostaResposta1]
+    FROM [dbo].[QuestionarioResposta] AS [QuestionarioResposta]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ResumoFazendas" EntityType="Self.ResumoFazendas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ResumoFazendas].[ID] AS [ID], 
+    [ResumoFazendas].[QTDMaquinas] AS [QTDMaquinas], 
+    [ResumoFazendas].[QTDImplementos] AS [QTDImplementos], 
+    [ResumoFazendas].[QTDVeiculos] AS [QTDVeiculos], 
+    [ResumoFazendas].[QTDTerrasSolos] AS [QTDTerrasSolos], 
+    [ResumoFazendas].[QTDBenfeitorias] AS [QTDBenfeitorias], 
+    [ResumoFazendas].[QTDSemoventes] AS [QTDSemoventes], 
+    [ResumoFazendas].[ClienteParticipacaoGeral] AS [ClienteParticipacaoGeral], 
+    [ResumoFazendas].[TotalTerraSolo] AS [TotalTerraSolo], 
+    [ResumoFazendas].[TotalBenfeitorias] AS [TotalBenfeitorias], 
+    [ResumoFazendas].[TotalSemoventes] AS [TotalSemoventes], 
+    [ResumoFazendas].[ResumoMaquina] AS [ResumoMaquina], 
+    [ResumoFazendas].[ResumoVeiculo] AS [ResumoVeiculo], 
+    [ResumoFazendas].[ResumoImplemento] AS [ResumoImplemento], 
+    [ResumoFazendas].[ResumoBensDireitos] AS [ResumoBensDireitos]
+    FROM [dbo].[ResumoFazendas] AS [ResumoFazendas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TerraSoloFazenda" EntityType="Self.TerraSoloFazenda" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TerraSoloFazenda].[IDSOLO] AS [IDSOLO], 
+    [TerraSoloFazenda].[FazendaNome] AS [FazendaNome], 
+    [TerraSoloFazenda].[FazendaID] AS [FazendaID], 
+    [TerraSoloFazenda].[FazendaMatriculaCRI] AS [FazendaMatriculaCRI], 
+    [TerraSoloFazenda].[FazendaCodigoINCRA] AS [FazendaCodigoINCRA], 
+    [TerraSoloFazenda].[TerraSoloClasse] AS [TerraSoloClasse], 
+    [TerraSoloFazenda].[TerraSoloCaracteristicas] AS [TerraSoloCaracteristicas], 
+    [TerraSoloFazenda].[TerraSoloEspecificacao] AS [TerraSoloEspecificacao], 
+    [TerraSoloFazenda].[FazendaMunicipio] AS [FazendaMunicipio], 
+    [TerraSoloFazenda].[FazendaRoteiroAcesso] AS [FazendaRoteiroAcesso], 
+    [TerraSoloFazenda].[FazendaConfrontacoesNorte] AS [FazendaConfrontacoesNorte], 
+    [TerraSoloFazenda].[FazendaOnusGravames] AS [FazendaOnusGravames], 
+    [TerraSoloFazenda].[FazendaTipoPropriedade] AS [FazendaTipoPropriedade], 
+    [TerraSoloFazenda].[FazendaConfrontacoesLeste] AS [FazendaConfrontacoesLeste], 
+    [TerraSoloFazenda].[FazendaConfrontacoesOeste] AS [FazendaConfrontacoesOeste], 
+    [TerraSoloFazenda].[FazendaTitulosDominio] AS [FazendaTitulosDominio], 
+    [TerraSoloFazenda].[FazendaConfrontacoesSul] AS [FazendaConfrontacoesSul], 
+    [TerraSoloFazenda].[TerraSoloAtiva] AS [TerraSoloAtiva], 
+    [TerraSoloFazenda].[TerraSoloFazenda] AS [TerraSoloFazenda], 
+    [TerraSoloFazenda].[MicrorregiaoNome] AS [MicrorregiaoNome], 
+    [TerraSoloFazenda].[Ativo] AS [Ativo], 
+    [TerraSoloFazenda].[NomeCultura] AS [NomeCultura], 
+    [TerraSoloFazenda].[TerraSoloSacas] AS [TerraSoloSacas], 
+    [TerraSoloFazenda].[tipo] AS [tipo], 
+    [TerraSoloFazenda].[ValorTotal] AS [ValorTotal], 
+    [TerraSoloFazenda].[TerraSoloArea] AS [TerraSoloArea], 
+    [TerraSoloFazenda].[ID] AS [ID], 
+    [TerraSoloFazenda].[TerraSoloMicrorregiaoTerra] AS [TerraSoloMicrorregiaoTerra], 
+    [TerraSoloFazenda].[TerraSoloTipoCultura] AS [TerraSoloTipoCultura], 
+    [TerraSoloFazenda].[TerraSoloMicrorregiao] AS [TerraSoloMicrorregiao], 
+    [TerraSoloFazenda].[ValorUnitario] AS [ValorUnitario], 
+    [TerraSoloFazenda].[TerraSoloUsuario] AS [TerraSoloUsuario], 
+    [TerraSoloFazenda].[RelacaoTitulo] AS [RelacaoTitulo]
+    FROM [dbo].[TerraSoloFazenda] AS [TerraSoloFazenda]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsuarioSafrasNormalPrevista" EntityType="Self.UsuarioSafrasNormalPrevista" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsuarioSafrasNormalPrevista].[ID] AS [ID], 
+    [UsuarioSafrasNormalPrevista].[SafrasSafra] AS [SafrasSafra], 
+    [UsuarioSafrasNormalPrevista].[SafrasSistemaPlantio] AS [SafrasSistemaPlantio], 
+    [UsuarioSafrasNormalPrevista].[SafrasArea] AS [SafrasArea], 
+    [UsuarioSafrasNormalPrevista].[SafrasProdutividade] AS [SafrasProdutividade], 
+    [UsuarioSafrasNormalPrevista].[SafrasValorUnitario] AS [SafrasValorUnitario], 
+    [UsuarioSafrasNormalPrevista].[SafrasUsuarioID] AS [SafrasUsuarioID], 
+    [UsuarioSafrasNormalPrevista].[SafrasObservacao] AS [SafrasObservacao], 
+    [UsuarioSafrasNormalPrevista].[SafrasCustoUnitario] AS [SafrasCustoUnitario], 
+    [UsuarioSafrasNormalPrevista].[CustoTotal] AS [CustoTotal], 
+    [UsuarioSafrasNormalPrevista].[ValorReceita] AS [ValorReceita], 
+    [UsuarioSafrasNormalPrevista].[Nome] AS [Nome], 
+    [UsuarioSafrasNormalPrevista].[NomeSafra] AS [NomeSafra], 
+    [UsuarioSafrasNormalPrevista].[SafrasCultura] AS [SafrasCultura], 
+    [UsuarioSafrasNormalPrevista].[NomeCultura] AS [NomeCultura], 
+    [UsuarioSafrasNormalPrevista].[SafraPrevista] AS [SafraPrevista]
+    FROM [dbo].[UsuarioSafrasNormalPrevista] AS [UsuarioSafrasNormalPrevista]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsuariosFazenda" EntityType="Self.UsuariosFazenda" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsuariosFazenda].[ID] AS [ID], 
+    [UsuariosFazenda].[Nome] AS [Nome], 
+    [UsuariosFazenda].[RelacaoTitulo] AS [RelacaoTitulo], 
+    [UsuariosFazenda].[RG] AS [RG], 
+    [UsuariosFazenda].[DataExpedicao] AS [DataExpedicao], 
+    [UsuariosFazenda].[CPF] AS [CPF], 
+    [UsuariosFazenda].[DataNascimento] AS [DataNascimento], 
+    [UsuariosFazenda].[Naturalidade] AS [Naturalidade], 
+    [UsuariosFazenda].[Telefone1] AS [Telefone1], 
+    [UsuariosFazenda].[Telefone2] AS [Telefone2], 
+    [UsuariosFazenda].[Celular1] AS [Celular1], 
+    [UsuariosFazenda].[Celular2] AS [Celular2], 
+    [UsuariosFazenda].[Endereco] AS [Endereco], 
+    [UsuariosFazenda].[CEP] AS [CEP], 
+    [UsuariosFazenda].[RendaMensal] AS [RendaMensal], 
+    [UsuariosFazenda].[Cidade] AS [Cidade], 
+    [UsuariosFazenda].[Estado] AS [Estado], 
+    [UsuariosFazenda].[RelacaoFazendaID] AS [RelacaoFazendaID], 
+    [UsuariosFazenda].[Ocupacao] AS [Ocupacao]
+    FROM [dbo].[UsuariosFazenda] AS [UsuariosFazenda]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VeiculoFazendaUsuario" EntityType="Self.VeiculoFazendaUsuario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VeiculoFazendaUsuario].[ID] AS [ID], 
+    [VeiculoFazendaUsuario].[VeiculoEspecificacao] AS [VeiculoEspecificacao], 
+    [VeiculoFazendaUsuario].[VeiculoMarca] AS [VeiculoMarca], 
+    [VeiculoFazendaUsuario].[VeiculoModelo] AS [VeiculoModelo], 
+    [VeiculoFazendaUsuario].[VeiculoPotencia] AS [VeiculoPotencia], 
+    [VeiculoFazendaUsuario].[VeiculoAno] AS [VeiculoAno], 
+    [VeiculoFazendaUsuario].[VeiculoEstado] AS [VeiculoEstado], 
+    [VeiculoFazendaUsuario].[VeiculoChassiSerie] AS [VeiculoChassiSerie], 
+    [VeiculoFazendaUsuario].[VeiculoValor] AS [VeiculoValor], 
+    [VeiculoFazendaUsuario].[VeiculoP] AS [VeiculoP], 
+    [VeiculoFazendaUsuario].[VeiculoFazendaOrigem] AS [VeiculoFazendaOrigem], 
+    [VeiculoFazendaUsuario].[VeiculoCidadeLocal] AS [VeiculoCidadeLocal], 
+    [VeiculoFazendaUsuario].[Nome] AS [Nome], 
+    [VeiculoFazendaUsuario].[FazendaNome] AS [FazendaNome], 
+    [VeiculoFazendaUsuario].[VeiculoAtiva] AS [VeiculoAtiva], 
+    [VeiculoFazendaUsuario].[VeiculoData] AS [VeiculoData], 
+    [VeiculoFazendaUsuario].[IDUsuario] AS [IDUsuario], 
+    [VeiculoFazendaUsuario].[IDFazenda] AS [IDFazenda], 
+    [VeiculoFazendaUsuario].[RelacaoParticipacao] AS [RelacaoParticipacao]
+    FROM [dbo].[VeiculoFazendaUsuario] AS [VeiculoFazendaUsuario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VerificacaoDadosGerais" EntityType="Self.VerificacaoDadosGerais" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VerificacaoDadosGerais].[ID] AS [ID], 
+    [VerificacaoDadosGerais].[Nome] AS [Nome], 
+    [VerificacaoDadosGerais].[ClienteGrau] AS [ClienteGrau], 
+    [VerificacaoDadosGerais].[ClienteFormacao] AS [ClienteFormacao], 
+    [VerificacaoDadosGerais].[ClienteExperiencia] AS [ClienteExperiencia], 
+    [VerificacaoDadosGerais].[ClienteClassificacaoPorte] AS [ClienteClassificacaoPorte], 
+    [VerificacaoDadosGerais].[ClienteAtividadeDesenvolvida] AS [ClienteAtividadeDesenvolvida], 
+    [VerificacaoDadosGerais].[ClienteTempoAtividade] AS [ClienteTempoAtividade], 
+    [VerificacaoDadosGerais].[ClienteEstruturaArmazenamento] AS [ClienteEstruturaArmazenamento], 
+    [VerificacaoDadosGerais].[ClienteEstruturaTransporte] AS [ClienteEstruturaTransporte], 
+    [VerificacaoDadosGerais].[ClienteResidenciaProdutor] AS [ClienteResidenciaProdutor], 
+    [VerificacaoDadosGerais].[ClienteEstadoCivil] AS [ClienteEstadoCivil], 
+    [VerificacaoDadosGerais].[ClienteDadosUsuario] AS [ClienteDadosUsuario], 
+    [VerificacaoDadosGerais].[ClienteFazenda] AS [ClienteFazenda], 
+    [VerificacaoDadosGerais].[ClienteRelacaoFazenda] AS [ClienteRelacaoFazenda], 
+    [VerificacaoDadosGerais].[IDCliente] AS [IDCliente], 
+    [VerificacaoDadosGerais].[UsuarioRG] AS [UsuarioRG], 
+    [VerificacaoDadosGerais].[UsuarioDataExpedicao] AS [UsuarioDataExpedicao], 
+    [VerificacaoDadosGerais].[UsuarioCPF] AS [UsuarioCPF], 
+    [VerificacaoDadosGerais].[UsuarioDataNascimento] AS [UsuarioDataNascimento], 
+    [VerificacaoDadosGerais].[UsuarioNaturalidade] AS [UsuarioNaturalidade], 
+    [VerificacaoDadosGerais].[UsuarioTelefone1] AS [UsuarioTelefone1], 
+    [VerificacaoDadosGerais].[UsuarioCelular1] AS [UsuarioCelular1], 
+    [VerificacaoDadosGerais].[UsuarioEndereco] AS [UsuarioEndereco], 
+    [VerificacaoDadosGerais].[UsuarioCEP] AS [UsuarioCEP], 
+    [VerificacaoDadosGerais].[UsuarioRendaMensal] AS [UsuarioRendaMensal], 
+    [VerificacaoDadosGerais].[UsuarioCidade] AS [UsuarioCidade], 
+    [VerificacaoDadosGerais].[UsuarioEstado] AS [UsuarioEstado], 
+    [VerificacaoDadosGerais].[Telefone1] AS [Telefone1], 
+    [VerificacaoDadosGerais].[Telefone2] AS [Telefone2], 
+    [VerificacaoDadosGerais].[Celular1] AS [Celular1], 
+    [VerificacaoDadosGerais].[Celular2] AS [Celular2], 
+    [VerificacaoDadosGerais].[RelacaoTitulo] AS [RelacaoTitulo], 
+    [VerificacaoDadosGerais].[QuantidadeFazendas] AS [QuantidadeFazendas]
+    FROM [dbo].[VerificacaoDadosGerais] AS [VerificacaoDadosGerais]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CadastroBenfeitoria_CadastroFazenda" Association="Self.FK_CadastroBenfeitoria_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroBenfeitoria" EntitySet="CadastroBenfeitoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroBenfeitoria_CadastroUsuarios" Association="Self.FK_CadastroBenfeitoria_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroBenfeitoria" EntitySet="CadastroBenfeitoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroBensDireitos_CadastroUsuarios" Association="Self.FK_CadastroBensDireitos_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroBensDireitos" EntitySet="CadastroBensDireitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroClientes_CadastroUsuarios" Association="Self.FK_CadastroClientes_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroClientes" EntitySet="CadastroClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroDivida_CadastroUsuarios" Association="Self.FK_CadastroDivida_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroDivida" EntitySet="CadastroDivida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroFazenda_CadastroMicrorregiao" Association="Self.FK_CadastroFazenda_CadastroMicrorregiao">
+      <End Role="CadastroMicrorregiao" EntitySet="CadastroMicrorregiao" />
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroFazenda_Cultura" Association="Self.FK_CadastroFazenda_Cultura">
+      <End Role="Cultura" EntitySet="Cultura" />
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroImplemento_CadastroUsuarios" Association="Self.FK_CadastroImplemento_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroImplemento" EntitySet="CadastroImplemento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroMaquina_CadastroUsuarios" Association="Self.FK_CadastroMaquina_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroMaquina" EntitySet="CadastroMaquina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroRelacao_CadastroFazenda" Association="Self.FK_CadastroRelacao_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroRelacao" EntitySet="CadastroRelacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroRelacao_CadastroUsuarios" Association="Self.FK_CadastroRelacao_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroRelacao" EntitySet="CadastroRelacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroSemovente_CadastroFazenda" Association="Self.FK_CadastroSemovente_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroSemovente" EntitySet="CadastroSemovente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroSemovente_CadastroUsuarios" Association="Self.FK_CadastroSemovente_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroSemovente" EntitySet="CadastroSemovente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroTerraSolo_CadastroFazenda" Association="Self.FK_CadastroTerraSolo_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="CadastroTerraSolo" EntitySet="CadastroTerraSolo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroTerraSolo_CadastroUsuarios" Association="Self.FK_CadastroTerraSolo_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroTerraSolo" EntitySet="CadastroTerraSolo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroTerraSolo_TerraSolo" Association="Self.FK_CadastroTerraSolo_TerraSolo">
+      <End Role="TerraSolo" EntitySet="TerraSolo" />
+      <End Role="CadastroTerraSolo" EntitySet="CadastroTerraSolo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroVeiculo_CadastroUsuarios" Association="Self.FK_CadastroVeiculo_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroVeiculo" EntitySet="CadastroVeiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraDistribuicao_CadastroFazenda" Association="Self.FK_SafraDistribuicao_CadastroFazenda">
+      <End Role="CadastroFazenda" EntitySet="CadastroFazenda" />
+      <End Role="SafraDistribuicao" EntitySet="SafraDistribuicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraDistribuicao_CadastroSafra" Association="Self.FK_SafraDistribuicao_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="SafraDistribuicao" EntitySet="SafraDistribuicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraDistribuicao_Cultura" Association="Self.FK_SafraDistribuicao_Cultura">
+      <End Role="Cultura" EntitySet="Cultura" />
+      <End Role="SafraDistribuicao" EntitySet="SafraDistribuicao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraNormalPrevista_CadastroSafra" Association="Self.FK_SafraNormalPrevista_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="SafraNormalPrevista" EntitySet="SafraNormalPrevista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraNormalPrevista_CadastroUsuarios" Association="Self.FK_SafraNormalPrevista_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="SafraNormalPrevista" EntitySet="SafraNormalPrevista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SafraNormalPrevista_Cultura" Association="Self.FK_SafraNormalPrevista_Cultura">
+      <End Role="Cultura" EntitySet="Cultura" />
+      <End Role="SafraNormalPrevista" EntitySet="SafraNormalPrevista" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

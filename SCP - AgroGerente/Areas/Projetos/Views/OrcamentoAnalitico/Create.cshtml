@@ -1,0 +1,304 @@
+﻿@model SCP___AgroGerente.Areas.Projetos.Model.CadastroOrcamentoAnalitico
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+
+    @RenderPage("~/Areas/Projetos/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Item do Orçamento Analítico</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+     @Html.Hidden("OrcamentoAnaliticoUsuarioID", (int)Session["UserID"])
+    
+    <div class="form-horizontal">
+        <div class="box">
+            
+            <div class="left">
+                <div class="editor-label">
+                    Tipo de Item
+                </div>
+                <div class="editor-field">
+
+                    @Html.DropDownListFor(model => model.OrcamentoAnaliticoItemTipo, (IEnumerable<SelectListItem>)ViewData["OrcamentoAnaliticoItemTipo"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoItemTipo)
+
+                </div>
+                </div>
+            <div class="left" style="padding-left:20px">
+
+                <div class="SS">
+                    <div class="editor-label">
+                        Serviço
+                    </div>
+                    <div class="editor-field">
+                        <select id="SSS"  data-bind="options: servicos, optionsText:'ServicoNome',  optionsCaption:'Selecione', optionsValue:'ID'"></select>
+                        </div>
+</div>
+                <div class="PS">
+                    <div class="editor-label">
+                        Marca e Produto
+                    </div>
+                    <div class="editor-field">
+
+                        @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoItemOrcamento)
+
+                        <div class="left">
+                            <select id="ProductSelection" data-bind="options: products, optionsText:'Nome',value: category, optionsCaption:'Selecione uma Marca' "></select>
+                        </div>
+                        <div class="left" style="padding-left:10px">
+                            <div data-bind="with: category">
+                                <select id="PSS" data-bind="options: products, optionsText:'MarcaEspecificacao', optionsCaption: 'Select...', value: 'product', optionsValue:'ID'"> </select>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OrcamentoAnaliticoSafra, "Safra", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("OrcamentoAnaliticoSafra", null, "Selecione", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoSafra, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="editor-label">
+                    Mês de início
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OrcamentoAnaliticoMesInicio)
+
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="editor-label">
+                    Mês final
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OrcamentoAnaliticoMesFim)
+
+                </div>
+            </div>
+            <div class="clear"></div>
+
+            <input type="hidden" id="OrcamentoAnaliticoItemOrcamento" name="OrcamentoAnaliticoItemOrcamento" />
+        </div>
+        <br />
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrcamentoAnaliticoEtapa, "Etapa", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("OrcamentoAnaliticoEtapa", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoEtapa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+
+       
+        <div class="left" >
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.OrcamentoAnaliticoQuantidadeItemOrcamento,"Quantidade", htmlAttributes: new { @class = "control-label col-md-2" })*@ Quantidade
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.OrcamentoAnaliticoQuantidadeItemOrcamento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoQuantidadeItemOrcamento, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.OrcamentoAnaliticoQuantidadePorHectarItemOrcamento,"Quantidade por Hectar", htmlAttributes: new { @class = "control-label col-md-2" })*@ Quantidade por Hectar
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.OrcamentoAnaliticoQuantidadePorHectarItemOrcamento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoQuantidadePorHectarItemOrcamento, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.OrcamentoAnaliticoValorUnitarioItemOrcamento,"Valor Unitário", htmlAttributes: new { @class = "control-label col-md-2" })*@ Valor Unitário
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.OrcamentoAnaliticoValorUnitarioItemOrcamento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoValorUnitarioItemOrcamento, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+       
+       
+        <div class="left" style="padding-left:20px">
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrcamentoAnaliticoAtiva,"Ativo?", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                       <input type="checkbox" checked="checked" />Sim
+                        @Html.ValidationMessageFor(model => model.OrcamentoAnaliticoAtiva, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Criar Item de Orçamento" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    $(function () {
+        $("#OrcamentoAnaliticoMesInicio").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+        $("#OrcamentoAnaliticoMesFim").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+    });
+
+
+
+        var products;
+
+
+        var ViewModel = function () {
+            var self = this;
+            var selfS = this;
+
+            var dados;
+
+            self.category = ko.observable();
+            self.product = ko.observable();
+            self.ID = ko.observable();
+
+            selfS.servicos = ko.observableArray([]);
+            selfS.ServicoNome = ko.observable();
+            selfS.ID = ko.observable();
+
+
+
+            $.ajax({
+                type: "GET",
+                url: "/api/APIServico",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (dataS) {
+                    selfS.servicos(dataS);
+
+                },
+                error: function (error) {
+                    alert(error.status + "<--and--> " + error.statusText);
+                }
+            });
+
+        };
+
+
+
+        $.ajax({
+            type: "GET",
+            url: "/api/APIProduto",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                products = JSON.parse(data);
+
+                ko.applyBindings(ViewModel());
+
+            },
+            error: function (error) {
+                alert(error.status + "<--and--> " + error.statusText);
+            }
+        });
+
+        $(".PS").hide();
+        $(".SS").hide();
+
+        $("#OrcamentoAnaliticoItemTipo").on("change", function () {
+
+            products == 0;
+
+            $(".PS").hide();
+            $(".SS").hide();
+
+
+
+            if ($(this).val()==2) {
+
+                $(".PS").show();
+                $("#ProductSelection").on("change", function () {
+
+
+
+                    $("#PSS").on("change", function () {
+
+
+                        $("#OrcamentoAnaliticoItemOrcamento").val($(this).find(":checked").val());
+
+
+                    })
+
+
+                });
+
+
+
+
+
+
+            } else {
+
+                $(".SS").show();
+                $("#SSS").on("change", function () {
+
+
+                    $("#OrcamentoAnaliticoItemOrcamento").val($(this).find(":checked").val());
+
+
+                });
+
+            }
+        });
+
+
+
+
+
+</script>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.DividaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Dívidas</h2>
+    </div>
+    <div class="right">
+        
+        @Html.ActionLink("Cadastrar Nova", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    
+</div>
+<table  class="tabelaFormatada">
+    <tr>
+        <th>
+            Credor
+        </th>
+        <th>
+            Finalidade
+        </th>
+        <th>
+            Data da Contratação        </th>
+        <th>
+            Vencimento
+        </th>
+        <th>
+           Carência
+        </th>
+        <th>
+            Encargos
+        </th>
+        <th>
+            Periodicidade
+        </th>
+        <th>
+            Saldo
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaCredor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaFinalidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaDataContratada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaDataVencimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaCarencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaEncargos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DividaPeriodicidade)
+        </td>
+        <td>
+             @string.Format("{0:C}", item.DividaSaldo)
+            
+           
+        </td>
+        @*<td>
+            @Html.ActionLink(item.Nome.ToString(), "Details/"+item.DividaUsuario1.ToString(), new { controller = "Usuarios" })
+
+        </td>*@
+        <td>
+           @Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+        
+           @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

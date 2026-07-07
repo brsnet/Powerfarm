@@ -1,0 +1,85 @@
+﻿@model SCP___AgroGerente.Models.CadastroRespostaQuestionario
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CadastroRespostaQuestionario</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaQuestao)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaQuestao)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaQuestao)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaUsuario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaUsuario)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaUsuario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaResposta1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaResposta1)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaResposta1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaResposta2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaResposta2)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaResposta2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaResposta3)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaResposta3)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaResposta3)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaResposta4)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaResposta4)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaResposta4)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionarioRespostaResposta5)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionarioRespostaResposta5)
+            @Html.ValidationMessageFor(model => model.QuestionarioRespostaResposta5)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

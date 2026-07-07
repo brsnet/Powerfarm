@@ -1,0 +1,141 @@
+﻿@model SCP___AgroGerente.Models.CadastroDivida
+
+@{
+    ViewBag.Title = "Criar Dívida";
+}
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Dívida</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.Hidden("DividaUsuario", (int)Session["UserID"])
+    <fieldset>
+        <legend>CadastroDivida</legend>
+
+        <div class="box">
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DividaCredor, "Credor")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DividaCredor)
+                    @Html.ValidationMessageFor(model => model.DividaCredor)
+                </div>
+            </div>
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DividaFinalidade, "Finalidade")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DividaFinalidade)
+                    @Html.ValidationMessageFor(model => model.DividaFinalidade)
+                </div>
+            </div>
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DividaSaldo, "Saldo")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DividaSaldo)
+                    @Html.ValidationMessageFor(model => model.DividaSaldo)
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br />
+       
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DividaDataContratada, "Data da Contratação")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DividaDataContratada)
+                @Html.ValidationMessageFor(model => model.DividaDataContratada)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DividaDataVencimento, "Data de Vencimento")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DividaDataVencimento)
+                @Html.ValidationMessageFor(model => model.DividaDataVencimento)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DividaCarencia, "Carência")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DividaCarencia)
+                @Html.ValidationMessageFor(model => model.DividaCarencia)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DividaEncargos, "Encargos")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DividaEncargos)
+                @Html.ValidationMessageFor(model => model.DividaEncargos)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DividaPeriodicidade, "Periodicidade")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DividaPeriodicidade)
+                @Html.ValidationMessageFor(model => model.DividaPeriodicidade)
+            </div>
+        </div>
+       
+
+        <div class="clear"></div>
+
+        <p>
+            <input type="submit" value="Criar dívida" />
+        </p>
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script>
+    $(function () {
+        $("#DividaDataVencimento").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+
+        $("#DividaDataContratada").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+    });
+</script>

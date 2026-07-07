@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.FazendaTotals>
+
+
+
+
+@foreach (var item in Model)
+{
+    <ul class="listaFormatada accordion hidden">
+        <li>
+           
+            <h3>@item.FazendaNome</h3>
+            <ul class="hidden">
+                <li>Área: Total: <div class="right">@item.AreaTotal (ha)</div></li>
+                <li>Valor Total: <div class="right"> @string.Format("{0:C}", item.ValorTotal)</div></li>
+                <li class="linha">Valor da Participação:<div class="right"><i>(@item.FazendaParticipacao%)</i> - <span class="green">@string.Format("{0:C}", item.ValorParticipacao)</span></div></li>
+
+                <li class="linha">
+                    <span class="green">
+                        BENEFÍCIO DE SOLO
+                    </span>
+
+                    <ul>
+                        <li>Área <div class="right">@item.AreaCultivada (ha)</div></li>
+                        <li>Saca / Valor Unitário: <div class="right">@item.FazendaBeneficioSoloSaca / @item.FazendaBeneficioSoloValorUnitario</div></li>
+                        <li><b>Valor Belefício: <div class="right">@string.Format("{0:C}", item.BeneficioSolo)</div></b></li>
+                    </ul>
+
+                </li>
+                <li>
+                    <span class="red">
+                        TERRANUA
+                        <div class="right">@string.Format("{0:C}", item.ValorTerraNua)</div>
+                    </span>
+                </li>
+
+
+
+            </ul>
+        </li>
+    </ul>
+}
+

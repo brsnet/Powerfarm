@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.CadastroRelacao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Relação dos Usuários com as Fazendas</h2>
+      
+    </div>
+    <div class="right" >
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+        
+         @using (Html.BeginForm())
+        {
+        <p>
+        Fazendas: @Html.DropDownList("SearchString",(IEnumerable<SelectListItem>)ViewData["Fazendas"], "Todas") 
+        <input type="submit" value="Filtrar" /></p>
+        }
+    </div>
+    <hr />
+</div>
+<table class="tabelaFormatada">
+
+    <tr>
+        <th>
+            Nome do Cliente
+        </th>
+        <th>
+            Nome da Fazenda
+        </th>
+        <th>
+            Relação
+        </th>
+        <th>
+            Participação
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CadastroUsuarios.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CadastroFazenda.FazendaNome)
+        </td>
+        <td>
+
+@{
+            
+    if (item.RelacaoTitulo==1)
+    {
+        <text>Proprietário</text>
+    }
+    else if (item.RelacaoTitulo == 2)
+    {
+        <text>Arrendador</text>
+    }
+    else if (item.RelacaoTitulo == 3)
+    {
+        <text>Administrador da Fazenda</text>
+    }
+
+}
+           
+
+           
+        </td>
+      
+       <td>
+         
+
+            @Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+           @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+          
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,418 @@
+﻿@model SCP___AgroGerente.Models.CadastroTerraSolo
+@{
+    ViewBag.Title = "Editar Terra ou Solo";
+}
+
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Terra ou Solo</h2>
+        
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+     @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.TerraSoloUsuario)
+    <fieldset>
+        <legend>CadastroTerraSolo</legend>
+        <div class="box">
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TerraSoloFazenda, "Fazenda")
+                </div>
+                <div class="editor-field">
+                    @*@Html.DropDownListFor(model => model.TerraSoloFazenda, (IEnumerable<SelectListItem>)ViewData["Fazendas"], "Selecione uma Fazenda")*@
+                    <select id="TerraSoloFazenda" name="TerraSoloFazenda" data-bind="options: FazendaTotals, optionsText:'FazendaNome',  optionsCaption:'Selecione', value:FazendaTotalsSelected, optionsValue:'ID'"></select>
+                    @Html.ValidationMessageFor(model => model.TerraSoloFazenda)
+                </div>
+            </div>
+           
+
+
+
+
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TerraSoloAtiva, "Ativo?")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.TerraSoloAtiva, (IEnumerable<SelectListItem>)ViewData["EnumBit"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.TerraSoloAtiva)
+                </div>
+            </div>
+
+            
+            <div class="clear"></div>
+           
+            <div data-bind="foreach: FazendaTotalsSelect">
+                <div class="left" style="padding-right: 20px">
+                    <div class="editor-label">
+                        Cultura da Fazenda
+                    </div>
+                    <div class="editor-field">
+                        <span data-bind="text:NomeCultura"></span> -
+                        <b>
+                            R$ <span data-bind="Currency:ValorSaca"></span>
+                        </b>
+                    </div>
+                </div>
+                <div class="left" style="padding-right: 20px">
+                    <div class="editor-label">
+                        Microrregião da Fazenda
+                    </div>
+                    <div class="editor-field">
+                        <b>
+                            <span data-bind="text:MicrorregiaoNome"></span>
+                        </b>
+                    </div>
+                </div>
+                <div class="left" style="padding-right: 20px">
+                    <div class="editor-label">
+                        Benefício de Solo:
+                    </div>
+                    <div class="editor-field">
+                        Sacas de <span data-bind="text:NomeCultura"></span>:
+                        <b><span data-bind="text:FazendaBeneficioSoloSaca"></span></b>
+                        Valor Unitário: <b>R$ <span data-bind="Currency:FazendaBeneficioSoloValorUnitario"></span></b>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+           
+
+
+
+           
+            <div class="clear"></div>
+            <div class="editor-field" data-bind="foreach: FazendaTotalsSelect">
+
+
+                <table class="tabelaFormatada">
+                    <tr>
+
+                        <th colspan="8">Preços Médios Referênciais</th>
+
+                    </tr>
+                    <tr>
+                        <th colspan="4" class="borderRight">Terra Bruta/Nua*</th>
+                        <th colspan="4" class="borderLeft">Terra Corrigida/Cultivada</th>
+
+                    </tr>
+
+                    <tr>
+                        <th colspan="2">@Html.RadioButton("TerraSoloMicrorregiaoTerra", "1") <span class="red">Inferior</span></th>
+                        <th colspan="2" class="forcedBack borderRight">@Html.RadioButton("TerraSoloMicrorregiaoTerra", "2")<span class="red"> Superior</span></th>
+                        <th colspan="2" class="borderLeft">@Html.RadioButton("TerraSoloMicrorregiaoTerra", "3") <span class="red">Inferior</span></th>
+                        <th colspan="2" class="forcedBack">@Html.RadioButton("TerraSoloMicrorregiaoTerra", "4") <span class="red">Superior</span></th>
+                    </tr>
+
+                    <tr>
+                        <th>R$/ha</th>
+                        <th>sc/ha</th>
+                        <th class="forcedBack">R$/ha</th>
+                        <th class="forcedBack borderRight">sc/ha</th>
+                        <th class="borderLeft">R$/ha</th>
+                        <th>sc/ha</th>
+                        <th class="forcedBack">R$/ha</th>
+                        <th class="forcedBack">sc/ha</th>
+                    </tr>
+
+
+
+
+
+                    <tr>
+
+
+                        <td class="alignRight">
+
+                            <i>R$ <span data-bind="CalcTerrasMicrorregiao:MicrorregiaoBrutaNuaInferiorSaca" /></i>
+
+                        </td>
+                        <td class="alignRight">
+                            <span data-bind="text:MicrorregiaoBrutaNuaInferiorSaca" />
+                        </td>
+                        <td class="forcedBack alignRight">
+
+                            <i>R$ <span data-bind="CalcTerrasMicrorregiao:MicrorregiaoBrutaNuaSuperiorSaca" /></i>
+                        </td>
+                        <td class="forcedBack alignRight borderRight">
+                            <span data-bind="text:MicrorregiaoBrutaNuaSuperiorSaca" />
+
+                        </td>
+                        <td class="alignRight borderLeft">
+
+                            <i>R$ <span data-bind="CalcTerrasMicrorregiao:MicrorregiaoCurrigidaCultivadaInferiorSaca" /></i>
+                        </td>
+                        <td class="alignRight">
+                            <span data-bind="text:MicrorregiaoCurrigidaCultivadaInferiorSaca" />
+
+                        </td>
+                        <td class="forcedBack alignRight">
+
+                            <i>R$ <span data-bind="CalcTerrasMicrorregiao:MicrorregiaoCurrigidaCultivadaSuperiorSaca" /></i>
+                        </td>
+                        <td class="forcedBack alignRight">
+                            <span data-bind="text:MicrorregiaoCurrigidaCultivadaSuperiorSaca" />
+
+                        </td>
+
+
+
+                    </tr>
+
+
+                </table>
+
+
+
+
+
+            </div>
+          
+
+        </div>
+
+        <h3>Dados da Terra ou Solo</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TerraSoloEspecificacao, "Especificação")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.TerraSoloEspecificacao, (IEnumerable<SelectListItem>)ViewData["TipoTerraSolo"], "Selecione")
+                @Html.ValidationMessageFor(model => model.TerraSoloEspecificacao)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TerraSoloArea, "Area (ha)")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TerraSoloArea)
+                @Html.ValidationMessageFor(model => model.TerraSoloArea)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TerraSoloCaracteristicas, "Características")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TerraSoloCaracteristicas)
+                @Html.ValidationMessageFor(model => model.TerraSoloCaracteristicas)<br />
+                <em>(Textura, Estrutura, Fertilidade, etc)</em>
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TerraSoloClasse, "Classe")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TerraSoloClasse)
+                @Html.ValidationMessageFor(model => model.TerraSoloClasse)
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+
+        
+
+
+
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+    
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script>
+
+
+
+
+
+
+
+
+
+    function setaSaca(selecionado) {
+
+
+        switch (selecionado) {
+            default: 1
+                $("#TerraSoloMicrorregiaoTipoTerra").val(1);
+                break;
+
+            case 2:
+                $("#TerraSoloMicrorregiaoTipoTerra").val(2);
+                break;
+            case 3:
+                $("#TerraSoloMicrorregiaoTipoTerra").val(3);
+                break;
+            case 4:
+                $("#TerraSoloMicrorregiaoTipoTerra").val(4);
+                break;
+        }
+
+
+
+    }
+
+
+
+
+
+    var EmpViewModel = function () {
+        var self = this;
+
+        self.ID = ko.observable();
+        self.FazendaNome = ko.observable();
+        self.ValorSaca = ko.observable();
+
+
+
+
+        self.NomeCultura = ko.observable();
+        self.MicrorregiaoNome = ko.observable();
+        self.FazendaBeneficioSoloSaca = ko.observable();
+        self.FazendaBeneficioSoloValorUnitario = ko.observable();
+
+        self.FazendaTotals = ko.observableArray([]);
+        self.FazendaTotalsSelected = ko.observable();
+        self.FazendaTotalsSelect = ko.computed(function () {
+
+
+
+            return ko.utils.arrayFilter(self.FazendaTotals(), function (prod) {
+
+                return prod.ID == self.FazendaTotalsSelected();
+            });
+
+
+
+
+
+        });
+
+        self.FazendaNome = ko.observable();
+        self.MicrorregiaoBrutaNuaInferiorSaca = ko.observable();
+        self.MicrorregiaoBrutaNuaSuperiorSaca = ko.observable();
+        self.MicrorregiaoCurrigidaCultivadaInferiorSaca = ko.observable();
+        self.MicrorregiaoCurrigidaCultivadaSuperiorSaca = ko.observable();
+
+
+        self.valor1 = ko.computed(function () {
+
+            var value = 2000;
+            return value.formatMoney(2, ',', '.');
+
+
+        });
+
+
+
+
+
+
+
+
+        GetEmployees();
+
+
+        function GetEmployees() {
+            $.ajax({
+                type: "GET",
+                url: "/api/FazendaTotals/@Session["UserID"]",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    self.FazendaTotals(data);
+                    $("#TerraSoloFazenda").val("@Html.Raw(Model.TerraSoloFazenda)").trigger('change');
+                },
+                error: function (error) {
+                    alert(error.status + "<--and--> " + error.statusText);
+                }
+            });
+
+
+        }
+
+
+
+    };
+
+
+   
+
+
+    ko.applyBindings(EmpViewModel());
+
+   
+    ko.bindingHandlers.Currency = {
+
+        'update': function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var value = parseFloat(ko.utils.unwrapObservable(valueAccessor())),
+
+            precision = 2
+            formattedValue = value.formatMoney(2, ',', '.');
+
+            ko.bindingHandlers.text.update(element, function () { return formattedValue; });
+        }
+    };
+
+
+    ko.bindingHandlers.CalcTerrasMicrorregiao = {
+
+        'update': function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+            var value = parseFloat(ko.utils.unwrapObservable(valueAccessor())) * 45,
+
+            precision = 2;
+            formattedValue = value.formatMoney(2, ',', '.');
+            ko.bindingHandlers.text.update(element, function () { return formattedValue; });
+        }
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.CadastroBensDireitos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Bens e Direitos</h2>
+
+
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+<br />
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+     grid.Column("BensDireitosCategoria", header:" Categoria"),
+     grid.Column("BensDireitosCaracteristicas", header:" Características"),
+     grid.Column("BensDireitosValor", header:"  Valor",format:@<text>
+
+@String.Format("{0:C}", item.BensDireitosValor)
+
+
+</text>,style:"alignRight"),
+
+ grid.Column("",header:"Ações", format:@<text>
+
+    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+    @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+
+})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

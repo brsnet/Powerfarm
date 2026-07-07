@@ -1,0 +1,125 @@
+﻿@model SCP___AgroGerente.Models.CadastroSemovente
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Semovente</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.SemoventeUsuarioID)
+    @Html.HiddenFor(model => model.ID)
+
+    <fieldset>
+        <legend>CadastroSemovente</legend>
+
+        <div class="box">
+            <div class="left">
+                <div class="editor-label">
+                    Fazenda
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SemoventeFazendaID, (IEnumerable<SelectListItem>)ViewData["SemoventeFazendaID_edit"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.SemoventeFazendaID)
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                Especificação
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeEspecificacao)
+                @Html.ValidationMessageFor(model => model.SemoventeEspecificacao)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                UA (%)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeUA)
+                @Html.ValidationMessageFor(model => model.SemoventeUA)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Número UA
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeNumeroUA)
+                @Html.ValidationMessageFor(model => model.SemoventeNumeroUA)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Número de Cabeças
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeNumeroCabecas)
+                @Html.ValidationMessageFor(model => model.SemoventeNumeroCabecas)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                Características
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeCaracteristicas)
+                @Html.ValidationMessageFor(model => model.SemoventeCaracteristicas)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Valor Unitário
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeValorUnitario)
+                @Html.ValidationMessageFor(model => model.SemoventeValorUnitario)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Credor
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SemoventeCredor)
+                @Html.ValidationMessageFor(model => model.SemoventeCredor)
+            </div>
+        </div>
+        <div class="clear"></div>
+
+
+
+
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

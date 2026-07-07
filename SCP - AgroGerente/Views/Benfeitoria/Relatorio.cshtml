@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.BenfeitoriaFazenda>
+
+@{
+    ViewBag.Title = "Lista de Benfeitorias";
+    WebGrid grid = new WebGrid(Model);  
+}
+
+
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Benfeitorias</h2>
+    </div>
+   
+    <div class="clear"></div>
+    <div class="box">
+        <div class="left">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Fazendas: @Html.DropDownList("SearchString", (IEnumerable<SelectListItem>)ViewData["Fazendas"], "Todas")
+                    <input type="submit" value="Filtrar" />
+                </p>
+            }
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+  grid.Column("BenfeitoriaAtiva", header:"Status", style:"alignCenter", format:@<text>
+
+@if (item.BenfeitoriaAtiva == true)
+{
+    <span class="green"> @Html.Raw("Ativa")</span>
+}
+else
+{
+    <span class="red"> @Html.Raw("Desativada") </span>
+}
+
+</text>),
+grid.Column("BenfeitoriaQuantidade", header:"Qtd.", style:"alignCenter"),
+grid.Column("BenfeitoriaEspecificacao", header:"Especificação"),
+grid.Column("BenfeitoriaAno", header:"Ano/Estado",format:@<text>
+
+@item.BenfeitoriaAno  / @item.BenfeitoriaEstadoConservacao
+
+
+
+</text>, style:"alignCenter"),
+grid.Column("FazendaNome", header:"Está na Fazenda:"),
+
+grid.Column("", header:"Valor Total", format:@<text>
+
+<b>@string.Format("{0:C}", item.BenfeitoriaValor*item.BenfeitoriaQuantidade)</b>
+
+
+</text>,  style:"alignRight"),
+
+grid.Column("", header:"Ações",format:@<text>
+
+
+@Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+@Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icone details" })
+@Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+</text>)
+
+
+
+})
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

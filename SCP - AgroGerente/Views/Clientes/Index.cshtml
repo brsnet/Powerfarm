@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.ClienteFazenda>
+
+@{
+    ViewBag.Title = "Lista de usuários cadastrados";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Clientes</h2>
+       
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+
+    
+</div>
+<br />
+@{
+    WebGrid grid = new WebGrid(Model);   
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+  grid.Column("UsuarioNome", header:"Cliente", format:@<text>@if (@item.UsuarioNome != null)
+                                                             {@Html.ActionLink(linkText: (string)@item.UsuarioNome, actionName: "Details", routeValues: new { id = item.ID, controller = "Usuarios" })}</text>),
+
+   grid.Column("ClienteParticipacaoGeral",header:"Participação",style:"alignCenter",format:@<text>
+
+
+@string.Format("{0:0.00}%", item.ClienteParticipacaoGeral)
+
+
+</text>),
+
+grid.Column("ClienteEstadoCivil", header:" Estado Civil", format:@<text>
+
+
+@item.ClienteEstadoCivil@if (@item.ConjugeUsuarioNome != null)
+{<text> com <br /></text>@Html.ActionLink(linkText:(string)@item.ConjugeUsuarioNome, actionName: "Details", routeValues: new { id = item.ConjugeID, controller = "Usuarios" })}
+
+</text>),
+grid.Column("ClienteListaSociosNome",header:"Sócios do Cliente",style:"width5"),
+    
+    grid.Column("",header:"Ações", format:@<text>
+
+@Html.ActionLink(" ", "Edit", new { id=item.IDCliente }, new {@class = "icone edit" })
+@Html.ActionLink(" ", "Details", new { id = item.IDCliente }, new { @class = "icone details" })
+@Ajax.ActionLink(" ", "Delete", new { id = item.IDCliente }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+    
+    })
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

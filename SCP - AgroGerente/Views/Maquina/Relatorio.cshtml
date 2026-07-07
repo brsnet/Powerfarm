@@ -1,0 +1,127 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.MaquinaFazendaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Máquinas</h2>
+    </div>
+
+    <div class="clear"></div>
+    <div class="box">
+        <div class="left">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Fazendas: @Html.DropDownList("SearchString", (IEnumerable<SelectListItem>)ViewData["Fazendas"], "Todas")
+                    <input type="submit" value="Filtrar" />
+                </p>
+            }
+        </div>
+        <div class="clear"></div>
+    </div>
+    </div>
+<table class="tabelaFormatada">
+    <tr>
+        <th>
+            Status
+        </th>
+        <th>
+           Especificação
+        </th>
+        <th>
+            %
+        </th>
+        <th>
+            Marca
+        </th>
+        <th>
+            Modelo/Chassi
+        </th>
+        <th>
+            Ano
+        </th>
+        <th>
+            Estado
+        </th>
+        
+        <th>
+            Valor
+        </th>
+        <th>
+            P
+        </th>
+        <th>
+            Está na Fazenda
+        </th>
+        <th>
+            Cidade
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td class="alignCenter">
+            @if (item.MaquinaAtiva==true)
+            {
+               <span class="green"> @Html.Raw("Ativa")</span>
+            }
+            else
+            {
+               <span class="red"> @Html.Raw("Desativada") </span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaEspecificacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaPorcentagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaMarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaModelo)<br />
+            @Html.DisplayFor(modelItem => item.MaquinaChassiSerie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaAno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaEstado)
+        </td>
+       
+        <td>
+            @string.Format("{0:C}", item.MaquinaValor.AsInt())
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaP)
+        </td>
+       
+       <td>
+        @if (item.FazendaNome != null)
+        {
+            @Html.ActionLink(item.FazendaNome.ToString(), "Details/"+item.MaquinaFazendaOrigem.ToString(), new { controller = "Fazendas" })
+        }
+             
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaquinaCidadeLocal)
+        </td>
+       
+         
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+            @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

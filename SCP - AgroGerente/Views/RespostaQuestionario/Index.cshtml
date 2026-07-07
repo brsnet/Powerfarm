@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.QuestionarioResposta>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Questionário</h2>
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Responder Questões", "Create", string.Empty, new { @class = "icone edit special" })
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+
+<table class="tabelaFormatada">
+    <tr>
+        <th>
+            Questão
+        </th>
+       
+        <th>
+            Resposta
+        </th>
+        
+        <th>Ações</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionarioQuestao)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionarioRespostaResposta1)
+        </td>
+        
+        <td>
+            
+            @*@Html.ActionLink(" ", "Delete", new { id=item.ID }, new {@class = "icone delete" })*@
+
+            @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+        </td>
+    </tr>
+}
+
+
+
+   
+
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

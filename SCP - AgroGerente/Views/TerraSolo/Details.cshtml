@@ -1,0 +1,80 @@
+﻿@model SCP___AgroGerente.Models.CadastroTerraSolo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroTerraSolo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloFazenda)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloFazenda)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloTipoCultura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloTipoCultura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloNome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloEspecificacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloEspecificacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloArea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloArea)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloCaracteristicas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloCaracteristicas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloClasse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloClasse)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloSacas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloSacas)
+    </div>
+
+    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerraSoloValorArrendado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerraSoloValorArrendado)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink(" ", "Edit", new { id=Model.ID }, new {@class = "icone edit" }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

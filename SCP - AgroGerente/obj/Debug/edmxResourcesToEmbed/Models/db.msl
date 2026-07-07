@@ -1,0 +1,862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SCPModelStoreContainer" CdmEntityContainer="SCPEntities">
+    <EntitySetMapping Name="AUTHORITY">
+      <EntityTypeMapping TypeName="SCPModel.AUTHORITY">
+        <MappingFragment StoreEntitySet="AUTHORITY">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USERPASS" ColumnName="USERPASS" />
+          <ScalarProperty Name="USERAUTH" ColumnName="USERAUTH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroBenfeitoria">
+      <EntityTypeMapping TypeName="SCPModel.CadastroBenfeitoria">
+        <MappingFragment StoreEntitySet="CadastroBenfeitoria">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BenfeitoriaFazenda" ColumnName="BenfeitoriaFazenda" />
+          <ScalarProperty Name="BenfeitoriaEspecificacao" ColumnName="BenfeitoriaEspecificacao" />
+          <ScalarProperty Name="BenfeitoriaQuantidade" ColumnName="BenfeitoriaQuantidade" />
+          <ScalarProperty Name="BenfeitoriaCaracteristicas" ColumnName="BenfeitoriaCaracteristicas" />
+          <ScalarProperty Name="BenfeitoriaAno" ColumnName="BenfeitoriaAno" />
+          <ScalarProperty Name="BenfeitoriaEstadoConservacao" ColumnName="BenfeitoriaEstadoConservacao" />
+          <ScalarProperty Name="BenfeitoriaArrendado" ColumnName="BenfeitoriaArrendado" />
+          <ScalarProperty Name="BenfeitoriaData" ColumnName="BenfeitoriaData" />
+          <ScalarProperty Name="BenfeitoriaAtiva" ColumnName="BenfeitoriaAtiva" />
+          <ScalarProperty Name="BenfeitoriaValor" ColumnName="BenfeitoriaValor" />
+          <ScalarProperty Name="BenfeitoriaUsuario" ColumnName="BenfeitoriaUsuario" />
+          <ScalarProperty Name="BenfeitoriaParticipacao" ColumnName="BenfeitoriaParticipacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroBensDireitos">
+      <EntityTypeMapping TypeName="SCPModel.CadastroBensDireitos">
+        <MappingFragment StoreEntitySet="CadastroBensDireitos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BensDireitosCategoria" ColumnName="BensDireitosCategoria" />
+          <ScalarProperty Name="BensDireitosCaracteristicas" ColumnName="BensDireitosCaracteristicas" />
+          <ScalarProperty Name="BensDireitosValor" ColumnName="BensDireitosValor" />
+          <ScalarProperty Name="BensDireitosUsuarioID" ColumnName="BensDireitosUsuarioID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroClientes">
+      <EntityTypeMapping TypeName="SCPModel.CadastroClientes">
+        <MappingFragment StoreEntitySet="CadastroClientes">
+          <ScalarProperty Name="ClienteFormacao" ColumnName="ClienteFormacao" />
+          <ScalarProperty Name="ClienteGrau" ColumnName="ClienteGrau" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClienteExperiencia" ColumnName="ClienteExperiencia" />
+          <ScalarProperty Name="ClienteClassificacaoPorte" ColumnName="ClienteClassificacaoPorte" />
+          <ScalarProperty Name="ClienteAtividadeDesenvolvida" ColumnName="ClienteAtividadeDesenvolvida" />
+          <ScalarProperty Name="ClienteTempoAtividade" ColumnName="ClienteTempoAtividade" />
+          <ScalarProperty Name="ClienteEstruturaArmazenamento" ColumnName="ClienteEstruturaArmazenamento" />
+          <ScalarProperty Name="ClienteEstruturaTransporte" ColumnName="ClienteEstruturaTransporte" />
+          <ScalarProperty Name="ClienteResidenciaProdutor" ColumnName="ClienteResidenciaProdutor" />
+          <ScalarProperty Name="ClienteEstadoCivil" ColumnName="ClienteEstadoCivil" />
+          <ScalarProperty Name="ClienteAuthority" ColumnName="ClienteAuthority" />
+          <ScalarProperty Name="ClienteDadosUsuario" ColumnName="ClienteDadosUsuario" />
+          <ScalarProperty Name="ClienteRelacaoFazenda" ColumnName="ClienteRelacaoFazenda" />
+          <ScalarProperty Name="ClienteFazenda" ColumnName="ClienteFazenda" />
+          <ScalarProperty Name="ClienteConjujeUsuario" ColumnName="ClienteConjujeUsuario" />
+          <ScalarProperty Name="ClienteParticipacaoGeral" ColumnName="ClienteParticipacaoGeral" />
+          <ScalarProperty Name="ClienteListaSociosID" ColumnName="ClienteListaSociosID" />
+          <ScalarProperty Name="ClienteListaSociosNome" ColumnName="ClienteListaSociosNome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroDivida">
+      <EntityTypeMapping TypeName="SCPModel.CadastroDivida">
+        <MappingFragment StoreEntitySet="CadastroDivida">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DividaCredor" ColumnName="DividaCredor" />
+          <ScalarProperty Name="DividaFinalidade" ColumnName="DividaFinalidade" />
+          <ScalarProperty Name="DividaDataContratada" ColumnName="DividaDataContratada" />
+          <ScalarProperty Name="DividaDataVencimento" ColumnName="DividaDataVencimento" />
+          <ScalarProperty Name="DividaCarencia" ColumnName="DividaCarencia" />
+          <ScalarProperty Name="DividaEncargos" ColumnName="DividaEncargos" />
+          <ScalarProperty Name="DividaPeriodicidade" ColumnName="DividaPeriodicidade" />
+          <ScalarProperty Name="DividaSaldo" ColumnName="DividaSaldo" />
+          <ScalarProperty Name="DividaUsuario" ColumnName="DividaUsuario" />
+          <ScalarProperty Name="DividaData" ColumnName="DividaData" />
+          <ScalarProperty Name="DividaSafra" ColumnName="DividaSafra" />
+          <ScalarProperty Name="DividaAtiva" ColumnName="DividaAtiva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroFazenda">
+      <EntityTypeMapping TypeName="SCPModel.CadastroFazenda">
+        <MappingFragment StoreEntitySet="CadastroFazenda">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="FazendaMatriculaCRI" ColumnName="FazendaMatriculaCRI" />
+          <ScalarProperty Name="FazendaCodigoINCRA" ColumnName="FazendaCodigoINCRA" />
+          <ScalarProperty Name="FazendaMunicipio" ColumnName="FazendaMunicipio" />
+          <ScalarProperty Name="FazendaRoteiroAcesso" ColumnName="FazendaRoteiroAcesso" />
+          <ScalarProperty Name="FazendaConfrontacoesNorte" ColumnName="FazendaConfrontacoesNorte" />
+          <ScalarProperty Name="FazendaConfrontacoesSul" ColumnName="FazendaConfrontacoesSul" />
+          <ScalarProperty Name="FazendaConfrontacoesLeste" ColumnName="FazendaConfrontacoesLeste" />
+          <ScalarProperty Name="FazendaConfrontacoesOeste" ColumnName="FazendaConfrontacoesOeste" />
+          <ScalarProperty Name="FazendaTitulosDominio" ColumnName="FazendaTitulosDominio" />
+          <ScalarProperty Name="FazendaTipoPropriedade" ColumnName="FazendaTipoPropriedade" />
+          <ScalarProperty Name="FazendaOnusGravames" ColumnName="FazendaOnusGravames" />
+          <ScalarProperty Name="FazendaMatricula" ColumnName="FazendaMatricula" />
+          <ScalarProperty Name="FazendaCodReceitaFederal" ColumnName="FazendaCodReceitaFederal" />
+          <ScalarProperty Name="FazendaBeneficioSoloSaca" ColumnName="FazendaBeneficioSoloSaca" />
+          <ScalarProperty Name="FazendaBeneficioSoloValorUnitario" ColumnName="FazendaBeneficioSoloValorUnitario" />
+          <ScalarProperty Name="FazendaMicrorregiao" ColumnName="FazendaMicrorregiao" />
+          <ScalarProperty Name="FazendaCultura" ColumnName="FazendaCultura" />
+          <ScalarProperty Name="FazendaArrendada" ColumnName="FazendaArrendada" />
+          <ScalarProperty Name="FazendaArrendadaAreaArrendada" ColumnName="FazendaArrendadaAreaArrendada" />
+          <ScalarProperty Name="FazendaArrendadaValorArrendado" ColumnName="FazendaArrendadaValorArrendado" />
+          <ScalarProperty Name="FazendaArrendadaDataInicio" ColumnName="FazendaArrendadaDataInicio" />
+          <ScalarProperty Name="FazendaArrendadaDataFim" ColumnName="FazendaArrendadaDataFim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroImplemento">
+      <EntityTypeMapping TypeName="SCPModel.CadastroImplemento">
+        <MappingFragment StoreEntitySet="CadastroImplemento">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImplementoEspecificacao" ColumnName="ImplementoEspecificacao" />
+          <ScalarProperty Name="ImplementoMarca" ColumnName="ImplementoMarca" />
+          <ScalarProperty Name="ImplementoModelo" ColumnName="ImplementoModelo" />
+          <ScalarProperty Name="ImplementoAno" ColumnName="ImplementoAno" />
+          <ScalarProperty Name="ImplementoEstado" ColumnName="ImplementoEstado" />
+          <ScalarProperty Name="ImplementoChassiSerie" ColumnName="ImplementoChassiSerie" />
+          <ScalarProperty Name="ImplementoValor" ColumnName="ImplementoValor" />
+          <ScalarProperty Name="ImplementoP" ColumnName="ImplementoP" />
+          <ScalarProperty Name="ImplementoFazendaOrigem" ColumnName="ImplementoFazendaOrigem" />
+          <ScalarProperty Name="ImplementoCidadeLocal" ColumnName="ImplementoCidadeLocal" />
+          <ScalarProperty Name="ImplementoSafra" ColumnName="ImplementoSafra" />
+          <ScalarProperty Name="ImplementoData" ColumnName="ImplementoData" />
+          <ScalarProperty Name="ImplementoAtiva" ColumnName="ImplementoAtiva" />
+          <ScalarProperty Name="ImplementoUsuario" ColumnName="ImplementoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroMaquina">
+      <EntityTypeMapping TypeName="SCPModel.CadastroMaquina">
+        <MappingFragment StoreEntitySet="CadastroMaquina">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaquinaEspecificacao" ColumnName="MaquinaEspecificacao" />
+          <ScalarProperty Name="MaquinaMarca" ColumnName="MaquinaMarca" />
+          <ScalarProperty Name="MaquinaModelo" ColumnName="MaquinaModelo" />
+          <ScalarProperty Name="MaquinaPotencia" ColumnName="MaquinaPotencia" />
+          <ScalarProperty Name="MaquinaAno" ColumnName="MaquinaAno" />
+          <ScalarProperty Name="MaquinaEstado" ColumnName="MaquinaEstado" />
+          <ScalarProperty Name="MaquinaChassiSerie" ColumnName="MaquinaChassiSerie" />
+          <ScalarProperty Name="MaquinaValor" ColumnName="MaquinaValor" />
+          <ScalarProperty Name="MaquinaP" ColumnName="MaquinaP" />
+          <ScalarProperty Name="MaquinaFazendaOrigem" ColumnName="MaquinaFazendaOrigem" />
+          <ScalarProperty Name="MaquinaCidadeLocal" ColumnName="MaquinaCidadeLocal" />
+          <ScalarProperty Name="MaquinaData" ColumnName="MaquinaData" />
+          <ScalarProperty Name="MaquinaAtiva" ColumnName="MaquinaAtiva" />
+          <ScalarProperty Name="MaquinaUsuario" ColumnName="MaquinaUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroMicrorregiao">
+      <EntityTypeMapping TypeName="SCPModel.CadastroMicrorregiao">
+        <MappingFragment StoreEntitySet="CadastroMicrorregiao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MicrorregiaoNome" ColumnName="MicrorregiaoNome" />
+          <ScalarProperty Name="MicrorregiaoBrutaNuaInferiorSaca" ColumnName="MicrorregiaoBrutaNuaInferiorSaca" />
+          <ScalarProperty Name="MicrorregiaoBrutaNuaSuperiorSaca" ColumnName="MicrorregiaoBrutaNuaSuperiorSaca" />
+          <ScalarProperty Name="MicrorregiaoCurrigidaCultivadaInferiorSaca" ColumnName="MicrorregiaoCurrigidaCultivadaInferiorSaca" />
+          <ScalarProperty Name="MicrorregiaoCurrigidaCultivadaSuperiorSaca" ColumnName="MicrorregiaoCurrigidaCultivadaSuperiorSaca" />
+          <ScalarProperty Name="Ativa" ColumnName="Ativa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroQuestionario">
+      <EntityTypeMapping TypeName="SCPModel.CadastroQuestionario">
+        <MappingFragment StoreEntitySet="CadastroQuestionario">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionarioQuestao" ColumnName="QuestionarioQuestao" />
+          <ScalarProperty Name="QuestionarioResposta1" ColumnName="QuestionarioResposta1" />
+          <ScalarProperty Name="QuestionarioResposta2" ColumnName="QuestionarioResposta2" />
+          <ScalarProperty Name="QuestionarioResposta3" ColumnName="QuestionarioResposta3" />
+          <ScalarProperty Name="QuestionarioResposta4" ColumnName="QuestionarioResposta4" />
+          <ScalarProperty Name="QuestionarioResposta5" ColumnName="QuestionarioResposta5" />
+          <ScalarProperty Name="QuestionarioSafra" ColumnName="QuestionarioSafra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroRelacao">
+      <EntityTypeMapping TypeName="SCPModel.CadastroRelacao">
+        <MappingFragment StoreEntitySet="CadastroRelacao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RelacaoUsuarioID" ColumnName="RelacaoUsuarioID" />
+          <ScalarProperty Name="RelacaoFazendaID" ColumnName="RelacaoFazendaID" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroRespostaQuestionario">
+      <EntityTypeMapping TypeName="SCPModel.CadastroRespostaQuestionario">
+        <MappingFragment StoreEntitySet="CadastroRespostaQuestionario">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionarioRespostaQuestao" ColumnName="QuestionarioRespostaQuestao" />
+          <ScalarProperty Name="QuestionarioRespostaUsuario" ColumnName="QuestionarioRespostaUsuario" />
+          <ScalarProperty Name="QuestionarioRespostaResposta1" ColumnName="QuestionarioRespostaResposta1" />
+          <ScalarProperty Name="QuestionarioRespostaResposta2" ColumnName="QuestionarioRespostaResposta2" />
+          <ScalarProperty Name="QuestionarioRespostaResposta3" ColumnName="QuestionarioRespostaResposta3" />
+          <ScalarProperty Name="QuestionarioRespostaResposta4" ColumnName="QuestionarioRespostaResposta4" />
+          <ScalarProperty Name="QuestionarioRespostaResposta5" ColumnName="QuestionarioRespostaResposta5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroSafra">
+      <EntityTypeMapping TypeName="SCPModel.CadastroSafra">
+        <MappingFragment StoreEntitySet="CadastroSafra">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SafraData" ColumnName="SafraData" />
+          <ScalarProperty Name="NomeSafra" ColumnName="NomeSafra" />
+          <ScalarProperty Name="SafraPrevista" ColumnName="SafraPrevista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroSemovente">
+      <EntityTypeMapping TypeName="SCPModel.CadastroSemovente">
+        <MappingFragment StoreEntitySet="CadastroSemovente">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SemoventeEspecificacao" ColumnName="SemoventeEspecificacao" />
+          <ScalarProperty Name="SemoventeUA" ColumnName="SemoventeUA" />
+          <ScalarProperty Name="SemoventeNumeroUA" ColumnName="SemoventeNumeroUA" />
+          <ScalarProperty Name="SemoventeNumeroCabecas" ColumnName="SemoventeNumeroCabecas" />
+          <ScalarProperty Name="SemoventeCaracteristicas" ColumnName="SemoventeCaracteristicas" />
+          <ScalarProperty Name="SemoventeValorUnitario" ColumnName="SemoventeValorUnitario" />
+          <ScalarProperty Name="SemoventeCredor" ColumnName="SemoventeCredor" />
+          <ScalarProperty Name="SemoventeUsuarioID" ColumnName="SemoventeUsuarioID" />
+          <ScalarProperty Name="SemoventeFazendaID" ColumnName="SemoventeFazendaID" />
+          <ScalarProperty Name="SemoventeP" ColumnName="SemoventeP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroTerraSolo">
+      <EntityTypeMapping TypeName="SCPModel.CadastroTerraSolo">
+        <MappingFragment StoreEntitySet="CadastroTerraSolo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TerraSoloEspecificacao" ColumnName="TerraSoloEspecificacao" />
+          <ScalarProperty Name="TerraSoloArea" ColumnName="TerraSoloArea" />
+          <ScalarProperty Name="TerraSoloCaracteristicas" ColumnName="TerraSoloCaracteristicas" />
+          <ScalarProperty Name="TerraSoloClasse" ColumnName="TerraSoloClasse" />
+          <ScalarProperty Name="TerraSoloAtiva" ColumnName="TerraSoloAtiva" />
+          <ScalarProperty Name="TerraSoloFazenda" ColumnName="TerraSoloFazenda" />
+          <ScalarProperty Name="TerraSoloMicrorregiao" ColumnName="TerraSoloMicrorregiao" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="TerraSoloTipoCultura" ColumnName="TerraSoloTipoCultura" />
+          <ScalarProperty Name="TerraSoloMicrorregiaoTerra" ColumnName="TerraSoloMicrorregiaoTerra" />
+          <ScalarProperty Name="TerraSoloUsuario" ColumnName="TerraSoloUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroUsuarios">
+      <EntityTypeMapping TypeName="SCPModel.CadastroUsuarios">
+        <MappingFragment StoreEntitySet="CadastroUsuarios">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="DataExpedicao" ColumnName="DataExpedicao" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Naturalidade" ColumnName="Naturalidade" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+          <ScalarProperty Name="Celular1" ColumnName="Celular1" />
+          <ScalarProperty Name="Celular2" ColumnName="Celular2" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="RendaMensal" ColumnName="RendaMensal" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Ocupacao" ColumnName="Ocupacao" />
+          <ScalarProperty Name="Grau" ColumnName="Grau" />
+          <ScalarProperty Name="Formacao" ColumnName="Formacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroVeiculo">
+      <EntityTypeMapping TypeName="SCPModel.CadastroVeiculo">
+        <MappingFragment StoreEntitySet="CadastroVeiculo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VeiculoEspecificacao" ColumnName="VeiculoEspecificacao" />
+          <ScalarProperty Name="VeiculoMarca" ColumnName="VeiculoMarca" />
+          <ScalarProperty Name="VeiculoModelo" ColumnName="VeiculoModelo" />
+          <ScalarProperty Name="VeiculoPotencia" ColumnName="VeiculoPotencia" />
+          <ScalarProperty Name="VeiculoAno" ColumnName="VeiculoAno" />
+          <ScalarProperty Name="VeiculoEstado" ColumnName="VeiculoEstado" />
+          <ScalarProperty Name="VeiculoChassiSerie" ColumnName="VeiculoChassiSerie" />
+          <ScalarProperty Name="VeiculoValor" ColumnName="VeiculoValor" />
+          <ScalarProperty Name="VeiculoP" ColumnName="VeiculoP" />
+          <ScalarProperty Name="VeiculoFazendaOrigem" ColumnName="VeiculoFazendaOrigem" />
+          <ScalarProperty Name="VeiculoCidadeLocal" ColumnName="VeiculoCidadeLocal" />
+          <ScalarProperty Name="VeiculoSafra" ColumnName="VeiculoSafra" />
+          <ScalarProperty Name="VeiculoData" ColumnName="VeiculoData" />
+          <ScalarProperty Name="VeiculoAtiva" ColumnName="VeiculoAtiva" />
+          <ScalarProperty Name="VeiculoUsuario" ColumnName="VeiculoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cultura">
+      <EntityTypeMapping TypeName="SCPModel.Cultura">
+        <MappingFragment StoreEntitySet="Cultura">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NomeCultura" ColumnName="NomeCultura" />
+          <ScalarProperty Name="ValorSaca" ColumnName="ValorSaca" />
+          <ScalarProperty Name="DataAtualizacao" ColumnName="DataAtualizacao" />
+          <ScalarProperty Name="UsarCultura" ColumnName="UsarCultura" />
+          <ScalarProperty Name="CulturaCalculo" ColumnName="CulturaCalculo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LimiteCreditos">
+      <EntityTypeMapping TypeName="SCPModel.LimiteCreditos">
+        <MappingFragment StoreEntitySet="LimiteCreditos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EntidadeTipo" ColumnName="EntidadeTipo" />
+          <ScalarProperty Name="EntidadeID" ColumnName="EntidadeID" />
+          <ScalarProperty Name="EntidadeSafra" ColumnName="EntidadeSafra" />
+          <ScalarProperty Name="EntidadeHash" ColumnName="EntidadeHash" />
+          <ScalarProperty Name="EntidadeReferencia" ColumnName="EntidadeReferencia" />
+          <ScalarProperty Name="EntidadeReferenciaValor" ColumnName="EntidadeReferenciaValor" />
+          <ScalarProperty Name="Campo1" ColumnName="Campo1" />
+          <ScalarProperty Name="Campo2" ColumnName="Campo2" />
+          <ScalarProperty Name="Campo3" ColumnName="Campo3" />
+          <ScalarProperty Name="Campo4" ColumnName="Campo4" />
+          <ScalarProperty Name="Campo5" ColumnName="Campo5" />
+          <ScalarProperty Name="Campo6" ColumnName="Campo6" />
+          <ScalarProperty Name="Campo7" ColumnName="Campo7" />
+          <ScalarProperty Name="Campo8" ColumnName="Campo8" />
+          <ScalarProperty Name="Campo9" ColumnName="Campo9" />
+          <ScalarProperty Name="Campo10" ColumnName="Campo10" />
+          <ScalarProperty Name="Campo11" ColumnName="Campo11" />
+          <ScalarProperty Name="Campo12" ColumnName="Campo12" />
+          <ScalarProperty Name="Campo13" ColumnName="Campo13" />
+          <ScalarProperty Name="Campo14" ColumnName="Campo14" />
+          <ScalarProperty Name="Campo15" ColumnName="Campo15" />
+          <ScalarProperty Name="Campo16" ColumnName="Campo16" />
+          <ScalarProperty Name="Campo17" ColumnName="Campo17" />
+          <ScalarProperty Name="Campo18" ColumnName="Campo18" />
+          <ScalarProperty Name="Campo19" ColumnName="Campo19" />
+          <ScalarProperty Name="Campo20" ColumnName="Campo20" />
+          <ScalarProperty Name="Text1" ColumnName="Text1" />
+          <ScalarProperty Name="Text2" ColumnName="Text2" />
+          <ScalarProperty Name="Text3" ColumnName="Text3" />
+          <ScalarProperty Name="Text4" ColumnName="Text4" />
+          <ScalarProperty Name="Text5" ColumnName="Text5" />
+          <ScalarProperty Name="EntidadeDataCadastro" ColumnName="EntidadeDataCadastro" />
+          <ScalarProperty Name="Campo21" ColumnName="Campo21" />
+          <ScalarProperty Name="Campo22" ColumnName="Campo22" />
+          <ScalarProperty Name="Campo23" ColumnName="Campo23" />
+          <ScalarProperty Name="Campo24" ColumnName="Campo24" />
+          <ScalarProperty Name="Campo25" ColumnName="Campo25" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TerraSolo">
+      <EntityTypeMapping TypeName="SCPModel.TerraSolo">
+        <MappingFragment StoreEntitySet="TerraSolo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SafraNormalPrevista">
+      <EntityTypeMapping TypeName="SCPModel.SafraNormalPrevista">
+        <MappingFragment StoreEntitySet="SafraNormalPrevista">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SafrasSafra" ColumnName="SafrasSafra" />
+          <ScalarProperty Name="SafrasSistemaPlantio" ColumnName="SafrasSistemaPlantio" />
+          <ScalarProperty Name="SafrasArea" ColumnName="SafrasArea" />
+          <ScalarProperty Name="SafrasProdutividade" ColumnName="SafrasProdutividade" />
+          <ScalarProperty Name="SafrasValorUnitario" ColumnName="SafrasValorUnitario" />
+          <ScalarProperty Name="SafrasCustoUnitario" ColumnName="SafrasCustoUnitario" />
+          <ScalarProperty Name="SafrasUsuarioID" ColumnName="SafrasUsuarioID" />
+          <ScalarProperty Name="SafrasObservacao" ColumnName="SafrasObservacao" />
+          <ScalarProperty Name="SafrasCultura" ColumnName="SafrasCultura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BenfeitoriaFazenda">
+      <EntityTypeMapping TypeName="SCPModel.BenfeitoriaFazenda">
+        <MappingFragment StoreEntitySet="BenfeitoriaFazenda">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BenfeitoriaEspecificacao" ColumnName="BenfeitoriaEspecificacao" />
+          <ScalarProperty Name="BenfeitoriaCaracteristicas" ColumnName="BenfeitoriaCaracteristicas" />
+          <ScalarProperty Name="BenfeitoriaAno" ColumnName="BenfeitoriaAno" />
+          <ScalarProperty Name="BenfeitoriaValor" ColumnName="BenfeitoriaValor" />
+          <ScalarProperty Name="BenfeitoriaAtiva" ColumnName="BenfeitoriaAtiva" />
+          <ScalarProperty Name="BenfeitoriaArrendado" ColumnName="BenfeitoriaArrendado" />
+          <ScalarProperty Name="BenfeitoriaEstadoConservacao" ColumnName="BenfeitoriaEstadoConservacao" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="BenfeitoriaData" ColumnName="BenfeitoriaData" />
+          <ScalarProperty Name="BenfeitoriaParticipacao" ColumnName="BenfeitoriaParticipacao" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="BenfeitoriaQuantidade" ColumnName="BenfeitoriaQuantidade" />
+          <ScalarProperty Name="BenfeitoriaFazenda1" ColumnName="BenfeitoriaFazenda" />
+          <ScalarProperty Name="BenfeitoriaUsuario" ColumnName="BenfeitoriaUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClienteConjuge">
+      <EntityTypeMapping TypeName="SCPModel.ClienteConjuge">
+        <MappingFragment StoreEntitySet="ClienteConjuge">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ClienteConjujeUsuario" ColumnName="ClienteConjujeUsuario" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClienteFazenda">
+      <EntityTypeMapping TypeName="SCPModel.ClienteFazenda">
+        <MappingFragment StoreEntitySet="ClienteFazenda">
+          <ScalarProperty Name="ClienteTempoAtividade" ColumnName="ClienteTempoAtividade" />
+          <ScalarProperty Name="ClienteEstadoCivil" ColumnName="ClienteEstadoCivil" />
+          <ScalarProperty Name="ClienteAuthority" ColumnName="ClienteAuthority" />
+          <ScalarProperty Name="UsuarioNome" ColumnName="UsuarioNome" />
+          <ScalarProperty Name="ConjugeUsuarioNome" ColumnName="ConjugeUsuarioNome" />
+          <ScalarProperty Name="ClienteConjujeUsuario" ColumnName="ClienteConjujeUsuario" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="ConjugeID" ColumnName="ConjugeID" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="ClienteListaSociosID" ColumnName="ClienteListaSociosID" />
+          <ScalarProperty Name="ClienteListaSociosNome" ColumnName="ClienteListaSociosNome" />
+          <ScalarProperty Name="ClienteParticipacaoGeral" ColumnName="ClienteParticipacaoGeral" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DividaUsuario">
+      <EntityTypeMapping TypeName="SCPModel.DividaUsuario">
+        <MappingFragment StoreEntitySet="DividaUsuario">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DividaCredor" ColumnName="DividaCredor" />
+          <ScalarProperty Name="DividaFinalidade" ColumnName="DividaFinalidade" />
+          <ScalarProperty Name="DividaDataContratada" ColumnName="DividaDataContratada" />
+          <ScalarProperty Name="DividaDataVencimento" ColumnName="DividaDataVencimento" />
+          <ScalarProperty Name="DividaCarencia" ColumnName="DividaCarencia" />
+          <ScalarProperty Name="DividaEncargos" ColumnName="DividaEncargos" />
+          <ScalarProperty Name="DividaPeriodicidade" ColumnName="DividaPeriodicidade" />
+          <ScalarProperty Name="DividaUsuario1" ColumnName="DividaUsuario" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="DividaAtiva" ColumnName="DividaAtiva" />
+          <ScalarProperty Name="DividaSaldo" ColumnName="DividaSaldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FazendaRelacao">
+      <EntityTypeMapping TypeName="SCPModel.FazendaRelacao">
+        <MappingFragment StoreEntitySet="FazendaRelacao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="FazendaMatriculaCRI" ColumnName="FazendaMatriculaCRI" />
+          <ScalarProperty Name="FazendaCodigoINCRA" ColumnName="FazendaCodigoINCRA" />
+          <ScalarProperty Name="FazendaMunicipio" ColumnName="FazendaMunicipio" />
+          <ScalarProperty Name="FazendaRoteiroAcesso" ColumnName="FazendaRoteiroAcesso" />
+          <ScalarProperty Name="FazendaConfrontacoesNorte" ColumnName="FazendaConfrontacoesNorte" />
+          <ScalarProperty Name="FazendaConfrontacoesSul" ColumnName="FazendaConfrontacoesSul" />
+          <ScalarProperty Name="FazendaConfrontacoesLeste" ColumnName="FazendaConfrontacoesLeste" />
+          <ScalarProperty Name="FazendaConfrontacoesOeste" ColumnName="FazendaConfrontacoesOeste" />
+          <ScalarProperty Name="FazendaTitulosDominio" ColumnName="FazendaTitulosDominio" />
+          <ScalarProperty Name="FazendaTipoPropriedade" ColumnName="FazendaTipoPropriedade" />
+          <ScalarProperty Name="FazendaOnusGravames" ColumnName="FazendaOnusGravames" />
+          <ScalarProperty Name="FazendaMatricula" ColumnName="FazendaMatricula" />
+          <ScalarProperty Name="FazendaCodReceitaFederal" ColumnName="FazendaCodReceitaFederal" />
+          <ScalarProperty Name="FazendaBeneficioSoloSaca" ColumnName="FazendaBeneficioSoloSaca" />
+          <ScalarProperty Name="FazendaBeneficioSoloValorUnitario" ColumnName="FazendaBeneficioSoloValorUnitario" />
+          <ScalarProperty Name="FazendaMicrorregiao" ColumnName="FazendaMicrorregiao" />
+          <ScalarProperty Name="FazendaCultura" ColumnName="FazendaCultura" />
+          <ScalarProperty Name="FazendaArrendada" ColumnName="FazendaArrendada" />
+          <ScalarProperty Name="FazendaArrendadaAreaArrendada" ColumnName="FazendaArrendadaAreaArrendada" />
+          <ScalarProperty Name="FazendaArrendadaValorArrendado" ColumnName="FazendaArrendadaValorArrendado" />
+          <ScalarProperty Name="FazendaArrendadaDataInicio" ColumnName="FazendaArrendadaDataInicio" />
+          <ScalarProperty Name="FazendaArrendadaDataFim" ColumnName="FazendaArrendadaDataFim" />
+          <ScalarProperty Name="RelacaoUsuarioID" ColumnName="RelacaoUsuarioID" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="IDRelacao" ColumnName="IDRelacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FazendaTotals">
+      <EntityTypeMapping TypeName="SCPModel.FazendaTotals">
+        <MappingFragment StoreEntitySet="FazendaTotals">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="FazendaBeneficioSoloSaca" ColumnName="FazendaBeneficioSoloSaca" />
+          <ScalarProperty Name="FazendaBeneficioSoloValorUnitario" ColumnName="FazendaBeneficioSoloValorUnitario" />
+          <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+          <ScalarProperty Name="AreaTotal" ColumnName="AreaTotal" />
+          <ScalarProperty Name="ValorParticipacao" ColumnName="ValorParticipacao" />
+          <ScalarProperty Name="BeneficioSolo" ColumnName="BeneficioSolo" />
+          <ScalarProperty Name="RelacaoUsuarioID" ColumnName="RelacaoUsuarioID" />
+          <ScalarProperty Name="AreaCultivada" ColumnName="AreaCultivada" />
+          <ScalarProperty Name="ValorTerraNua" ColumnName="ValorTerraNua" />
+          <ScalarProperty Name="IDMicrorregiao" ColumnName="IDMicrorregiao" />
+          <ScalarProperty Name="MicrorregiaoNome" ColumnName="MicrorregiaoNome" />
+          <ScalarProperty Name="IDCultura" ColumnName="IDCultura" />
+          <ScalarProperty Name="NomeCultura" ColumnName="NomeCultura" />
+          <ScalarProperty Name="FazendaMunicipio" ColumnName="FazendaMunicipio" />
+          <ScalarProperty Name="MicrorregiaoBrutaNuaInferiorSaca" ColumnName="MicrorregiaoBrutaNuaInferiorSaca" />
+          <ScalarProperty Name="MicrorregiaoBrutaNuaSuperiorSaca" ColumnName="MicrorregiaoBrutaNuaSuperiorSaca" />
+          <ScalarProperty Name="MicrorregiaoCurrigidaCultivadaInferiorSaca" ColumnName="MicrorregiaoCurrigidaCultivadaInferiorSaca" />
+          <ScalarProperty Name="MicrorregiaoCurrigidaCultivadaSuperiorSaca" ColumnName="MicrorregiaoCurrigidaCultivadaSuperiorSaca" />
+          <ScalarProperty Name="FazendaParticipacao" ColumnName="FazendaParticipacao" />
+          <ScalarProperty Name="TotalBenfeitoriaChecked" ColumnName="TotalBenfeitoriaChecked" />
+          <ScalarProperty Name="TotalValorBenfeitoriaChecked" ColumnName="TotalValorBenfeitoriaChecked" />
+          <ScalarProperty Name="ValorParticipacaoBenfeitoria" ColumnName="ValorParticipacaoBenfeitoria" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+          <ScalarProperty Name="NomeProprietario" ColumnName="NomeProprietario" />
+          <ScalarProperty Name="FazendaArrendada" ColumnName="FazendaArrendada" />
+          <ScalarProperty Name="TotaisSemovente" ColumnName="TotaisSemovente" />
+          <ScalarProperty Name="TotalArrendado" ColumnName="TotalArrendado" />
+          <ScalarProperty Name="ValorSaca" ColumnName="ValorSaca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcaodistribuicaoAreaSafra">
+      <EntityTypeMapping TypeName="SCPModel.funcaodistribuicaoAreaSafra">
+        <MappingFragment StoreEntitySet="funcaodistribuicaoAreaSafra">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RestanteArea" ColumnName="RestanteArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImplementoFazendaUsuario">
+      <EntityTypeMapping TypeName="SCPModel.ImplementoFazendaUsuario">
+        <MappingFragment StoreEntitySet="ImplementoFazendaUsuario">
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImplementoEspecificacao" ColumnName="ImplementoEspecificacao" />
+          <ScalarProperty Name="ImplementoMarca" ColumnName="ImplementoMarca" />
+          <ScalarProperty Name="ImplementoFazendaOrigem" ColumnName="ImplementoFazendaOrigem" />
+          <ScalarProperty Name="ImplementoP" ColumnName="ImplementoP" />
+          <ScalarProperty Name="ImplementoValor" ColumnName="ImplementoValor" />
+          <ScalarProperty Name="ImplementoChassiSerie" ColumnName="ImplementoChassiSerie" />
+          <ScalarProperty Name="ImplementoEstado" ColumnName="ImplementoEstado" />
+          <ScalarProperty Name="ImplementoAno" ColumnName="ImplementoAno" />
+          <ScalarProperty Name="ImplementoModelo" ColumnName="ImplementoModelo" />
+          <ScalarProperty Name="ImplementoCidadeLocal" ColumnName="ImplementoCidadeLocal" />
+          <ScalarProperty Name="ImplementoData" ColumnName="ImplementoData" />
+          <ScalarProperty Name="ImplementoAtiva" ColumnName="ImplementoAtiva" />
+          <ScalarProperty Name="ImplementoUsuario" ColumnName="ImplementoUsuario" />
+          <ScalarProperty Name="IDFazenda" ColumnName="IDFazenda" />
+          <ScalarProperty Name="RelacaoParticipacao" ColumnName="RelacaoParticipacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LimiteCredito">
+      <EntityTypeMapping TypeName="SCPModel.LimiteCredito">
+        <MappingFragment StoreEntitySet="LimiteCredito">
+          <ScalarProperty Name="EntidadeTipo" ColumnName="EntidadeTipo" />
+          <ScalarProperty Name="EntidadeID" ColumnName="EntidadeID" />
+          <ScalarProperty Name="EntidadeSafra" ColumnName="EntidadeSafra" />
+          <ScalarProperty Name="EntidadeHash" ColumnName="EntidadeHash" />
+          <ScalarProperty Name="EntidadeReferencia" ColumnName="EntidadeReferencia" />
+          <ScalarProperty Name="EntidadeReferenciaValor" ColumnName="EntidadeReferenciaValor" />
+          <ScalarProperty Name="EntidadeDataCadastro" ColumnName="EntidadeDataCadastro" />
+          <ScalarProperty Name="Campo1" ColumnName="Campo1" />
+          <ScalarProperty Name="NomeSafra" ColumnName="NomeSafra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaquinaFazendaUsuario">
+      <EntityTypeMapping TypeName="SCPModel.MaquinaFazendaUsuario">
+        <MappingFragment StoreEntitySet="MaquinaFazendaUsuario">
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaquinaEspecificacao" ColumnName="MaquinaEspecificacao" />
+          <ScalarProperty Name="MaquinaMarca" ColumnName="MaquinaMarca" />
+          <ScalarProperty Name="MaquinaModelo" ColumnName="MaquinaModelo" />
+          <ScalarProperty Name="MaquinaPotencia" ColumnName="MaquinaPotencia" />
+          <ScalarProperty Name="MaquinaAno" ColumnName="MaquinaAno" />
+          <ScalarProperty Name="MaquinaEstado" ColumnName="MaquinaEstado" />
+          <ScalarProperty Name="MaquinaChassiSerie" ColumnName="MaquinaChassiSerie" />
+          <ScalarProperty Name="MaquinaValor" ColumnName="MaquinaValor" />
+          <ScalarProperty Name="MaquinaP" ColumnName="MaquinaP" />
+          <ScalarProperty Name="MaquinaFazendaOrigem" ColumnName="MaquinaFazendaOrigem" />
+          <ScalarProperty Name="MaquinaCidadeLocal" ColumnName="MaquinaCidadeLocal" />
+          <ScalarProperty Name="MaquinaAtiva" ColumnName="MaquinaAtiva" />
+          <ScalarProperty Name="MaquinaData" ColumnName="MaquinaData" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="MaquinaUsuario" ColumnName="MaquinaUsuario" />
+          <ScalarProperty Name="RelacaoParticipacao" ColumnName="RelacaoParticipacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proprietarios">
+      <EntityTypeMapping TypeName="SCPModel.Proprietarios">
+        <MappingFragment StoreEntitySet="Proprietarios">
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Celular1" ColumnName="Celular1" />
+          <ScalarProperty Name="Celular2" ColumnName="Celular2" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionarioResposta">
+      <EntityTypeMapping TypeName="SCPModel.QuestionarioResposta">
+        <MappingFragment StoreEntitySet="QuestionarioResposta">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionarioQuestao" ColumnName="QuestionarioQuestao" />
+          <ScalarProperty Name="QuestionarioRespostaQuestao" ColumnName="QuestionarioRespostaQuestao" />
+          <ScalarProperty Name="QuestionarioRespostaUsuario" ColumnName="QuestionarioRespostaUsuario" />
+          <ScalarProperty Name="QuestionarioRespostaResposta1" ColumnName="QuestionarioRespostaResposta1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResumoFazendas">
+      <EntityTypeMapping TypeName="SCPModel.ResumoFazendas">
+        <MappingFragment StoreEntitySet="ResumoFazendas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QTDMaquinas" ColumnName="QTDMaquinas" />
+          <ScalarProperty Name="QTDImplementos" ColumnName="QTDImplementos" />
+          <ScalarProperty Name="QTDVeiculos" ColumnName="QTDVeiculos" />
+          <ScalarProperty Name="QTDTerrasSolos" ColumnName="QTDTerrasSolos" />
+          <ScalarProperty Name="QTDBenfeitorias" ColumnName="QTDBenfeitorias" />
+          <ScalarProperty Name="QTDSemoventes" ColumnName="QTDSemoventes" />
+          <ScalarProperty Name="ClienteParticipacaoGeral" ColumnName="ClienteParticipacaoGeral" />
+          <ScalarProperty Name="TotalTerraSolo" ColumnName="TotalTerraSolo" />
+          <ScalarProperty Name="TotalBenfeitorias" ColumnName="TotalBenfeitorias" />
+          <ScalarProperty Name="TotalSemoventes" ColumnName="TotalSemoventes" />
+          <ScalarProperty Name="ResumoMaquina" ColumnName="ResumoMaquina" />
+          <ScalarProperty Name="ResumoVeiculo" ColumnName="ResumoVeiculo" />
+          <ScalarProperty Name="ResumoImplemento" ColumnName="ResumoImplemento" />
+          <ScalarProperty Name="ResumoBensDireitos" ColumnName="ResumoBensDireitos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TerraSoloFazenda">
+      <EntityTypeMapping TypeName="SCPModel.TerraSoloFazenda">
+        <MappingFragment StoreEntitySet="TerraSoloFazenda">
+          <ScalarProperty Name="IDSOLO" ColumnName="IDSOLO" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="FazendaID" ColumnName="FazendaID" />
+          <ScalarProperty Name="FazendaMatriculaCRI" ColumnName="FazendaMatriculaCRI" />
+          <ScalarProperty Name="FazendaCodigoINCRA" ColumnName="FazendaCodigoINCRA" />
+          <ScalarProperty Name="TerraSoloClasse" ColumnName="TerraSoloClasse" />
+          <ScalarProperty Name="TerraSoloCaracteristicas" ColumnName="TerraSoloCaracteristicas" />
+          <ScalarProperty Name="TerraSoloEspecificacao" ColumnName="TerraSoloEspecificacao" />
+          <ScalarProperty Name="FazendaMunicipio" ColumnName="FazendaMunicipio" />
+          <ScalarProperty Name="FazendaRoteiroAcesso" ColumnName="FazendaRoteiroAcesso" />
+          <ScalarProperty Name="FazendaConfrontacoesNorte" ColumnName="FazendaConfrontacoesNorte" />
+          <ScalarProperty Name="FazendaOnusGravames" ColumnName="FazendaOnusGravames" />
+          <ScalarProperty Name="FazendaTipoPropriedade" ColumnName="FazendaTipoPropriedade" />
+          <ScalarProperty Name="FazendaConfrontacoesLeste" ColumnName="FazendaConfrontacoesLeste" />
+          <ScalarProperty Name="FazendaConfrontacoesOeste" ColumnName="FazendaConfrontacoesOeste" />
+          <ScalarProperty Name="FazendaTitulosDominio" ColumnName="FazendaTitulosDominio" />
+          <ScalarProperty Name="FazendaConfrontacoesSul" ColumnName="FazendaConfrontacoesSul" />
+          <ScalarProperty Name="TerraSoloAtiva" ColumnName="TerraSoloAtiva" />
+          <ScalarProperty Name="TerraSoloFazenda1" ColumnName="TerraSoloFazenda" />
+          <ScalarProperty Name="MicrorregiaoNome" ColumnName="MicrorregiaoNome" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="NomeCultura" ColumnName="NomeCultura" />
+          <ScalarProperty Name="TerraSoloSacas" ColumnName="TerraSoloSacas" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+          <ScalarProperty Name="TerraSoloArea" ColumnName="TerraSoloArea" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TerraSoloMicrorregiaoTerra" ColumnName="TerraSoloMicrorregiaoTerra" />
+          <ScalarProperty Name="TerraSoloTipoCultura" ColumnName="TerraSoloTipoCultura" />
+          <ScalarProperty Name="TerraSoloMicrorregiao" ColumnName="TerraSoloMicrorregiao" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="TerraSoloUsuario" ColumnName="TerraSoloUsuario" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioSafrasNormalPrevista">
+      <EntityTypeMapping TypeName="SCPModel.UsuarioSafrasNormalPrevista">
+        <MappingFragment StoreEntitySet="UsuarioSafrasNormalPrevista">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SafrasSafra" ColumnName="SafrasSafra" />
+          <ScalarProperty Name="SafrasSistemaPlantio" ColumnName="SafrasSistemaPlantio" />
+          <ScalarProperty Name="SafrasArea" ColumnName="SafrasArea" />
+          <ScalarProperty Name="SafrasProdutividade" ColumnName="SafrasProdutividade" />
+          <ScalarProperty Name="SafrasValorUnitario" ColumnName="SafrasValorUnitario" />
+          <ScalarProperty Name="SafrasUsuarioID" ColumnName="SafrasUsuarioID" />
+          <ScalarProperty Name="SafrasObservacao" ColumnName="SafrasObservacao" />
+          <ScalarProperty Name="SafrasCustoUnitario" ColumnName="SafrasCustoUnitario" />
+          <ScalarProperty Name="CustoTotal" ColumnName="CustoTotal" />
+          <ScalarProperty Name="ValorReceita" ColumnName="ValorReceita" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="NomeSafra" ColumnName="NomeSafra" />
+          <ScalarProperty Name="SafrasCultura" ColumnName="SafrasCultura" />
+          <ScalarProperty Name="NomeCultura" ColumnName="NomeCultura" />
+          <ScalarProperty Name="SafraPrevista" ColumnName="SafraPrevista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosFazenda">
+      <EntityTypeMapping TypeName="SCPModel.UsuariosFazenda">
+        <MappingFragment StoreEntitySet="UsuariosFazenda">
+          <ScalarProperty Name="Ocupacao" ColumnName="Ocupacao" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="DataExpedicao" ColumnName="DataExpedicao" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="Naturalidade" ColumnName="Naturalidade" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+          <ScalarProperty Name="Celular1" ColumnName="Celular1" />
+          <ScalarProperty Name="Celular2" ColumnName="Celular2" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="RendaMensal" ColumnName="RendaMensal" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="RelacaoFazendaID" ColumnName="RelacaoFazendaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VeiculoFazendaUsuario">
+      <EntityTypeMapping TypeName="SCPModel.VeiculoFazendaUsuario">
+        <MappingFragment StoreEntitySet="VeiculoFazendaUsuario">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VeiculoEspecificacao" ColumnName="VeiculoEspecificacao" />
+          <ScalarProperty Name="VeiculoMarca" ColumnName="VeiculoMarca" />
+          <ScalarProperty Name="VeiculoModelo" ColumnName="VeiculoModelo" />
+          <ScalarProperty Name="VeiculoPotencia" ColumnName="VeiculoPotencia" />
+          <ScalarProperty Name="VeiculoAno" ColumnName="VeiculoAno" />
+          <ScalarProperty Name="VeiculoEstado" ColumnName="VeiculoEstado" />
+          <ScalarProperty Name="VeiculoChassiSerie" ColumnName="VeiculoChassiSerie" />
+          <ScalarProperty Name="VeiculoValor" ColumnName="VeiculoValor" />
+          <ScalarProperty Name="VeiculoP" ColumnName="VeiculoP" />
+          <ScalarProperty Name="VeiculoFazendaOrigem" ColumnName="VeiculoFazendaOrigem" />
+          <ScalarProperty Name="VeiculoCidadeLocal" ColumnName="VeiculoCidadeLocal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="VeiculoAtiva" ColumnName="VeiculoAtiva" />
+          <ScalarProperty Name="VeiculoData" ColumnName="VeiculoData" />
+          <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+          <ScalarProperty Name="IDFazenda" ColumnName="IDFazenda" />
+          <ScalarProperty Name="RelacaoParticipacao" ColumnName="RelacaoParticipacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerificacaoDadosGerais">
+      <EntityTypeMapping TypeName="SCPModel.VerificacaoDadosGerais">
+        <MappingFragment StoreEntitySet="VerificacaoDadosGerais">
+          <ScalarProperty Name="QuantidadeFazendas" ColumnName="QuantidadeFazendas" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ClienteGrau" ColumnName="ClienteGrau" />
+          <ScalarProperty Name="ClienteFormacao" ColumnName="ClienteFormacao" />
+          <ScalarProperty Name="ClienteExperiencia" ColumnName="ClienteExperiencia" />
+          <ScalarProperty Name="ClienteClassificacaoPorte" ColumnName="ClienteClassificacaoPorte" />
+          <ScalarProperty Name="ClienteAtividadeDesenvolvida" ColumnName="ClienteAtividadeDesenvolvida" />
+          <ScalarProperty Name="ClienteTempoAtividade" ColumnName="ClienteTempoAtividade" />
+          <ScalarProperty Name="ClienteEstruturaArmazenamento" ColumnName="ClienteEstruturaArmazenamento" />
+          <ScalarProperty Name="ClienteEstruturaTransporte" ColumnName="ClienteEstruturaTransporte" />
+          <ScalarProperty Name="ClienteResidenciaProdutor" ColumnName="ClienteResidenciaProdutor" />
+          <ScalarProperty Name="ClienteEstadoCivil" ColumnName="ClienteEstadoCivil" />
+          <ScalarProperty Name="ClienteDadosUsuario" ColumnName="ClienteDadosUsuario" />
+          <ScalarProperty Name="ClienteFazenda" ColumnName="ClienteFazenda" />
+          <ScalarProperty Name="ClienteRelacaoFazenda" ColumnName="ClienteRelacaoFazenda" />
+          <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+          <ScalarProperty Name="UsuarioRG" ColumnName="UsuarioRG" />
+          <ScalarProperty Name="UsuarioDataExpedicao" ColumnName="UsuarioDataExpedicao" />
+          <ScalarProperty Name="UsuarioCPF" ColumnName="UsuarioCPF" />
+          <ScalarProperty Name="UsuarioDataNascimento" ColumnName="UsuarioDataNascimento" />
+          <ScalarProperty Name="UsuarioNaturalidade" ColumnName="UsuarioNaturalidade" />
+          <ScalarProperty Name="UsuarioTelefone1" ColumnName="UsuarioTelefone1" />
+          <ScalarProperty Name="UsuarioCelular1" ColumnName="UsuarioCelular1" />
+          <ScalarProperty Name="UsuarioEndereco" ColumnName="UsuarioEndereco" />
+          <ScalarProperty Name="UsuarioCEP" ColumnName="UsuarioCEP" />
+          <ScalarProperty Name="UsuarioRendaMensal" ColumnName="UsuarioRendaMensal" />
+          <ScalarProperty Name="UsuarioCidade" ColumnName="UsuarioCidade" />
+          <ScalarProperty Name="UsuarioEstado" ColumnName="UsuarioEstado" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+          <ScalarProperty Name="Celular1" ColumnName="Celular1" />
+          <ScalarProperty Name="Celular2" ColumnName="Celular2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DestroiCadastro" FunctionName="SCPModel.Store.DestroiCadastro" />
+    <FunctionImportMapping FunctionImportName="InsertLimiteCredito" FunctionName="SCPModel.Store.InsertLimiteCredito" />
+    <FunctionImportMapping FunctionImportName="Proc_LimiteCredito" FunctionName="SCPModel.Store.Proc_LimiteCredito" />
+    <FunctionImportMapping FunctionImportName="Proc_Questoes" FunctionName="SCPModel.Store.Proc_Questoes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SCPModel.Proc_Questoes_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QuestionarioQuestao" ColumnName="QuestionarioQuestao" />
+          <ScalarProperty Name="QuestionarioResposta1" ColumnName="QuestionarioResposta1" />
+          <ScalarProperty Name="QuestionarioResposta2" ColumnName="QuestionarioResposta2" />
+          <ScalarProperty Name="QuestionarioResposta3" ColumnName="QuestionarioResposta3" />
+          <ScalarProperty Name="QuestionarioResposta4" ColumnName="QuestionarioResposta4" />
+          <ScalarProperty Name="QuestionarioResposta5" ColumnName="QuestionarioResposta5" />
+          <ScalarProperty Name="QuestionarioSafra" ColumnName="QuestionarioSafra" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RF" FunctionName="SCPModel.Store.RF">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SCPModel.RF_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="QTDMaquinas" ColumnName="QTDMaquinas" />
+          <ScalarProperty Name="QTDImplementos" ColumnName="QTDImplementos" />
+          <ScalarProperty Name="QTDVeiculos" ColumnName="QTDVeiculos" />
+          <ScalarProperty Name="QTDTerrasSolos" ColumnName="QTDTerrasSolos" />
+          <ScalarProperty Name="QTDBenfeitorias" ColumnName="QTDBenfeitorias" />
+          <ScalarProperty Name="QTDSemoventes" ColumnName="QTDSemoventes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SafraDistribuicao">
+      <EntityTypeMapping TypeName="SCPModel.SafraDistribuicao">
+        <MappingFragment StoreEntitySet="SafraDistribuicao">
+          <ScalarProperty Name="DistribuicaoSafraObservacaoGravame" ColumnName="DistribuicaoSafraObservacaoGravame" />
+          <ScalarProperty Name="DistribuicaoSafraCultura" ColumnName="DistribuicaoSafraCultura" />
+          <ScalarProperty Name="DistribuicaoSafraSafra" ColumnName="DistribuicaoSafraSafra" />
+          <ScalarProperty Name="DistribuicaoSafraUsuarioID" ColumnName="DistribuicaoSafraUsuarioID" />
+          <ScalarProperty Name="DistribuicaoSafraArea" ColumnName="DistribuicaoSafraArea" />
+          <ScalarProperty Name="DistribuicaoSafraSistemaPlantio" ColumnName="DistribuicaoSafraSistemaPlantio" />
+          <ScalarProperty Name="DistribuicaoSafraFazenda" ColumnName="DistribuicaoSafraFazenda" />
+          <ScalarProperty Name="DistribuicaoSafraTipo" ColumnName="DistribuicaoSafraTipo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DistribuicaoSafraFazenda">
+      <EntityTypeMapping TypeName="SCPModel.DistribuicaoSafraFazenda">
+        <MappingFragment StoreEntitySet="DistribuicaoSafraFazenda">
+          <ScalarProperty Name="SafraPrevista" ColumnName="SafraPrevista" />
+          <ScalarProperty Name="NomeCultura" ColumnName="NomeCultura" />
+          <ScalarProperty Name="NomeSafra" ColumnName="NomeSafra" />
+          <ScalarProperty Name="DistribuicaoSafraSafra" ColumnName="DistribuicaoSafraSafra" />
+          <ScalarProperty Name="FazendaOnusGravames" ColumnName="FazendaOnusGravames" />
+          <ScalarProperty Name="FazendaArrendada" ColumnName="FazendaArrendada" />
+          <ScalarProperty Name="FazendaMunicipio" ColumnName="FazendaMunicipio" />
+          <ScalarProperty Name="IDFazenda" ColumnName="IDFazenda" />
+          <ScalarProperty Name="IDProprietário" ColumnName="IDProprietário" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="RelacaoTitulo" ColumnName="RelacaoTitulo" />
+          <ScalarProperty Name="FazendaNome" ColumnName="FazendaNome" />
+          <ScalarProperty Name="DistribuicaoSafraUsuarioID" ColumnName="DistribuicaoSafraUsuarioID" />
+          <ScalarProperty Name="DistribuicaoSafraArea" ColumnName="DistribuicaoSafraArea" />
+          <ScalarProperty Name="DistribuicaoSafraSistemaPlantio" ColumnName="DistribuicaoSafraSistemaPlantio" />
+          <ScalarProperty Name="DistribuicaoSafraFazenda1" ColumnName="DistribuicaoSafraFazenda" />
+          <ScalarProperty Name="DistribuicaoSafraTipo" ColumnName="DistribuicaoSafraTipo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

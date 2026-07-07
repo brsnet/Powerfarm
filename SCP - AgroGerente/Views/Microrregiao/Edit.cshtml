@@ -1,0 +1,94 @@
+﻿@model SCP___AgroGerente.Models.CadastroMicrorregiao
+
+@{
+    ViewBag.Title = "Criar Implemento";
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar a Microrregião: @Model.MicrorregiaoNome</h2>
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+   
+
+        @Html.HiddenFor(model => model.ID)
+
+      <fieldset>
+        <legend>CadastroMicrorregiao</legend>
+
+
+        <div class="box">
+            <div class="editor-label">
+                Nome
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MicrorregiaoNome)
+                @Html.ValidationMessageFor(model => model.MicrorregiaoNome)
+            </div>
+        </div>
+        <h3>Terra Bruta/Nua</h3>
+        <br />
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                Inferior Saca/ha
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.MicrorregiaoBrutaNuaInferiorSaca)
+                @Html.ValidationMessageFor(model => model.MicrorregiaoBrutaNuaInferiorSaca)
+            </div>
+        </div>
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                Superior Saca/ha
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.MicrorregiaoBrutaNuaSuperiorSaca)
+                @Html.ValidationMessageFor(model => model.MicrorregiaoBrutaNuaSuperiorSaca)
+            </div>
+        </div>
+        <div class="clear"></div>
+        <hr />
+        <h3>Terra Corrigida/Cultivada</h3>
+        <br />
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                 Inferior Saca/ha
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.MicrorregiaoCurrigidaCultivadaInferiorSaca)
+                @Html.ValidationMessageFor(model => model.MicrorregiaoCurrigidaCultivadaInferiorSaca)
+            </div>
+        </div>
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                Superior Saca/ha
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.MicrorregiaoCurrigidaCultivadaSuperiorSaca)
+                @Html.ValidationMessageFor(model => model.MicrorregiaoCurrigidaCultivadaSuperiorSaca)
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

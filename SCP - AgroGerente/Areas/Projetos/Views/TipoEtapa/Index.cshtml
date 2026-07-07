@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.CadastroTipoEtapa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Tipos de Etapas</h2>
+
+    </div>
+    <div class="right">
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+     grid.Column("TipoEtapaAtiva", header:" Ativa?",style:"width1 alignCenter",format:@<text>
+
+    @if (item.TipoEtapaAtiva == true)
+	    {
+		     <text>Sim</text>
+	    } else
+	    {
+             <text>Não</text>
+	    }
+    </text>),
+ grid.Column("TipoEtapaOrdem", header:" Ordenação", style:"width2 alignCenter"), 
+      grid.Column("TipoEtapaTipo", header:" Tipo da Etapa",format:@<text>
+
+
+@if (item.TipoEtapaTipo==1)
+	{
+		 <text>Serviços</text>
+	}else
+	{
+     <text>Insumos</text>
+	}
+
+</text>), 
+      grid.Column("TipoEtapaNome", header:" Nome do Tipo da Etapa"),
+
+ grid.Column("",header:"Ações", format:@<text>
+
+    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+    @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+
+})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+

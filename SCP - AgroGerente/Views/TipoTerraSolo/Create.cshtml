@@ -1,0 +1,61 @@
+﻿@model SCP___AgroGerente.Models.TerraSolo
+
+@{
+    ViewBag.Title = "Criar Tipo de Terra/solo";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Terra ou Solo</h2>
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar a Lista</a>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    
+    
+    
+    
+    <fieldset>
+        <legend>TerraSolo</legend>
+            <div class="box">
+                <div class="left">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.tipo)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.tipo)
+                        @Html.ValidationMessageFor(model => model.tipo)
+                    </div>
+                </div>
+                <div class="left" style="padding-right: 20px">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ativo, "Ativo?")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.ativo, (IEnumerable<SelectListItem>)ViewData["EnumBit"], "Selecione")
+                        @Html.ValidationMessageFor(model => model.ativo)
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <p>
+                <input type="submit" value="Criar" />
+            </p>
+</fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

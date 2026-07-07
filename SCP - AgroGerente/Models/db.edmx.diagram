@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c5b19be28204693aa53523aa3bd39da" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="SCPModel.AUTHORITY" Width="1.5" PointX="6.875" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCPModel.TerraSolo" Width="2.375" PointX="21.25" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.ClienteConjuge" Width="2.5" PointX="5.375" PointY="8.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.QuestionarioResposta" Width="1.75" PointX="5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCPModel.CadastroQuestionario" Width="1.75" PointX="7" PointY="10.625" />
+        <EntityTypeShape EntityType="SCPModel.CadastroRespostaQuestionario" Width="1.5" PointX="9" PointY="10.625" />
+        <EntityTypeShape EntityType="SCPModel.UsuariosFazenda" Width="2.5" PointX="5.25" PointY="7.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroMicrorregiao" Width="2.25" PointX="15.375" PointY="2" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.LimiteCreditos" Width="1.5" PointX="17" PointY="9.375" />
+        <EntityTypeShape EntityType="SCPModel.BenfeitoriaFazenda" Width="2.625" PointX="5.375" PointY="6.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroTerraSolo" Width="2.375" PointX="21.25" PointY="4.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroDivida" Width="2" PointX="31.875" PointY="7" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.DividaUsuario" Width="3.5" PointX="11.25" PointY="3.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroBensDireitos" Width="2" PointX="31.875" PointY="6.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.SafraNormalPrevista" Width="1.5" PointX="25.25" PointY="9.375" />
+        <EntityTypeShape EntityType="SCPModel.UsuarioSafrasNormalPrevista" Width="3.5" PointX="11.25" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.funcaodistribuicaoAreaSafra" Width="3.5" PointX="11.25" PointY="6.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroImplemento" Width="2" PointX="31.875" PointY="4.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroMaquina" Width="2" PointX="31.875" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroVeiculo" Width="2" PointX="31.875" PointY="5.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.VeiculoFazendaUsuario" Width="3.5" PointX="11.25" PointY="2.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroBenfeitoria" Width="2.375" PointX="21.25" PointY="5.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroSemovente" Width="2.375" PointX="21.25" PointY="6.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroRelacao" Width="1.5" PointX="24.375" PointY="1.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroSafra" Width="3.75" PointX="23" PointY="13.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.MaquinaFazendaUsuario" Width="3.5" PointX="11.25" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.ImplementoFazendaUsuario" Width="3.5" PointX="11.25" PointY="1.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.ResumoFazendas" Width="2.25" PointX="11.25" PointY="9.625" />
+        <EntityTypeShape EntityType="SCPModel.FazendaTotals" Width="3.5" PointX="11.25" PointY="5.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.ClienteFazenda" Width="3.5" PointX="3.5" PointY="5.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.FazendaRelacao" Width="3.5" PointX="3.75" PointY="4.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.TerraSoloFazenda" Width="1.5" PointX="6.875" PointY="3.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroClientes" Width="1.5" PointX="35" PointY="1.125" />
+        <EntityTypeShape EntityType="SCPModel.CadastroUsuarios" Width="1.5" PointX="29.5" PointY="1.125" />
+        <EntityTypeShape EntityType="SCPModel.VerificacaoDadosGerais" Width="3.5" PointX="11.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SCPModel.Proprietarios" Width="3.5" PointX="15" PointY="7.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.Cultura" Width="2.375" PointX="23.875" PointY="3" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.LimiteCredito" Width="3.5" PointX="11.25" PointY="5.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="SCPModel.CadastroFazenda" Width="1.5" PointX="18.625" PointY="0.875" />
+
+        <AssociationConnector Association="SCPModel.FK_CadastroBenfeitoria_CadastroFazenda" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroBenfeitoria_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroBensDireitos_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroClientes_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroDivida_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroFazenda_CadastroMicrorregiao" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroFazenda_Cultura" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroRelacao_CadastroFazenda" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroSemovente_CadastroFazenda" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroTerraSolo_CadastroFazenda" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroImplemento_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroMaquina_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroRelacao_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_SafraNormalPrevista_CadastroSafra" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroSemovente_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroTerraSolo_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroTerraSolo_TerraSolo" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_CadastroVeiculo_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_SafraNormalPrevista_CadastroUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="SCPModel.FK_SafraNormalPrevista_Cultura" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SCPModel.SafraDistribuicao" Width="2.375" PointX="21.625" PointY="8.625" />
+        <AssociationConnector Association="SCPModel.FK_SafraDistribuicao_CadastroFazenda" />
+        <AssociationConnector Association="SCPModel.FK_SafraDistribuicao_CadastroSafra" />
+        <AssociationConnector Association="SCPModel.FK_SafraDistribuicao_Cultura" />
+        <EntityTypeShape EntityType="SCPModel.DistribuicaoSafraFazenda" Width="3.5" PointX="11.25" PointY="3.875" IsExpanded="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

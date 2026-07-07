@@ -1,0 +1,152 @@
+﻿@model SCP___AgroGerente.Models.CadastroVeiculo
+
+@{
+    ViewBag.Title = "Editar Veículo";
+}
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Veículo</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.VeiculoUsuario)
+
+    <fieldset>
+        <legend>CadastroVeiculo</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+          <fieldset>
+        <legend>CadastroVeiculo</legend>
+
+        <div class="box">
+            
+           
+             <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoAtiva, "Ativo?")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.VeiculoAtiva, (IEnumerable<SelectListItem>)ViewData["EnumBit"], "Selecione")
+                @Html.ValidationMessageFor(model => model.VeiculoAtiva)
+            </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br />
+        <div class="left" style="padding-right: 20px">
+
+
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoEspecificacao, "Especificação")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoEspecificacao)
+                @Html.ValidationMessageFor(model => model.VeiculoEspecificacao)
+            </div>
+        </div>
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoMarca, "Marca")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoMarca)
+                @Html.ValidationMessageFor(model => model.VeiculoMarca)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoModelo, "Modelo")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoModelo)
+                @Html.ValidationMessageFor(model => model.VeiculoModelo)
+            </div>
+        </div>
+              <div class="left" style="padding-right: 20px">
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.VeiculoPotencia, "Potência")
+                  </div>
+                  <div class="editor-field">
+                      @Html.EditorFor(model => model.VeiculoPotencia)
+                      @Html.ValidationMessageFor(model => model.VeiculoPotencia)
+                  </div>
+              </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoAno, "Ano")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoAno)
+                @Html.ValidationMessageFor(model => model.VeiculoAno)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoEstado, "Estado")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoEstado)
+                @Html.ValidationMessageFor(model => model.VeiculoEstado)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoChassiSerie, "Chassi/Série")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoChassiSerie)
+                @Html.ValidationMessageFor(model => model.VeiculoChassiSerie)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoValor, "Valor")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoValor)
+                @Html.ValidationMessageFor(model => model.VeiculoValor)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.VeiculoP, "P")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.VeiculoP)
+                @Html.ValidationMessageFor(model => model.VeiculoP)
+            </div>
+        </div>
+       
+        <div class="clear"></div>
+
+
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.ViewRespostasPerguntas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+
+    int count = 0;
+    int totalRows = 0;
+}
+@section featured {
+
+    @RenderPage("~/Areas/Projetos/Views/Shared/ClientPartial.cshtml")
+
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Perguntas</h2>
+        <p style="margin:0px !important">Basta responder e salvar no final. Perguntas sem resposta não serão adicionadas ao Projeto.</p>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+
+<br />
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+
+    foreach (var item in Model)
+    {
+        count = count + 1;
+        
+
+        <h4>
+            @count - 
+            @item.BancoQuestoesPergunta
+        </h4>
+
+    
+
+    
+    @Html.Hidden("CadastroBancoQuestoesBancoQuestoesPergunta" + count, item.ID)
+    @Html.Hidden("IDResposta" + count, item.IDResposta)
+    @Html.TextArea("TextareaResposta" + count, item.BQRespostaResposta, new { @style = "width:98%;height:100px" })
+   
+    
+    
+
+    }
+
+    totalRows = count;
+    
+    <input type="hidden" id="conter" name="conter" value="@totalRows" />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Finalizar Respostas" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BQRespostaResposta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CadastroSafra.SafraData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CadastroBancoQuestoes.BancoQuestoesPergunta)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BQRespostaResposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CadastroSafra.SafraData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CadastroUsuarios.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CadastroBancoQuestoes.BancoQuestoesPergunta)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>*@

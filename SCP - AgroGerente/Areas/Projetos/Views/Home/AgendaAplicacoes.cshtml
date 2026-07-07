@@ -1,0 +1,159 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.ViewAgendaAplicacoes>
+@{
+    
+    
+    DateTime StartAgenda = DateTime.Now.Date;
+
+    DateTime SA = StartAgenda.AddMonths(-2);
+    DateTime EA = StartAgenda.AddMonths(+9);
+    
+    int DataInicio = 0;
+    int DataFim = 0;
+    int MesFim = 0;
+    int FimMesDiff = Convert.ToInt32(String.Format("{0:yyyy}{1}", StartAgenda, 12));
+    int DataDiff = 0;
+    int InicioOnde = Convert.ToInt32(String.Format("{0:yyyy}{1:MM}", StartAgenda, StartAgenda.AddMonths(-2)));
+    string andamento = "";
+    int FaltaTD = 0;
+    int SaltaTD = 0;
+        
+    
+}
+
+
+<style>
+    .gantt
+    {
+        border-spacing:0;
+        border-collapse:collapse;
+    }
+    .gantt td,
+    .gantt th{
+        width:4em;
+        text-align:center;
+        border-left:1px dotted #444;
+         border-right:1px dotted #444;
+         border-top:4px solid #efeeef;
+    }
+         .gantt .todaYdate
+         {
+             background:#fff;
+             color:#ff6a00;
+         }
+    .gantt td.AreaPrevision{
+        background:#1bfc9a;
+    }
+    .gantt td.AreaPrevision.YellowGantt{
+        background:#ffe968;
+    }
+</style>
+
+<table class="gantt">
+
+    <tr>
+        <th>@String.Format("{0:MMM}",StartAgenda.AddMonths(-2))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(-1))</th>
+        <th class="todaYdate">@String.Format("{0:MMM}", StartAgenda)</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(1))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(2))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(3))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(4))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(5))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(6))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(7))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(8))</th>
+        <th>@String.Format("{0:MMM}", StartAgenda.AddMonths(9))</th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        DataInicio = Convert.ToInt32(String.Format("{0:yyyy}{1:MM}", item.MesInicio, item.MesInicio));
+        DataFim = Convert.ToInt32(String.Format("{0:yyyy}{1:MM}", item.MesFim, item.MesFim))+1;
+        MesFim = Convert.ToInt32(String.Format("{0:MM}", item.MesFim));
+        
+        int? realStart = DateTime.Now.Month-2;
+
+      
+        
+        
+        
+        
+        <tr>
+        
+            
+            @if (InicioOnde+2 >= DataInicio)
+            {
+               
+                andamento = "YellowGantt";
+            }
+
+
+            @if (InicioOnde >= DataInicio)
+            {
+                DataInicio = InicioOnde;
+            }
+            else
+            {
+
+                SaltaTD = DataInicio - InicioOnde;
+                
+                for (int i = 0; i < SaltaTD; i++)
+                {
+                    <td></td>
+                }
+
+
+            }
+
+            @{
+                DataDiff = DataFim - DataInicio;
+
+                if (DataDiff>20)
+                {
+                    DataDiff = (FimMesDiff - DataInicio) + MesFim+1;
+                }
+
+                FaltaTD = 12 - SaltaTD - DataDiff;
+                
+            }
+
+            <td colspan="@DataDiff" class="AreaPrevision @andamento">
+
+               
+
+                @item.Nome
+
+        
+                
+
+            </td>
+
+
+            @for (int i = 0; i < FaltaTD; i++)
+            {
+                <td></td>
+            }
+         
+
+            @{
+                SaltaTD = 0;
+                andamento = "";
+                }
+
+
+           
+      
+            
+            
+        </tr>
+
+       
+            
+       
+
+    }
+</table>
+

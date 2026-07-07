@@ -1,0 +1,85 @@
+﻿@model SCP___AgroGerente.Models.CadastroSafra
+
+@{
+    ViewBag.Title = "Criar Safra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Safra</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar a Lista</a>
+
+    </div>
+
+
+    <div class="clear"></div>
+
+</div>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CadastroSafra</legend>
+
+                
+<div class="box">
+    <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NomeSafra, "Nome da Safra")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomeSafra)
+            @Html.ValidationMessageFor(model => model.NomeSafra)
+        </div>
+    </div>
+    <div class="left" style="padding-left:20px">
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SafraPrevista, "Usar como Safra Prevista?")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SafraPrevista, (IEnumerable<SelectListItem>)ViewData["EnumBit"], "Selecione")
+        </div>
+
+
+    </div>
+    <div class="clear"></div>
+</div>
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SafraData,"Data")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SafraData)
+            @Html.ValidationMessageFor(model => model.SafraData)
+        </div>
+
+        <p>
+            <input type="submit" value="Criar Safra" />
+        </p>
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    $(function () {
+        $("#SafraData").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+    });
+</script>

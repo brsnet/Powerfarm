@@ -1,0 +1,122 @@
+﻿@model SCP___AgroGerente.Models.SafraDistribuicao
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Distribuição de Safra</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.DistribuicaoSafraUsuarioID)
+    @Html.HiddenFor(model => model.ID)
+
+    <div>@Html.ValidationMessageFor(model => model.DistribuicaoSafraTipo, "Selecione o tipo de Distribuição de Safra")</div>
+    <div>@Html.ValidationMessageFor(model => model.DistribuicaoSafraFazenda, "Selecione a Fazenda")</div>
+
+    <fieldset>
+        <legend>SafraDistribuicao</legend>
+        <div class="box">
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DistribuicaoSafraSafra, "Safra")
+                </div>
+                <div class="editor-field">
+                    
+                    @Html.DropDownListFor(model => model.DistribuicaoSafraSafra, (IEnumerable<SelectListItem>)ViewData["DistribuicaoSafraSafra_edit"], "Selecione")
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="editor-label">
+                    Tipo de Distribuição de Safra
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.DistribuicaoSafraTipo, (IEnumerable<SelectListItem>)ViewData["DistribuicaoSafraTipo_edit"], "Selecione")
+
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DistribuicaoSafraFazenda, "Fazenda")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.DistribuicaoSafraFazenda, (IEnumerable<SelectListItem>)ViewData["DistribuicaoSafraFazenda_edit"], "Selecione")
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                Sistema de Plantio
+            </div>
+            <div class="editor-field">
+               @Html.DropDownListFor(model => model.DistribuicaoSafraSistemaPlantio, (IEnumerable<SelectListItem>)ViewData["DistribuicaoSafraSistemaPlantio_edit"], "Selecione")
+                @Html.ValidationMessageFor(model => model.DistribuicaoSafraSistemaPlantio)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Área (ha)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DistribuicaoSafraArea)
+                @Html.ValidationMessageFor(model => model.DistribuicaoSafraArea)
+            </div>
+        </div>
+
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Cultura
+            </div>
+            <div class="editor-field">
+
+
+
+
+                @Html.DropDownListFor(model => model.DistribuicaoSafraCultura, (IEnumerable<SelectListItem>)ViewData["Culturas"], "Selecione")
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DistribuicaoSafraObservacaoGravame, "Obs./Gravame")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.DistribuicaoSafraObservacaoGravame, (IEnumerable<SelectListItem>)ViewData["EnumObservacaoGravame"], "Selecione")
+                @Html.ValidationMessageFor(model => model.DistribuicaoSafraObservacaoGravame)
+            </div>
+        </div>
+        <div class="clear"></div>
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,73 @@
+﻿@model SCP___AgroGerente.Models.CadastroBensDireitos
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Bem ou Direito</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.BensDireitosUsuarioID)
+    @Html.HiddenFor(model => model.ID)
+
+    <fieldset>
+        <legend>CadastroBensDireitos</legend>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                Categoria
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BensDireitosCategoria)
+                @Html.ValidationMessageFor(model => model.BensDireitosCategoria)
+            </div>
+        </div>
+        <div class="left" style="padding-left:10px">
+            <div class="editor-label">
+                Características
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BensDireitosCaracteristicas)
+                @Html.ValidationMessageFor(model => model.BensDireitosCaracteristicas)
+            </div>
+        </div>
+        <div class="left" style="padding-left:10px">
+            <div class="editor-label">
+                Valor
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BensDireitosValor)
+                @Html.ValidationMessageFor(model => model.BensDireitosValor)
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

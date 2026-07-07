@@ -1,0 +1,201 @@
+﻿@model SCP___AgroGerente.Models.CadastroClientes
+
+@{
+    ViewBag.Title = "Criar Cliente";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Cliente</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div>@Html.ValidationMessageFor(model => model.ClienteDadosUsuario,"Indique um usuário para torná-lo cliente")</div>
+    <fieldset>
+        <legend>CadastroClientes</legend>
+
+        <div class="box">
+            <div class="left" style="padding-right: 20px">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ClienteDadosUsuario, "Nome")
+                </div>
+                <div class="editor-field">
+
+                    @Html.DropDownListFor(model => model.ClienteDadosUsuario, (IEnumerable<SelectListItem>)ViewData["Usuarios"], "Selecione")
+                </div>
+
+            </div>
+           
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ClienteEstadoCivil, "Estado civíl")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.ClienteEstadoCivil, (IEnumerable<SelectListItem>)ViewData["EstadoCivil"], "Selecione...")
+                </div>
+            </div>
+            <div class="left">
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ClienteConjujeUsuario, "Selecione o conjuge")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.ClienteConjujeUsuario, (IEnumerable<SelectListItem>)ViewData["TUsuarios"], "Selecione o Conjuge")
+                </div>
+            </div>
+            
+            <div class="left">
+
+                <div class="editor-label">
+                    <b>Participação Geral (Calcule um valor baseado na quantidade de Sócios/Participação deste cliente) </b>
+                </div>
+                <div class="editor-field">
+                   @Html.EditorFor(model => model.ClienteParticipacaoGeral) % (essa porcentagem influenciará nos resultados dos Imóveis, Móveis e Dívidas)
+                </div>
+            </div>
+            <div class="clear"></div>
+            <hr />
+            <h3>Sócios</h3>
+           
+            <div class="left" style="padding-right: 20px">
+
+                <div class="editor-field">
+
+                    @Html.DropDownList("SocioUsuario", (IEnumerable<SelectListItem>)ViewData["TUsuarios"], "Selecione")
+                    <input type="button" value="Adicionar Sócio" class="addSocio"/>
+                    <input type="button" value="Limpar lista" class="eraseSocio" />
+                    @Html.HiddenFor(model => model.ClienteParticipacaoGeral)
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        <div class="left" style="padding-right: 20px;  padding-top:15px">
+
+            Sócios Selecionados: <b><span class="partners"></span></b>
+
+            <input type="hidden" id="ClienteListaSociosID" name="ClienteListaSociosID" />
+            <input type="hidden" id="ClienteListaSociosNome" name="ClienteListaSociosNome" />
+        
+        </div>
+
+            <div class="clear"></div>
+            <br />
+
+
+        </div>
+       
+        <h3>Instrução agrícola</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteExperiencia, "Experiência")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteExperiencia)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteClassificacaoPorte, "Classificação Porte")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteClassificacaoPorte)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteAtividadeDesenvolvida, "Atividade Desenvolvida")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteAtividadeDesenvolvida)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteTempoAtividade, "Tempo de atividade")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteTempoAtividade)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteEstruturaArmazenamento, "Estrutura de Armazenamento")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteEstruturaArmazenamento)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteEstruturaTransporte, "Estrutura de transporte")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteEstruturaTransporte)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClienteResidenciaProdutor, "Residência do Produtor")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClienteResidenciaProdutor)
+            </div>
+        </div>
+
+
+
+        <div class="clear"></div>
+        <p>
+            <input type="submit" value="Criar Cliente" />
+        </p>
+    </fieldset>
+}
+
+<div>
+</div>
+
+
+<script>
+
+    $(".addSocio").on("click", function () {
+
+        if ($(".partners").html() == "") {
+
+            $(".partners").html($(".partners").html() + $("#SocioUsuario option:checked").html());
+            $("#ClienteListaSociosID").val($("#SocioUsuario").val());
+            $("#ClienteListaSociosNome").val($("#SocioUsuario option:checked").html());
+
+        } else {
+            $(".partners").html($(".partners").html() + ", " + $("#SocioUsuario option:checked").html());
+            $("#ClienteListaSociosID").val($("#ClienteListaSociosID").val() + ", " + $("#SocioUsuario").val());
+            $("#ClienteListaSociosNome").val($("#ClienteListaSociosNome").val() + ", " + $("#SocioUsuario option:checked").html());
+         }
+
+    })
+
+    $(".eraseSocio").on("click", function () {
+
+        $(".partners").html("");
+        $("#ClienteListaSociosID").val("");
+        $("#ClienteListaSociosNome").val("");
+
+    })
+
+
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

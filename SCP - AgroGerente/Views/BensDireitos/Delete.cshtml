@@ -1,0 +1,47 @@
+﻿@model SCP___AgroGerente.Models.CadastroBensDireitos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CadastroBensDireitos</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BensDireitosCategoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BensDireitosCategoria)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BensDireitosCaracteristicas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BensDireitosCaracteristicas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BensDireitosValor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BensDireitosValor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroUsuarios.Nome)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

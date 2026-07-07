@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.Cultura>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Culturas</h2>
+    </div>
+    <div class="right" >
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+<table class="tabelaFormatada">
+    <tr>
+        <th>
+           Nome
+        </th>
+        <th>
+            Valor da Saca
+        </th>
+        <th>
+            Data da atualização
+        </th>
+        <th>
+            Cultura
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeCultura)
+
+            @if (Convert.ToBoolean(item.CulturaCalculo))
+            {
+                <text>
+                    <br />
+                    <span class="red">Usada para calcular</span>
+            
+                </text>
+            }
+        </td>
+        <td>
+              @string.Format("{0:C}", item.ValorSaca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAtualizacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsarCultura)
+        </td>
+        <td>
+             @Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+           @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

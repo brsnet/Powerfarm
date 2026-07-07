@@ -1,0 +1,87 @@
+﻿@*@model SCP___AgroGerente.Areas.Projetos.Model.CadastroItemOrcamento
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CadastroItemOrcamento</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoProduto, "CadastroProduto")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ItemOrcamentoProduto", String.Empty)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoProduto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoQuantidade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoQuantidade)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoQuantidade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoUnidade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoUnidade)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoUnidade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoQuantidadePorHectar)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoQuantidadePorHectar)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoQuantidadePorHectar)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoValorUnitario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoValorUnitario)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoValorUnitario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoCadastradoEm)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoCadastradoEm)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoCadastradoEm)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ItemOrcamentoAtiva)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ItemOrcamentoAtiva)
+            @Html.ValidationMessageFor(model => model.ItemOrcamentoAtiva)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

@@ -1,0 +1,128 @@
+﻿@model SCP___AgroGerente.Models.CadastroClientes
+
+@{
+    ViewBag.Title = "Bem Vindo Engenheiro!";
+    
+}
+
+
+<script>
+
+    $("#ClenteNome").change(function () {
+
+        window.location.href = 'Home/Usuario/' + $(this).val();
+
+    });
+
+
+
+</script>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="float-right">
+                @Html.DropDownList("ClenteNome", (IEnumerable<SelectListItem>)ViewData["Usuarios"], "Selecione um cliente")
+            </div>
+            <div class="float-right">
+                <div class="iconeClient"></div>
+            </div>
+            <div class="clear"></div>
+          
+        </div>
+    </section>
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+
+<ol class="round left" style="width:65%">
+    <li class="one">
+    <h5>Clientes Cadastrados</h5>
+        <br />
+        <table class="tabelaFormatada">
+
+            @foreach (var item in ViewBag.Clientes)
+            {
+
+                <tr>
+
+                    <td>
+
+
+                        <a href="/Clientes/Details/@item.IDCliente">@item.Nome.ToString()</a>
+                    </td>
+                    <td style="width:310px">
+                    @{
+                        
+                        if (item.Celular1 != null)
+                        {
+                            @item.Celular1 <text> - </text>
+                        }
+                        if (item.Celular2 != null)
+                        {
+                            @item.Celular2 <text> - </text>
+                        }
+                        if (item.Telefone1 != null)
+                        {
+                            @item.Telefone1 <text> - </text>
+                        }
+                        if (item.Telefone2 != null)
+                        {
+                            @item.Telefone2
+                        }
+
+}
+                    
+                    
+                    
+                   </td>
+
+                </tr>
+
+            }
+
+
+        </table>
+
+
+
+        </li>
+   
+    </ol>
+<ol class="round right" style="width:32%">
+    <li class="two">
+        <h5>Limites de Crédito recentes</h5>
+        <br />
+        <table class="tabelaFormatada">
+            @foreach (var item in ViewBag.Limites)
+            {
+
+
+                <tr>
+                    <td>
+                        @item.Campo1 <br />
+                        <span class="small"><i>@item.EntidadeDataCadastro</i></span>
+                    </td>
+
+
+
+                    <td style="width:20px !important">
+
+
+                        @Html.ActionLink(" ", "Print","LimiteCredito", new { id = item.EntidadeHash }, new { @class = "icone Print", target = "_blank" })
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </li>
+
+    <li class="three">
+        <h5>Futura área de Projetos</h5>
+       <div class="box">
+           @Html.ActionLink("Ir para a área de Projetos", "Index", new { area = "Projetos"},string.Empty)
+       </div>
+    </li>
+</ol>

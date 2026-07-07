@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.ResumoFazendas>
+
+
+
+
+@foreach (var item in Model)
+{
+    <ul class="listaFormatada especial">
+        <li>
+           
+            <h4> Resumo Patrimonial pessoal (@string.Format("{0:0.00} %",item.ClienteParticipacaoGeral))</h4>
+            <br />
+            <ul>
+                <li>Terra/Solo: <div class="right">@string.Format("{0:C}",item.TotalTerraSolo)</div></li>
+                <li>Benfeitorias: <div class="right">@string.Format("{0:C}",item.TotalBenfeitorias)</div></li>
+                <li>Máquinas: <div class="right">@string.Format("{0:C}",item.ResumoMaquina)</div></li>
+                <li>Veículos: <div class="right">@string.Format("{0:C}",item.ResumoVeiculo)</div></li>
+                <li>Implementos: <div class="right">@string.Format("{0:C}",item.ResumoImplemento)</div></li>
+                <li>Semoventes: <div class="right">@string.Format("{0:C}",item.TotalSemoventes)</div></li>
+                <li>Bens e Direitos: <div class="right">@string.Format("{0:C}",item.ResumoBensDireitos)</div></li>
+
+            </ul>
+        </li>
+        <li style="padding: 5px !important">
+
+            <b>Total<div class="right">@string.Format("{0:C}", item.TotalTerraSolo + item.TotalSemoventes + item.ResumoImplemento + item.ResumoVeiculo + item.ResumoMaquina + item.ResumoBensDireitos + item.TotalBenfeitorias)</div></b>
+
+        </li>
+    </ul>
+    
+    
+}
+

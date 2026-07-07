@@ -1,0 +1,43 @@
+﻿@model SCP___AgroGerente.Models.CadastroBensDireitos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroBensDireitos</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BensDireitosCategoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BensDireitosCategoria)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BensDireitosCaracteristicas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BensDireitosCaracteristicas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BensDireitosValor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BensDireitosValor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroUsuarios.Nome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

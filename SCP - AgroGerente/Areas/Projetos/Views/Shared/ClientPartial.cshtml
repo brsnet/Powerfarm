@@ -1,0 +1,18 @@
+﻿<section class="featured">
+    <div class="content-wrapper">
+
+        <div class="float-right">
+            <h2>Cliente: @Session["UserName"]</h2>
+        </div>
+        <div class="float-right">
+            <div class="iconeClient"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="float-right">
+            @Html.ActionLink("Painel do Cliente", "Usuario","Home" , new { id = Session["UserID"], area="Projetos" }, string.Empty)
+
+        </div>
+        <div class="clear"></div>
+
+    </div>
+</section>

@@ -1,0 +1,129 @@
+﻿   <!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+     @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/mappings")
+        @Scripts.Render("~/bundles/mask")
+
+        
+
+    </head>
+    <body>
+        <header class="projeto">
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink(" ", "Index", new { area = "", controller = "Home" }, new { @class = "logotipoPF" })</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Início", "Index", new { area = "Projetos", controller = "Home" })</li>
+                            @*<li>
+                                <a href="#">Cadastros</a>
+                                <ul>
+                                    <li>@Html.ActionLink("1. Usuarios", "Index", "Usuarios")</li>
+                                    <li>@Html.ActionLink("2. Fazendas", "Index", "Fazendas")</li>
+                                    <li>@Html.ActionLink("3. Clientes", "Index", "Clientes")</li>
+                                    <li>@Html.ActionLink("4. Relação Fazenda", "Index", "Relacao")</li>
+                                    
+                                </ul>
+                            </li>*@
+                            @*<li>@Html.ActionLink("Projetos", "Index", "Home", new { area = "Projetos" }, string.Empty)
+                            
+                            <ul>
+                                <li>@Html.ActionLink("Orçamento Analítico", "Index", "OrcamentoAnalitico")</li>
+                                <li>@Html.ActionLink("Croqui", "Index", "Croqui")</li>
+                                <li><a href="#">Cadastro</a></li>
+                                <li><a href="#">Cadastro</a></li>
+                            </ul>
+                            
+                            </li>*@
+                            <li>
+                                <a href="#">Sistema</a>
+                                <ul>
+                                    <li>@Html.ActionLink("Marcas de Produtos", "Index", "Produto")</li>
+                                    <li>@Html.ActionLink("Serviços", "Index", "Servico")</li>
+                                    <li>@Html.ActionLink("Etapas", "Index", "Etapas")</li>
+                                    <li>@Html.ActionLink("Tipo de Etapa", "Index", "TipoEtapa")</li>
+                                    <li>@Html.ActionLink("ASTEC", "Index", "ASTEC")</li>
+                                    <li><hr /></li>
+                                    <li>@Html.ActionLink("Tipos de Perguntas", "Index", "CadastroBQTipos")</li>
+                                    <li>@Html.ActionLink("Banco de Questões", "Index", "CadastroBancoQuestoes")</li>
+                                    @*<li>@Html.ActionLink("Microrregiões", "Index", "Microrregiao")</li>
+                                    <li>@Html.ActionLink("Tipos de Terra/Solo", "Index", "TipoTerraSolo")</li>
+                                    <li>@Html.ActionLink("Questionario", "Index", "Questionario")</li>
+                                    <li>@Html.ActionLink("Safra", "Index", "Safra")</li>*@
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Relatórios</a>
+                                <ul>
+                                    <li>@Html.ActionLink("Projeto", "Index", "LimiteCredito")</li>
+                                    @*<li>@Html.ActionLink("Gerar PDF", "Index", "Questionario")</li>
+                                    <li>@Html.ActionLink("Histórico", "Index", "Safra")</li>
+                                    <li><hr></li>
+                                    <li>@Html.ActionLink("Terras ou Solos", "Relatorio", "TerraSolo")</li>
+                                    <li>@Html.ActionLink("Benfeitorias", "Relatorio", "Benfeitoria")</li>
+                                    <li>@Html.ActionLink("Maquinas", "Relatorio", "Maquina")</li>
+                                    <li>@Html.ActionLink("Implementos", "Relatorio", "Implemento")</li>
+                                    <li>@Html.ActionLink("Veiculos", "Relatorio", "Veiculo")</li>
+                                    <li><hr></li>
+                                    <li>@Html.ActionLink("Dívidas", "Index", "Divida")</li>*@
+                                </ul>
+                            </li>
+                            
+                        </ul>
+
+                        
+                    </nav>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </header>
+        <div id="body">
+
+            <div class="alerts">
+                @Html.Raw(Session["mensagemErro"])
+                @{
+                    Session["mensagemErro"] = "";   
+                }
+            </div>
+
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    >br><p>&copy; @DateTime.Now.Year | SCP - PowerFarm v1.0</p>
+                </div>
+                <div class="float-right">
+                    <div class="hand"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
+
+       
+        @Scripts.Render("~/bundles/jqueryui")
+        @RenderSection("scripts", required: false)
+
+       
+
+
+    </body>
+</html>

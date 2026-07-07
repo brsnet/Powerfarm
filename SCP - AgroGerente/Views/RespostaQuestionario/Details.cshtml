@@ -1,0 +1,64 @@
+﻿@model SCP___AgroGerente.Models.CadastroRespostaQuestionario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroRespostaQuestionario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaQuestao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaQuestao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaUsuario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaUsuario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaResposta1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaResposta1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaResposta2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaResposta2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaResposta3)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaResposta3)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaResposta4)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaResposta4)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionarioRespostaResposta5)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionarioRespostaResposta5)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

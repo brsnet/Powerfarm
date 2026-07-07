@@ -1,0 +1,46 @@
+﻿
+    
+
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+        <title>@ViewBag.Title</title>
+        <link href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/knockout")
+        @Scripts.Render("~/bundles/mappings")
+        @Scripts.Render("~/bundles/mask")
+    </head>
+    <body>
+        <div id="print">
+
+
+
+
+            <section class="content-wrapper main-content clear-fix print">
+                @RenderBody()
+            </section>
+        </div>
+
+
+        @Scripts.Render("~/bundles/jqueryui")
+        @RenderSection("scripts", required: false)
+
+
+        <script>
+
+            //javascript: print();
+
+        </script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,106 @@
+﻿@model SCP___AgroGerente.Models.CadastroVeiculo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroVeiculo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoEspecificacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoEspecificacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoPorcentagem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoPorcentagem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoMarca)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoMarca)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoModelo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoModelo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoPotencia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoPotencia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoAno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoAno)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoEstado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoEstado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoChassiSerie)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoChassiSerie)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoValor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoValor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoFazendaOrigem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoFazendaOrigem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoCidadeLocal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoCidadeLocal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VeiculoProprietario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VeiculoProprietario)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

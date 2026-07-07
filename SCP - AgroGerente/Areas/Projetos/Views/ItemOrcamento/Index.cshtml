@@ -1,0 +1,68 @@
+﻿@*@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.MarcaProduto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Produtos</h2>
+
+    </div>
+    <div class="right">
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+        @using (Html.BeginForm("Index", "ItemOrcamento", FormMethod.Get))
+        {
+
+            <text>Digite um texto ou letras para pesquisar um produto: </text>@Html.Editor("Produto")
+
+            <input type="submit" value="Buscar" />
+
+        }
+    </div>
+
+</div>
+<br />
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("ItemOrcamentoAtiva", header:" Ativa?",style:"width1 alignCenter",format:@<text>
+
+        @if (item.ItemOrcamentoAtiva == true)
+	{
+            <text>Sim</text>
+	} else
+	{
+            <text>Não</text>
+	}
+
+
+
+    </text>),
+ grid.Column("MarcaNome", header:"Marca",style:" "),
+  grid.Column("MarcaEspecificacao", header:"Produto",style:" "),
+   grid.Column("ItemOrcamentoQuantidade", header:"Quantidade",style:" "),
+        grid.Column("ItemOrcamentoUnidade", header:"Unidade",style:" "),
+             grid.Column("ItemOrcamentoQuantidadePorHectar", header:"Quantidade por Hectar",style:" "),
+             grid.Column("ItemOrcamentoValorUnitario", header:"Valor Unitário",style:" "),
+             grid.Column("",header:"Ações",format:@<text>
+
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+                @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+            </text>)
+
+
+})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

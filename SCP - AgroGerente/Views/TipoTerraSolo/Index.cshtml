@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.TerraSolo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Tipos de Terra/solo</h2>
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    
+  
+    grid.Column("ativo", header:" Ativo", format:@<text>
+
+@if (item.ativo == true)
+{
+    <span class="green"> @Html.Raw("Ativa")</span>
+}
+else
+{
+    <span class="red"> @Html.Raw("Desativada") </span>
+}
+
+</text>, style:"width1 alignCenter"),
+ grid.Column("tipo", header:" Tipo"),
+     grid.Column("",header:"Ações", format:@<text>
+
+@Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+@Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icone details" })
+@Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>) 
+    
+    
+})
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

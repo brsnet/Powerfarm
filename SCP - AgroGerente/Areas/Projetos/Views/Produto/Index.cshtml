@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.ViewProdutos>
+
+@{
+    ViewBag.Title = "Lista de Produtos";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Produtos</h2>
+
+    </div>
+    <div class="right">
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+        @using (Html.BeginForm("Index", "Produto", FormMethod.Get))
+        {
+
+            <text>Digite um texto ou letras para pesquisar um produto: </text>@Html.Editor("MarcaEspecificacao")
+
+            <input type="submit" value="Buscar" />
+
+        }
+    </div>
+
+</div>
+<br />
+
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("MarcaAtiva", header:" Ativa?",style:"width1 alignCenter",format:@<text>
+
+        @if (item.MarcaAtiva == true)
+	{
+            <text>Sim</text>
+	} else
+	{
+            <text>Não</text>
+	}
+
+
+
+
+    </text>),
+ grid.Column("MarcaNome", header:"Marca",style:" "),
+ grid.Column("MarcaEspecificacao", header:"Especificação",style:" "),
+ grid.Column("TipoEtapaNome", header:"Etapa",style:" "),
+  grid.Column("MarcaUnidadeMedida", header:"UN.",style:" "),
+  grid.Column("", header:"Usada Unid.",format:@<text>0,00</text>,style:"alignRight"),
+  grid.Column("", header:"Usada Qtd.",format:@<text>0</text> ,style:"alignRight"),
+
+  grid.Column("",header:"Ações",format:@<text>
+
+        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+        @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+    </text>)
+
+
+})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+

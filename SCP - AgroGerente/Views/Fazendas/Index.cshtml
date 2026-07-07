@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.FazendaTotals>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Fazendas</h2>
+        
+    </div>
+    <div class="right">
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+        @using (Html.BeginForm("Index", "Fazendas", FormMethod.Get))
+        {
+
+            <text>Digite um texto ou letras para pesquisar uma fazenda: </text>@Html.Editor("FazendaBusca")
+
+            <input type="submit" value="Buscar" />
+
+        }
+    </div>
+    <hr />
+</div>
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("FazendaArrendada", header:"Arrend.", format:@<text>
+
+@if (item.FazendaArrendada == true)
+	{
+		 <text>Sim</text>
+	} else
+	{
+        <text>Não</text>
+	}
+
+</text>),
+     grid.Column("FazendaNome", header:"Fazenda"),
+     grid.Column("FazendaMunicipio", header:"Município"),
+     grid.Column("AreaTotal", header:"Área", format:@<text>
+@string.Format("{0:0,00} (ha)",item.AreaTotal)
+</text>,style:"alignRight"),
+grid.Column("NomeCultura", header:"Cultura"),
+grid.Column("MicrorregiaoNome", header:"Microrregião"),
+grid.Column("FazendaBeneficioSoloSaca", header:"Benefício de Solo",format:@<text>
+
+  Saca: <b>@item.FazendaBeneficioSoloSaca</b><br />
+            Vl.Unit.:<b> @string.Format("{0:C}", item.FazendaBeneficioSoloValorUnitario)</b>
+
+</text>,style:"alignRight"),
+
+grid.Column(" ", header:"Ações", format:@<text>
+
+@Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+@Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "icone details" })
+@Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+</text>)
+})
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

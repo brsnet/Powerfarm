@@ -1,0 +1,397 @@
+﻿@model SCP___AgroGerente.Models.CadastroFazenda
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double ValorSacaSoja = Convert.ToDouble(ViewBag.ValorSoja);
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Fazenda</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div>@Html.ValidationMessageFor(model => model.FazendaNome, "É necessário adicionar o nome da Fazenda")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaMatricula, "Indique a Matrícula")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaMatriculaCRI, "Indique a CRI")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaCodReceitaFederal, "Indique o Código da Receita Federal")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaCodigoINCRA, "Indique o Código do Incra")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaMunicipio, "Indique o Município da Fazenda")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaBeneficioSoloSaca, "Indique o Valor de Saca do Benefício de Solo")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaBeneficioSoloValorUnitario, "Indique o Valor Unitário do Benefício de Solo")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaCultura, "Selecione a Cultura da Fazenda")</div>
+    <div>@Html.ValidationMessageFor(model => model.FazendaMicrorregiao, "Indique a Microrregião da Fazenda")</div>
+    <fieldset>
+        <legend>CadastroFazenda</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="box">
+
+            <div class="left">
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaNome, "Nome da Fazenda")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaNome)
+                </div>
+            </div>
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaMatricula, "Matrícula")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaMatricula)
+                </div>
+            </div>
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaMatriculaCRI, "Matrícula no CRI")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaMatriculaCRI)
+                </div>
+            </div>
+            
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaCodigoINCRA, "Código INCRA")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaCodigoINCRA)
+                </div>
+            </div>
+
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaCodReceitaFederal, "Cód. na Receita Federal")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaCodReceitaFederal)
+                </div>
+            </div>
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaTitulosDominio, "Títulos de Domínio")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaTitulosDominio)
+                </div>
+            </div>
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaTipoPropriedade, "Tipo de propriedade")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaTipoPropriedade)
+                </div>
+            </div>
+            <div class="left">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FazendaOnusGravames, "Ônus / Gravames")
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaOnusGravames)
+                </div>
+            </div>
+            <div class="clear"></div>
+            <hr />
+            <div class="left" style="padding-left:10px">
+                <div class="editor-label">
+                    É uma Fazenda arrendada?
+                </div>
+                <div class="editor-field">
+                    @Html.CheckBox("FazendaArrendada") Sim
+                </div>
+            </div>
+
+            <div class="left hidden ArrendamentoFazenda" style="padding-left:10px">
+                <div class="editor-label">
+                    Data de início de arrendamento
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaArrendadaDataInicio)
+                    @Html.ValidationMessageFor(model => model.FazendaArrendadaDataInicio)
+                </div>
+            </div>
+            <div class="left hidden ArrendamentoFazenda" style="padding-left:10px">
+                <div class="editor-label">
+                    Data de finalização do arrendamento:
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaArrendadaDataFim)
+                    @Html.ValidationMessageFor(model => model.FazendaArrendadaDataFim)
+                </div>
+            </div>
+
+           
+           
+            <div class="clear"></div>
+            <div class="left hidden ArrendamentoFazenda" style="padding-left:10px">
+                <div class="editor-label">
+                    Área Arrendada (ha):
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaArrendadaAreaArrendada)
+                </div>
+            </div>
+            <div class="left hidden ArrendamentoFazenda" style="padding-left:10px">
+                <div class="editor-label">
+                    Valor Arrendamento:
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FazendaArrendadaValorArrendado)
+                </div>
+            </div>
+            <div class="clear"></div>
+
+
+
+            <div class="clear"></div>
+        </div>
+
+        <h3>Localização</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FazendaMunicipio, "Minicípio da fazenda")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaMunicipio)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FazendaRoteiroAcesso, "Roteiro de acesso")
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.FazendaRoteiroAcesso, new { rows = "5" })
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <h3>Confrotações</h3>
+        <br />
+
+
+        <div class="left">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FazendaConfrontacoesNorte, "Norte")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaConfrontacoesNorte)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FazendaConfrontacoesSul, "Sul")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaConfrontacoesSul)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FazendaConfrontacoesLeste, "Leste")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaConfrontacoesLeste)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FazendaConfrontacoesOeste, "Oeste")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaConfrontacoesOeste)
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <h3>Cultura, Microrregião</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                Cultura
+            </div>
+            <div class="editor-field">
+
+
+
+
+                @Html.DropDownListFor(model => model.FazendaCultura, (IEnumerable<SelectListItem>)ViewData["Culturas"], "Selecione")
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="clear"></div>
+        <table class="tabelaFormatada">
+            <tr>
+                <th rowspan="4"> Sel.</th>
+                <th rowspan="4">
+                    Microrregiões
+                </th>
+
+                <th colspan="8"> Preços Médios Referênciais</th>
+
+            </tr>
+            <tr>
+                <th colspan="4" class="borderRight">Terra Bruta/Nua*</th>
+                <th colspan="4" class="borderLeft">Terra Corrigida/Cultivada</th>
+
+            </tr>
+
+            <tr>
+                <th colspan="2">Inferior</th>
+                <th colspan="2" class="forcedBack borderRight">Superior</th>
+                <th colspan="2" class="borderLeft">Inferior</th>
+                <th colspan="2" class="forcedBack">Superior</th>
+            </tr>
+
+            <tr>
+                <th>R$/ha</th>
+                <th>sc/ha</th>
+                <th class="forcedBack">R$/ha</th>
+                <th class="forcedBack borderRight">sc/ha</th>
+                <th class="borderLeft">R$/ha</th>
+                <th>sc/ha</th>
+                <th class="forcedBack">R$/ha</th>
+                <th class="forcedBack">sc/ha</th>
+            </tr>
+
+
+
+            @foreach (var item in ViewBag.Microrregioes)
+            {
+                <tr>
+                    <td>
+                    
+                    @if (Model.FazendaMicrorregiao == @item.ID)
+	                {
+		                <input type="radio" id="FazendaMicrorregiao" name="FazendaMicrorregiao" value="@item.ID" checked="true" />
+                    }
+                    else
+                    {
+                        <input type="radio" id="FazendaMicrorregiao" name="FazendaMicrorregiao" value="@item.ID"/>
+                    }
+                        </td>
+                    <td>
+                        @item.MicrorregiaoNome
+                    </td>
+                    <td class="alignRight valor">
+
+                        @String.Format("{0:C}", ValorSacaSoja * item.MicrorregiaoBrutaNuaInferiorSaca)
+
+                    </td>
+                    <td class="alignRight saca">
+                        @item.MicrorregiaoBrutaNuaInferiorSaca
+                    </td>
+                    <td class="forcedBack alignRight valor">
+                        @String.Format("{0:C}", ValorSacaSoja * item.MicrorregiaoBrutaNuaSuperiorSaca)
+                    </td>
+                    <td class="forcedBack alignRight borderRight saca">
+                        @item.MicrorregiaoBrutaNuaSuperiorSaca
+                    </td>
+                    <td class="alignRight borderLeft valor">
+                        @String.Format("{0:C}", ValorSacaSoja * item.MicrorregiaoCurrigidaCultivadaInferiorSaca)
+                    </td>
+                    <td class="alignRight saca">
+                        @item.MicrorregiaoCurrigidaCultivadaInferiorSaca
+                    </td>
+                    <td class="forcedBack alignRight valor">
+                        @String.Format("{0:C}", ValorSacaSoja * item.MicrorregiaoCurrigidaCultivadaSuperiorSaca)
+                    </td>
+                    <td class="forcedBack alignRight saca">
+                        @item.MicrorregiaoCurrigidaCultivadaSuperiorSaca
+                    </td>
+
+
+                </tr>
+            }
+
+        </table>
+        <br />
+
+
+
+
+
+
+
+
+        <h3>Benefício de Solo</h3>
+        <br />
+        <div class="left" style="padding-left:10px">
+            <div class="editor-label">
+                Valor da Saca
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaBeneficioSoloSaca)
+            </div>
+        </div>
+        <div class="left" style="padding-left:10px">
+            <div class="editor-label">
+                Valor unitário
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FazendaBeneficioSoloValorUnitario)
+            </div>
+
+
+        </div>
+
+            <div class="clear"></div>
+            <p>
+                <input type="submit" value="Salvar alterações" />
+            </p>
+</fieldset>
+}
+
+
+
+<script>
+
+ 
+
+
+    $(function () {
+        $("#FazendaArrendadaDataInicio").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+
+        $("#FazendaArrendadaDataFim").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+
+
+    });
+
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

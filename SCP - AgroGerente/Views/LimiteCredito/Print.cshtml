@@ -1,0 +1,2683 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Print.cshtml";
+}
+
+@{
+
+    var Usuario = "";
+    var RG = "";
+    var CPF = "";
+    var SemRepetir = 0;
+    var qtdFazendas = 0;
+    var qtdFazendasArrendadas = 0;
+    double valorMaquina = 0;
+    double totalMaquina = 0;
+    double valorVeiculo = 0;
+    double totalVeiculo = 0;
+    double valorImplemento = 0;
+    double totalImplemento = 0;
+    double porcentagemGeral = 0;
+    double valorBemDireito = 0;
+    double totalBemDireito = 0;
+    double totalTerraSolo = 0;
+    double TotalSemoventes = 0;
+    double TotalBenfeitorias = 0;
+    double TotalArrendadas = 0;
+    double TotalArrendamento = 0;
+    double ValorArrendamento = 0;
+    double TotalDivida = 0;
+    var Responsaveis = "";
+    int linesplus = 10;
+    var Socios = "";
+
+    var SafraUsada = "";
+    var SafraUsadaTotais = 0;
+    double Areatotal = 0;
+    var elemento = 0;
+    double ValorReceitatotal = 0;
+    double CustoTotaltotal = 0;
+    var ObservacoesSafra = "";
+    var SafraUsadaDistribuida = "";
+    double AreatotalDistribuida = 0;
+    var elementoDistribuida = 0;
+    var tipoSoloTerra = "";
+
+
+    foreach (var item in ViewBag.Usuario)
+    {
+
+        Usuario = item.Campo1;
+        RG = item.Campo5;
+        CPF = item.Campo7;
+        ViewBag.Title = "Limite de Crédito de: " + Usuario;
+    }
+}
+<table class="footerTable">
+    <tfoot>
+        <tr>
+            <td colspan="2"><div class="headerHeight"></div></td>
+        </tr>
+        <tr>
+            <td>
+                <br /><br />
+                __________________________________________<br />
+                @Usuario<br />
+                RG: @RG<br />
+                CPF: @CPF
+
+               
+            </td>
+            <td align="right">
+                <br /><br />
+                ____________________________________________________________________<br />
+                SOLARIS-Serviços de Consultoria e Eng.Agronômica Ltda<br />
+                CNPJ: 07.232.346/0001-64  /  Eng. Agr. Fausto R. da Silva Jr.<br />
+                CREA/Visto:21.604-D Visto BA
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><div class="headerHeight"></div></td>
+        </tr>
+        <tr>
+            <td>
+                
+                SOLARIS-Serviços de Consultoria e Eng.Agronômica Ltda
+
+            </td>
+            <td align="right">
+                @DateTime.Now.ToString("dd")/@DateTime.Now.ToString("MM")/@DateTime.Now.ToString("yyyy")
+            </td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td colspan="2">
+
+
+
+                @*Capa*@
+
+
+                <table class="PrinterTable">
+
+                    <thead>
+
+
+
+                    </thead>
+
+                    <tbody>
+
+
+                        <tr>
+                            <td colspan="2">
+                                <table class="bordered">
+                                    <tr>
+                                        <td>
+
+                                            <div class="alignCenter">
+                                                <h1>Limite de Crédito</h1>
+
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br /><br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br /><br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+
+                                                <h2>
+
+
+
+                                                    @Usuario
+
+
+                                                </h2>
+                                                <h4>Proponente</h4>
+
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br /><br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br /><br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <br />
+
+                                                <h4>@DateTime.Now.Day de @DateTime.Now.ToString("MMMM") de @DateTime.Now.Year</h4>
+                                                <br />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+
+      
+
+                @*Dados do Cliente - de usuário e de Conjuge*@
+
+                <table class="PrinterTable">
+
+                    <thead>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+                                <table>
+                                    <tr>
+
+                                        <td colspan="4" class="title">1 - Elaboração</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="4" class="spacerBlank1"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><b>Nome:</b></td>
+                                        <td colspan="3">SOLARIS Serviços de Consultoria e Engenharia Agronômica Ltda.</td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td><b>Cidade:</b></td>
+                                        <td >LUIS EDUARDO MAGALHÃES - BA</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><b>Endereço:</b></td>
+                                        <td>RUA 13 DE MAIO, QUADRA 105, LOTE 1-B, J PARAÍSO  </td>
+                                        <td colspan="2"><b>Telefone: </b>(77) 3628-3439 / (77) 9971-2184</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>CNPJ: </b></td>
+                                        <td>07.232.346/0001-64</td>
+                                        <td colspan="2"><b>E-mail: </b>solaris-2005@uol.com.br</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="spacerBlank1"></td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td colspan="4" class="title">2 - Identificação</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="spacerBlank1"></td>
+                                    </tr>
+                                    @foreach (var item in ViewBag.Usuario)
+                                    {
+                                        <tr>
+                                            <td class="dotted"><b>Nome:</b></td>
+                                            <td>@item.Campo1</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>RG:</b></td>
+                                            <td>@item.Campo5</td>
+                                            <td class="dotted"><b>Data de Expedição:</b> </td>
+                                            <td>@item.Campo6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>CPF:</b></td>
+                                            <td>@item.Campo7</td>
+                                            <td class="dotted"><b>Cidade:</b> </td>
+                                            <td>@item.Campo13 - @item.Campo14</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Data de Nascimento:</b></td>
+                                            <td>@item.Campo2</td>
+                                            <td class="dotted"><b>Naturalidade:</b> </td>
+                                            <td>@item.Campo3</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Telefones:</b></td>
+                                            <td colspan="3">@item.Campo8 - @item.Campo9 <br />@item.Campo10 - @item.Campo11</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Endereço</b></td>
+                                            <td>
+                                                @item.Campo12
+                                            </td>
+                                            <td class="dotted"><b>CEP:</b> </td>
+                                            <td>@item.Campo15</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                @item.Campo13 - @item.Campo14
+                                            </td>
+                                            <td> </td>
+                                            <td></td>
+                                        </tr>
+                                         <tr>
+                                        <td colspan="4" class="spacerBlank1"></td>
+                                    </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Grau de Instrução:</b></td>
+                                            <td>@item.Campo16</td>
+                                            <td class="dotted"><b>Form. Acadêmica:</b> </td>
+                                            <td>@item.Campo17</td>
+                                        </tr>
+
+                                    }
+
+
+                                   
+
+
+                                    @foreach (var item in ViewBag.Cliente)
+                                    {
+
+                                        Socios = item.Campo12;
+                                        
+                                        <tr>
+                                            <td class="dotted"><b>Experiência:</b></td>
+                                            <td>@item.Campo3</td>
+                                            <td class="dotted"><b>Classificação Porte:</b> </td>
+                                            <td>@item.Campo4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Atividade Desenvolvida:</b></td>
+                                            <td>@item.Campo5</td>
+                                            <td class="dotted"><b>Tempo Atividade:</b> </td>
+                                            <td>@item.Campo6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Estrutura Armazenamento:</b></td>
+                                            <td>@item.Campo7</td>
+                                            <td class="dotted"><b>Estrutura de Transporte:</b> </td>
+                                            <td>@item.Campo8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Residência do Produtor:</b></td>
+                                            <td>@item.Campo9</td>
+                                            <td class="dotted"><b>Estado Civil:</b> </td>
+                                            <td>@item.Campo1</td>
+                                        </tr>
+
+
+                                    }
+
+
+                                    <tr>
+                                        <td colspan="4" class="spacerBlank1"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="4" class="titlesoft">
+                                            Conjuge
+                                        </td>
+                                    </tr>
+
+                                    @foreach (var item in ViewBag.Conjuge)
+                                    {
+                                        <tr>
+                                            <td class="dotted"><b>Nome:</b></td>
+                                            <td>@item.Campo1</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>RG:</b></td>
+                                            <td>@item.Campo5</td>
+                                            <td class="dotted"><b>Data de Expedição:</b> </td>
+                                            <td>@item.Campo6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>CPF:</b></td>
+                                            <td>@item.Campo7</td>
+                                           <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Ocupação:</b></td>
+                                            <td>@item.Campo18</td>
+                                            <td class="dotted"><b>Renda Mensal:</b> </td>
+                                            <td>@item.Campo4</td>
+                                        </tr>
+                                       
+                                        <tr>
+                                            <td class="dotted"><b>Grau de Instrução:</b></td>
+                                            <td>
+                                                @item.Campo16
+                                            </td>
+                                            <td class="dotted"><b>Form. Acadêmica:</b> </td>
+                                            <td>@item.Campo17</td>
+                                        </tr>
+                                       
+
+                                    }
+
+                                </table>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+
+                @*Safras Normais e Previstas*@
+
+                <table class="PrinterTable">
+
+                    <thead>
+
+                        <tr>
+                            <td colspan="2" class="title" style="height:20px">3 - TRÊS ÚLTIMAS SAFRAS NORMAIS E PREVISTAS</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+                                <table class="doubleBorders">
+
+
+
+
+
+                                    @foreach (var item in ViewBag.Safras)
+                                    {
+                                        if (item.Campo11 != null)
+                                        {
+                                            ObservacoesSafra = ObservacoesSafra + "Na <B>" + item.Campo2 + "</B> " + item.Campo11 + "<br>";
+                                        }
+                                        elemento = elemento + 1;
+
+                                        if (SafraUsada != item.Campo2)
+                                        {
+
+                                            if (elemento > 1)
+                                            {
+                                        <tr class="totalsDoubleBorder">
+                                            <td></td>
+                                            <td></td>
+                                            <td class="alignRight">
+                                                <b>
+
+                                                    @String.Format("{0:0.0,0}", Areatotal)
+                                                </b>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="alignRight"><b>@String.Format("{0:C}", ValorReceitatotal)</b></td>
+                                            <td class="alignRight"><b>@String.Format("{0:C}", CustoTotaltotal)</b></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="9" style="height: 15px; background: none !important; box-shadow: none !important "></td></tr>
+
+                                                Areatotal = 0;
+                                                ValorReceitatotal = 0;
+                                                CustoTotaltotal = 0;
+
+                                            }
+
+
+
+                                            SafraUsadaTotais = 1;
+                                            SafraUsada = item.Campo2;
+                                        <tr class="fakeHeader doubleBorderTitle">
+                                            <td>
+                                                @item.Campo2
+
+                                            </td>
+                                            <td>
+                                                Sistema de Plantio
+                                            </td>
+                                            <td>
+                                                Área (ha)
+                                            </td>
+                                            <td>
+                                                Produtividade (kg)
+                                            </td>
+                                            <td>
+                                                Vl. Unitário (R$)
+                                            </td>
+                                            <td class="width2">
+                                                Vl. Receita (R$)
+                                            </td>
+                                            <td class="width2">
+                                                Custo (R$)
+                                            </td>
+                                            <td>
+                                                P
+                                            </td>
+
+                                        </tr>
+
+                                        }
+
+
+                                        <tr>
+                                            <td>@item.Campo3</td>
+                                            <td>
+                                                @{
+                                                    tipoSoloTerra = item.Campo4;
+                                                    switch (tipoSoloTerra)
+                                                    {
+                                                        case "1":
+                                                            <text>CONVENCIONAL/SEQUEIRO</text>
+                                                        break;
+                                                        case "2":
+                                                            <text>DIRETO/SEQUEIRO</text>
+                                                        break;
+                                                        case "3":
+                                                            <text>CONVENCIONAL/IRRIGADO</text>
+                                                        break;
+                                                        case "4":
+                                                            <text>DIRETO/IRRIGADO</text>
+                                                        break;
+
+
+                                                    }
+}
+
+                                            </td>
+                                            <td class="alignRight">
+                                                @String.Format("{0:0,0.0}", Convert.ToDouble(item.Campo5))
+                                                @{
+                                        Areatotal = Areatotal + Convert.ToDouble(item.Campo5);
+                                                }
+                                            </td>
+                                            <td class="alignRight">
+                                                @String.Format("{0:0,0.0}", Convert.ToDouble(item.Campo6))
+                                            </td>
+                                            <td class="alignRight">
+                                                @String.Format("{0:C}", Convert.ToDouble(item.Campo7))
+                                            </td>
+                                            <td class="alignRight">
+                                                @String.Format("{0:C}", Convert.ToDouble(item.Campo8))
+                                                @{
+                                        ValorReceitatotal = ValorReceitatotal + Convert.ToDouble(item.Campo8);
+                                                }
+                                            </td>
+                                            <td class="alignRight">
+                                                @String.Format("{0:C}", Convert.ToDouble(item.Campo9))
+                                                @{
+                                        CustoTotaltotal = CustoTotaltotal + Convert.ToDouble(item.Campo9);
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.Campo10 == "True")
+                                                {
+                                                    <text>S</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>N</text>
+                                                }
+                                            </td>
+
+                                        </tr>
+
+                                        if (elemento == Enumerable.Count(ViewBag.Safras))
+                                        {
+                                        <tr class="totalsDoubleBorder">
+                                            <td></td>
+                                            <td></td>
+                                            <td class="alignRight">
+                                                <b>
+
+                                                    @String.Format("{0:0.0,0}", Areatotal)
+                                                </b>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="alignRight"><b>@String.Format("{0:C}", ValorReceitatotal)</b></td>
+                                            <td class="alignRight"><b>@String.Format("{0:C}", CustoTotaltotal)</b></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                (P): Prevista(Sim/Não)
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="8">
+                                                <h3>JUSTIFICATIVAS SAFRAS</h3><br />
+                                                @Html.Raw(ObservacoesSafra)
+                                            </td>
+                                        </tr>
+
+                                        }
+
+                                    }
+
+
+                                </table>
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                @*Safras Distribuidas*@
+
+                <table class="PrinterTable">
+
+                    <thead>
+
+                        <tr>
+                            <td colspan="2" class="title" style="height:20px">4 - DISTRIBUIÇÃO SAFRA PREVISTA</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+                                <table class="doubleBorders">
+
+
+
+
+
+                                    @foreach (var item in ViewBag.SafrasDistribuidas)
+                                    {
+
+                                        elementoDistribuida = elementoDistribuida + 1;
+
+
+
+
+                                        if (SafraUsadaDistribuida != item.Campo2)
+                                        {
+
+                                            if (elementoDistribuida > 1)
+                                            {
+                                        <tr class="totalsDoubleBorder">
+                                            <td></td>
+                                            <td></td>
+                                            <td class="alignRight">
+                                                <b>
+
+                                                    @String.Format("{0:0.0,0}", AreatotalDistribuida)
+                                                </b>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+
+                                            <td></td>
+                                        </tr>
+                                        <tr><td colspan="9" style="height: 15px; background: none !important; box-shadow: none !important "></td></tr>
+
+                                                AreatotalDistribuida = 0;
+
+                                            }
+
+
+
+                                            SafraUsadaDistribuida = item.Campo2;
+                                        <tr class="">
+                                            <td colspan="7">
+                                                <h3>
+                                                    @if (item.Campo2 == "1")
+                                                        {
+                                                        <text>Proposto BB</text>
+                                                        }
+                                                        else
+                                                        {
+                                                        <text>Demais Áreas</text>
+                                                        }
+                                                </h3>
+                                            </td>
+                                        </tr>
+                                        <tr class="fakeHeader doubleBorderTitle">
+                                            <td class="alignCenter">
+                                                Cultura
+
+                                            </td>
+                                            <td class="alignCenter">
+                                                Sistema de Plantio
+                                            </td>
+                                            <td>
+                                                Área (ha)
+                                            </td>
+                                            <td class="alignCenter">
+                                                Fazenda / Município / Proprietário
+                                            </td>
+                                            <td>
+                                                Arrend.
+                                            </td>
+                                            <td class="width2 alignCenter">
+                                                Obs. Gravame
+                                            </td>
+
+
+                                        </tr>
+
+                                        }
+
+
+                                        <tr>
+                                            <td class="alignCenter">@item.Campo3</td>
+                                            <td>
+                                              @{
+                                                    tipoSoloTerra = item.Campo4;
+                                                    switch (tipoSoloTerra)
+                                                    {
+                                                        case "1":
+                                                            <text>CONVENCIONAL/SEQUEIRO</text>
+                                                        break;
+                                                        case "2":
+                                                        <text>DIRETO/SEQUEIRO</text>
+                                                        break;
+                                                        case "3":
+                                                        <text>CONVENCIONAL/IRRIGADO</text>
+                                                        break;
+                                                        case "4":
+                                                        <text>DIRETO/IRRIGADO</text>
+                                                        break;
+
+
+                                                    }
+                                                    }
+                                            </td>
+                                            <td class="alignRight">
+                                                @String.Format("{0:0,0.0}", Convert.ToDouble(item.Campo5))
+                                                @{
+                                        AreatotalDistribuida = AreatotalDistribuida + Convert.ToDouble(item.Campo5);
+                                                }
+                                            </td>
+                                            <td class="alignCenter">
+                                                @item.Campo6 / @item.Campo7 / @item.Campo8
+                                            </td>
+                                            <td class="alignCenter">
+                                                @if (item.Campo9 == "True")
+                                                {
+                                                    <text>SIM</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>NÃO</text>
+                                                }
+
+
+                                            </td>
+                                            <td class="alignCenter">
+                                                @if (item.Campo10 == "1")
+                                                {
+                                                    <text>-</text>
+                                                }
+                                                else if (item.Campo10 == "2")
+                                                {
+                                                    <text>RECURSOS CONTROLADOS</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>RECURSOS PRÓPRIOS</text>
+                                                }
+                                                
+                                            </td>
+
+
+                                        </tr>
+
+                                        if (elementoDistribuida == Enumerable.Count(ViewBag.SafrasDistribuidas))
+                                        {
+                                        <tr class="totalsDoubleBorder">
+                                            <td></td>
+                                            <td></td>
+                                            <td class="alignRight">
+                                                <b>
+
+                                                    @String.Format("{0:0.0,0}", AreatotalDistribuida)
+                                                </b>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+
+
+                                        }
+
+                                    }
+
+
+                                </table>
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                @*Safras Normais e Previstas*@
+
+                <table class="PrinterTable">
+
+                    <thead>
+
+                        <tr>
+                            <td colspan="2" class="title" style="height:20px">5 - HISTÓRICO PECUÁRIA</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+                                <table class="doubleBorders">
+
+
+                                    <tr class="fakeHeader doubleBorderTitle">
+                                        <td class="alignCenter">
+                                            Período
+
+                                        </td>
+                                        <td class="alignCenter">
+                                            Exploração
+                                        </td>
+                                        <td class="alignCenter">
+                                            Produtos Vendidos(QTD)
+                                        </td>
+                                        <td class="alignCenter">
+                                            Receita Bruta (R$)
+                                        </td>
+
+                                    </tr>
+
+                                    @for (int i = 0; i < 10; i++)
+                                    {
+
+                                        <tr class="">
+                                            <td class="alignCenter">
+                                                -
+
+                                            </td>
+                                            <td class="alignCenter">
+                                                -
+                                            </td>
+                                            <td class="alignCenter">
+                                                -
+                                            </td>
+                                            <td class="alignCenter">
+                                                -
+                                            </td>
+
+                                        </tr>
+
+                                    }
+
+
+
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class="alignRight"><b>0,00</b></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="spacerBlank1" colspan="4"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="4" class="title" style="height:20px">6 - OBSERVAÇÕES</td>
+                                    </tr>
+
+
+
+                                </table>
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+
+
+
+
+
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+
+                @*Questionário*@
+
+                <table class="PrinterTable">
+
+                    <thead>
+
+
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+                                <table>
+                                    <tr>
+
+                                        <td colspan="4" class="title alignCenter">QUESTIONÁRIO</td>
+
+                                    </tr>
+                                    <tr><td colspan="4" class="spacerBlank1"></td></tr>
+                                    @{
+
+                                        var contQuest = 0;
+                                        foreach (var item in ViewBag.Questionario)
+                                        {
+
+                                            contQuest = contQuest + 1;
+                                        <tr>
+
+                                            <td style="width:30px"><b>@contQuest:</b> </td>
+                                            <td colspan="3"><b>@item.Campo3</b></td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td style="width:30px"></td>
+                                            <td colspan="3">R: @item.Campo4</td>
+
+                                        </tr>
+                                        <tr><td colspan="4" class="spacerBlank1"></td></tr>
+
+                                        }
+                                    }
+
+
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                @*Dadaso da Fazenda, terras/solos e Benfeitorias*@
+
+
+
+
+                @foreach (var item in ViewBag.Fazendas)
+                {
+                    qtdFazendas = qtdFazendas + 1;
+
+                    <table class="PrinterTable">
+
+                        <thead>
+
+
+
+                        </thead>
+
+                        <tbody>
+
+                            @if (SemRepetir == 0)
+                            {
+                                <tr>
+                                    <td colspan="2" class="title" style="height:20px">Avaliação Patrimonial <div class="right">@Usuario</div></td>
+                                </tr>
+                                <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                                SemRepetir = 1;
+                            }
+
+
+                            <tr>
+                                <td colspan="2" class="title soft">1 - IMÓVEIS</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="vertical-align:top !important">
+                                    <table width="100%">
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <b>1.@qtdFazendas @item.Campo1<br /></b>
+                                            </td>
+                                        </tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr>
+                                            <td class="dotted"><b>Matrícula:</b></td>
+                                            <td>@item.Campo2</td>
+                                            <td class="dotted"><b>CRI de:</b></td>
+                                            <td>@item.Campo3</td>
+                                            <td class="dotted"><b>Cód. INCRA:</b></td>
+                                            <td>@item.Campo5</td>
+                                            <td class="dotted"><b>Cód. na Rec. Fed.:</b></td>
+                                            <td>@item.Campo4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Município/Localização:</b></td>
+                                            <td colspan="7">@item.Campo9</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Roteiro de Acesso:</b></td>
+                                            <td colspan="7">@item.Campo10</td>
+                                        </tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr>
+                                            <td class="dotted"><b>Proprietário</b></td>
+                                            <td colspan="7">@Usuario</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Administrador</b></td>
+                                            <td colspan="7">
+
+                                                @{
+                            var qtdAdm = 0;
+
+                            foreach (var itemAdm in ViewBag.UsuariosAdministradores)
+                            {
+
+                                if (ViewBag.UsuariosAdministradores == null)
+                                {
+                                                    <text>certo</text>
+                                }
+
+                                if (item.EntidadeReferenciaValor == itemAdm.EntidadeReferenciaValor)
+                                {
+                                    if (qtdAdm < 1)
+                                    {
+                                                    @itemAdm.Campo1;
+                                                                   qtdAdm = qtdAdm + 1;
+                                    }
+                                    else
+                                    {
+                                                    <text>,</text> @itemAdm.Campo1
+                                    }
+                                }
+                            }
+                                                }
+
+                                            </td>
+
+
+
+                                        </tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr>
+                                            <td colspan="8"><b><i>Confrontações</i></b></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted" colspan="2"><b>Norte:</b></td>
+                                            <td colspan="2">@item.Campo11</td>
+                                            <td class="dotted"><b>Leste:</b></td>
+                                            <td colspan="3">@item.Campo12</td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted" colspan="2"><b>Sul:</b></td>
+                                            <td colspan="2">@item.Campo13</td>
+                                            <td class="dotted"><b>Oeste:</b></td>
+                                            <td colspan="3">@item.Campo14</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted" colspan="2"><b>Títulos de Domínio:</b></td>
+                                            <td colspan="2">@item.Campo6</td>
+                                            <td class="dotted"><b>Tipo de Propriedade:</b></td>
+                                            <td colspan="3">@item.Campo7</td>
+
+                                        </tr>
+
+                                        @foreach (var itemTotais in ViewBag.TotaisFazendas)
+                                        {
+                                            if (item.EntidadeReferenciaValor == itemTotais.EntidadeReferenciaValor)
+                                            {
+                                                var AreaTitulada = Convert.ToDouble(itemTotais.Campo5);
+                                                var AreaExplorada = Convert.ToDouble(itemTotais.Campo8);
+                                                var Participacao = Convert.ToDouble(itemTotais.Campo10);
+                                                var ValorSaca = Convert.ToDouble(itemTotais.Campo18);
+                                                double SomaSemoventes = 0;
+                                                TotalBenfeitorias = TotalBenfeitorias + Convert.ToDouble(itemTotais.Campo22);
+
+                                            <tr>
+                                                <td class="dotted" colspan="2"><b>Área Titulada (ha): </b></td>
+                                                <td colspan="2">@string.Format("{0:0,0.00}", AreaTitulada)</td>
+                                                <td class="dotted"><b>Área Real (ha):</b></td>
+                                                <td>@string.Format("{0:0,0.00}", AreaTitulada)</td>
+                                                <td class="dotted"><b>Área Explorada (ha):</b></td>
+                                                <td>@string.Format("{0:0,0.00}", AreaExplorada)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="dotted" colspan="2"><b>Ônus Gravames: </b></td>
+                                                <td colspan="2">@item.Campo8</td>
+                                                <td class="dotted"><b>Participação %:</b></td>
+                                                <td colspan="3">@string.Format("{0:0,0.00}", Participacao) %</td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td class="dotted" colspan="2"><b>Demais Proprietários/Sócios:</b></td>
+                                                <td colspan="6">
+
+                                                    @Socios
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr>
+
+                                                <td colspan="8">
+
+
+                                                    <table class="doubleBorders">
+
+
+                                                        <tr>
+                                                            <td colspan="2"><b>Microrregião @itemTotais.Campo15</b></td>
+                                                            <td colspan="3" class="alignCenter"><b>TERRAS/SOLOS</b></td>
+                                                            <td class="alignRight" colspan="2"><b>Vl. Saca de @itemTotais.Campo16: @string.Format("{0:C}", ValorSaca)</b></td>
+                                                        </tr>
+                                                        <tr class="doubleBorderTitle">
+                                                            <td class="alignCenter">Especificação</td>
+                                                            <td class="alignCenter">Área (ha)</td>
+                                                            <td class="alignCenter">Características<br />Textura/Estrutura/Fertilidade/Etc</td>
+                                                            <td class="alignCenter">Classe</td>
+                                                            <td class="alignCenter">Sacas de <br />@itemTotais.Campo16</td>
+                                                            <td class="alignCenter">Vl. Unitário</td>
+                                                            <td class="alignCenter">Vl.Total</td>
+
+
+                                                        </tr>
+
+
+
+                                                        @foreach (var itemTerraSolo in ViewBag.TerrasSolos)
+                                                            {
+
+                                                                if (item.EntidadeReferenciaValor == itemTerraSolo.EntidadeReferenciaValor)
+                                                                {
+
+
+                                                            <tr>
+                                                                <td>@itemTerraSolo.Campo1</td>
+                                                                <td class="alignRight">@string.Format("{0:0,0.00}", Convert.ToDouble(itemTerraSolo.Campo2))</td>
+                                                                <td class="alignCenter">@itemTerraSolo.Campo3</td>
+                                                                <td class="alignCenter">@itemTerraSolo.Campo4</td>
+                                                                <td class="alignCenter">@itemTerraSolo.Campo5</td>
+                                                                <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTerraSolo.Campo6))</td>
+                                                                <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTerraSolo.Campo7))</td>
+                                                            </tr>
+
+                                                                }
+                                                            }
+
+                                                        @{
+                                                totalTerraSolo = totalTerraSolo + Convert.ToDouble(itemTotais.Campo6);
+                                                        }
+                                                        <tr class="totalsDoubleBorder">
+                                                            <td></td>
+                                                            <td class="alignRight">@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo5))</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTotais.Campo4))</td>
+                                                        </tr>
+                                                        <tr class="">
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td colspan="2" class="alignRight"><b>Participação: @string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo10)) %  </b></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:C}", Convert.ToDouble(itemTotais.Campo6))</b></td>
+                                                        </tr>
+                                                        <tr><td colspan="7" class="spacerBlank1"></td></tr>
+                                                        <tr class="doubleBordered">
+                                                            <td>BENEF. DE SOLO</td>
+                                                            <td class="alignRight">@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo8))</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo2)) </b></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo3))  </b></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:C}", Convert.ToDouble(itemTotais.Campo7))</b></td>
+                                                        </tr>
+                                                        <tr class="">
+                                                            <td><b>VALOR TERRA NUA</b></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td colspan="2" class="alignRight"></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:C}", Convert.ToDouble(itemTotais.Campo9))</b></td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                </td>
+
+                                            </tr>
+
+
+
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr>
+
+                                                <td colspan="8">
+
+
+                                                    <table class="doubleBorders">
+
+
+                                                        <tr>
+
+                                                            <td colspan="5" class="alignCenter"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BENFEITORIAS</b></td>
+
+                                                        </tr>
+                                                        <tr class="doubleBorderTitle">
+                                                            <td class="alignCenter">Qtd.</td>
+                                                            <td class="alignCenter">Especificação</td>
+                                                            <td class="alignCenter">Características<br />Material/Piso/Cobertura...</td>
+                                                            <td class="alignCenter">Ano/Est.<br />Conservação</td>
+                                                            <td class="alignCenter">Vl.Total</td>
+
+
+                                                        </tr>
+
+
+                                                        @foreach (var itemBenfeitoria in ViewBag.Benfeitorias)
+                                                            {
+
+                                                                if (item.EntidadeReferenciaValor == itemBenfeitoria.EntidadeReferenciaValor)
+                                                                {
+                                                            <tr>
+                                                                <td class="alignCenter">@itemBenfeitoria.Campo2</td>
+                                                                <td class="">@itemBenfeitoria.Campo3</td>
+                                                                <td class="">@itemBenfeitoria.Campo4</td>
+                                                                <td class="alignCenter">@itemBenfeitoria.Campo5 / @itemBenfeitoria.Campo6</td>
+                                                                <td class="alignRight">@string.Format("{0:C}", (Convert.ToDouble(itemBenfeitoria.Campo7) * Convert.ToDouble(itemBenfeitoria.Campo2)))</td>
+                                                            </tr>
+
+                                                                }
+                                                            }
+
+                                                        <tr class="totalsDoubleBorder">
+                                                            <td></td>
+                                                            <td class="alignRight"></td>
+                                                            <td colspan="2" class="alignRight"><b>Participação: @string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo10)) %  </b></td>
+                                                            <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTotais.Campo22))</td>
+
+                                                        </tr>
+
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+
+                                            <tr>
+
+
+
+                                                <td colspan="8">
+
+
+                                                    <table class="doubleBorders">
+
+
+                                                        <tr>
+
+                                                            <td colspan="8" class="alignCenter"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SEMOVENTES</b></td>
+
+                                                        </tr>
+                                                        <tr class="doubleBorderTitle">
+                                                            <td class="alignCenter">Especificação</td>
+                                                            <td class="alignCenter">% UA</td>
+                                                            <td class="alignCenter">Nr. UA</td>
+                                                            <td class="alignCenter">Nr. Cab.</td>
+                                                            <td class="alignCenter">Características</td>
+                                                            <td class="alignCenter">Vl.Unitário</td>
+                                                            <td class="alignCenter">Vl.Total<hr />Credor</td>
+                                                            <td class="alignCenter">P</td>
+
+                                                        </tr>
+
+                                                        @foreach (var itemSemovente in ViewBag.Semoventes)
+                                                            {
+
+                                                                if (itemSemovente != null)
+                                                                {
+
+
+
+                                                                    double valorSemovente = 0;
+
+                                                                    if (item.EntidadeReferenciaValor == itemSemovente.EntidadeReferenciaValor)
+                                                                    {
+
+                                                                        valorSemovente = Convert.ToDouble(itemSemovente.Campo7);
+                                                                        SomaSemoventes = SomaSemoventes + valorSemovente;
+
+                                                                        TotalSemoventes = TotalSemoventes + (SomaSemoventes * (Convert.ToDouble(itemTotais.Campo10) / 100));
+
+
+                                                            <tr class="">
+                                                                <td class="">@itemSemovente.Campo1</td>
+                                                                <td class="alignCenter">@itemSemovente.Campo2</td>
+                                                                <td class="alignCenter">@itemSemovente.Campo3</td>
+                                                                <td class="alignCenter">@string.Format("{0:0,0}", Convert.ToDouble(itemSemovente.Campo4))</td>
+                                                                <td class="alignCenter">@itemSemovente.Campo5</td>
+                                                                <td class="alignCenter">@string.Format("{0:C}", Convert.ToDouble(itemSemovente.Campo6))</td>
+                                                                <td class="alignCenter">
+                                                                    @string.Format("{0:C}", valorSemovente)<br />
+                                                                    @itemSemovente.Campo8
+                                                                </td>
+                                                                <td class="alignCenter">@itemSemovente.Campo9</td>
+
+
+                                                            </tr>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                            <tr>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                            </tr>
+
+                                                                }
+                                                            }
+
+
+                                                        <tr class="totalsDoubleBorder">
+                                                            <td colspan="7" class="alignRight"><b>Participação: @string.Format("{0:0,0.00}", Convert.ToDouble(itemTotais.Campo10)) %  </b></td>
+                                                            <td class="alignRight">@string.Format("{0:C}", (Convert.ToDouble(itemTotais.Campo10) / 100) * SomaSemoventes)</td>
+
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr>
+                                                <td colspan="8" class="alignRight">
+
+                                                    <b>
+                                                        Total do Imóvel: (
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        @itemTotais.Campo1
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        )&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        @string.Format("{0:C}", Convert.ToDouble(itemTotais.Campo22) + (Convert.ToDouble(itemTotais.Campo6)) + (Convert.ToDouble(itemTotais.Campo10) / 100) * SomaSemoventes);
+
+                                                    </b>
+
+
+                                                </td>
+                                            </tr>
+
+                                            }
+                                        }
+
+
+
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+
+                }
+
+
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+
+
+                @*Dadaso da Fazenda Arrendada com terra/solos e benfeitorias e semoventes*@
+
+                @{
+                    SemRepetir = 0;
+                }
+
+
+                @foreach (var item in ViewBag.FazendasArrendadas)
+                {
+                    qtdFazendasArrendadas = qtdFazendasArrendadas + 1;
+
+                    var AreaArrendada = "";
+
+                    if (item.Campo17 != "")
+                    {
+                        AreaArrendada = String.Format("{0:0,0.0}", Convert.ToDouble(item.Campo17));
+                    }
+                    var ValorArrendado = "";
+
+                    if (item.Campo18 != "")
+                    {
+                        ValorArrendado = String.Format("{0:C}", Convert.ToDouble(item.Campo18));
+                    }
+                    double SomaSemoventes = 0;
+
+
+                    <table class="PrinterTable">
+
+                        <thead>
+                        </thead>
+
+                        <tbody>
+
+                            @if (SemRepetir == 0)
+                            {
+                                <tr>
+                                    <td colspan="2" class="title" style="height:20px">IMÓVEIS ARRENDADOS <div class="right">@Usuario</div></td>
+                                </tr>
+                                <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                                SemRepetir = 1;
+                            }
+
+
+                            <tr>
+                                <td colspan="2" class="title soft">1 - IMÓVEIS ARRENDADOS</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="vertical-align:top !important">
+                                    <table width="100%">
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <b>1.@qtdFazendasArrendadas @item.Campo1<br /></b>
+                                            </td>
+                                        </tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                        <tr>
+                                            <td class="dotted"><b>Matrícula:</b></td>
+                                            <td>@item.Campo2</td>
+                                            <td class="dotted"><b>CRI de:</b></td>
+                                            <td>@item.Campo3</td>
+                                            <td class="dotted"><b>Cód. INCRA:</b></td>
+                                            <td>@item.Campo5</td>
+                                            <td class="dotted"><b>Cód. na Rec. Fed.:</b></td>
+                                            <td>@item.Campo4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Município/Localização:</b></td>
+                                            <td colspan="7">@item.Campo9</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted"><b>Roteiro de Acesso:</b></td>
+                                            <td colspan="7">@item.Campo10</td>
+                                        </tr>
+                                        <tr><td colspan="8" class="spacerBlank1"></td></tr>
+
+                                        <tr>
+                                            <td colspan="8"><b><i>Confrontações</i></b></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted" colspan="2"><b>Norte:</b></td>
+                                            <td colspan="2">@item.Campo11</td>
+                                            <td class="dotted"><b>Leste:</b></td>
+                                            <td colspan="3">@item.Campo12</td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td class="dotted" colspan="2"><b>Sul:</b></td>
+                                            <td colspan="2">@item.Campo13</td>
+                                            <td class="dotted"><b>Oeste:</b></td>
+                                            <td colspan="3">@item.Campo14</td>
+
+                                        </tr>
+
+                                        @foreach (var itemTotaisArrendadas in ViewBag.TotaisFazendasArrendadas)
+                                        {
+                                            if (item.EntidadeReferenciaValor == itemTotaisArrendadas.EntidadeReferenciaValor)
+                                            {
+                                                var AreaTitulada = Convert.ToDouble(itemTotaisArrendadas.Campo5);
+                                                var AreaExplorada = Convert.ToDouble(itemTotaisArrendadas.Campo8);
+                                                var ValorSaca = Convert.ToDouble(itemTotaisArrendadas.Campo18);
+
+
+
+                                            <tr>
+                                                <td class="dotted" colspan="2"><b>Área Titulada (ha): </b></td>
+                                                <td colspan="2">@string.Format("{0:0,0.00}", AreaTitulada)</td>
+                                                <td class="dotted"><b>Área Real (ha):</b></td>
+                                                <td colspan="3">@string.Format("{0:0,0.00}", AreaTitulada)</td>
+
+
+                                            </tr>
+                                            <tr>
+                                                <td class="dotted" colspan="2"><b>Área Arrendada (ha): </b></td>
+                                                <td colspan="2">@AreaArrendada</td>
+                                                <td class="dotted"><b>Prazo de Arrend.</b></td>
+                                                <td>@item.Campo19 dias (@String.Format("{0:0.0 anos}", Convert.ToDouble(@item.Campo19) / 365))</td>
+                                                <td class="dotted"><b>Valor Arrendado</b></td>
+                                                <td>@ValorArrendado</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="" colspan="2"><b>Memória de Cálculo do Arrendamento: </b></td>
+                                                <td colspan="6"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="" colspan="2"><b>Obs: </b>@item.Campo8</td>
+                                                <td colspan="6"></td>
+                                            </tr>
+
+
+
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr>
+
+                                                <td colspan="8">
+
+
+                                                    <table class="doubleBorders">
+
+
+                                                        <tr>
+                                                            <td colspan="2"><b>Microrregião @itemTotaisArrendadas.Campo15</b></td>
+                                                            <td colspan="3" class="alignCenter"><b>TERRAS/SOLOS</b></td>
+                                                            <td class="alignRight" colspan="2"><b>Vl. Saca de @itemTotaisArrendadas.Campo16: @string.Format("{0:C}", ValorSaca)</b></td>
+                                                        </tr>
+                                                        <tr class="doubleBorderTitle">
+                                                            <td class="alignCenter">Especificação</td>
+                                                            <td class="alignCenter">Área (ha)</td>
+                                                            <td class="alignCenter">Características<br />Textura/Estrutura/Fertilidade/Etc</td>
+                                                            <td class="alignCenter">Classe</td>
+                                                            <td class="alignCenter">Sacas de <br />@itemTotaisArrendadas.Campo16</td>
+                                                            <td class="alignCenter">Vl. Unitário</td>
+                                                            <td class="alignCenter">Vl.Total</td>
+
+
+                                                        </tr>
+
+
+
+                                                        @foreach (var itemTerraSolo in ViewBag.TerrasSolos)
+                                                            {
+
+                                                                if (item.EntidadeReferenciaValor == itemTerraSolo.EntidadeReferenciaValor)
+                                                                {
+                                                            <tr>
+                                                                <td>@itemTerraSolo.Campo1</td>
+                                                                <td class="alignRight">@string.Format("{0:0,0.00}", Convert.ToDouble(itemTerraSolo.Campo2))</td>
+                                                                <td class="alignCenter">@itemTerraSolo.Campo3</td>
+                                                                <td class="alignCenter">@itemTerraSolo.Campo4</td>
+                                                                <td class="alignCenter">@itemTerraSolo.Campo5</td>
+                                                                <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTerraSolo.Campo6))</td>
+                                                                <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTerraSolo.Campo7))</td>
+                                                            </tr>
+
+                                                                }
+                                                            }
+
+
+                                                        <tr class="totalsDoubleBorder">
+                                                            <td></td>
+                                                            <td class="alignRight">@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo5))</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTotaisArrendadas.Campo4))</td>
+                                                        </tr>
+                                                        <tr class="">
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td colspan="2" class="alignRight"><b>@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo10)) %  </b></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:C}", Convert.ToDouble(itemTotaisArrendadas.Campo6))</b></td>
+                                                        </tr>
+                                                        <tr><td colspan="7" class="spacerBlank1"></td></tr>
+                                                        <tr class="doubleBordered">
+                                                            <td>BENEF. DE SOLO</td>
+                                                            <td class="alignRight">@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo8))</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo2)) </b></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo3))  </b></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:C}", Convert.ToDouble(itemTotaisArrendadas.Campo7))</b></td>
+                                                        </tr>
+                                                        <tr class="">
+                                                            <td><b>VALOR TERRA NUA</b></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td colspan="2" class="alignRight"></td>
+                                                            <td class="alignRight"><b>@string.Format("{0:C}", Convert.ToDouble(itemTotaisArrendadas.Campo9))</b></td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                </td>
+
+                                            </tr>
+
+
+
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr>
+
+                                                <td colspan="8">
+
+
+                                                    <table class="doubleBorders">
+
+
+                                                        <tr>
+
+                                                            <td colspan="5" class="alignCenter"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BENFEITORIAS</b></td>
+
+                                                        </tr>
+                                                        <tr class="doubleBorderTitle">
+                                                            <td class="alignCenter">Qtd.</td>
+                                                            <td class="alignCenter">Especificação</td>
+                                                            <td class="alignCenter">Características<br />Material/Piso/Cobertura...</td>
+                                                            <td class="alignCenter">Ano/Est.<br />Conservação</td>
+                                                            <td class="alignCenter">Vl.Total</td>
+
+
+                                                        </tr>
+
+
+                                                        @foreach (var itemBenfeitoria in ViewBag.Benfeitorias)
+                                                            {
+
+                                                                if (item.EntidadeReferenciaValor == itemBenfeitoria.EntidadeReferenciaValor)
+                                                                {
+                                                            <tr>
+                                                                <td class="alignCenter">@itemBenfeitoria.Campo2</td>
+                                                                <td class="">@itemBenfeitoria.Campo3</td>
+                                                                <td class="">@itemBenfeitoria.Campo4</td>
+                                                                <td class="alignCenter">@itemBenfeitoria.Campo5 / @itemBenfeitoria.Campo6</td>
+                                                                <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemBenfeitoria.Campo7))</td>
+                                                            </tr>
+
+                                                                }
+                                                            }
+
+                                                        <tr class="totalsDoubleBorder">
+                                                            <td></td>
+                                                            <td class="alignRight"></td>
+                                                            <td colspan="2" class="alignRight"><b>@string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo10)) %  </b></td>
+                                                            <td class="alignRight">@string.Format("{0:C}", Convert.ToDouble(itemTotaisArrendadas.Campo22))</td>
+
+                                                        </tr>
+
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+
+                                            <tr>
+
+
+
+                                                <td colspan="8">
+
+
+                                                    <table class="doubleBorders">
+
+
+                                                        <tr>
+
+                                                            <td colspan="8" class="alignCenter"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SEMOVENTES</b></td>
+
+                                                        </tr>
+                                                        <tr class="doubleBorderTitle">
+                                                            <td class="alignCenter">Especificação</td>
+                                                            <td class="alignCenter">% UA</td>
+                                                            <td class="alignCenter">Nr. UA</td>
+                                                            <td class="alignCenter">Nr. Cab.</td>
+                                                            <td class="alignCenter">Características<br />Material/Piso/Cobertura...</td>
+                                                            <td class="alignCenter">Vl.Unitário</td>
+                                                            <td class="alignCenter">Vl.Total<hr />Credor</td>
+                                                            <td class="alignCenter">P</td>
+
+                                                        </tr>
+
+                                                        @foreach (var itemSemovente in ViewBag.Semoventes)
+                                                            {
+
+
+                                                                if (itemSemovente != null)
+                                                                {
+
+
+
+                                                                    double valorSemovente = 0;
+
+                                                                    if (item.EntidadeReferenciaValor == itemSemovente.EntidadeReferenciaValor)
+                                                                    {
+
+                                                                        valorSemovente = Convert.ToDouble(itemSemovente.Campo7);
+                                                                        SomaSemoventes = SomaSemoventes + valorSemovente;
+
+                                                            <tr class="">
+                                                                <td class="">@itemSemovente.Campo1</td>
+                                                                <td class="alignCenter">@itemSemovente.Campo2</td>
+                                                                <td class="alignCenter">@itemSemovente.Campo3</td>
+                                                                <td class="alignCenter">@string.Format("{0:0,0}", Convert.ToDouble(itemSemovente.Campo4))</td>
+                                                                <td class="alignCenter">@itemSemovente.Campo5</td>
+                                                                <td class="alignCenter">@string.Format("{0:C}", Convert.ToDouble(itemSemovente.Campo6))</td>
+                                                                <td class="alignCenter">
+                                                                    @string.Format("{0:C}", valorSemovente)<br />
+                                                                    @itemSemovente.Campo8
+                                                                </td>
+                                                                <td class="alignCenter">@itemSemovente.Campo9</td>
+
+                                                            </tr>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                            <tr>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                                <td class="alignCenter">-</td>
+                                                            </tr>
+
+                                                                }
+
+                                                            }
+
+
+                                                        <tr class="totalsDoubleBorder">
+                                                            <td colspan="7" class="alignRight"><b>Participação: @string.Format("{0:0,0.00}", Convert.ToDouble(itemTotaisArrendadas.Campo10)) %  </b></td>
+                                                            <td class="alignRight">@string.Format("{0:C}", (Convert.ToDouble(itemTotaisArrendadas.Campo10) / 100) * SomaSemoventes)</td>
+
+                                                        </tr>
+
+
+
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr><td colspan="8" class="spacerBlank1"></td></tr>
+                                            <tr>
+                                                <td colspan="8" class="alignRight">
+
+                                                    <b>
+                                                        Total do Imóvel: (
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        @itemTotaisArrendadas.Campo1
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        )&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        @string.Format("{0:C}", Convert.ToDouble(itemTotaisArrendadas.Campo22) + (Convert.ToDouble(itemTotaisArrendadas.Campo6)) + (Convert.ToDouble(itemTotaisArrendadas.Campo10) / 100) * SomaSemoventes);
+                                                    </b>
+
+
+                                                </td>
+                                            </tr>
+
+
+
+
+                                            }
+                                        }
+
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+                }
+
+
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+
+
+                @*Dadaso das Máquinas*@
+                <table class="PrinterTable">
+
+                    <thead>
+
+                        <tr>
+                            <td colspan="2" class="title soft">2 - MÁQUINAS, VEÍCULOS E IMPLEMENTOS (MÓVEIS)</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                        <tr>
+
+                            <td colspan="2" class="alignCenter"><b>MÁQUINAS</b></td>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+
+                                <table class="doubleBorders">
+
+
+                                    <tr class="doubleBorderTitle">
+                                        <td class="alignCenter" colspan="2">Quantidade<br />Especificação</td>
+                                        <td class="alignCenter">%</td>
+                                        <td class="alignCenter">Marca</td>
+                                        <td class="alignCenter">Modêlo/Potência</td>
+                                        <td class="alignCenter">Ano/Estado</td>
+                                        <td class="alignCenter">Chassi/Série</td>
+                                        <td class="alignCenter">Valor</td>
+                                        <td class="alignCenter">P</td>
+
+                                    </tr>
+
+
+                                    @{
+                                        linesplus = 10;
+                                    }
+
+                                    @foreach (var itemMaquina in ViewBag.Maquinas)
+                                    {
+                                        if (true)
+                                        {
+
+
+                                            valorMaquina = Convert.ToDouble(itemMaquina.Campo9);
+                                            totalMaquina = totalMaquina + valorMaquina;
+                                            porcentagemGeral = Convert.ToDouble(itemMaquina.Campo2);
+                                            linesplus = linesplus - 1;
+
+
+                                        <tr class="">
+                                            <td>1</td>
+                                            <td class="">@itemMaquina.Campo1</td>
+                                            <td class="alignCenter">@string.Format("{0:0.00}%", itemMaquina.Campo2)</td>
+                                            <td class="alignCenter">@itemMaquina.Campo3</td>
+                                            <td class="alignCenter">@itemMaquina.Campo4 / @itemMaquina.Campo5</td>
+                                            <td class="alignCenter">@itemMaquina.Campo6 / @itemMaquina.Campo7</td>
+                                            <td class="alignCenter">@itemMaquina.Campo8</td>
+                                            <td class="alignRight">@string.Format("{0:C}", valorMaquina)</td>
+                                            <td class="alignCenter">@itemMaquina.Campo10</td>
+
+
+                                        </tr>
+                                        }
+                                        else
+                                        {
+
+                                            totalMaquina = 0;
+
+
+                                        }
+                                    }
+
+                                    @for (int i = 0; i < linesplus; i++)
+                                    {
+                                        <tr>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                        </tr>
+                                    }
+
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td colspan="4"><b>P = Penhor ou Alienação </b></td>
+                                        <td class="alignRight" colspan="2"></td>
+                                        <td class="alignRight" colspan="2">Total Máquinas: @string.Format("{0:C}", totalMaquina)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="4"></td>
+                                        <td class="alignRight" colspan="2"></td>
+                                        <td class="alignRight" colspan="2">Total Máquinas com participação (@string.Format("{0:0.0%}",porcentagemGeral/100)): @string.Format("{0:C}", (Convert.ToDouble(porcentagemGeral) / 100) * totalMaquina)</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+
+
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+
+
+
+                @*Dadaso dos Veículos*@
+                <table class="PrinterTable">
+
+                    <thead>
+
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                        <tr>
+
+                            <td colspan="2" class="alignCenter"><b>VEÍCULOS</b></td>
+
+
+                        </tr>
+
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+
+                                <table class="doubleBorders">
+
+
+                                    <tr class="doubleBorderTitle">
+                                        <td class="alignCenter" colspan="2">Quantidade<br />Especificação</td>
+                                        <td class="alignCenter">%</td>
+                                        <td class="alignCenter">Marca</td>
+                                        <td class="alignCenter">Modêlo/Potência</td>
+                                        <td class="alignCenter">Ano/Estado</td>
+                                        <td class="alignCenter">Chassi/Série</td>
+                                        <td class="alignCenter">Valor</td>
+                                        <td class="alignCenter">P</td>
+
+                                    </tr>
+
+                                    @{
+                                        linesplus = 10;
+                                    }
+
+                                    @foreach (var itemVeiculo in ViewBag.Veiculos)
+                                    {
+
+                                        if (itemVeiculo != null)
+                                        {
+
+
+                                            valorVeiculo = Convert.ToDouble(itemVeiculo.Campo9);
+                                            totalVeiculo = totalVeiculo + valorVeiculo;
+                                            porcentagemGeral = Convert.ToDouble(itemVeiculo.Campo2);
+                                            linesplus = linesplus - 1;
+
+
+
+                                        <tr class="">
+                                            <td>1</td>
+                                            <td class="">@itemVeiculo.Campo1</td>
+                                            <td class="alignCenter">@string.Format("{0:0.00}%", itemVeiculo.Campo2)</td>
+                                            <td class="alignCenter">@itemVeiculo.Campo3</td>
+                                            <td class="alignCenter">@itemVeiculo.Campo4 / @itemVeiculo.Campo5</td>
+                                            <td class="alignCenter">@itemVeiculo.Campo6 / @itemVeiculo.Campo7</td>
+                                            <td class="alignCenter">@itemVeiculo.Campo8</td>
+                                            <td class="alignRight">@string.Format("{0:C}", valorVeiculo)</td>
+                                            <td class="alignCenter">@itemVeiculo.Campo10</td>
+
+
+                                        </tr>
+
+
+
+                                        }
+                                        else
+                                        {
+
+                                            totalVeiculo = 0;
+
+
+                                        }
+
+
+                                    }
+                                    @for (int i = 0; i < linesplus; i++)
+                                    {
+
+                                    }
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td colspan="4"><b>P = Penhor ou Alienação </b></td>
+                                        <td class="alignRight" colspan="2"></td>
+                                        <td class="alignRight" colspan="2">Total Veículos: @string.Format("{0:C}", totalVeiculo)</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="4"></td>
+                                        <td class="alignRight" colspan="2"></td>
+                                        <td class="alignRight" colspan="2">Total Veículos com participação (@string.Format("{0:0.0%}", porcentagemGeral/100)): @string.Format("{0:C}", (Convert.ToDouble(porcentagemGeral) / 100) * totalVeiculo)</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+
+
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                <div class="forcebreakpage"></div>
+
+                @*Dadaso dos Implementos*@
+                <table class="PrinterTable">
+
+                    <thead>
+
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+                        <tr>
+
+                            <td colspan="2" class="alignCenter"><b>IMPLEMENTOS</b></td>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+                                <table>
+
+
+
+                                    <tr>
+
+                                        <td colspan="2">
+
+                                            <table class="doubleBorders">
+
+
+                                                <tr class="doubleBorderTitle">
+                                                    <td class="alignCenter" colspan="2">Quantidade<br />Especificação</td>
+                                                    <td class="alignCenter">%</td>
+                                                    <td class="alignCenter">Marca</td>
+                                                    <td class="alignCenter">Modêlo</td>
+                                                    <td class="alignCenter">Ano/Estado</td>
+                                                    <td class="alignCenter">Chassi/Série</td>
+                                                    <td class="alignCenter">Valor</td>
+                                                    <td class="alignCenter">P</td>
+
+                                                </tr>
+
+                                                @{
+                                                    linesplus = 10;
+                                                }
+
+                                                @foreach (var itemImplemento in ViewBag.Implementos)
+                                                {
+
+
+                                                    if (itemImplemento != null)
+                                                    {
+                                                        valorImplemento = Convert.ToDouble(itemImplemento.Campo9);
+                                                        totalImplemento = totalImplemento + valorImplemento;
+                                                        porcentagemGeral = Convert.ToDouble(itemImplemento.Campo2);
+                                                        linesplus = linesplus - 1;
+
+
+
+                                                    <tr class="">
+                                                        <td>1</td>
+                                                        <td class="">@itemImplemento.Campo1</td>
+                                                        <td class="alignCenter">@string.Format("{0:0.00}%", itemImplemento.Campo2)</td>
+                                                        <td class="alignCenter">@itemImplemento.Campo3</td>
+                                                        <td class="alignCenter">@itemImplemento.Campo4</td>
+                                                        <td class="alignCenter">@itemImplemento.Campo6 / @itemImplemento.Campo7</td>
+                                                        <td class="alignCenter">@itemImplemento.Campo8</td>
+                                                        <td class="alignRight">@string.Format("{0:C}", valorImplemento)</td>
+                                                        <td class="alignCenter">@itemImplemento.Campo10</td>
+
+
+                                                    </tr>
+                                                    }
+                                                    else
+                                                    {
+                                                        totalImplemento = 0;
+
+                                                    }
+
+
+
+
+
+                                                }
+                                                @for (int i = 0; i < linesplus; i++)
+                                                {
+                                                    <tr>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                        <td class="alignCenter"> - </td>
+                                                    </tr>
+                                                }
+
+
+                                                <tr class="totalsDoubleBorder">
+                                                    <td colspan="4"><b>P = Penhor ou Alienação </b></td>
+                                                    <td class="alignRight" colspan="2"></td>
+                                                    <td class="alignRight" colspan="2">Total Implementos: @string.Format("{0:C}", totalImplemento)</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr class="">
+                                                    <td colspan="4"></td>
+                                                    <td class="alignRight" colspan="2"></td>
+                                                    <td class="alignRight" colspan="2">Total Implementos com participação (@string.Format("{0:0.0%}", porcentagemGeral/100)): @string.Format("{0:C}", (Convert.ToDouble(porcentagemGeral) / 100) * totalImplemento)</td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+
+
+
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                @*Dadaso dos bens e direitos*@
+                <table class="PrinterTable">
+
+                    <thead>
+                        <tr>
+                            <td colspan="2"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" class="title soft">3 - BENS E DIREITOS</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+
+                                <table class="doubleBorders">
+
+
+                                    <tr class="doubleBorderTitle">
+                                        <td class="alignCenter">Categoria</td>
+                                        <td class="alignCenter">Características</td>
+                                        <td class="alignCenter">Valor</td>
+
+                                    </tr>
+
+                                    @{
+                                        linesplus = 10;
+                                    }
+
+                                    @foreach (var itemBemDireito in ViewBag.BensDireitos)
+                                    {
+
+                                        if (itemBemDireito != null)
+                                        {
+
+
+
+                                            valorBemDireito = Convert.ToDouble(itemBemDireito.Campo3);
+                                            totalBemDireito = totalImplemento + totalBemDireito;
+                                            linesplus = linesplus - 1;
+
+
+
+                                        <tr class="">
+                                            <td class="alignCenter">@itemBemDireito.Campo1</td>
+                                            <td class="alignCenter">@itemBemDireito.Campo2</td>
+                                            <td class="alignRight">@string.Format("{0:C}", totalBemDireito)</td>
+
+
+                                        </tr>
+                                        }
+                                        else
+                                        {
+                                            totalImplemento = 0;
+
+                                        }
+                                    }
+                                    @for (int i = 0; i < linesplus; i++)
+                                    {
+                                        <tr class="">
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+                                            <td class="alignCenter">-</td>
+
+
+                                        </tr>
+                                    }
+
+
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td class="alignRight" colspan="3">Total Bens e Direitos: @string.Format("{0:C}", totalBemDireito)</td>
+                                    </tr>
+
+                                </table>
+
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                @*Resumo*@
+                <table class="PrinterTable">
+
+                    <thead>
+                        <tr>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="title soft">4 - RESUMO</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important">
+
+
+                                <table class="doubleBorders">
+
+
+                                    <tr class="doubleBorderTitle">
+                                        <td>Especificação</td>
+                                        <td class="alignRight" colspan="2">Total</td>
+
+                                    </tr>
+
+
+                                    <tr class="">
+                                        <td>Terra/Solo</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", totalTerraSolo)</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td>Benfeitorias</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", TotalBenfeitorias)</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td>Máquinas</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", (totalMaquina * porcentagemGeral / 100))</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td>Veículos</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", (totalVeiculo * porcentagemGeral / 100))</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td>Implementos</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", (totalImplemento * porcentagemGeral / 100))</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td>Semoventes</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", TotalSemoventes)</td>
+                                    </tr>
+                                    <tr class="">
+                                        <td>Bens e Direitos</td>
+                                        <td class="alignRight" colspan="2">@string.Format("{0:C}", totalBemDireito)</td>
+                                    </tr>
+
+
+
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td class="alignRight" colspan="3"> @string.Format("{0:C}", (totalTerraSolo + TotalBenfeitorias + (totalMaquina * porcentagemGeral / 100) + (totalVeiculo * porcentagemGeral / 100) + (totalImplemento * porcentagemGeral / 100) + TotalSemoventes + totalBemDireito))</td>
+                                    </tr>
+
+
+                                    <tr><td colspan="3" class="spacerBlank1"></td></tr>
+                                    <tr>
+                                        <td colspan="3" class="title soft">5 - IMÓVEIS ARRENDADOS</td>
+                                    </tr>
+                                    <tr><td colspan="3" class="spacerBlank1"></td></tr>
+
+                                    <tr class="doubleBorderTitle">
+                                        <td>Especificação</td>
+                                        <td class="alignRight">Valor dos Imóveis</td>
+                                        <td class="alignRight">Valor Arrendado</td>
+
+                                    </tr>
+
+                                    @{
+                                        linesplus = 6;
+                                    }
+
+                                    @foreach (var item in ViewBag.TotaisFazendasArrendadas)
+                                    {
+                                        linesplus = linesplus - 1;
+                                        TotalArrendadas = TotalArrendadas + ((Convert.ToDouble(item.Campo6)) + (Convert.ToDouble(item.Campo22)) + (Convert.ToDouble(item.Campo23)));
+
+                                        if (item.Campo24 != "")
+                                        {
+
+                                            ValorArrendamento = Convert.ToDouble(item.Campo24);
+                                            TotalArrendamento = TotalArrendamento + ValorArrendamento;
+
+
+
+                                        }
+
+
+
+                                        <tr class="">
+                                            <td>@item.Campo1</td>
+                                            <td class="alignRight">@string.Format("{0:C}", (Convert.ToDouble(item.Campo6)) + (Convert.ToDouble(item.Campo22)) + (Convert.ToDouble(item.Campo23)))</td>
+                                            <td class="alignRight">@string.Format("{0:C}", ValorArrendamento)</td>
+                                        </tr>
+                                    }
+                                    @for (int i = 0; i < linesplus; i++)
+                                    {
+                                        <tr class="">
+                                            <td>-</td>
+                                            <td class="alignRight">-</td>
+                                            <td class="alignRight">-</td>
+                                        </tr>
+                                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td class="alignRight"> </td>
+                                        <td class="alignRight"> @string.Format("{0:C}", TotalArrendadas)</td>
+                                        <td class="alignRight"> @string.Format("{0:C}", TotalArrendamento)</td>
+
+                                    </tr>
+
+                                </table>
+
+
+
+
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+                <div class="printHidden">
+                    <br />
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                @*Dívidas*@
+                <table class="PrinterTable"></table>
+
+                <table class="PrinterTable">
+
+                    <thead>
+                        <tr>
+                            <td colspan="2" class="title alignCenter" style="height:20px">DÍVIDAS</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank2"></td></tr>
+                        <tr>
+                            <td colspan="2" class="title soft alignCenter">@Usuario</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank2"></td></tr>
+                        <tr>
+                            <td colspan="2" class="title soft alignCenter">DÍVIDAS COM OUTROS AGENTES</td>
+                        </tr>
+                        <tr><td colspan="2" class="spacerBlank1"></td></tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td colspan="2" style="vertical-align:top !important; height:820px">
+
+
+                                <table class="doubleBorders">
+
+
+                                    <tr class="doubleBorderTitle">
+                                        <td class="alignCenter">Credor</td>
+                                        <td class="alignCenter">Finalidade</td>
+                                        <td class="alignCenter">Data<br />Contrat.</td>
+                                        <td class="alignCenter">Data<br />Venc.</td>
+                                        <td class="alignCenter">Carência</td>
+                                        <td class="alignCenter">Encargos</td>
+                                        <td class="alignCenter">Periodicidade</td>
+                                        <td class="alignCenter">Saldo</td>
+
+                                    </tr>
+                                    @{
+                                        linesplus = 20;
+                                    }
+                                    @foreach (var item in ViewBag.Dividas)
+                                    {
+
+                                        if (item != null)
+                                        {
+
+                                            TotalDivida = TotalDivida + (Convert.ToDouble(item.Campo8));
+                                            linesplus = linesplus - 1;
+
+                                        <tr class="">
+                                            <td>@item.Campo1</td>
+                                            <td>@item.Campo2</td>
+                                            <td class="alignCenter">@item.Campo3</td>
+                                            <td class="alignCenter">@item.Campo4</td>
+                                            <td>@item.Campo5</td>
+                                            <td>@item.Campo6</td>
+                                            <td class="alignCenter">@item.Campo7</td>
+                                            <td class="alignRight">@string.Format("{0:C}", (Convert.ToDouble(item.Campo8)))</td>
+
+                                        </tr>
+                                        }
+                                        else
+                                        {
+                                            TotalDivida = 0;
+
+                                        }
+
+
+                                    }
+
+                                    @for (int i = 0; i < linesplus; i++)
+                                    {
+                                        <tr class="">
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+
+                                        </tr>
+                                    }
+
+
+
+                                    <tr class="totalsDoubleBorder">
+                                        <td class="alignRight" colspan="8"> @string.Format("{0:C}", TotalDivida)</td>
+                                    </tr>
+                                    <tr><td colspan="8" class="spacerBlank2"></td></tr>
+                                    <tr>
+                                        <td colspan="8" class="title alignCenter" style="height:20px">@string.Format("{0:C}", TotalDivida)</td>
+                                    </tr>
+                                    <tr><td colspan="8" class="spacerBlank2"></td></tr>
+                                    <tr>
+                                        <td colspan="8">
+
+                                            Obs.: O proponente tem responsabilidade sobre @porcentagemGeral% destas dívidas, sendo que os outros @string.Format("{0:0.00}%", 100 - porcentagemGeral) são de responsabilidade de @Socios.
+
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+
+
+
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>

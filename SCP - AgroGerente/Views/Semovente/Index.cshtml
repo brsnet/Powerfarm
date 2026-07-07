@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.CadastroSemovente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Terras e solos</h2>
+
+
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    <div class="box">
+        <div class="left">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Fazendas: @Html.DropDownList("SearchString", (IEnumerable<SelectListItem>)ViewData["Fazendas"], "Todas")
+                    <input type="submit" value="Filtrar" />
+                </p>
+            }
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+
+     grid.Column("SemoventeEspecificacao", header:" Especificação"),
+     grid.Column("SemoventeUA", header:" UA (%)", style:"alignCenter"),
+     grid.Column("SemoventeNumeroUA", header:" Nr. UA", style:"alignCenter"),
+     grid.Column("SemoventeNumeroCabecas", header:" Nr. Cab.", style:"alignRight",format:@<text>
+
+
+@string.Format("{0:0,0.00}", item.SemoventeNumeroCabecas)
+
+</text>),
+     grid.Column("SemoventeCaracteristicas", header:" Características"),
+     grid.Column("SemoventeValorUnitario", header:" Valor Unitário", style:"alignRight",format:@<text>
+
+
+@string.Format("{0:C}", item.SemoventeValorUnitario)
+
+</text>),
+     grid.Column(" ", header:"Valor Total / Credor", style:"alignRight",format:@<text>
+
+
+@string.Format("{0:C}", (item.SemoventeValorUnitario * item.SemoventeNumeroCabecas))<br />@item.SemoventeCredor
+
+</text>),
+     grid.Column("CadastroFazenda.FazendaNome", header:" Fazenda"),
+
+
+grid.Column("",header:"Ações", format:@<text>
+
+        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+        @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+})
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

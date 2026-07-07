@@ -1,0 +1,78 @@
+﻿@model SCP___AgroGerente.Models.CadastroSemovente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroSemovente</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeEspecificacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeEspecificacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeUA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeUA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeNumeroUA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeNumeroUA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeNumeroCabecas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeNumeroCabecas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeCaracteristicas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeCaracteristicas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeValorUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeValorUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeCredor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeCredor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroUsuarios.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroFazenda.FazendaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroFazenda.FazendaNome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

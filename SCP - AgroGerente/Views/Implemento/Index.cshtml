@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.ImplementoFazendaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Implementos</h2>
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    <br />
+</div>
+<br />
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("ImplementoAtiva", style:"alignCenter",header:"Status", format:@<text>
+
+
+        @if (item.ImplementoAtiva == true)
+        {
+            <span class="green"> @Html.Raw("Ativa")</span>
+        }
+        else
+        {
+            <span class="red"> @Html.Raw("Desativada") </span>
+        }
+
+
+    </text>),
+    grid.Column("ImplementoEspecificacao", style:"",header:"Especificação"),
+    grid.Column("RelacaoParticipacao", style:"",header:"%"),
+    grid.Column("ImplementoMarca", style:"",header:"Marca"),
+    grid.Column("ImplementoModelo", style:"",header:"Modelo Chassi/Potência", format:@<text>
+
+        @item.ImplementoModelo<br />
+        @item.ImplementoChassiSerie
+
+    </text>),
+    grid.Column("ImplementoAno", style:"",header:"Ano"),
+    grid.Column("ImplementoEstado", style:"",header:"Estado"),
+    grid.Column("ImplementoValor", style:"",header:"Valor", format:@<text>
+        @string.Format("{0:C}", item.ImplementoValor)
+    </text>),
+grid.Column("",header:"Ações", format:@<text>
+
+        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+        @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+    })
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+

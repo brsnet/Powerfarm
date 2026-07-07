@@ -1,0 +1,37 @@
+﻿@model SCP___AgroGerente.Areas.Projetos.Model.CadastroEtapa
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroEtapa</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EtapaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EtapaNome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EtapaOrdem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EtapaOrdem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EtapaAtiva)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EtapaAtiva)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

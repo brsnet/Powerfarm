@@ -1,0 +1,236 @@
+﻿@model SCP___AgroGerente.Models.CadastroUsuarios
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Usuário</h2>
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+   
+    <div class="clear"></div>
+    
+</div>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <div>@Html.ValidationMessageFor(model => model.Nome,"Indique o nome do Usuário")</div>
+    <fieldset>
+        <legend>Cadastro de usuários</legend>   
+
+        @Html.HiddenFor(model => model.ID)
+<div class="box">
+        <div class="left">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nome)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Nome,new { size=40 })
+                
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                <label>Data de nascimento</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DataNascimento)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Naturalidade)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Naturalidade)
+            </div>
+        </div>
+     <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RendaMensal,"Renda mensal")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RendaMensal)
+            </div>
+       </div>
+    <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ocupacao, "Ocupação")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ocupacao)
+        </div>
+    </div>
+    <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Grau, "Grau de Instrução")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Grau)
+        </div>
+    </div>
+    <div class="left">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Formacao, "Formação Acadêmica")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Formacao)
+        </div>
+    </div>
+        <div class="clear"></div>
+    </div>
+        
+        <h3>Documentos</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RG)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RG)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DataExpedicao, "Data de expedição")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DataExpedicao)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CPF)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CPF)
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        <hr />
+        <h3>Dados de contato</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telefone1, "Telefone fixo principal")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Telefone1)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Telefone2, "Outro telefone")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Telefone2)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Celular1,"Celular do cliente")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Celular1)
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Celular2, "Outro celular")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Celular2)
+            </div>
+        </div>
+        <div class="clear"></div>
+         <hr />
+        <h3>Endereço</h3>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Endereco, "Logradouro")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Endereco, new { size=50})
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Estado, "Estado")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Estado, new { size=20})
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Cidade, "Cidade")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Cidade, new { size=50})
+            </div>
+        </div>
+        <div class="left">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CEP)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CEP)
+            </div>
+        </div>
+       
+        <div class="clear"></div>
+
+        <p>
+            <input type="submit" value="Salvar alterações" />
+        </p>
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    $(function () {
+        $("#DataNascimento").datepicker({
+            changeMonth: true,
+            changeYear: true,
+           
+
+        });
+
+        $("#DataExpedicao").datepicker({
+            changeMonth: true,
+            changeYear: true,
+
+
+        });
+
+        //$('.date').mask('11/11/1111');
+        //$('.time').mask('00:00:00');
+        //$('.date_time').mask('99/99/9999 00:00:00');
+        $('#CEP').mask('99999-999');
+        //$('.phone').mask('9999-9999');
+        $('#Telefone1').mask('(99) 9999-9999');
+        $('#Telefone2').mask('(99) 9999-9999');
+        $('#Celular1').mask('(99) 9999-9999');
+        $('#Celular2').mask('(99) 9999-9999');
+        //$('.phone_us').mask('(999) 999-9999');
+        //$('.mixed').mask('AAA 000-S0S');
+        $('#CPF').mask('999.999.999-99', { reverse: true });
+        //$('.money').mask('000.000.000.000.000,00', { reverse: true });
+        //$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', { translation: { 'Z': "[0-9]?" } });
+
+    });
+
+</script>

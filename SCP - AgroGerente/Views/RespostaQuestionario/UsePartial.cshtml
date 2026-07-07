@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.Proc_Questoes_Result>
+@{
+    var counter = 0;  
+}
+<input type="hidden" name="TotalRows" value="@Model.ToList().Count" />
+
+@Html.Hidden("Usuario", (int)Session["UserID"])
+    @foreach (var item in Model)
+    {
+        counter = counter + 1;
+<h4>@item.QuestionarioQuestao</h4>
+
+@Html.Hidden("Questao" + counter, @item.ID)
+
+
+
+        if (@item.QuestionarioResposta1 != null)
+        {
+        <div>@Html.RadioButton("Resposta" + counter, @item.QuestionarioResposta1)@item.QuestionarioResposta1</div>
+        }
+        if (@item.QuestionarioResposta2 != null)
+        {
+        <div>@Html.RadioButton("Resposta" + counter, @item.QuestionarioResposta2)@item.QuestionarioResposta2</div>
+        }
+        if (@item.QuestionarioResposta3 != null)
+        {
+        <div>@Html.RadioButton("Resposta" + counter, @item.QuestionarioResposta3)@item.QuestionarioResposta3</div>
+        }
+        if (@item.QuestionarioResposta4 != null)
+        {
+        <div>@Html.RadioButton("Resposta" + counter, @item.QuestionarioResposta4)@item.QuestionarioResposta4</div>
+        }
+        if (@item.QuestionarioResposta5 != null)
+        {
+        <div>@Html.RadioButton("Resposta" + counter, @item.QuestionarioResposta5)@item.QuestionarioResposta5</div>
+        }
+
+        <hr />
+
+        }

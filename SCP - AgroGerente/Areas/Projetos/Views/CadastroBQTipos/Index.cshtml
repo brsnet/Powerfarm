@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SCP___AgroGerente.Areas.Projetos.Model.CadastroBQTipo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Cadastro de tipo de Pergunta</h2>
+
+
+    </div>
+    <div class="right">
+
+        @Html.ActionLink("Novo Cadastro", "Create", string.Empty, new { @class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+
+<br />
+
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("BQTipoAtivo", header:" Ativo?",style:"width1 alignCenter",format:@<text>
+
+        @if (item.BQTipoAtivo == true)
+        {
+            <text>Sim</text>
+        }
+        else
+        {
+            <text>Não</text>
+        }
+
+
+
+    </text>),
+ grid.Column("BQTipo", header:"Tipo de Pergunta",style:" "),
+
+  grid.Column("",header:"Ações",format:@<text>
+
+    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+    @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+
+})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

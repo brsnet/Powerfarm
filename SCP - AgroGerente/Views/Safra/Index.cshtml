@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.CadastroSafra>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Lista de usuários cadastrados";
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Safra</h2>
+    </div>
+    <div class="right">
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+</div>
+<br />
+
+@{
+    WebGrid grid = new WebGrid(Model);
+}
+
+
+@grid.GetHtml(tableStyle: "tabelaFormatada", columns: new[] {
+    grid.Column("NomeSafra", header:"Nome da Safra"),
+    grid.Column("SafraData", header:"Data da safra", style:"alignCenter"),
+    grid.Column("SafraPrevista", header:"Safra Prevista?", style:"width1 alignCenter", format:@<text>
+
+
+@if (item.SafraPrevista == true)
+{
+    <text><span class="red">Sim</span></text>
+}
+else
+{
+    <text>Não</text>
+}
+
+
+</text>), grid.Column("",header:"Ações", format:@<text>
+
+    @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "icone edit" })
+    @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+
+
+</text>)
+
+    })
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

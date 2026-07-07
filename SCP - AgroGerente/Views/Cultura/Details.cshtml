@@ -1,0 +1,43 @@
+﻿@model SCP___AgroGerente.Models.Cultura
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Cultura</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NomeCultura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NomeCultura)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ValorSaca)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ValorSaca)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataAtualizacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataAtualizacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UsarCultura)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UsarCultura)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,72 @@
+﻿@{
+   
+    ViewBag.Title = "PROJETOS";
+    
+
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+
+    $("#ClenteNome").change(function () {
+
+        window.location.href = 'Projetos/Home/Usuario/' + $(this).val();
+ 
+
+    });
+
+
+
+</script>
+
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <div class="float-right">
+                @Html.DropDownList("ClenteNome", (IEnumerable<SelectListItem>)ViewData["Usuarios"], "Selecione um cliente")
+            </div>
+            <div class="float-right">
+                <div class="iconeClient"></div>
+            </div>
+            <div class="clear"></div>
+
+        </div>
+    </section>
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+
+<ol class="round left" style="width:65%">
+    <li class="one">
+        <h5>Agenda de Aplicações</h5>
+        <br />
+        @Html.Partial("AgendaAplicacoes", ViewData["AgendaAplicacoes"])
+
+    </li>
+
+</ol>
+<ol class="round right" style="width:32%">
+    <li class="two">
+        <h5>Projetos recentes</h5>
+        <br />
+        <table class="tabelaFormatada">
+            <tr>
+                <td>criar listagem</td>
+                <td style="width:20px !important">
+                    @Html.ActionLink(" ", "Print", "LimiteCredito", new { id = 1 }, new { @class = "icone Print", target = "_blank" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>criar listagem</td>
+                <td style="width:20px !important">
+                    @Html.ActionLink(" ", "Print", "LimiteCredito", new { id = 1 }, new { @class = "icone Print", target = "_blank" })
+                </td>
+            </tr>
+
+        </table>
+    </li>
+</ol>

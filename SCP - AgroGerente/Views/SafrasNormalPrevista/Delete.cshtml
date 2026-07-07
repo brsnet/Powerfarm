@@ -1,0 +1,75 @@
+﻿@model SCP___AgroGerente.Models.SafraNormalPrevista
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>SafraNormalPrevista</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasSafra)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasSafra)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasSistemaPlantio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasSistemaPlantio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasArea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasArea)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasProdutividade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasProdutividade)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasValorUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasValorUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasCustoUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasCustoUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasPrevista)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasPrevista)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroUsuarios.Nome)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

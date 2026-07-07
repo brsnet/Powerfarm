@@ -1,0 +1,36 @@
+﻿@model SCP___AgroGerente.Areas.Projetos.Model.CadastroProduto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CadastroProduto</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MarcaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarcaNome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MarcaEspecificacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarcaEspecificacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MarcaAtiva)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarcaAtiva)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

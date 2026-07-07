@@ -1,0 +1,41 @@
+﻿@model SCP___AgroGerente.Areas.Projetos.Model.CadastroEtapa
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CadastroEtapa</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EtapaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EtapaNome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EtapaOrdem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EtapaOrdem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EtapaAtiva)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EtapaAtiva)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,71 @@
+﻿@model SCP___AgroGerente.Models.CadastroRelacao
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Relação</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>@Html.ValidationMessageFor(model => model.RelacaoTitulo, "Indique a Relação com a Fazenda")</div>
+    <div>@Html.ValidationMessageFor(model => model.RelacaoUsuarioID, "Indique um Usuário")</div>
+    <fieldset>
+        <legend>CadastroRelacao</legend>
+        <div class="box">
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.RelacaoFazendaID, "Fazenda")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("RelacaoFazendaID", "Selecione")
+                    
+                </div>
+            </div>
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.RelacaoTitulo,"Relação com a Fazenda")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.RelacaoTitulo, (IEnumerable<SelectListItem>)ViewData["vRelacaoFazenda"], "Selecione")
+                    
+                </div>
+                </div>
+           
+            <div class="clear"></div>
+            </div>
+        <br />
+
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RelacaoUsuarioID, "Usuário")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.RelacaoUsuarioID, (IEnumerable<SelectListItem>)ViewBag.RelacaoUsuarioID, "Selecione")
+                
+            </div>
+        </div>
+       
+        <div class="clear"></div>
+                <p>
+                    <input type="submit" value="Criar Relação" />
+                </p>
+</fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

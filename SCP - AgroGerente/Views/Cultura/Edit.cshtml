@@ -1,0 +1,92 @@
+﻿@model SCP___AgroGerente.Models.Cultura
+
+
+        
+
+        
+@{
+    ViewBag.Title = "Editar Cultura";
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Cultura</h2>
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar a Lista</a>
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+    <fieldset>
+        <legend>Cultura</legend>
+        <div class="box">
+            <div class="left" style="padding-right: 20px">
+                <div class="editor-label">
+                    Nome da Cultura
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NomeCultura)
+                    @Html.ValidationMessageFor(model => model.NomeCultura)
+                </div>
+            </div>
+            <div class="right">
+               
+                 @Html.TextBox("DataAtualizacao", String.Format( "{0:dd/MM/yyyy}" , DateTime.Now ), new {@disabled="disabled",@style="width:100px" })
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br />
+
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ValorSaca)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ValorSaca)
+                @Html.ValidationMessageFor(model => model.ValorSaca)
+            </div>
+        </div>
+        
+                
+                
+           
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                Usar Cultura?
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.UsarCultura, (IEnumerable<SelectListItem>)ViewData["EnumBit"], "Selecione")
+                @Html.ValidationMessageFor(model => model.UsarCultura)
+            </div>
+        </div>
+        <div class="clear"></div>
+        <hr />
+        <div style="padding-right: 20px" class="red">
+            <div class="editor-label">
+
+            </div>
+            <div class="editor-field">
+                @Html.CheckBox("CulturaCalculo") Marque esta opção para que o cálculo de valores de Microrregião, valor de terra/solo, Limite de crédito e Patrimônio use esta referência
+            </div>
+        </div>
+        <hr />
+
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

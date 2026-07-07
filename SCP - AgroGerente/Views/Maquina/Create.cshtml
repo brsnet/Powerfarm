@@ -1,0 +1,133 @@
+﻿@model SCP___AgroGerente.Models.CadastroMaquina
+@{
+    ViewBag.Title = "Criar Máquina";
+}
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+<div class="Cabecalho">
+<div class="left">
+    <h2>Criar Máquina</h2>
+
+</div>
+<div class="right">
+    <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+</div>
+<div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.Hidden("MaquinaUsuario", (int)Session["UserID"])
+    @Html.Hidden("MaquinaAtiva", true)
+
+    <fieldset>
+        <legend>CadastroMaquina</legend>
+
+       
+        <br />
+        <div class="left" style="padding-right: 20px">
+
+
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaEspecificacao, "Especificação")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaEspecificacao)
+                @Html.ValidationMessageFor(model => model.MaquinaEspecificacao)
+            </div>
+        </div>
+       
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaMarca, "Marca")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaMarca)
+                @Html.ValidationMessageFor(model => model.MaquinaMarca)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaModelo, "Modelo")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaModelo)
+                @Html.ValidationMessageFor(model => model.MaquinaModelo)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaPotencia, "Potência")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaPotencia)
+                @Html.ValidationMessageFor(model => model.MaquinaPotencia)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaAno, "Ano")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaAno)
+                @Html.ValidationMessageFor(model => model.MaquinaAno)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaEstado, "Estado")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaEstado)
+                @Html.ValidationMessageFor(model => model.MaquinaEstado)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaChassiSerie, "Chassi/Série")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaChassiSerie)
+                @Html.ValidationMessageFor(model => model.MaquinaChassiSerie)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaValor, "Valor")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaValor)
+                @Html.ValidationMessageFor(model => model.MaquinaValor)
+            </div>
+        </div>
+        <div class="left" style="padding-right: 20px">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MaquinaP, "P")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MaquinaP)
+                @Html.ValidationMessageFor(model => model.MaquinaP)
+            </div>
+        </div>
+       
+        <div class="clear"></div>
+
+
+        <p>
+            <input type="submit" value="Criar Maquina" />
+        </p>
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SCP___AgroGerente.Models.CadastroUsuarios>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Lista de usuários cadastrados";
+}
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Lista de Usuários</h2>
+       
+    </div>
+    <div class="right" >
+        
+        @Html.ActionLink("Novo Cadastro", "Create",string.Empty,new {@class = "icone new" })
+
+    </div>
+    <div class="clear"></div>
+    <hr />
+</div>
+<table class="tabelaFormatada">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            RG
+        </th>
+        <th>
+            CPF
+        </th>
+        <th>
+            Endereço
+        </th>
+       <th>Ações</th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RG)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td style="text-align:center">
+             @if (item.Endereco != null){
+                <a href="https://maps.google.com.br/maps?q=@Html.Raw(item.Endereco) - @Html.Raw(item.Cidade) - @Html.Raw(item.Estado), @Html.Raw(item.CEP)" target="_blank">Google</a>
+             }
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id=item.ID }, new {@class = "icone edit" })
+            @Html.ActionLink(" ", "Details", new { id=item.ID }, new {@class = "icone details" })
+            @Ajax.ActionLink(" ", "Delete", new { id = item.ID }, new AjaxOptions { HttpMethod = "POST", Confirm = "Deseja mesmo deletar?", OnSuccess = "window.location.reload()" }, new { @class = "icone delete" })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

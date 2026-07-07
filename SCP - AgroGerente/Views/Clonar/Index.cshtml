@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Selecione o Cliente que se quer clonar os dados</h2>
+
+
+<div class="box">
+
+
+   @using (Html.BeginForm())
+    {
+
+         <div class="left" style="padding-left: 20px">
+            <div class="editor-label">
+               Clonar tudo do cliente:
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("UserClonedId", (IEnumerable<SelectListItem>)ViewData["Proprietarios"], "Selecione") &nbsp;&nbsp;&nbsp;&nbsp;=>
+            </div>
+        </div>
+        <div class="left" style="padding-left: 20px">
+            <div class="editor-label">
+                Para este Usuário:
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("UserToCloneId", (IEnumerable<SelectListItem>)ViewData["Usuarios"], "Selecione")
+            </div>
+        </div>
+        <div class="right" style="padding-left: 20px">
+            <br />
+            <input type="submit" value="Clonar dados para este usuário" />
+        </div>
+       <div class="clear"></div>
+      
+
+
+
+
+
+
+
+    }
+
+
+</div>

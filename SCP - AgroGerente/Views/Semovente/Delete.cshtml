@@ -1,0 +1,82 @@
+﻿@model SCP___AgroGerente.Models.CadastroSemovente
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CadastroSemovente</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeEspecificacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeEspecificacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeUA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeUA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeNumeroUA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeNumeroUA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeNumeroCabecas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeNumeroCabecas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeCaracteristicas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeCaracteristicas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeValorUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeValorUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SemoventeCredor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SemoventeCredor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroUsuarios.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroFazenda.FazendaNome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroFazenda.FazendaNome)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

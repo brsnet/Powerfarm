@@ -1,0 +1,71 @@
+﻿@model SCP___AgroGerente.Models.SafraNormalPrevista
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SafraNormalPrevista</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasSafra)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasSafra)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasSistemaPlantio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasSistemaPlantio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasArea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasArea)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasProdutividade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasProdutividade)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasValorUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasValorUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasCustoUnitario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasCustoUnitario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SafrasPrevista)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SafrasPrevista)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CadastroUsuarios.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CadastroUsuarios.Nome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

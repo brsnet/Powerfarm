@@ -1,0 +1,73 @@
+﻿@model SCP___AgroGerente.Areas.Projetos.Model.CadastroEtapa
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Projetos/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Criar Etapa</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+<br />
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CadastroEtapa</legend>
+        <div class="box">
+            <div class="left">
+                <div class="editor-label">
+                    Ativa?
+                </div>
+                <div class="editor-field">
+                    <input class="check-box" checked="checked" data-val="true" data-val-required="O campo EtapaAtiva é obrigatório." id="EtapaAtiva" name="EtapaAtiva" type="checkbox" value="true">
+                    SIM <input name="EtapaAtiva" type="hidden" value="true">
+                    @Html.ValidationMessageFor(model => model.EtapaAtiva)
+                </div>
+            </div>
+            <div class="left" style="padding-left:10px">
+                <div class="editor-label">
+                    Ordenação (use números)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.EtapaOrdem, new { @class = "width1" })
+                    @Html.ValidationMessageFor(model => model.EtapaOrdem)
+                </div>
+            </div>
+            <div class="left" style="padding-left:10px">
+                <div class="editor-label">
+                    Nome da Etapa
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.EtapaNome)
+                    @Html.ValidationMessageFor(model => model.EtapaNome)
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        A <b>Ordenação</b> refere-se a ordem crescente ao qual serão mostrados os itens do Orçamento Analítico
+      
+       
+            <p>
+                <input type="submit" value="Criar Etapa" />
+            </p>
+</fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Projetos" />
+  <Alias Key="Target" Value="Projetos.Store" />
+  <EntityContainerMapping CdmEntityContainer="SCPProjetosEntities" StorageEntityContainer="ProjetosStoreContainer">
+    <EntitySetMapping Name="CadastroASTEC">
+      <EntityTypeMapping TypeName="Projetos.CadastroASTEC">
+        <MappingFragment StoreEntitySet="CadastroASTEC">
+          <ScalarProperty Name="AstecSafra" ColumnName="AstecSafra" />
+          <ScalarProperty Name="AstecValor" ColumnName="AstecValor" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroBancoQuestoes">
+      <EntityTypeMapping TypeName="Projetos.CadastroBancoQuestoes">
+        <MappingFragment StoreEntitySet="CadastroBancoQuestoes">
+          <ScalarProperty Name="BancoQuestoesAtivo" ColumnName="BancoQuestoesAtivo" />
+          <ScalarProperty Name="BancoQuestoesPergunta" ColumnName="BancoQuestoesPergunta" />
+          <ScalarProperty Name="BancoQuestoesTipo" ColumnName="BancoQuestoesTipo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroBQResposta">
+      <EntityTypeMapping TypeName="Projetos.CadastroBQResposta">
+        <MappingFragment StoreEntitySet="CadastroBQResposta">
+          <ScalarProperty Name="BQRespostaUsuarioID" ColumnName="BQRespostaUsuarioID" />
+          <ScalarProperty Name="BQRespostaSafra" ColumnName="BQRespostaSafra" />
+          <ScalarProperty Name="BQRespostaResposta" ColumnName="BQRespostaResposta" />
+          <ScalarProperty Name="BQRespostaPergunta" ColumnName="BQRespostaPergunta" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroBQTipo">
+      <EntityTypeMapping TypeName="Projetos.CadastroBQTipo">
+        <MappingFragment StoreEntitySet="CadastroBQTipo">
+          <ScalarProperty Name="BQTipoAtivo" ColumnName="BQTipoAtivo" />
+          <ScalarProperty Name="BQTipo" ColumnName="BQTipo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroEtapa">
+      <EntityTypeMapping TypeName="Projetos.CadastroEtapa">
+        <MappingFragment StoreEntitySet="CadastroEtapa">
+          <ScalarProperty Name="EtapaAtiva" ColumnName="EtapaAtiva" />
+          <ScalarProperty Name="EtapaOrdem" ColumnName="EtapaOrdem" />
+          <ScalarProperty Name="EtapaNome" ColumnName="EtapaNome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroTipoEtapa">
+      <EntityTypeMapping TypeName="Projetos.CadastroTipoEtapa">
+        <MappingFragment StoreEntitySet="CadastroTipoEtapa">
+          <ScalarProperty Name="TipoEtapaAtiva" ColumnName="TipoEtapaAtiva" />
+          <ScalarProperty Name="TipoEtapaOrdem" ColumnName="TipoEtapaOrdem" />
+          <ScalarProperty Name="TipoEtapaNome" ColumnName="TipoEtapaNome" />
+          <ScalarProperty Name="TipoEtapaTipo" ColumnName="TipoEtapaTipo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotaisMarca">
+      <EntityTypeMapping TypeName="Projetos.TotaisMarca">
+        <MappingFragment StoreEntitySet="TotaisMarcas">
+          <ScalarProperty Name="MarcaNome" ColumnName="MarcaNome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewAgendaAplicacoes">
+      <EntityTypeMapping TypeName="Projetos.ViewAgendaAplicacoes">
+        <MappingFragment StoreEntitySet="ViewAgendaAplicacoes">
+          <ScalarProperty Name="MesFim" ColumnName="MesFim" />
+          <ScalarProperty Name="MesInicio" ColumnName="MesInicio" />
+          <ScalarProperty Name="AreaPrevista" ColumnName="AreaPrevista" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewProdutos">
+      <EntityTypeMapping TypeName="Projetos.ViewProdutos">
+        <MappingFragment StoreEntitySet="ViewProdutos">
+          <ScalarProperty Name="MarcaEtapa" ColumnName="MarcaEtapa" />
+          <ScalarProperty Name="MarcaUnidadeMedida" ColumnName="MarcaUnidadeMedida" />
+          <ScalarProperty Name="TipoEtapaNome" ColumnName="TipoEtapaNome" />
+          <ScalarProperty Name="MarcaAtiva" ColumnName="MarcaAtiva" />
+          <ScalarProperty Name="MarcaEspecificacao" ColumnName="MarcaEspecificacao" />
+          <ScalarProperty Name="MarcaNome" ColumnName="MarcaNome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewServicos">
+      <EntityTypeMapping TypeName="Projetos.ViewServicos">
+        <MappingFragment StoreEntitySet="ViewServicos">
+          <ScalarProperty Name="ServicoEtapa" ColumnName="ServicoEtapa" />
+          <ScalarProperty Name="ServicoUnidadeMedida" ColumnName="ServicoUnidadeMedida" />
+          <ScalarProperty Name="ServicoAtiva" ColumnName="ServicoAtiva" />
+          <ScalarProperty Name="ServicoNome" ColumnName="ServicoNome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TipoEtapaNome" ColumnName="TipoEtapaNome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroSafra">
+      <EntityTypeMapping TypeName="Projetos.CadastroSafra">
+        <MappingFragment StoreEntitySet="CadastroSafra">
+          <ScalarProperty Name="SafraPrevista" ColumnName="SafraPrevista" />
+          <ScalarProperty Name="NomeSafra" ColumnName="NomeSafra" />
+          <ScalarProperty Name="SafraData" ColumnName="SafraData" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewRespostasPerguntas">
+      <EntityTypeMapping TypeName="Projetos.ViewRespostasPerguntas">
+        <MappingFragment StoreEntitySet="ViewRespostasPerguntas">
+          <ScalarProperty Name="BQRespostaUsuarioID" ColumnName="BQRespostaUsuarioID" />
+          <ScalarProperty Name="BQRespostaSafra" ColumnName="BQRespostaSafra" />
+          <ScalarProperty Name="BQRespostaResposta" ColumnName="BQRespostaResposta" />
+          <ScalarProperty Name="BQRespostaPergunta" ColumnName="BQRespostaPergunta" />
+          <ScalarProperty Name="IDResposta" ColumnName="IDResposta" />
+          <ScalarProperty Name="BancoQuestoesAtivo" ColumnName="BancoQuestoesAtivo" />
+          <ScalarProperty Name="BancoQuestoesPergunta" ColumnName="BancoQuestoesPergunta" />
+          <ScalarProperty Name="BancoQuestoesTipo" ColumnName="BancoQuestoesTipo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroUsuarios">
+      <EntityTypeMapping TypeName="Projetos.CadastroUsuarios">
+        <MappingFragment StoreEntitySet="CadastroUsuarios">
+          <ScalarProperty Name="Formacao" ColumnName="Formacao" />
+          <ScalarProperty Name="Grau" ColumnName="Grau" />
+          <ScalarProperty Name="Ocupacao" ColumnName="Ocupacao" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="RendaMensal" ColumnName="RendaMensal" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Celular2" ColumnName="Celular2" />
+          <ScalarProperty Name="Celular1" ColumnName="Celular1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Naturalidade" ColumnName="Naturalidade" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="DataExpedicao" ColumnName="DataExpedicao" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOrcamentoAnalitico">
+      <EntityTypeMapping TypeName="Projetos.ViewOrcamentoAnalitico">
+        <MappingFragment StoreEntitySet="ViewOrcamentoAnalitico">
+          <ScalarProperty Name="TipoEtapaNomes" ColumnName="TipoEtapaNomes" />
+          <ScalarProperty Name="EtapaOrdem" ColumnName="EtapaOrdem" />
+          <ScalarProperty Name="EtapaNome" ColumnName="EtapaNome" />
+          <ScalarProperty Name="OrcamentoAnaliticoMesFim" ColumnName="OrcamentoAnaliticoMesFim" />
+          <ScalarProperty Name="OrcamentoAnaliticoMesInicio" ColumnName="OrcamentoAnaliticoMesInicio" />
+          <ScalarProperty Name="CustoTotal" ColumnName="CustoTotal" />
+          <ScalarProperty Name="CustoHectar" ColumnName="CustoHectar" />
+          <ScalarProperty Name="OrcamentoAnaliticoAtiva" ColumnName="OrcamentoAnaliticoAtiva" />
+          <ScalarProperty Name="OrcamentoAnaliticoUsuarioID" ColumnName="OrcamentoAnaliticoUsuarioID" />
+          <ScalarProperty Name="OrcamentoAnaliticoSafra" ColumnName="OrcamentoAnaliticoSafra" />
+          <ScalarProperty Name="OrcamentoAnaliticoValorUnitarioItemOrcamento" ColumnName="OrcamentoAnaliticoValorUnitarioItemOrcamento" />
+          <ScalarProperty Name="OrcamentoAnaliticoQuantidadePorHectarItemOrcamento" ColumnName="OrcamentoAnaliticoQuantidadePorHectarItemOrcamento" />
+          <ScalarProperty Name="OrcamentoAnaliticoQuantidadeItemOrcamento" ColumnName="OrcamentoAnaliticoQuantidadeItemOrcamento" />
+          <ScalarProperty Name="AreaPrevista" ColumnName="AreaPrevista" />
+          <ScalarProperty Name="OrcamentoUnidadeMedida" ColumnName="OrcamentoUnidadeMedida" />
+          <ScalarProperty Name="OrcamentoItem" ColumnName="OrcamentoItem" />
+          <ScalarProperty Name="OrcamentoAnaliticoItemTipo" ColumnName="OrcamentoAnaliticoItemTipo" />
+          <ScalarProperty Name="OrcamentoAnaliticoItemOrcamento" ColumnName="OrcamentoAnaliticoItemOrcamento" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroItemOrcamento">
+      <EntityTypeMapping TypeName="Projetos.CadastroItemOrcamento">
+        <MappingFragment StoreEntitySet="CadastroItemOrcamento">
+          <ScalarProperty Name="ItemOrcamentoAtiva" ColumnName="ItemOrcamentoAtiva" />
+          <ScalarProperty Name="ItemOrcamentoCadastradoEm" ColumnName="ItemOrcamentoCadastradoEm" />
+          <ScalarProperty Name="ItemOrcamentoValorUnitario" ColumnName="ItemOrcamentoValorUnitario" />
+          <ScalarProperty Name="ItemOrcamentoQuantidadePorHectar" ColumnName="ItemOrcamentoQuantidadePorHectar" />
+          <ScalarProperty Name="ItemOrcamentoUnidade" ColumnName="ItemOrcamentoUnidade" />
+          <ScalarProperty Name="ItemOrcamentoQuantidade" ColumnName="ItemOrcamentoQuantidade" />
+          <ScalarProperty Name="ItemOrcamentoItem" ColumnName="ItemOrcamentoItem" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroOrcamentoAnalitico">
+      <EntityTypeMapping TypeName="Projetos.CadastroOrcamentoAnalitico">
+        <MappingFragment StoreEntitySet="CadastroOrcamentoAnalitico">
+          <ScalarProperty Name="OrcamentoAnaliticoMesFim" ColumnName="OrcamentoAnaliticoMesFim" />
+          <ScalarProperty Name="OrcamentoAnaliticoMesInicio" ColumnName="OrcamentoAnaliticoMesInicio" />
+          <ScalarProperty Name="OrcamentoAnaliticoItemTipo" ColumnName="OrcamentoAnaliticoItemTipo" />
+          <ScalarProperty Name="OrcamentoAnaliticoAtiva" ColumnName="OrcamentoAnaliticoAtiva" />
+          <ScalarProperty Name="OrcamentoAnaliticoUsuarioID" ColumnName="OrcamentoAnaliticoUsuarioID" />
+          <ScalarProperty Name="OrcamentoAnaliticoSafra" ColumnName="OrcamentoAnaliticoSafra" />
+          <ScalarProperty Name="OrcamentoAnaliticoItemOrcamento" ColumnName="OrcamentoAnaliticoItemOrcamento" />
+          <ScalarProperty Name="OrcamentoAnaliticoTipoEtapa" ColumnName="OrcamentoAnaliticoTipoEtapa" />
+          <ScalarProperty Name="OrcamentoAnaliticoEtapa" ColumnName="OrcamentoAnaliticoEtapa" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CadastroItem">
+      <EntityTypeMapping TypeName="Projetos.CadastroItem">
+        <MappingFragment StoreEntitySet="CadastroItem">
+          <ScalarProperty Name="ItemTipo" ColumnName="ItemTipo" />
+          <ScalarProperty Name="ItemUnidadeMedida" ColumnName="ItemUnidadeMedida" />
+          <ScalarProperty Name="ItemAtivo" ColumnName="ItemAtivo" />
+          <ScalarProperty Name="ItemEspecificacao" ColumnName="ItemEspecificacao" />
+          <ScalarProperty Name="ItemNome" ColumnName="ItemNome" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

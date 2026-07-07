@@ -1,0 +1,122 @@
+﻿@model SCP___AgroGerente.Models.SafraNormalPrevista
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section featured {
+
+    @RenderPage("~/Views/Shared/ClientPartial.cshtml")
+
+}
+
+<div class="Cabecalho">
+    <div class="left">
+        <h2>Editar Safra Prevista ou Normal</h2>
+
+    </div>
+    <div class="right">
+        <a href="javascript:window.history.back();" class="icone Goback" title="Voltar">Voltar para a lista</a>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.SafrasUsuarioID)
+    @Html.HiddenFor(model => model.ID)
+
+    <fieldset>
+        <legend>SafraNormalPrevista</legend>
+        <div class="box">
+            <div class="left">
+                <div class="editor-label">
+                    Safra:
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SafrasSafra, (IEnumerable<SelectListItem>)ViewData["SafrasSafra_edit"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.SafrasSafra)
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="editor-label">
+                    Cultura
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SafrasCultura, (IEnumerable<SelectListItem>)ViewData["Cultura_edit"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.SafrasCultura)
+                </div>
+            </div>
+            <div class="left" style="padding-left:20px">
+                <div class="editor-label">
+                    Sistema de Plantio
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SafrasSistemaPlantio, (IEnumerable<SelectListItem>)ViewData["SafrasSistemaPlantio_edit"], "Selecione")
+                    @Html.ValidationMessageFor(model => model.SafrasSistemaPlantio)
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br />
+        <div class="left">
+            <div class="editor-label">
+                Área (ha)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SafrasArea)
+                @Html.ValidationMessageFor(model => model.SafrasArea)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Produtividade (kg)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SafrasProdutividade)
+                @Html.ValidationMessageFor(model => model.SafrasProdutividade)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Valor Unitário (R$)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SafrasValorUnitario)
+                @Html.ValidationMessageFor(model => model.SafrasValorUnitario)
+            </div>
+        </div>
+        <div class="left" style="padding-left:20px">
+            <div class="editor-label">
+                Custo Unitário (R$)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SafrasCustoUnitario)
+                @Html.ValidationMessageFor(model => model.SafrasCustoUnitario)
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        <div class="left">
+            <div class="editor-label">
+                Observações / Justificativas Safras
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.SafrasObservacao, new { rows = "5" })
+                @Html.ValidationMessageFor(model => model.SafrasObservacao)
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <p>
+            <input type="submit" value="Salvar Alterações" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

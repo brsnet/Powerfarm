@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Projetos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="SCPProjetosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CadastroASTEC" EntityType="Projetos.CadastroASTEC" />
+    <EntitySet Name="CadastroBancoQuestoes" EntityType="Projetos.CadastroBancoQuestoes" />
+    <EntitySet Name="CadastroBQResposta" EntityType="Projetos.CadastroBQResposta" />
+    <EntitySet Name="CadastroBQTipo" EntityType="Projetos.CadastroBQTipo" />
+    <EntitySet Name="CadastroEtapa" EntityType="Projetos.CadastroEtapa" />
+    <EntitySet Name="CadastroTipoEtapa" EntityType="Projetos.CadastroTipoEtapa" />
+    <EntitySet Name="TotaisMarca" EntityType="Projetos.TotaisMarca" />
+    <EntitySet Name="ViewAgendaAplicacoes" EntityType="Projetos.ViewAgendaAplicacoes" />
+    <EntitySet Name="ViewProdutos" EntityType="Projetos.ViewProdutos" />
+    <EntitySet Name="ViewServicos" EntityType="Projetos.ViewServicos" />
+    <AssociationSet Name="FK_CadastroBancoQuestoes_CadastroBQTipo" Association="Projetos.FK_CadastroBancoQuestoes_CadastroBQTipo">
+      <End Role="CadastroBQTipo" EntitySet="CadastroBQTipo" />
+      <End Role="CadastroBancoQuesto" EntitySet="CadastroBancoQuestoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroBQResposta_CadastroBQResposta" Association="Projetos.FK_CadastroBQResposta_CadastroBQResposta">
+      <End Role="CadastroBancoQuesto" EntitySet="CadastroBancoQuestoes" />
+      <End Role="CadastroBQResposta" EntitySet="CadastroBQResposta" />
+    </AssociationSet>
+    <EntitySet Name="CadastroSafra" EntityType="Projetos.CadastroSafra" />
+    <AssociationSet Name="FK_CadastroASTEC_CadastroSafra" Association="Projetos.FK_CadastroASTEC_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="CadastroASTEC" EntitySet="CadastroASTEC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroBQResposta_CadastroSafra" Association="Projetos.FK_CadastroBQResposta_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="CadastroBQResposta" EntitySet="CadastroBQResposta" />
+    </AssociationSet>
+    <EntitySet Name="ViewRespostasPerguntas" EntityType="Projetos.ViewRespostasPerguntas" />
+    <EntitySet Name="CadastroUsuarios" EntityType="Projetos.CadastroUsuarios" />
+    <AssociationSet Name="FK_CadastroBQResposta_CadastroUsuarios" Association="Projetos.FK_CadastroBQResposta_CadastroUsuarios">
+      <End Role="CadastroUsuario" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroBQResposta" EntitySet="CadastroBQResposta" />
+    </AssociationSet>
+    <EntitySet Name="ViewOrcamentoAnalitico" EntityType="Projetos.ViewOrcamentoAnalitico" />
+    <EntitySet Name="CadastroItemOrcamento" EntityType="Projetos.CadastroItemOrcamento" />
+    <EntitySet Name="CadastroOrcamentoAnalitico" EntityType="Projetos.CadastroOrcamentoAnalitico" />
+    <AssociationSet Name="FK_CadastroOrcamentoAnalitico_CadastroSafra" Association="Projetos.FK_CadastroOrcamentoAnalitico_CadastroSafra">
+      <End Role="CadastroSafra" EntitySet="CadastroSafra" />
+      <End Role="CadastroOrcamentoAnalitico" EntitySet="CadastroOrcamentoAnalitico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroOrcamentoAnalitico_CadastroUsuarios" Association="Projetos.FK_CadastroOrcamentoAnalitico_CadastroUsuarios">
+      <End Role="CadastroUsuarios" EntitySet="CadastroUsuarios" />
+      <End Role="CadastroOrcamentoAnalitico" EntitySet="CadastroOrcamentoAnalitico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroOrcamentoAnalitico_CadastroEtapa" Association="Projetos.FK_CadastroOrcamentoAnalitico_CadastroEtapa">
+      <End Role="CadastroEtapa" EntitySet="CadastroEtapa" />
+      <End Role="CadastroOrcamentoAnalitico" EntitySet="CadastroOrcamentoAnalitico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroOrcamentoAnalitico_CadastroItemOrcamento" Association="Projetos.FK_CadastroOrcamentoAnalitico_CadastroItemOrcamento">
+      <End Role="CadastroItemOrcamento" EntitySet="CadastroItemOrcamento" />
+      <End Role="CadastroOrcamentoAnalitico" EntitySet="CadastroOrcamentoAnalitico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CadastroOrcamentoAnalitico_CadastroTipoEtapa" Association="Projetos.FK_CadastroOrcamentoAnalitico_CadastroTipoEtapa">
+      <End Role="CadastroTipoEtapa" EntitySet="CadastroTipoEtapa" />
+      <End Role="CadastroOrcamentoAnalitico" EntitySet="CadastroOrcamentoAnalitico" />
+    </AssociationSet>
+    <EntitySet Name="CadastroItem" EntityType="Projetos.CadastroItem" />
+    <AssociationSet Name="FK_CadastroItemOrcamento_CadastroItem" Association="Projetos.FK_CadastroItemOrcamento_CadastroItem">
+      <End Role="CadastroItem" EntitySet="CadastroItem" />
+      <End Role="CadastroItemOrcamento" EntitySet="CadastroItemOrcamento" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CadastroASTEC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AstecValor" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="AstecSafra" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroSafra" Relationship="Projetos.FK_CadastroASTEC_CadastroSafra" FromRole="CadastroASTEC" ToRole="CadastroSafra" />
+  </EntityType>
+  <EntityType Name="CadastroBancoQuestoes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BancoQuestoesTipo" Type="Int32" Nullable="false" />
+    <Property Name="BancoQuestoesPergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BancoQuestoesAtivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CadastroBQTipo" Relationship="Projetos.FK_CadastroBancoQuestoes_CadastroBQTipo" FromRole="CadastroBancoQuesto" ToRole="CadastroBQTipo" />
+    <NavigationProperty Name="CadastroBQRespostas" Relationship="Projetos.FK_CadastroBQResposta_CadastroBQResposta" FromRole="CadastroBancoQuesto" ToRole="CadastroBQResposta" />
+  </EntityType>
+  <EntityType Name="CadastroBQResposta">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BQRespostaPergunta" Type="Int32" Nullable="false" />
+    <Property Name="BQRespostaResposta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BQRespostaSafra" Type="Int32" Nullable="false" />
+    <Property Name="BQRespostaUsuarioID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CadastroBancoQuesto" Relationship="Projetos.FK_CadastroBQResposta_CadastroBQResposta" FromRole="CadastroBQResposta" ToRole="CadastroBancoQuesto" />
+    <NavigationProperty Name="CadastroSafra" Relationship="Projetos.FK_CadastroBQResposta_CadastroSafra" FromRole="CadastroBQResposta" ToRole="CadastroSafra" />
+    <NavigationProperty Name="CadastroUsuario" Relationship="Projetos.FK_CadastroBQResposta_CadastroUsuarios" FromRole="CadastroBQResposta" ToRole="CadastroUsuario" />
+  </EntityType>
+  <EntityType Name="CadastroBQTipo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BQTipo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BQTipoAtivo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CadastroBancoQuestoes" Relationship="Projetos.FK_CadastroBancoQuestoes_CadastroBQTipo" FromRole="CadastroBQTipo" ToRole="CadastroBancoQuesto" />
+  </EntityType>
+  <EntityType Name="CadastroEtapa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EtapaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EtapaOrdem" Type="Int16" />
+    <Property Name="EtapaAtiva" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CadastroOrcamentoAnaliticoes" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroEtapa" FromRole="CadastroEtapa" ToRole="CadastroOrcamentoAnalitico" />
+  </EntityType>
+  <EntityType Name="CadastroTipoEtapa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoEtapaTipo" Type="Int16" Nullable="false" />
+    <Property Name="TipoEtapaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TipoEtapaOrdem" Type="Int16" />
+    <Property Name="TipoEtapaAtiva" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CadastroOrcamentoAnaliticoes" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroTipoEtapa" FromRole="CadastroTipoEtapa" ToRole="CadastroOrcamentoAnalitico" />
+  </EntityType>
+  <EntityType Name="TotaisMarca">
+    <Key>
+      <PropertyRef Name="MarcaNome" />
+    </Key>
+    <Property Name="MarcaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewAgendaAplicacoes">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AreaPrevista" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AreaPrevista" Type="Double" Nullable="false" />
+    <Property Name="MesInicio" Type="DateTime" Precision="3" />
+    <Property Name="MesFim" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ViewProdutos">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="MarcaNome" />
+      <PropertyRef Name="MarcaEspecificacao" />
+      <PropertyRef Name="MarcaAtiva" />
+      <PropertyRef Name="TipoEtapaNome" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="MarcaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MarcaEspecificacao" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MarcaAtiva" Type="Boolean" Nullable="false" />
+    <Property Name="TipoEtapaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MarcaUnidadeMedida" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MarcaEtapa" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ViewServicos">
+    <Key>
+      <PropertyRef Name="TipoEtapaNome" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TipoEtapaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ServicoNome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ServicoAtiva" Type="Boolean" />
+    <Property Name="ServicoUnidadeMedida" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ServicoEtapa" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_CadastroBancoQuestoes_CadastroBQTipo">
+    <End Type="Projetos.CadastroBQTipo" Role="CadastroBQTipo" Multiplicity="1" />
+    <End Type="Projetos.CadastroBancoQuestoes" Role="CadastroBancoQuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroBQTipo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBancoQuesto">
+        <PropertyRef Name="BancoQuestoesTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroBQResposta_CadastroBQResposta">
+    <End Type="Projetos.CadastroBancoQuestoes" Role="CadastroBancoQuesto" Multiplicity="1" />
+    <End Type="Projetos.CadastroBQResposta" Role="CadastroBQResposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroBancoQuesto">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBQResposta">
+        <PropertyRef Name="BQRespostaPergunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CadastroSafra">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SafraData" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NomeSafra" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SafraPrevista" Type="Boolean" />
+    <NavigationProperty Name="CadastroASTECs" Relationship="Projetos.FK_CadastroASTEC_CadastroSafra" FromRole="CadastroSafra" ToRole="CadastroASTEC" />
+    <NavigationProperty Name="CadastroBQRespostas" Relationship="Projetos.FK_CadastroBQResposta_CadastroSafra" FromRole="CadastroSafra" ToRole="CadastroBQResposta" />
+    <NavigationProperty Name="CadastroOrcamentoAnaliticoes" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroSafra" FromRole="CadastroSafra" ToRole="CadastroOrcamentoAnalitico" />
+  </EntityType>
+  <Association Name="FK_CadastroASTEC_CadastroSafra">
+    <End Type="Projetos.CadastroSafra" Role="CadastroSafra" Multiplicity="1" />
+    <End Type="Projetos.CadastroASTEC" Role="CadastroASTEC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroASTEC">
+        <PropertyRef Name="AstecSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroBQResposta_CadastroSafra">
+    <End Type="Projetos.CadastroSafra" Role="CadastroSafra" Multiplicity="1" />
+    <End Type="Projetos.CadastroBQResposta" Role="CadastroBQResposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBQResposta">
+        <PropertyRef Name="BQRespostaSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ViewRespostasPerguntas">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BancoQuestoesTipo" />
+      <PropertyRef Name="BancoQuestoesPergunta" />
+      <PropertyRef Name="BancoQuestoesAtivo" />
+      <PropertyRef Name="IDResposta" />
+      <PropertyRef Name="BQRespostaPergunta" />
+      <PropertyRef Name="BQRespostaResposta" />
+      <PropertyRef Name="BQRespostaSafra" />
+      <PropertyRef Name="BQRespostaUsuarioID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="BancoQuestoesTipo" Type="Int32" Nullable="false" />
+    <Property Name="BancoQuestoesPergunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BancoQuestoesAtivo" Type="Boolean" Nullable="false" />
+    <Property Name="IDResposta" Type="Int32" Nullable="false" />
+    <Property Name="BQRespostaPergunta" Type="Int32" Nullable="false" />
+    <Property Name="BQRespostaResposta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BQRespostaSafra" Type="Int32" Nullable="false" />
+    <Property Name="BQRespostaUsuarioID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CadastroUsuarios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataExpedicao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CPF" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DataNascimento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Naturalidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Celular2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RendaMensal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Ocupacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Grau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Formacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CadastroBQRespostas" Relationship="Projetos.FK_CadastroBQResposta_CadastroUsuarios" FromRole="CadastroUsuario" ToRole="CadastroBQResposta" />
+    <NavigationProperty Name="CadastroOrcamentoAnaliticoes" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroUsuarios" FromRole="CadastroUsuarios" ToRole="CadastroOrcamentoAnalitico" />
+  </EntityType>
+  <Association Name="FK_CadastroBQResposta_CadastroUsuarios">
+    <End Type="Projetos.CadastroUsuarios" Role="CadastroUsuario" Multiplicity="1" />
+    <End Type="Projetos.CadastroBQResposta" Role="CadastroBQResposta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuario">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroBQResposta">
+        <PropertyRef Name="BQRespostaUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ViewOrcamentoAnalitico">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="OrcamentoItem" />
+      <PropertyRef Name="OrcamentoUnidadeMedida" />
+      <PropertyRef Name="AreaPrevista" />
+      <PropertyRef Name="OrcamentoAnaliticoQuantidadeItemOrcamento" />
+      <PropertyRef Name="OrcamentoAnaliticoQuantidadePorHectarItemOrcamento" />
+      <PropertyRef Name="OrcamentoAnaliticoValorUnitarioItemOrcamento" />
+      <PropertyRef Name="OrcamentoAnaliticoSafra" />
+      <PropertyRef Name="OrcamentoAnaliticoUsuarioID" />
+      <PropertyRef Name="OrcamentoAnaliticoAtiva" />
+      <PropertyRef Name="CustoHectar" />
+      <PropertyRef Name="CustoTotal" />
+      <PropertyRef Name="EtapaNome" />
+      <PropertyRef Name="TipoEtapaNomes" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoItemOrcamento" Type="Int32" />
+    <Property Name="OrcamentoAnaliticoItemTipo" Type="Int32" />
+    <Property Name="OrcamentoItem" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoUnidadeMedida" Type="Int32" Nullable="false" />
+    <Property Name="AreaPrevista" Type="Double" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoQuantidadeItemOrcamento" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoQuantidadePorHectarItemOrcamento" Type="Double" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoValorUnitarioItemOrcamento" Type="Double" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoSafra" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoAtiva" Type="Boolean" Nullable="false" />
+    <Property Name="CustoHectar" Type="Double" Nullable="false" />
+    <Property Name="CustoTotal" Type="Double" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoMesInicio" Type="DateTime" Precision="3" />
+    <Property Name="OrcamentoAnaliticoMesFim" Type="DateTime" Precision="3" />
+    <Property Name="EtapaNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EtapaOrdem" Type="Int16" />
+    <Property Name="TipoEtapaNomes" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CadastroItemOrcamento">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemOrcamentoItem" Type="Int32" Nullable="false" />
+    <Property Name="ItemOrcamentoQuantidade" Type="Int32" Nullable="false" />
+    <Property Name="ItemOrcamentoUnidade" Type="Int32" Nullable="false" />
+    <Property Name="ItemOrcamentoQuantidadePorHectar" Type="Double" Nullable="false" />
+    <Property Name="ItemOrcamentoValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="ItemOrcamentoCadastradoEm" Type="DateTime" Precision="3" />
+    <Property Name="ItemOrcamentoAtiva" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CadastroOrcamentoAnaliticoes" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroItemOrcamento" FromRole="CadastroItemOrcamento" ToRole="CadastroOrcamentoAnalitico" />
+    <NavigationProperty Name="CadastroItem" Relationship="Projetos.FK_CadastroItemOrcamento_CadastroItem" FromRole="CadastroItemOrcamento" ToRole="CadastroItem" />
+  </EntityType>
+  <EntityType Name="CadastroOrcamentoAnalitico">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrcamentoAnaliticoEtapa" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoTipoEtapa" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoItemOrcamento" Type="Int32" />
+    <Property Name="OrcamentoAnaliticoSafra" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoUsuarioID" Type="Int32" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoAtiva" Type="Boolean" Nullable="false" />
+    <Property Name="OrcamentoAnaliticoItemTipo" Type="Int32" />
+    <Property Name="OrcamentoAnaliticoMesInicio" Type="DateTime" Precision="3" />
+    <Property Name="OrcamentoAnaliticoMesFim" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CadastroSafra" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroSafra" FromRole="CadastroOrcamentoAnalitico" ToRole="CadastroSafra" />
+    <NavigationProperty Name="CadastroUsuario" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroUsuarios" FromRole="CadastroOrcamentoAnalitico" ToRole="CadastroUsuarios" />
+    <NavigationProperty Name="CadastroEtapa" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroEtapa" FromRole="CadastroOrcamentoAnalitico" ToRole="CadastroEtapa" />
+    <NavigationProperty Name="CadastroItemOrcamento" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroItemOrcamento" FromRole="CadastroOrcamentoAnalitico" ToRole="CadastroItemOrcamento" />
+    <NavigationProperty Name="CadastroTipoEtapa" Relationship="Projetos.FK_CadastroOrcamentoAnalitico_CadastroTipoEtapa" FromRole="CadastroOrcamentoAnalitico" ToRole="CadastroTipoEtapa" />
+  </EntityType>
+  <Association Name="FK_CadastroOrcamentoAnalitico_CadastroSafra">
+    <End Type="Projetos.CadastroSafra" Role="CadastroSafra" Multiplicity="1" />
+    <End Type="Projetos.CadastroOrcamentoAnalitico" Role="CadastroOrcamentoAnalitico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroSafra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroOrcamentoAnalitico">
+        <PropertyRef Name="OrcamentoAnaliticoSafra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroOrcamentoAnalitico_CadastroUsuarios">
+    <End Type="Projetos.CadastroUsuarios" Role="CadastroUsuarios" Multiplicity="1" />
+    <End Type="Projetos.CadastroOrcamentoAnalitico" Role="CadastroOrcamentoAnalitico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroUsuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroOrcamentoAnalitico">
+        <PropertyRef Name="OrcamentoAnaliticoUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroOrcamentoAnalitico_CadastroEtapa">
+    <End Type="Projetos.CadastroEtapa" Role="CadastroEtapa" Multiplicity="1" />
+    <End Type="Projetos.CadastroOrcamentoAnalitico" Role="CadastroOrcamentoAnalitico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroEtapa">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroOrcamentoAnalitico">
+        <PropertyRef Name="OrcamentoAnaliticoEtapa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroOrcamentoAnalitico_CadastroItemOrcamento">
+    <End Type="Projetos.CadastroItemOrcamento" Role="CadastroItemOrcamento" Multiplicity="0..1" />
+    <End Type="Projetos.CadastroOrcamentoAnalitico" Role="CadastroOrcamentoAnalitico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroItemOrcamento">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroOrcamentoAnalitico">
+        <PropertyRef Name="OrcamentoAnaliticoItemOrcamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CadastroOrcamentoAnalitico_CadastroTipoEtapa">
+    <End Type="Projetos.CadastroTipoEtapa" Role="CadastroTipoEtapa" Multiplicity="1" />
+    <End Type="Projetos.CadastroOrcamentoAnalitico" Role="CadastroOrcamentoAnalitico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroTipoEtapa">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroOrcamentoAnalitico">
+        <PropertyRef Name="OrcamentoAnaliticoTipoEtapa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CadastroItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemNome" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ItemEspecificacao" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ItemAtivo" Type="Boolean" Nullable="false" />
+    <Property Name="ItemUnidadeMedida" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ItemTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CadastroItemOrcamentoes" Relationship="Projetos.FK_CadastroItemOrcamento_CadastroItem" FromRole="CadastroItem" ToRole="CadastroItemOrcamento" />
+  </EntityType>
+  <Association Name="FK_CadastroItemOrcamento_CadastroItem">
+    <End Type="Projetos.CadastroItem" Role="CadastroItem" Multiplicity="1" />
+    <End Type="Projetos.CadastroItemOrcamento" Role="CadastroItemOrcamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CadastroItem">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CadastroItemOrcamento">
+        <PropertyRef Name="ItemOrcamentoItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
